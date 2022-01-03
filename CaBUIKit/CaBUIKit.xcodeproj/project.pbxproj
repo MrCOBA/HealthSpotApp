@@ -1,0 +1,629 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		310539CA26F68DD800502C2D /* CaBSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310539C926F68DD800502C2D /* CaBSwitch.swift */; };
+		310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310539CB26F6915400502C2D /* CaBSwitchConfiguration.swift */; };
+		310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */; };
+		310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 310833EC26B8443D00EC8532 /* ColorScheme.swift */; };
+		314131DB2685DE6900BB2749 /* CaBUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 314131D92685DE6900BB2749 /* CaBUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		314131E42685DF0100BB2749 /* CaBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314131E32685DF0100BB2749 /* CaBButton.swift */; };
+		3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */; };
+		3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3141320C2685E5A000BB2749 /* Assets.xcassets */; };
+		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
+		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
+		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5426FF880B0031FA20 /* CaBSlider.swift */; };
+		31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */; };
+		31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */; };
+		31C9DF5B26FF94320031FA20 /* CaBSliderConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5A26FF94320031FA20 /* CaBSliderConfiguration.swift */; };
+		31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */; };
+		31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */; };
+		31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CE0E4327358E610027DC06 /* CaBSliderView.xib */; };
+		31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */; };
+		31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */; };
+		31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */; };
+		31EF64F126F3E661008629D2 /* CappuccinoColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64F026F3E661008629D2 /* CappuccinoColorScheme.swift */; };
+		31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8182268609E600500FE1 /* Comfortaa-Medium.ttf */; };
+		31FB8188268609E600500FE1 /* Comfortaa-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8183268609E600500FE1 /* Comfortaa-SemiBold.ttf */; };
+		31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8184268609E600500FE1 /* Comfortaa-Light.ttf */; };
+		31FB818A268609E600500FE1 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8185268609E600500FE1 /* Comfortaa-Regular.ttf */; };
+		31FB818B268609E600500FE1 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB8186268609E600500FE1 /* Comfortaa-Bold.ttf */; };
+		31FB818E26860D8100500FE1 /* UIFont+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB818D26860D8100500FE1 /* UIFont+CaBUIKit.swift */; };
+		31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */; };
+		31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */; };
+		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		31FB81B92686159E00500FE1 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		310539C926F68DD800502C2D /* CaBSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSwitch.swift; sourceTree = "<group>"; };
+		310539CB26F6915400502C2D /* CaBSwitchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSwitchConfiguration.swift; sourceTree = "<group>"; };
+		310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CaBUIKit.swift"; sourceTree = "<group>"; };
+		310833EC26B8443D00EC8532 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		314131D62685DE6900BB2749 /* CaBUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		314131D92685DE6900BB2749 /* CaBUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBUIKit.h; sourceTree = "<group>"; };
+		314131DA2685DE6900BB2749 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		314131E32685DF0100BB2749 /* CaBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButton.swift; sourceTree = "<group>"; };
+		3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButtonConfiguration.swift; sourceTree = "<group>"; };
+		3141320C2685E5A000BB2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3191928F26F5321A0090C262 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
+		31932CBA278309F400BCBDAA /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31C9DF5426FF880B0031FA20 /* CaBSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSlider.swift; sourceTree = "<group>"; };
+		31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIControl.swift; sourceTree = "<group>"; };
+		31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIConfiguration.swift; sourceTree = "<group>"; };
+		31C9DF5A26FF94320031FA20 /* CaBSliderConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSliderConfiguration.swift; sourceTree = "<group>"; };
+		31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBUIKit.swift"; sourceTree = "<group>"; };
+		31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSliderView.swift; sourceTree = "<group>"; };
+		31CE0E4327358E610027DC06 /* CaBSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaBSliderView.xib; sourceTree = "<group>"; };
+		31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetColorScheme.swift; sourceTree = "<group>"; };
+		31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdRowanColorScheme.swift; sourceTree = "<group>"; };
+		31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringLilacsColorScheme.swift; sourceTree = "<group>"; };
+		31EF64F026F3E661008629D2 /* CappuccinoColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CappuccinoColorScheme.swift; sourceTree = "<group>"; };
+		31FB8182268609E600500FE1 /* Comfortaa-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Medium.ttf"; sourceTree = "<group>"; };
+		31FB8183268609E600500FE1 /* Comfortaa-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-SemiBold.ttf"; sourceTree = "<group>"; };
+		31FB8184268609E600500FE1 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		31FB8185268609E600500FE1 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		31FB8186268609E600500FE1 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
+		31FB818D26860D8100500FE1 /* UIFont+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CaBUIKit.swift"; sourceTree = "<group>"; };
+		31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BadScript-Regular.ttf"; sourceTree = "<group>"; };
+		31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
+		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		314131D32685DE6900BB2749 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		310539C826F61ECC00502C2D /* CaBSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				310539C926F68DD800502C2D /* CaBSwitch.swift */,
+				310539CB26F6915400502C2D /* CaBSwitchConfiguration.swift */,
+			);
+			path = CaBSwitch;
+			sourceTree = "<group>";
+		};
+		310833EB26B843F700EC8532 /* ColorScheme */ = {
+			isa = PBXGroup;
+			children = (
+				31EF64EF26F3E62B008629D2 /* Cappuccino */,
+				31EF64E926F3DFF1008629D2 /* ColdRowan */,
+				31EF64EC26F3E5AE008629D2 /* SpringLilacs */,
+				31EF64E626F3DF7A008629D2 /* Sunset */,
+				310833EC26B8443D00EC8532 /* ColorScheme.swift */,
+			);
+			path = ColorScheme;
+			sourceTree = "<group>";
+		};
+		314131CC2685DE6900BB2749 = {
+			isa = PBXGroup;
+			children = (
+				314131D82685DE6900BB2749 /* CaBUIKit */,
+				314131D72685DE6900BB2749 /* Products */,
+				31FB81B52686159E00500FE1 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		314131D72685DE6900BB2749 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				314131D62685DE6900BB2749 /* CaBUIKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		314131D82685DE6900BB2749 /* CaBUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				314131E12685DE9800BB2749 /* CaBUIKit */,
+				314131D92685DE6900BB2749 /* CaBUIKit.h */,
+				314131DA2685DE6900BB2749 /* Info.plist */,
+			);
+			path = CaBUIKit;
+			sourceTree = "<group>";
+		};
+		314131E12685DE9800BB2749 /* CaBUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				31C9DF5326FF87F60031FA20 /* CaBSlider */,
+				314131E22685DEC200BB2749 /* CaBButton */,
+				310539C826F61ECC00502C2D /* CaBSwitch */,
+				3191929426F5C82C0090C262 /* Sources */,
+				3191929326F5C8080090C262 /* Extensions */,
+				31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */,
+				31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */,
+				3141320C2685E5A000BB2749 /* Assets.xcassets */,
+			);
+			path = CaBUIKit;
+			sourceTree = "<group>";
+		};
+		314131E22685DEC200BB2749 /* CaBButton */ = {
+			isa = PBXGroup;
+			children = (
+				3191928F26F5321A0090C262 /* SelectableButton.swift */,
+				314131E32685DF0100BB2749 /* CaBButton.swift */,
+				3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */,
+			);
+			path = CaBButton;
+			sourceTree = "<group>";
+		};
+		3191928E26F520570090C262 /* Shadow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shadow;
+			sourceTree = "<group>";
+		};
+		3191929326F5C8080090C262 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */,
+				31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3191929426F5C82C0090C262 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81BA26861AB200500FE1 /* Fonts */,
+				310833EB26B843F700EC8532 /* ColorScheme */,
+				3191928E26F520570090C262 /* Shadow */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		31C9DF5326FF87F60031FA20 /* CaBSlider */ = {
+			isa = PBXGroup;
+			children = (
+				31CE0E4027358DA40027DC06 /* CaBSliderView */,
+				31C9DF5426FF880B0031FA20 /* CaBSlider.swift */,
+				31C9DF5A26FF94320031FA20 /* CaBSliderConfiguration.swift */,
+			);
+			path = CaBSlider;
+			sourceTree = "<group>";
+		};
+		31CE0E4027358DA40027DC06 /* CaBSliderView */ = {
+			isa = PBXGroup;
+			children = (
+				31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */,
+				31CE0E4327358E610027DC06 /* CaBSliderView.xib */,
+			);
+			path = CaBSliderView;
+			sourceTree = "<group>";
+		};
+		31EF64E626F3DF7A008629D2 /* Sunset */ = {
+			isa = PBXGroup;
+			children = (
+				31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */,
+			);
+			path = Sunset;
+			sourceTree = "<group>";
+		};
+		31EF64E926F3DFF1008629D2 /* ColdRowan */ = {
+			isa = PBXGroup;
+			children = (
+				31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */,
+			);
+			path = ColdRowan;
+			sourceTree = "<group>";
+		};
+		31EF64EC26F3E5AE008629D2 /* SpringLilacs */ = {
+			isa = PBXGroup;
+			children = (
+				31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */,
+			);
+			path = SpringLilacs;
+			sourceTree = "<group>";
+		};
+		31EF64EF26F3E62B008629D2 /* Cappuccino */ = {
+			isa = PBXGroup;
+			children = (
+				31EF64F026F3E661008629D2 /* CappuccinoColorScheme.swift */,
+			);
+			path = Cappuccino;
+			sourceTree = "<group>";
+		};
+		31FB8181268609B800500FE1 /* Comfortaa */ = {
+			isa = PBXGroup;
+			children = (
+				31FB8186268609E600500FE1 /* Comfortaa-Bold.ttf */,
+				31FB8184268609E600500FE1 /* Comfortaa-Light.ttf */,
+				31FB8182268609E600500FE1 /* Comfortaa-Medium.ttf */,
+				31FB8185268609E600500FE1 /* Comfortaa-Regular.ttf */,
+				31FB8183268609E600500FE1 /* Comfortaa-SemiBold.ttf */,
+			);
+			path = Comfortaa;
+			sourceTree = "<group>";
+		};
+		31FB818C26860D6A00500FE1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31FB818D26860D8100500FE1 /* UIFont+CaBUIKit.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31FB81B52686159E00500FE1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31932CBA278309F400BCBDAA /* CaBSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31FB81BA26861AB200500FE1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81C32686260800500FE1 /* Fonts */,
+				31FB818C26860D6A00500FE1 /* Extensions */,
+				31FB81C12686240100500FE1 /* CaBFont.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		31FB81BB26861ABA00500FE1 /* DotGotic16 */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */,
+			);
+			path = DotGotic16;
+			sourceTree = "<group>";
+		};
+		31FB81BC26861ACC00500FE1 /* BadScript */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */,
+			);
+			path = BadScript;
+			sourceTree = "<group>";
+		};
+		31FB81C32686260800500FE1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81BC26861ACC00500FE1 /* BadScript */,
+				31FB81BB26861ABA00500FE1 /* DotGotic16 */,
+				31FB8181268609B800500FE1 /* Comfortaa */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		314131D12685DE6900BB2749 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				314131DB2685DE6900BB2749 /* CaBUIKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		314131D52685DE6900BB2749 /* CaBUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 314131DE2685DE6900BB2749 /* Build configuration list for PBXNativeTarget "CaBUIKit" */;
+			buildPhases = (
+				314131D12685DE6900BB2749 /* Headers */,
+				314131D22685DE6900BB2749 /* Sources */,
+				314131D32685DE6900BB2749 /* Frameworks */,
+				314131D42685DE6900BB2749 /* Resources */,
+				31FB81B92686159E00500FE1 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CaBUIKit;
+			productName = CaBUIKit;
+			productReference = 314131D62685DE6900BB2749 /* CaBUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		314131CD2685DE6900BB2749 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					314131D52685DE6900BB2749 = {
+						CreatedOnToolsVersion = 12.5;
+						LastSwiftMigration = 1250;
+					};
+				};
+			};
+			buildConfigurationList = 314131D02685DE6900BB2749 /* Build configuration list for PBXProject "CaBUIKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 314131CC2685DE6900BB2749;
+			productRefGroup = 314131D72685DE6900BB2749 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				314131D52685DE6900BB2749 /* CaBUIKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		314131D42685DE6900BB2749 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */,
+				31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */,
+				31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */,
+				31FB818B268609E600500FE1 /* Comfortaa-Bold.ttf in Resources */,
+				31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */,
+				3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */,
+				31FB818A268609E600500FE1 /* Comfortaa-Regular.ttf in Resources */,
+				31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */,
+				31FB8188268609E600500FE1 /* Comfortaa-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		314131D22685DE6900BB2749 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31EF64F126F3E661008629D2 /* CappuccinoColorScheme.swift in Sources */,
+				31C9DF5B26FF94320031FA20 /* CaBSliderConfiguration.swift in Sources */,
+				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
+				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
+				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
+				3191929026F5321A0090C262 /* SelectableButton.swift in Sources */,
+				31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */,
+				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
+				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,
+				31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */,
+				310539CA26F68DD800502C2D /* CaBSwitch.swift in Sources */,
+				31FB818E26860D8100500FE1 /* UIFont+CaBUIKit.swift in Sources */,
+				31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */,
+				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
+				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
+				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
+				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,
+				31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */,
+				31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		314131DC2685DE6900BB2749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		314131DD2685DE6900BB2749 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		314131DF2685DE6900BB2749 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F5RU76NTBA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CaBUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		314131E02685DE6900BB2749 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F5RU76NTBA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CaBUIKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBUIKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		314131D02685DE6900BB2749 /* Build configuration list for PBXProject "CaBUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				314131DC2685DE6900BB2749 /* Debug */,
+				314131DD2685DE6900BB2749 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		314131DE2685DE6900BB2749 /* Build configuration list for PBXNativeTarget "CaBUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				314131DF2685DE6900BB2749 /* Debug */,
+				314131E02685DE6900BB2749 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 314131CD2685DE6900BB2749 /* Project object */;
+}
