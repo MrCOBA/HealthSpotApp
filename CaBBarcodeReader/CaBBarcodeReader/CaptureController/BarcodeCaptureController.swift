@@ -46,7 +46,6 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
     // MARK: Protocol AVCaptureMetadataOutputObjectsDelegate
 
     public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-
         guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject else {
             // TODO: Add logs
             return
