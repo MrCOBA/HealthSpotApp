@@ -49,7 +49,7 @@
 		31A4539D2785AF9300290D97 /* CaBBarcodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				31A453B22785B08A00290D97 /* CaptureManager */,
+				31A453B22785B08A00290D97 /* CaptureController */,
 				31A453B12785B04900290D97 /* Sources */,
 				31A4539E2785AF9400290D97 /* CaBBarcodeReader.h */,
 				31A4539F2785AF9400290D97 /* CaBBarcodeReader.docc */,
@@ -64,12 +64,12 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		31A453B22785B08A00290D97 /* CaptureManager */ = {
+		31A453B22785B08A00290D97 /* CaptureController */ = {
 			isa = PBXGroup;
 			children = (
 				31A453B32785B0B900290D97 /* BarcodeCaptureController.swift */,
 			);
-			path = CaptureManager;
+			path = CaptureController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

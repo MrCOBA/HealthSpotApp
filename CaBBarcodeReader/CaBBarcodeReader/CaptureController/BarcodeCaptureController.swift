@@ -70,7 +70,7 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
                                                                       position: .back)
 
         guard let captureDevice = deviceDiscoverySession.devices.first else {
-            print("Failed to get the camera device")
+            // TODO: Add logs
             return
         }
 
@@ -78,7 +78,7 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
             let input = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(input)
         } catch {
-            print(error)
+            // TODO: Add logs
             return
         }
 
