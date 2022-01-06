@@ -4,6 +4,10 @@ public struct CaBColorScheme {
 
     // MARK: - Public Properties
 
+    public static var `default`: CaBColorScheme {
+        return cappuccinoColorScheme
+    }
+
     public static var sunsetColorScheme: CaBColorScheme {
         return CaBColorScheme(activePrimaryColor: Sunset.activePrimaryColor,
                               activeSecondaryColor: Sunset.activeSecondaryColor,

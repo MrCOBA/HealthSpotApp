@@ -18,6 +18,9 @@
 		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
 		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
 		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */; };
+		31A453CE278645F200290D97 /* FeatureInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A453CD278645F200290D97 /* FeatureInfoView.xib */; };
+		31A453D22786462300290D97 /* FeatureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453D12786462300290D97 /* FeatureInfoViewModel.swift */; };
 		31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5426FF880B0031FA20 /* CaBSlider.swift */; };
 		31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */; };
 		31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */; };
@@ -67,6 +70,9 @@
 		3141320C2685E5A000BB2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3191928F26F5321A0090C262 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		31932CBA278309F400BCBDAA /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureInfoView.swift; sourceTree = "<group>"; };
+		31A453CD278645F200290D97 /* FeatureInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureInfoView.xib; sourceTree = "<group>"; };
+		31A453D12786462300290D97 /* FeatureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureInfoViewModel.swift; sourceTree = "<group>"; };
 		31C9DF5426FF880B0031FA20 /* CaBSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSlider.swift; sourceTree = "<group>"; };
 		31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIControl.swift; sourceTree = "<group>"; };
 		31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIConfiguration.swift; sourceTree = "<group>"; };
@@ -152,11 +158,13 @@
 		314131E12685DE9800BB2749 /* CaBUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3191929326F5C8080090C262 /* Extensions */,
+				31A453D02786461100290D97 /* Views */,
 				31C9DF5326FF87F60031FA20 /* CaBSlider */,
 				314131E22685DEC200BB2749 /* CaBButton */,
 				310539C826F61ECC00502C2D /* CaBSwitch */,
+				31A453C92786459A00290D97 /* Resources */,
 				3191929426F5C82C0090C262 /* Sources */,
-				3191929326F5C8080090C262 /* Extensions */,
 				31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */,
 				31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */,
 				3141320C2685E5A000BB2749 /* Assets.xcassets */,
@@ -198,6 +206,47 @@
 				3191928E26F520570090C262 /* Shadow */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		3194ADA22787030700B1E7FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				31A453D12786462300290D97 /* FeatureInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		31A453C82786458800290D97 /* FeatureInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */,
+				3194ADA22787030700B1E7FE /* ViewModel */,
+			);
+			path = FeatureInfoView;
+			sourceTree = "<group>";
+		};
+		31A453C92786459A00290D97 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				31A453CA278645A400290D97 /* FeatureInfoView */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		31A453CA278645A400290D97 /* FeatureInfoView */ = {
+			isa = PBXGroup;
+			children = (
+				31A453CD278645F200290D97 /* FeatureInfoView.xib */,
+			);
+			path = FeatureInfoView;
+			sourceTree = "<group>";
+		};
+		31A453D02786461100290D97 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				31A453C82786458800290D97 /* FeatureInfoView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		31C9DF5326FF87F60031FA20 /* CaBSlider */ = {
@@ -388,6 +437,7 @@
 				31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */,
 				31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */,
 				31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */,
+				31A453CE278645F200290D97 /* FeatureInfoView.xib in Resources */,
 				31FB818B268609E600500FE1 /* Comfortaa-Bold.ttf in Resources */,
 				31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */,
 				3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */,
@@ -421,6 +471,8 @@
 				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
 				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
 				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,
+				3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */,
+				31A453D22786462300290D97 /* FeatureInfoViewModel.swift in Sources */,
 				31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */,
 				31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */,
 			);
@@ -481,7 +533,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -539,7 +591,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
