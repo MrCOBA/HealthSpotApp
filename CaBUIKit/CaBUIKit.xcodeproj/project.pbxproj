@@ -219,8 +219,8 @@
 		31A453C82786458800290D97 /* FeatureInfoView */ = {
 			isa = PBXGroup;
 			children = (
-				3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */,
 				3194ADA22787030700B1E7FE /* ViewModel */,
+				3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */,
 			);
 			path = FeatureInfoView;
 			sourceTree = "<group>";

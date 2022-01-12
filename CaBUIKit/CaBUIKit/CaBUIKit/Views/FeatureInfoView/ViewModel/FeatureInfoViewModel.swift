@@ -1,7 +1,10 @@
+public protocol FeatureInfoViewEventsHandler: AnyObject {
+
+    func actionButtonTap(for feature: FeatureInfoViewModel.Feature)
+
+}
+
 public struct FeatureInfoViewModel: Equatable {
-
-    public typealias ActionHandler = () -> Void
-
     public enum ActionButtonState: Equatable {
         case shown(title: String)
         case hidden
@@ -14,18 +17,19 @@ public struct FeatureInfoViewModel: Equatable {
     let name: String
     let featurePoints: [String]
     let actionButtonState: ActionButtonState
-    let actionHandler: ActionHandler?
+    
+    weak var eventsHandler: FeatureInfoViewEventsHandler?
 
     public init(featureID: Feature?,
                 name: String,
                 featurePoints: [String],
                 actionButtonState: ActionButtonState,
-                actionHandler: ActionHandler?) {
+                eventsHandler: FeatureInfoViewEventsHandler?) {
         self.featureID = featureID
         self.name = name
         self.featurePoints = featurePoints
         self.actionButtonState = actionButtonState
-        self.actionHandler = actionHandler
+        self.eventsHandler = eventsHandler
     }
 
     static var empty: Self {
@@ -33,7 +37,7 @@ public struct FeatureInfoViewModel: Equatable {
                      name: "",
                      featurePoints: [],
                      actionButtonState: .hidden,
-                     actionHandler: nil)
+                     eventsHandler: nil)
     }
 
     public static func == (lhs: FeatureInfoViewModel, rhs: FeatureInfoViewModel) -> Bool {
@@ -41,6 +45,7 @@ public struct FeatureInfoViewModel: Equatable {
         && (lhs.actionButtonState == rhs.actionButtonState)
         && (lhs.featurePoints == rhs.featurePoints)
         && (lhs.name == rhs.name)
+        && (lhs.eventsHandler === rhs.eventsHandler)
     }
 
 }

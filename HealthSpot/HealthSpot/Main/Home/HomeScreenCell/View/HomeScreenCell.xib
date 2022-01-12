@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+        <array key="Comfortaa-Light.ttf">
+            <string>Comfortaa-Light</string>
+        </array>
+        <array key="Comfortaa-Regular.ttf">
+            <string>Comfortaa-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HomeScreenCell" rowHeight="206" id="KGk-i7-Jjw" customClass="HomeScreenCell" customModule="HealthSpot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="264"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXp-Ei-lM6">
+                        <rect key="frame" x="8" y="8" width="304" height="248"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EJa-XO-36c">
+                                <rect key="frame" x="16" y="8" width="272" height="43.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-tB-6oL">
+                                        <rect key="frame" x="0.0" y="0.0" width="232" height="43.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CellTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNy-WN-J7H">
+                                                <rect key="frame" x="0.0" y="0.0" width="232" height="22.5"/>
+                                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CellSubtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAB-Bh-QIJ">
+                                                <rect key="frame" x="0.0" y="26.5" width="232" height="17"/>
+                                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-6I-QEC">
+                                        <rect key="frame" x="240" y="0.0" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="53I-mj-ARE"/>
+                                            <constraint firstAttribute="width" constant="32" id="Dv5-YD-JAN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hrC-vh-if2">
+                                <rect key="frame" x="16" y="59.5" width="272" height="33"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-yu-WHa">
+                                        <rect key="frame" x="0.0" y="0.0" width="272" height="33"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="lVb-ow-0aK">
+                                <rect key="frame" x="16" y="208" width="272" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ActionTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7su-y1-Ia4">
+                                        <rect key="frame" x="0.0" y="0.0" width="134" height="32"/>
+                                        <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d6-RA-HhA" customClass="CaBButton" customModule="CaBUIKit">
+                                        <rect key="frame" x="138" y="0.0" width="134" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="CAy-K4-0mg"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Action">
+                                            <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="actionButtonTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wn5-xc-eKa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hrC-vh-if2" firstAttribute="leading" secondItem="EJa-XO-36c" secondAttribute="leading" id="1Ss-hh-MHa"/>
+                            <constraint firstItem="lVb-ow-0aK" firstAttribute="leading" secondItem="EJa-XO-36c" secondAttribute="leading" id="9Mh-jN-spa"/>
+                            <constraint firstItem="hrC-vh-if2" firstAttribute="trailing" secondItem="EJa-XO-36c" secondAttribute="trailing" id="EbZ-98-xXb"/>
+                            <constraint firstItem="EJa-XO-36c" firstAttribute="leading" secondItem="uXp-Ei-lM6" secondAttribute="leading" constant="16" id="Ka9-rp-1gc"/>
+                            <constraint firstItem="lVb-ow-0aK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hrC-vh-if2" secondAttribute="bottom" constant="8" id="P9u-0W-KJQ"/>
+                            <constraint firstItem="hrC-vh-if2" firstAttribute="top" secondItem="EJa-XO-36c" secondAttribute="bottom" constant="8" id="XTJ-Zn-xu8"/>
+                            <constraint firstAttribute="bottom" secondItem="lVb-ow-0aK" secondAttribute="bottom" constant="8" id="lhR-4R-pPA"/>
+                            <constraint firstItem="lVb-ow-0aK" firstAttribute="trailing" secondItem="EJa-XO-36c" secondAttribute="trailing" id="ni4-Ub-WyO"/>
+                            <constraint firstItem="EJa-XO-36c" firstAttribute="top" secondItem="uXp-Ei-lM6" secondAttribute="top" constant="8" id="qeJ-85-vjj"/>
+                            <constraint firstItem="EJa-XO-36c" firstAttribute="centerX" secondItem="uXp-Ei-lM6" secondAttribute="centerX" id="zgR-BS-aQJ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uXp-Ei-lM6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="2v7-zn-gdE"/>
+                    <constraint firstItem="uXp-Ei-lM6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="5J0-fJ-aeW"/>
+                    <constraint firstAttribute="trailing" secondItem="uXp-Ei-lM6" secondAttribute="trailing" constant="8" id="CeI-Jp-UrP"/>
+                    <constraint firstAttribute="bottom" secondItem="uXp-Ei-lM6" secondAttribute="bottom" constant="8" id="fTl-tL-UQu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="actionButton" destination="8d6-RA-HhA" id="3fj-TX-7ny"/>
+                <outlet property="actionHintLabel" destination="7su-y1-Ia4" id="R7r-N9-dlz"/>
+                <outlet property="descriptionTextView" destination="OV8-yu-WHa" id="uLF-Rl-n9x"/>
+                <outlet property="stateIconImageView" destination="tlk-6I-QEC" id="XZP-CB-Ms4"/>
+                <outlet property="subtitleLabel" destination="qAB-Bh-QIJ" id="el0-SN-l9U"/>
+                <outlet property="titleLabel" destination="TNy-WN-J7H" id="0nz-sC-H6Q"/>
+            </connections>
+            <point key="canvasLocation" x="282.60869565217394" y="0.6696428571428571"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="8d6-RA-HhA">
+            <size key="intrinsicContentSize" width="68" height="32"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

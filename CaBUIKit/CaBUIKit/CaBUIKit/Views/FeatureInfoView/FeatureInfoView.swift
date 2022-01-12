@@ -116,12 +116,17 @@ public class FeatureInfoView: UIViewController {
     // MARK: User Actions
 
     @IBAction private func actionButtonTapped() {
-        guard let action = viewModel.actionHandler else {
+        guard let eventsHandler = viewModel.eventsHandler else {
             // TODO: Add Log
             return
         }
 
-        action()
+        guard let featureID = viewModel.featureID else {
+            // TODO: Add Log
+            return
+        }
+
+        eventsHandler.actionButtonTap(for: featureID)
     }
 
 }
