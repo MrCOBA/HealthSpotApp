@@ -1,11 +1,11 @@
 
-protocol MainScreenCellEventsHandler: AnyObject {
+protocol HomeScreenCellEventsHandler: AnyObject {
 
     func actionButtonTap(forCellWith id: Int)
 
 }
 
-struct MainScreenCellViewModel: Equatable {
+struct HomeScreenCellViewModel: Equatable {
 
     public enum ActionButtonState: Equatable {
         case shown(title: String)
@@ -19,7 +19,7 @@ struct MainScreenCellViewModel: Equatable {
     let actionHint: String?
     let actionButtonState: ActionButtonState
 
-    weak var eventsHandler: MainScreenCellEventsHandler?
+    weak var eventsHandler: HomeScreenCellEventsHandler?
 
     static var empty: Self {
         return .init(id: -1,
@@ -37,7 +37,7 @@ struct MainScreenCellViewModel: Equatable {
                 description: String? = nil,
                 actionHint: String? = nil,
                 actionButtonState: ActionButtonState = .hidden,
-                eventsHandler: MainScreenCellEventsHandler? = nil) {
+                eventsHandler: HomeScreenCellEventsHandler? = nil) {
         self.id = id
         self.title = title
         self.subtitle = subtitle
@@ -47,7 +47,7 @@ struct MainScreenCellViewModel: Equatable {
         self.eventsHandler = eventsHandler
     }
 
-    public static func == (lhs: MainScreenCellViewModel, rhs: MainScreenCellViewModel) -> Bool {
+    public static func == (lhs: HomeScreenCellViewModel, rhs: HomeScreenCellViewModel) -> Bool {
         return (lhs.id == rhs.id)
         && (lhs.actionHint == rhs.actionHint)
         && (lhs.actionButtonState == rhs.actionButtonState)

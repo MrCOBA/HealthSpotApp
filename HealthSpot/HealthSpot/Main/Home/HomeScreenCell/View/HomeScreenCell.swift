@@ -25,6 +25,26 @@ class HomeScreenCell: UITableViewCell {
 
         }
 
+        enum Shadow {
+
+            static var opacity: Float {
+                return 0.5
+            }
+
+            static var radius: CGFloat {
+                return 5.0
+            }
+
+        }
+
+        enum Container {
+
+            static var cornerRadius: CGFloat {
+                return 16.0
+            }
+
+        }
+
     }
 
     // MARK: - Internal Properties
@@ -37,7 +57,7 @@ class HomeScreenCell: UITableViewCell {
         return "HomeScreenCell"
     }
 
-    var viewModel: MainScreenCellViewModel = .empty {
+    var viewModel: HomeScreenCellViewModel = .empty {
         didSet {
             if viewModel != oldValue {
                 updateView(with: viewModel)
@@ -53,6 +73,7 @@ class HomeScreenCell: UITableViewCell {
 
     // MARK: - Private Properties
 
+    @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var stateIconImageView: UIImageView!
@@ -60,15 +81,27 @@ class HomeScreenCell: UITableViewCell {
     @IBOutlet private weak var actionHintLabel: UILabel!
     @IBOutlet private weak var actionButton: CaBButton!
 
+    // MARK: - Internal Methods
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
         updateView(with: viewModel)
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        configureShadow()
+    }
+
     // MARK: - Private Methods
 
-    private func updateView(with viewModel: MainScreenCellViewModel) {
+    private func updateView(with viewModel: HomeScreenCellViewModel) {
+        containerView.backgroundColor = colorScheme.backgroundSecondaryColor
+        containerView.layer.cornerRadius = Constant.Container.cornerRadius
+        configureShadow()
+
         configureTitleLabel(with: viewModel)
         configureSubtitleLabel(with: viewModel)
         configureDescriptionTextView(with: viewModel)
@@ -76,7 +109,7 @@ class HomeScreenCell: UITableViewCell {
         configureActionButton(with: viewModel)
     }
 
-    private func configureTitleLabel(with viewModel: MainScreenCellViewModel) {
+    private func configureTitleLabel(with viewModel: HomeScreenCellViewModel) {
         let attributedTitle = NSAttributedString(string: viewModel.title,
                                                  attributes: [
                                                     .font : Constant.Fonts.firstLevel,
@@ -85,7 +118,7 @@ class HomeScreenCell: UITableViewCell {
         titleLabel.attributedText = attributedTitle
     }
 
-    private func configureSubtitleLabel(with viewModel: MainScreenCellViewModel) {
+    private func configureSubtitleLabel(with viewModel: HomeScreenCellViewModel) {
         subtitleLabel.isHidden = viewModel.subtitle == nil
 
         guard let subtitle = viewModel.subtitle else {
@@ -100,7 +133,7 @@ class HomeScreenCell: UITableViewCell {
         subtitleLabel.attributedText = attributedSubtitle
     }
 
-    private func configureDescriptionTextView(with viewModel: MainScreenCellViewModel) {
+    private func configureDescriptionTextView(with viewModel: HomeScreenCellViewModel) {
         descriptionTextView.isHidden = viewModel.description == nil
 
         guard let description = viewModel.description else {
@@ -117,7 +150,7 @@ class HomeScreenCell: UITableViewCell {
         descriptionTextView.textContainer.lineFragmentPadding = 0
     }
 
-    private func configureActionHintLabel(with viewModel: MainScreenCellViewModel) {
+    private func configureActionHintLabel(with viewModel: HomeScreenCellViewModel) {
         actionHintLabel.isHidden = viewModel.actionHint == nil
 
         guard let hint = viewModel.actionHint else {
@@ -133,7 +166,7 @@ class HomeScreenCell: UITableViewCell {
     }
 
 
-    private func configureActionButton(with viewModel: MainScreenCellViewModel) {
+    private func configureActionButton(with viewModel: HomeScreenCellViewModel) {
         actionButton.isHidden = (viewModel.actionButtonState == .hidden)
 
         switch viewModel.actionButtonState {
@@ -144,6 +177,15 @@ class HomeScreenCell: UITableViewCell {
                 actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
                 actionButton.setTitle(title, for: .normal)
         }
+    }
+
+    private func configureShadow() {
+        let containerLayer = containerView.layer
+
+        containerLayer.shadowColor = colorScheme.textColor.cgColor
+        containerLayer.shadowRadius = Constant.Shadow.radius
+        containerLayer.shadowOpacity = Constant.Shadow.opacity
+        containerLayer.shadowOffset = .zero
     }
 
     // MARK: User Actions
