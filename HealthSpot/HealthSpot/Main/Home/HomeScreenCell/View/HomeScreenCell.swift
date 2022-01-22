@@ -20,7 +20,7 @@ class HomeScreenCell: UITableViewCell {
             }
 
             static var thirdLevel: UIFont {
-                return Font.light(size: 15)
+                return Font.light(size: 13)
             }
 
         }
@@ -174,8 +174,8 @@ class HomeScreenCell: UITableViewCell {
                 return
 
             case let .shown(title):
-                actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
                 actionButton.setTitle(title, for: .normal)
+                actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
         }
     }
 

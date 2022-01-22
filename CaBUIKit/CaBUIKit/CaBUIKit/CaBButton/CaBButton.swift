@@ -9,9 +9,21 @@ public class CaBButton: UIButton, CaBUIControl {
 
     public typealias Action = () -> Void
 
+    // MARK: - Private Types
+
+    private enum Constant {
+
+        static var edgeInsets: UIEdgeInsets {
+            return .init(top: 8.0, left: 16.0, bottom: 8.0, right: 16.0)
+        }
+
+    }
+
     // MARK: - Public Methods
 
     public func apply(configuration: CaBUIConfiguration) {
+        contentEdgeInsets = Constant.edgeInsets
+        
         configureFont(with: configuration)
         configureColors(with: configuration)
         configureBorder(with: configuration)
@@ -26,7 +38,7 @@ public class CaBButton: UIButton, CaBUIControl {
     // MARK: - Private Methods
     
     private func configureFont(with configuration: CaBUIConfiguration) {
-        titleLabel?.font = UIFontMetrics.default.scaledFont(for: configuration.font)
+        titleLabel?.font = configuration.font
         titleLabel?.adjustsFontForContentSizeCategory = true
     }
 

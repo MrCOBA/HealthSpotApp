@@ -33,19 +33,19 @@
                         <rect key="frame" x="16" y="8" width="288" height="248"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EJa-XO-36c">
-                                <rect key="frame" x="16" y="8" width="256" height="43.5"/>
+                                <rect key="frame" x="16" y="8" width="256" height="147"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4Jk-tB-6oL">
-                                        <rect key="frame" x="0.0" y="0.0" width="216" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="43.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CellTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNy-WN-J7H">
-                                                <rect key="frame" x="0.0" y="0.0" width="216" height="22.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="224" height="22.5"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CellSubtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAB-Bh-QIJ">
-                                                <rect key="frame" x="0.0" y="26.5" width="216" height="17"/>
+                                                <rect key="frame" x="0.0" y="26.5" width="224" height="17"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -53,16 +53,16 @@
                                         </subviews>
                                     </stackView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tlk-6I-QEC">
-                                        <rect key="frame" x="224" y="0.0" width="32" height="32"/>
+                                        <rect key="frame" x="232" y="0.0" width="24" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="53I-mj-ARE"/>
-                                            <constraint firstAttribute="width" constant="32" id="Dv5-YD-JAN"/>
+                                            <constraint firstAttribute="height" constant="24" id="53I-mj-ARE"/>
+                                            <constraint firstAttribute="width" constant="24" id="Dv5-YD-JAN"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hrC-vh-if2">
-                                <rect key="frame" x="16" y="59.5" width="256" height="33"/>
+                                <rect key="frame" x="16" y="163" width="256" height="33"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Description" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV8-yu-WHa">
                                         <rect key="frame" x="0.0" y="0.0" width="256" height="33"/>
@@ -73,23 +73,22 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lVb-ow-0aK">
-                                <rect key="frame" x="16" y="208" width="256" height="32"/>
+                                <rect key="frame" x="16" y="204" width="256" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ActionTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7su-y1-Ia4">
-                                        <rect key="frame" x="0.0" y="0.0" width="124" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="36"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d6-RA-HhA" customClass="CaBButton" customModule="CaBUIKit">
-                                        <rect key="frame" x="132" y="0.0" width="124" height="32"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8d6-RA-HhA" customClass="CaBButton" customModule="CaBUIKit">
+                                        <rect key="frame" x="212" y="0.0" width="44" height="36"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="CAy-K4-0mg"/>
+                                            <constraint firstAttribute="height" constant="36" id="CAy-K4-0mg"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Action">
-                                            <fontDescription key="titleFontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Action"/>
                                         <connections>
                                             <action selector="actionButtonTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Wn5-xc-eKa"/>
                                         </connections>
@@ -102,7 +101,7 @@
                             <constraint firstItem="lVb-ow-0aK" firstAttribute="leading" secondItem="EJa-XO-36c" secondAttribute="leading" id="9Mh-jN-spa"/>
                             <constraint firstItem="hrC-vh-if2" firstAttribute="trailing" secondItem="EJa-XO-36c" secondAttribute="trailing" id="EbZ-98-xXb"/>
                             <constraint firstItem="EJa-XO-36c" firstAttribute="leading" secondItem="uXp-Ei-lM6" secondAttribute="leading" constant="16" id="Ka9-rp-1gc"/>
-                            <constraint firstItem="lVb-ow-0aK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="hrC-vh-if2" secondAttribute="bottom" constant="8" id="P9u-0W-KJQ"/>
+                            <constraint firstItem="lVb-ow-0aK" firstAttribute="top" secondItem="hrC-vh-if2" secondAttribute="bottom" constant="8" id="P9u-0W-KJQ"/>
                             <constraint firstItem="hrC-vh-if2" firstAttribute="top" secondItem="EJa-XO-36c" secondAttribute="bottom" constant="8" id="XTJ-Zn-xu8"/>
                             <constraint firstAttribute="bottom" secondItem="lVb-ow-0aK" secondAttribute="bottom" constant="8" id="lhR-4R-pPA"/>
                             <constraint firstItem="lVb-ow-0aK" firstAttribute="trailing" secondItem="EJa-XO-36c" secondAttribute="trailing" id="ni4-Ub-WyO"/>
@@ -134,7 +133,7 @@
     </objects>
     <designables>
         <designable name="8d6-RA-HhA">
-            <size key="intrinsicContentSize" width="68" height="32"/>
+            <size key="intrinsicContentSize" width="44" height="30"/>
         </designable>
     </designables>
     <resources>
