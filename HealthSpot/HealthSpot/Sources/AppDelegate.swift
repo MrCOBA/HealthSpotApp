@@ -6,14 +6,16 @@
 //
 
 import UIKit
+import CaBSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    private let rootServices = RootServices()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UIFont.loadFonts()
+        rootServices.configure()
         
         return true
     }
