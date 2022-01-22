@@ -61,7 +61,7 @@ public struct CaBFont {
     public enum DotGothic {
 
         public static func regular(size: CGFloat) -> UIFont {
-            guard let customFont = UIFont(name: "DotGothic16-Regular", size: size) else {
+            guard let customFont = UIFont(name: "DotGothic16-Regular.ttf", size: size) else {
                 fatalError("Failed to load font.")
             }
 

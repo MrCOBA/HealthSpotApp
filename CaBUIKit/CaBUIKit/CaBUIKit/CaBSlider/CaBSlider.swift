@@ -20,7 +20,7 @@ public class CaBSlider: UISlider, CaBUIControl {
     }
 
     private func configureColors(with configuration: CaBUIConfiguration) {
-        setThumbImage(.sliderThumbImage, for: .normal)
+        setThumbImage(UIImage.Slider.sliderThumbImage, for: .normal)
         thumbTintColor = configuration.tintColor
         minimumTrackTintColor = configuration.externalColors[0]
         maximumTrackTintColor = configuration.externalColors[1]

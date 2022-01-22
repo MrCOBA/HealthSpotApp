@@ -24,8 +24,9 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
 
     // MARK: - Init & Deinit
 
-    public init(captureSession: AVCaptureSession, supportedCodeTypes: [BarcodeObjectType], codeHandler: CodeHandler? = nil) {
-        self.captureSession = captureSession
+    public init(supportedCodeTypes: [BarcodeObjectType], codeHandler: CodeHandler? = nil) {
+        captureSession = AVCaptureSession()
+
         self.supportedCodeTypes = supportedCodeTypes
         self.codeHandler = codeHandler
     }
