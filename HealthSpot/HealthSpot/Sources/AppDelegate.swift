@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  HealthSpot
-//
-//  Created by Oparin Oleg on 03.01.2022.
-//
-
 import UIKit
 import CaBSDK
 
