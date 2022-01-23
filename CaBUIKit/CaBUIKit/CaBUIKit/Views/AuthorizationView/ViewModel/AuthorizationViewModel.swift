@@ -1,4 +1,11 @@
 
+public protocol AutorizationEventsHandler: AnyObject {
+
+    func mainActionButtonTap()
+    func additionalActionButtonTap()
+
+}
+
 public struct AuthorizationViewModel: Equatable {
 
     public enum Mode: Equatable {
@@ -27,21 +34,34 @@ public struct AuthorizationViewModel: Equatable {
     let mainActionButtonTitle: String
     let additionalActionButtonState: ActionButtonState
 
+    weak var eventsHandler: AutorizationEventsHandler?
+
     public static var empty: Self {
         return .init(mode: .signUp,
                      textFields: [],
                      mainActionButtonTitle: "",
-                     additionalActionButtonState: .hidden)
+                     additionalActionButtonState: .hidden,
+                     eventsHandler: nil)
     }
 
     public init(mode: Mode,
                 textFields: [TextField],
                 mainActionButtonTitle: String,
-                additionalActionButtonState: ActionButtonState) {
+                additionalActionButtonState: ActionButtonState,
+                eventsHandler: AutorizationEventsHandler?) {
         self.mode = mode
         self.textFields = textFields
         self.mainActionButtonTitle = mainActionButtonTitle
         self.additionalActionButtonState = additionalActionButtonState
+        self.eventsHandler = eventsHandler
+    }
+
+    public static func == (lhs: AuthorizationViewModel, rhs: AuthorizationViewModel) -> Bool {
+        return (lhs.mode == rhs.mode)
+        && (lhs.textFields == rhs.textFields)
+        && (lhs.mainActionButtonTitle == rhs.mainActionButtonTitle)
+        && (lhs.additionalActionButtonState == rhs.additionalActionButtonState)
+        && (lhs.eventsHandler === rhs.eventsHandler)
     }
 
 }

@@ -38,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FeatureTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04y-ZK-Njq">
-                    <rect key="frame" x="24" y="68" width="366" height="58.5"/>
+                    <rect key="frame" x="24" y="68" width="366" height="56"/>
                     <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="50"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -87,7 +87,7 @@
     </objects>
     <designables>
         <designable name="gWT-UP-0J5">
-            <size key="intrinsicContentSize" width="89" height="35"/>
+            <size key="intrinsicContentSize" width="98" height="34.5"/>
         </designable>
     </designables>
     <resources>

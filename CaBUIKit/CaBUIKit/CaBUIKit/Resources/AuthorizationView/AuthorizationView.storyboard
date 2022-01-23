@@ -32,6 +32,9 @@
                                         <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Sign In..."/>
+                                        <connections>
+                                            <action selector="mainActionButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="y3h-FN-Qpa"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6C-hY-NL3" customClass="CaBButton" customModule="CaBUIKit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="70" width="350" height="54"/>
@@ -41,6 +44,9 @@
                                         <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="No account? Let's sign up"/>
+                                        <connections>
+                                            <action selector="additionalActionButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mwn-zn-0BX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -97,7 +103,7 @@
                     <connections>
                         <outlet property="additionalActionButton" destination="v6C-hY-NL3" id="R5I-Ds-EhK"/>
                         <outlet property="emailTextField" destination="DkS-EI-P6G" id="RFm-FK-SVc"/>
-                        <outlet property="mainActionButton" destination="p8U-qD-9YC" id="5U5-bq-msd"/>
+                        <outlet property="mainActionButton" destination="p8U-qD-9YC" id="RcC-1J-aIR"/>
                         <outlet property="passwordTextField" destination="eyP-a4-4pe" id="pat-FR-Ise"/>
                         <outlet property="repeatPasswordTextField" destination="eVs-8r-xmM" id="x6N-D5-zrp"/>
                     </connections>

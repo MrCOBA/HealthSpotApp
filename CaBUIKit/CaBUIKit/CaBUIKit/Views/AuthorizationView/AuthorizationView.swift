@@ -63,7 +63,7 @@ public final class AuthorizationView: UIViewController {
                 return
 
             case let .shown(title):
-                additionalActionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
+                additionalActionButton.apply(configuration: CaBButtonConfiguration.Default.primaryButton(with: colorScheme))
                 additionalActionButton.setTitle(title, for: .normal)
         }
     }
@@ -107,6 +107,24 @@ public final class AuthorizationView: UIViewController {
             case let .repeatPassword(state):
                 return (repeatPasswordTextField, state)
         }
+    }
+
+    @IBAction private func mainActionButtonTapped() {
+        guard let eventsHandler = viewModel.eventsHandler else {
+            // TODO: Add Log
+            return
+        }
+
+        eventsHandler.mainActionButtonTap()
+    }
+
+    @IBAction private func additionalActionButtonTapped() {
+        guard let eventsHandler = viewModel.eventsHandler else {
+            // TODO: Add Log
+            return
+        }
+
+        eventsHandler.additionalActionButtonTap()
     }
 
 }
