@@ -7,11 +7,11 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
     private enum Constant {
 
         static var cornerRadius: CGFloat {
-            return 10
+            return 8
         }
 
         static var borderWidth: CGFloat {
-            return 2
+            return 1
         }
 
     }
@@ -21,7 +21,7 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
     public enum Default {
 
         public static func general(with colorScheme: CaBColorScheme) -> CaBTextFieldConfiguration {
-            return CaBTextFieldConfiguration(backgroundColor: colorScheme.backgroundSecondaryColor,
+            return CaBTextFieldConfiguration(backgroundColor: .clear,
                                              textColor: colorScheme.textColor,
                                              borderColor: colorScheme.textColor,
                                              cornerRadius: Constant.cornerRadius,

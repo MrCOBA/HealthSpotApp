@@ -28,7 +28,7 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
         }
 
         static var borderWidth: CGFloat {
-            return 2
+            return 1
         }
 
     }
@@ -43,14 +43,14 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
                                           borderColor: colorScheme.activeSecondaryColor,
                                           borderWidth: Constant.borderWidth,
                                           cornerRadius: Constant.PrimaryButton.cornerRadius,
-                                          font: CaBFont.Comfortaa.bold(size: Constant.fontSize))
+                                          font: CaBFont.Comfortaa.regular(size: Constant.fontSize))
         }
 
         public static func secondaryButton(with colorScheme: CaBColorScheme) -> CaBButtonConfiguration {
             return CaBButtonConfiguration(backgroundColor: colorScheme.activeSecondaryColor,
                                           textColor: colorScheme.activePrimaryColor,
                                           cornerRadius: Constant.PrimaryButton.cornerRadius,
-                                          font: CaBFont.Comfortaa.light(size: Constant.fontSize))
+                                          font: CaBFont.Comfortaa.regular(size: Constant.fontSize))
         }
         
     }

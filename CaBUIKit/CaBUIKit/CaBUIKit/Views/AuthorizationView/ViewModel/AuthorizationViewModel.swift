@@ -1,12 +1,18 @@
 
 public protocol AutorizationEventsHandler: AnyObject {
 
-    func mainActionButtonTap()
+    func mainActionButtonTap(data: [AuthorizationViewModel.Key : String])
     func additionalActionButtonTap()
 
 }
 
 public struct AuthorizationViewModel: Equatable {
+
+    public enum Key {
+        case email
+        case password
+        case repeatedPassword
+    }
 
     public enum Mode: Equatable {
         case signIn

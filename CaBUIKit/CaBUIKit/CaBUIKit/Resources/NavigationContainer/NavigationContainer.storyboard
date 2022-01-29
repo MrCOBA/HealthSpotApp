@@ -8,17 +8,17 @@
     </dependencies>
     <scenes>
         <!--CaB Navigation Controller-->
-        <scene sceneID="iRc-J8-GKm">
+        <scene sceneID="jWR-2h-2Hu">
             <objects>
-                <navigationController id="S6E-d5-IVD" customClass="CaBNavigationController" customModule="CaBUIKit" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="a8X-4w-6T8">
+                <navigationController id="YOI-2y-eyN" customClass="CaBNavigationController" customModule="CaBUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wcd-1a-tKy">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ftl-jV-c4U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1iN-0S-QSh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-196" y="-347"/>
+            <point key="canvasLocation" x="-281" y="106"/>
         </scene>
     </scenes>
 </document>

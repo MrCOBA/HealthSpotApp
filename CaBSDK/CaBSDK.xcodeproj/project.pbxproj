@@ -16,6 +16,7 @@
 		31E630B5279C50D000F9B095 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630B4279C50D000F9B095 /* FirebaseStorage */; };
 		31E630B7279C514200F9B095 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630B6279C514200F9B095 /* RootServices.swift */; };
 		31E630B9279C54AB00F9B095 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */; };
+		31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630CA279D746A00F9B095 /* AutorizationManager.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */; };
 /* End PBXBuildFile section */
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		31E630B6279C514200F9B095 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31E630CA279D746A00F9B095 /* AutorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
 		31FB819D268614E900500FE1 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31E630C8279D743500F9B095 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31E630C9279D744600F9B095 /* AuthorizationManager */ = {
+			isa = PBXGroup;
+			children = (
+				31E630CA279D746A00F9B095 /* AutorizationManager.swift */,
+			);
+			path = AuthorizationManager;
+			sourceTree = "<group>";
+		};
 		31FB8193268614E900500FE1 = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +95,8 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */,
+				31E630C9279D744600F9B095 /* AuthorizationManager */,
+				31E630C8279D743500F9B095 /* Extensions */,
 				31E630B6279C514200F9B095 /* RootServices.swift */,
 			);
 			path = Sources;
@@ -175,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBFrameworks.swift in Sources */,
 				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
 			);

@@ -2,6 +2,16 @@ import UIKit
 
 public final class CaBTextField: UITextField, CaBUIControl {
 
+    // MARK: - Private Types
+
+    private enum Constants {
+
+        static var contentEdgeInsets: UIEdgeInsets {
+            return .init(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+        }
+
+    }
+
     // MARK: - Public Methods
 
     public func apply(configuration: CaBUIConfiguration) {
@@ -9,6 +19,20 @@ public final class CaBTextField: UITextField, CaBUIControl {
         configureFont(with: configuration)
         configureLayout(with: configuration)
         configureBorder(with: configuration)
+    }
+
+    // MARK: - Overrides
+
+    override public func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: Constants.contentEdgeInsets)
+    }
+
+    override public func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: Constants.contentEdgeInsets)
+    }
+
+    override public func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: Constants.contentEdgeInsets)
     }
 
     // MARK: - Private Methods

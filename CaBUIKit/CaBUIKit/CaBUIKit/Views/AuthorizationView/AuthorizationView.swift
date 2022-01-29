@@ -7,6 +7,7 @@ public final class AuthorizationView: UIViewController {
     // MARK: - Private Types
 
     private typealias TextFieldDataSource = (textField: CaBTextField, state: AuthorizationViewModel.InputTextFieldState)
+    private typealias CredentialsDataSource = [AuthorizationViewModel.Key : String]
 
     // MARK: - Public Properties
 
@@ -26,6 +27,8 @@ public final class AuthorizationView: UIViewController {
 
     // MARK: - Private Properties
 
+
+    @IBOutlet private weak var modeImageView: UIImageView!
     @IBOutlet private weak var emailTextField: CaBTextField!
     @IBOutlet private weak var passwordTextField: CaBTextField!
     @IBOutlet private weak var repeatPasswordTextField: CaBTextField!
@@ -44,6 +47,9 @@ public final class AuthorizationView: UIViewController {
 
     private func updateView(with viewModel: AuthorizationViewModel) {
         view.backgroundColor = colorScheme.backgroundPrimaryColor
+
+        modeImageView.image = .image(for: viewModel.mode)
+        modeImageView.tintColor = colorScheme.activeSecondaryColor
 
         configureMainActionButton(with: viewModel)
         configureAdditionalActionButton(with: viewModel)
@@ -109,13 +115,30 @@ public final class AuthorizationView: UIViewController {
         }
     }
 
+    private func makeCredentials() -> CredentialsDataSource {
+        var credentials = CredentialsDataSource()
+
+        credentials[.email] = emailTextField.text
+        credentials[.password] = passwordTextField.text
+
+        guard viewModel.mode == .signUp else {
+            return credentials
+        }
+
+        credentials[.repeatedPassword] = repeatPasswordTextField.text
+
+        return credentials
+    }
+
+    // MARK: User Actions
+
     @IBAction private func mainActionButtonTapped() {
         guard let eventsHandler = viewModel.eventsHandler else {
             // TODO: Add Log
             return
         }
 
-        eventsHandler.mainActionButtonTap()
+        eventsHandler.mainActionButtonTap(data: makeCredentials())
     }
 
     @IBAction private func additionalActionButtonTapped() {
@@ -125,6 +148,22 @@ public final class AuthorizationView: UIViewController {
         }
 
         eventsHandler.additionalActionButtonTap()
+    }
+
+}
+
+// MARK: - Helper
+
+extension UIImage {
+
+    fileprivate static func image(for mode: AuthorizationViewModel.Mode) -> UIImage {
+        switch mode {
+            case .signIn:
+                return .Autorization.user
+
+            case .signUp:
+                return .Autorization.newUser
+        }
     }
 
 }
