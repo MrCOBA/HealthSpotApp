@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let initialViewController = makeAutorizationView()
+        let initialViewController = makeAuthorizationView()
         let navigationViewController = CaBNavigationController(rootViewController: initialViewController)
 
         window.rootViewController = navigationViewController
@@ -50,13 +50,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-    private func makeAutorizationView() -> UIViewController {
-        let autorizationViewSource = AuthorizationViewSource(authorizationManager: rootServices.autorizationManager)
+    private func makeAuthorizationView() -> UIViewController {
+        let authorizationViewSource = AuthorizationViewSource(authorizationManager: rootServices.autorizationManager)
 
-        let viewModel = autorizationViewSource.makeViewModel(for: .signIn)
-        autorizationViewSource.sharedView.viewModel = viewModel
+        let viewModel = authorizationViewSource.makeViewModel(for: .signIn)
+        authorizationViewSource.sharedView.viewModel = viewModel
 
-        return autorizationViewSource.sharedView
+        return authorizationViewSource.sharedView
     }
 
 }
