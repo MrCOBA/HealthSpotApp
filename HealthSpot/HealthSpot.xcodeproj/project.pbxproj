@@ -11,6 +11,10 @@
 		3104C330278B288C006AF28B /* HomeScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3104C32E278B288C006AF28B /* HomeScreenCell.xib */; };
 		3104C333278C587C006AF28B /* HomeScreenCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104C332278C587C006AF28B /* HomeScreenCellViewModel.swift */; };
 		3104C336278C8556006AF28B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104C335278C8556006AF28B /* HomeView.swift */; };
+		3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD3B27A9A90F00007428 /* CaBRiblets.framework */; };
+		3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD3B27A9A90F00007428 /* CaBRiblets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD6927B054D900007428 /* CaBAuthorization.framework */; };
+		3133DD6B27B054F200007428 /* CaBAuthorization.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD6927B054D900007428 /* CaBAuthorization.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */; };
 		31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */; };
 		31932C952782FEDE00BCBDAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31932C932782FEDE00BCBDAA /* Main.storyboard */; };
@@ -26,6 +30,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3133DD3A27A9A90F00007428 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3133DD1D27A9A8AA00007428;
+			remoteInfo = CaBRiblets;
+		};
+		3133DD6827B054D900007428 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3133DD5827B054B800007428;
+			remoteInfo = CaBAuthorization;
+		};
 		31932CAD278308E100BCBDAA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */;
@@ -57,8 +75,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				31932CB9278309E300BCBDAA /* CaBSDK.framework in Embed Frameworks */,
+				3133DD6B27B054F200007428 /* CaBAuthorization.framework in Embed Frameworks */,
 				31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */,
 				31A453B02785AFC300290D97 /* CaBBarcodeReader.framework in Embed Frameworks */,
+				3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +90,8 @@
 		3104C32E278B288C006AF28B /* HomeScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenCell.xib; sourceTree = "<group>"; };
 		3104C332278C587C006AF28B /* HomeScreenCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModel.swift; sourceTree = "<group>"; };
 		3104C335278C8556006AF28B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBRiblets.xcodeproj; path = ../CaBRiblets/CaBRiblets.xcodeproj; sourceTree = "<group>"; };
+		3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBAuthorization.xcodeproj; path = ../CaBAuthorization/CaBAuthorization.xcodeproj; sourceTree = "<group>"; };
 		31932C8A2782FEDE00BCBDAA /* HealthSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,8 +111,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31932CB8278309E300BCBDAA /* CaBSDK.framework in Frameworks */,
+				3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */,
 				31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */,
 				31A453AF2785AFC300290D97 /* CaBBarcodeReader.framework in Frameworks */,
+				3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +163,22 @@
 				3104C335278C8556006AF28B /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3133DD3727A9A90F00007428 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3133DD3B27A9A90F00007428 /* CaBRiblets.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3133DD6527B054D800007428 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3133DD6927B054D900007428 /* CaBAuthorization.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		31932C812782FEDE00BCBDAA = {
@@ -207,6 +247,8 @@
 		31932CA8278308E000BCBDAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */,
+				3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */,
 				31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */,
 				31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */,
 				31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */,
@@ -287,8 +329,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 3133DD6527B054D800007428 /* Products */;
+					ProjectRef = 3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */;
+				},
+				{
 					ProductGroup = 31A453A82785AFBD00290D97 /* Products */;
 					ProjectRef = 31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */;
+				},
+				{
+					ProductGroup = 3133DD3727A9A90F00007428 /* Products */;
+					ProjectRef = 3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */;
 				},
 				{
 					ProductGroup = 31932CB3278309DB00BCBDAA /* Products */;
@@ -307,6 +357,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		3133DD3B27A9A90F00007428 /* CaBRiblets.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CaBRiblets.framework;
+			remoteRef = 3133DD3A27A9A90F00007428 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3133DD6927B054D900007428 /* CaBAuthorization.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CaBAuthorization.framework;
+			remoteRef = 3133DD6827B054D900007428 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		31932CAE278308E100BCBDAA /* CaBUIKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;

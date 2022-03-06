@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */; };
+		31A806C827D54DB10021215E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A806C727D54DB10021215E /* Logger.swift */; };
 		31E630A9279C50D000F9B095 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630A8279C50D000F9B095 /* FirebaseAnalytics */; };
 		31E630AB279C50D000F9B095 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630AA279C50D000F9B095 /* FirebaseAuth */; };
 		31E630AD279C50D000F9B095 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630AC279C50D000F9B095 /* FirebaseDatabase */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CaBSDK.swift"; sourceTree = "<group>"; };
+		31A806C727D54DB10021215E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		31E630B6279C514200F9B095 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31E630CA279D746A00F9B095 /* AutorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A806C627D54D6F0021215E /* CaBLogger */ = {
+			isa = PBXGroup;
+			children = (
+				31A806C727D54DB10021215E /* Logger.swift */,
+			);
+			path = CaBLogger;
+			sourceTree = "<group>";
+		};
 		31E630C8279D743500F9B095 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				31A806C627D54D6F0021215E /* CaBLogger */,
 				31E630C9279D744600F9B095 /* AuthorizationManager */,
 				31E630C8279D743500F9B095 /* Extensions */,
 				31E630B6279C514200F9B095 /* RootServices.swift */,
@@ -200,6 +211,7 @@
 				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
 				31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
+				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

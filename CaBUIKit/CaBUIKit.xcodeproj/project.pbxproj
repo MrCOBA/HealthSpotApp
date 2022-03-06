@@ -30,12 +30,9 @@
 		31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */; };
 		31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */; };
 		31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CE0E4327358E610027DC06 /* CaBSliderView.xib */; };
-		31E630BC279C640200F9B095 /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630BB279C640200F9B095 /* AuthorizationView.swift */; };
 		31E630BF279C687500F9B095 /* AuthorizationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31E630BE279C687500F9B095 /* AuthorizationView.storyboard */; };
 		31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C1279C6AFB00F9B095 /* CaBTextField.swift */; };
 		31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */; };
-		31E630C7279C8AFE00F9B095 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C6279C8AFE00F9B095 /* AuthorizationViewModel.swift */; };
-		31E630CF279D7AA900F9B095 /* AuthorizationViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630CE279D7AA900F9B095 /* AuthorizationViewSource.swift */; };
 		31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */; };
 		31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */; };
 		31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */; };
@@ -90,12 +87,9 @@
 		31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBUIKit.swift"; sourceTree = "<group>"; };
 		31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSliderView.swift; sourceTree = "<group>"; };
 		31CE0E4327358E610027DC06 /* CaBSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaBSliderView.xib; sourceTree = "<group>"; };
-		31E630BB279C640200F9B095 /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		31E630BE279C687500F9B095 /* AuthorizationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizationView.storyboard; sourceTree = "<group>"; };
 		31E630C1279C6AFB00F9B095 /* CaBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextField.swift; sourceTree = "<group>"; };
 		31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextFieldConfiguration.swift; sourceTree = "<group>"; };
-		31E630C6279C8AFE00F9B095 /* AuthorizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewModel.swift; sourceTree = "<group>"; };
-		31E630CE279D7AA900F9B095 /* AuthorizationViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewSource.swift; sourceTree = "<group>"; };
 		31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetColorScheme.swift; sourceTree = "<group>"; };
 		31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdRowanColorScheme.swift; sourceTree = "<group>"; };
 		31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringLilacsColorScheme.swift; sourceTree = "<group>"; };
@@ -222,7 +216,6 @@
 				31FB81BA26861AB200500FE1 /* Fonts */,
 				310833EB26B843F700EC8532 /* ColorScheme */,
 				3191928E26F520570090C262 /* Shadow */,
-				31E630CE279D7AA900F9B095 /* AuthorizationViewSource.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -265,7 +258,6 @@
 		31A453D02786461100290D97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31E630BA279C63E300F9B095 /* AuthorizationView */,
 				31A453C82786458800290D97 /* FeatureInfoView */,
 			);
 			path = Views;
@@ -306,15 +298,6 @@
 			path = CaBSliderView;
 			sourceTree = "<group>";
 		};
-		31E630BA279C63E300F9B095 /* AuthorizationView */ = {
-			isa = PBXGroup;
-			children = (
-				31E630C5279C8ACB00F9B095 /* ViewModel */,
-				31E630BB279C640200F9B095 /* AuthorizationView.swift */,
-			);
-			path = AuthorizationView;
-			sourceTree = "<group>";
-		};
 		31E630BD279C64BF00F9B095 /* AuthorizationView */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,14 +313,6 @@
 				31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */,
 			);
 			path = CaBTextField;
-			sourceTree = "<group>";
-		};
-		31E630C5279C8ACB00F9B095 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				31E630C6279C8AFE00F9B095 /* AuthorizationViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		31EF64E626F3DF7A008629D2 /* Sunset */ = {
@@ -539,14 +514,11 @@
 				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
 				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,
 				31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */,
-				31E630BC279C640200F9B095 /* AuthorizationView.swift in Sources */,
 				310539CA26F68DD800502C2D /* CaBSwitch.swift in Sources */,
 				31FB818E26860D8100500FE1 /* UIFont+CaBUIKit.swift in Sources */,
-				31E630C7279C8AFE00F9B095 /* AuthorizationViewModel.swift in Sources */,
 				31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */,
 				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
 				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
-				31E630CF279D7AA900F9B095 /* AuthorizationViewSource.swift in Sources */,
 				31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */,
 				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
 				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,

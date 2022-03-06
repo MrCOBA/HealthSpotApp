@@ -1,5 +1,6 @@
 import UIKit
 import CaBUIKit
+import CaBAuthorization
 import CaBSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

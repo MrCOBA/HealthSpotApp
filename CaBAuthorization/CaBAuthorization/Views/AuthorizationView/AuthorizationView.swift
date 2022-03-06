@@ -1,5 +1,6 @@
 import Foundation
 import CaBSDK
+import CaBUIKit
 import UIKit
 
 public final class AuthorizationView: UIViewController {

@@ -6,14 +6,14 @@ public class CaBUIConfiguration {
 
     // MARK: - Internal Properties
 
-    let backgroundColor: UIColor
-    let tintColor: UIColor?
-    let textColor: UIColor?
-    let borderColor: UIColor?
-    let externalColors: [UIColor]
-    let cornerRadius: CGFloat
-    let borderWidth: CGFloat
-    let font: UIFont
+    public let backgroundColor: UIColor
+    public let tintColor: UIColor?
+    public let textColor: UIColor?
+    public let borderColor: UIColor?
+    public let externalColors: [UIColor]
+    public let cornerRadius: CGFloat
+    public let borderWidth: CGFloat
+    public let font: UIFont
 
     // MARK: - Init & Deinit
     
