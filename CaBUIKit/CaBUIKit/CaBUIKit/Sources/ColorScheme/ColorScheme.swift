@@ -5,50 +5,38 @@ public struct CaBColorScheme {
     // MARK: - Public Properties
 
     public static var `default`: CaBColorScheme {
-        return cappuccinoColorScheme
+        return cabDefaultColorScheme
     }
 
-    public static var sunsetColorScheme: CaBColorScheme {
-        return CaBColorScheme(activePrimaryColor: Sunset.activePrimaryColor,
-                              activeSecondaryColor: Sunset.activeSecondaryColor,
-                              attributesColor: Sunset.attributesColor,
-                              backgroundPrimaryColor: Sunset.backgroundPrimaryColor,
-                              backgroundSecondaryColor: Sunset.backgroundSecondaryColor,
-                              textColor: Sunset.textColor)
+    // TODO: Refactor & add another schemes for new color configurations
+
+    private static var cabDefaultColorScheme: CaBColorScheme {
+        return .init(attributesPrimaryColor: CaBColorScheme.Default.attributesPrimaryColor,
+                     attributesSecondaryColor: CaBColorScheme.Default.attributesSecondaryColor,
+                     attributesTertiaryColor: CaBColorScheme.Default.attributesTertiaryColor,
+                     backgroundPrimaryColor: CaBColorScheme.Default.backgroundPrimaryColor,
+                     backgroundSecondaryColor: CaBColorScheme.Default.backgroundSecondaryColor,
+                     highlightPrimaryColor: CaBColorScheme.Default.highlightPrimaryColor,
+                     highlightSecondaryColor: CaBColorScheme.Default.highlightSecondaryColor,
+                     errorColor: CaBColorScheme.Default.errorColor,
+                     warningColor: CaBColorScheme.Default.warningColor,
+                     successColor: CaBColorScheme.Default.successColor,
+                     infoColor: CaBColorScheme.Default.infoColor)
     }
 
-    public static var coldRowanColorScheme: CaBColorScheme {
-        return CaBColorScheme(activePrimaryColor: ColdRowan.activePrimaryColor,
-                              activeSecondaryColor: ColdRowan.activeSecondaryColor,
-                              attributesColor: ColdRowan.attributesColor,
-                              backgroundPrimaryColor: ColdRowan.backgroundPrimaryColor,
-                              backgroundSecondaryColor: ColdRowan.backgroundSecondaryColor,
-                              textColor: ColdRowan.textColor)
-    }
+    public let attributesPrimaryColor: UIColor
+    public let attributesSecondaryColor: UIColor
+    public let attributesTertiaryColor: UIColor
 
-    public static var springLilacsColorScheme: CaBColorScheme {
-        return CaBColorScheme(activePrimaryColor: SpringLilacs.activePrimaryColor,
-                              activeSecondaryColor: SpringLilacs.activeSecondaryColor,
-                              attributesColor: SpringLilacs.attributesColor,
-                              backgroundPrimaryColor: SpringLilacs.backgroundPrimaryColor,
-                              backgroundSecondaryColor: SpringLilacs.backgroundSecondaryColor,
-                              textColor: SpringLilacs.textColor)
-    }
-
-    public static var cappuccinoColorScheme: CaBColorScheme {
-        return CaBColorScheme(activePrimaryColor: Cappuccino.activePrimaryColor,
-                              activeSecondaryColor: Cappuccino.activeSecondaryColor,
-                              attributesColor: Cappuccino.attributesColor,
-                              backgroundPrimaryColor: Cappuccino.backgroundPrimaryColor,
-                              backgroundSecondaryColor: Cappuccino.backgroundSecondaryColor,
-                              textColor: Cappuccino.textColor)
-    }
-
-    public let activePrimaryColor: UIColor
-    public let activeSecondaryColor: UIColor
-    public let attributesColor: UIColor
     public let backgroundPrimaryColor: UIColor
     public let backgroundSecondaryColor: UIColor
-    public let textColor: UIColor
+
+    public let highlightPrimaryColor: UIColor
+    public let highlightSecondaryColor: UIColor
+
+    public let errorColor: UIColor
+    public let warningColor: UIColor
+    public let successColor: UIColor
+    public let infoColor: UIColor
 
 }

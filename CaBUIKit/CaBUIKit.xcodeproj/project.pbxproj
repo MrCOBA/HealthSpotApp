@@ -15,6 +15,7 @@
 		314131E42685DF0100BB2749 /* CaBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314131E32685DF0100BB2749 /* CaBButton.swift */; };
 		3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */; };
 		3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3141320C2685E5A000BB2749 /* Assets.xcassets */; };
+		315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */; };
 		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
 		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
 		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -30,7 +31,6 @@
 		31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */; };
 		31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */; };
 		31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CE0E4327358E610027DC06 /* CaBSliderView.xib */; };
-		31E630BF279C687500F9B095 /* AuthorizationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31E630BE279C687500F9B095 /* AuthorizationView.storyboard */; };
 		31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C1279C6AFB00F9B095 /* CaBTextField.swift */; };
 		31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */; };
 		31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */; };
@@ -73,6 +73,7 @@
 		314131E32685DF0100BB2749 /* CaBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButton.swift; sourceTree = "<group>"; };
 		3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButtonConfiguration.swift; sourceTree = "<group>"; };
 		3141320C2685E5A000BB2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorScheme.swift; sourceTree = "<group>"; };
 		3191928F26F5321A0090C262 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		31932CBA278309F400BCBDAA /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureInfoView.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBUIKit.swift"; sourceTree = "<group>"; };
 		31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSliderView.swift; sourceTree = "<group>"; };
 		31CE0E4327358E610027DC06 /* CaBSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaBSliderView.xib; sourceTree = "<group>"; };
-		31E630BE279C687500F9B095 /* AuthorizationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizationView.storyboard; sourceTree = "<group>"; };
 		31E630C1279C6AFB00F9B095 /* CaBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextField.swift; sourceTree = "<group>"; };
 		31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetColorScheme.swift; sourceTree = "<group>"; };
@@ -129,6 +129,7 @@
 		310833EB26B843F700EC8532 /* ColorScheme */ = {
 			isa = PBXGroup;
 			children = (
+				315DBAE02802EA8300DCA5E4 /* Default */,
 				31EF64EF26F3E62B008629D2 /* Cappuccino */,
 				31EF64E926F3DFF1008629D2 /* ColdRowan */,
 				31EF64EC26F3E5AE008629D2 /* SpringLilacs */,
@@ -194,6 +195,14 @@
 			path = CaBButton;
 			sourceTree = "<group>";
 		};
+		315DBAE02802EA8300DCA5E4 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
 		3191928E26F520570090C262 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,7 +250,6 @@
 			isa = PBXGroup;
 			children = (
 				31BF832227A5C8720095184C /* NavigationContainer */,
-				31E630BD279C64BF00F9B095 /* AuthorizationView */,
 				31A453CA278645A400290D97 /* FeatureInfoView */,
 			);
 			path = Resources;
@@ -296,14 +304,6 @@
 				31CE0E4327358E610027DC06 /* CaBSliderView.xib */,
 			);
 			path = CaBSliderView;
-			sourceTree = "<group>";
-		};
-		31E630BD279C64BF00F9B095 /* AuthorizationView */ = {
-			isa = PBXGroup;
-			children = (
-				31E630BE279C687500F9B095 /* AuthorizationView.storyboard */,
-			);
-			path = AuthorizationView;
 			sourceTree = "<group>";
 		};
 		31E630C0279C6AAD00F9B095 /* CaBTextField */ = {
@@ -482,7 +482,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */,
-				31E630BF279C687500F9B095 /* AuthorizationView.storyboard in Resources */,
 				31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */,
 				31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */,
 				31BF832727A5C9540095184C /* NavigationContainer.storyboard in Resources */,
@@ -507,6 +506,7 @@
 				31C9DF5B26FF94320031FA20 /* CaBSliderConfiguration.swift in Sources */,
 				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
+				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
 				3191929026F5321A0090C262 /* SelectableButton.swift in Sources */,
 				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,

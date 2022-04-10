@@ -10,7 +10,7 @@ public protocol Router: AnyObject {
 
 // MARK: - Implementation
 
-public class BaseRouter: Router {
+open class BaseRouter: Router {
 
     // MARK: - Public Properties
 
@@ -20,7 +20,7 @@ public class BaseRouter: Router {
 
     private let interactor: Interactor
 
-    private var isStarted: Bool = false
+    private(set) public var isStarted: Bool = false
 
     // MARK: - Init
 

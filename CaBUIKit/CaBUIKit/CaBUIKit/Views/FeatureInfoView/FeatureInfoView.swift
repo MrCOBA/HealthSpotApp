@@ -71,7 +71,7 @@ public class FeatureInfoView: UIViewController {
         let attributedTitle = NSAttributedString(string: viewModel.name,
                                                  attributes: [
                                                     .font : Constant.Fonts.title,
-                                                    .foregroundColor : colorScheme.textColor
+                                                    .foregroundColor : colorScheme.highlightPrimaryColor
                                                  ])
         titleLabel.attributedText = attributedTitle
     }
@@ -93,7 +93,7 @@ public class FeatureInfoView: UIViewController {
         let attributedString = NSAttributedString(string: listString,
                                                   attributes: [
                                                     .font : Constant.Fonts.infoTextView,
-                                                    .foregroundColor : colorScheme.textColor,
+                                                    .foregroundColor : colorScheme.highlightPrimaryColor,
                                                     .paragraphStyle : paragraph
                                                   ])
 
@@ -108,7 +108,7 @@ public class FeatureInfoView: UIViewController {
                 return
 
             case let .shown(title):
-                actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
+                actionButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
                 actionButton.setTitle(title, for: .normal)
         }
     }

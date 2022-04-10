@@ -10,7 +10,7 @@ public protocol Interactor: AnyObject {
 
 // MARK: - Implementation
 
-public class BaseInteractor: Interactor {
+open class BaseInteractor: Interactor {
 
     // MARK: - Private Properties
 

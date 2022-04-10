@@ -9,8 +9,8 @@ public final class CaBSwitchConfiguration: CaBUIConfiguration {
 
         public static func general(with colorScheme: CaBColorScheme) -> CaBSwitchConfiguration {
             return CaBSwitchConfiguration(backgroundColor: .transparentGray50Alpha,
-                                          tintColor: colorScheme.textColor,
-                                          externalColors: [colorScheme.attributesColor])
+                                          tintColor: colorScheme.attributesTertiaryColor,
+                                          externalColors: [colorScheme.successColor])
         }
 
     }

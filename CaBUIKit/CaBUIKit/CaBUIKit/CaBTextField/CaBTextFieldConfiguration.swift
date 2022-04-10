@@ -11,7 +11,7 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
         }
 
         static var borderWidth: CGFloat {
-            return 1
+            return 2
         }
 
     }
@@ -22,11 +22,11 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
 
         public static func general(with colorScheme: CaBColorScheme) -> CaBTextFieldConfiguration {
             return CaBTextFieldConfiguration(backgroundColor: .clear,
-                                             textColor: colorScheme.textColor,
-                                             borderColor: colorScheme.textColor,
+                                             textColor: colorScheme.highlightPrimaryColor,
+                                             borderColor: colorScheme.highlightPrimaryColor,
                                              cornerRadius: Constant.cornerRadius,
                                              borderWidth: Constant.borderWidth,
-                                             font: CaBFont.Comfortaa.regular(size: 16))
+                                             font: CaBFont.Comfortaa.light(size: 14))
         }
 
     }

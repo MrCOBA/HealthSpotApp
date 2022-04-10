@@ -9,14 +9,14 @@ final public class AuthorizationViewSource {
 
     // MARK: - Public Properties
 
-    public var sharedView: AuthorizationView {
+    public var sharedView: UIView {
         return view
     }
 
     // MARK: - Private Properties
 
     private let authorizationManager: AuthorizationManager
-    private let view: AuthorizationView
+    private let view: UIView
 
     // MARK: - Init
 
@@ -57,15 +57,10 @@ final public class AuthorizationViewSource {
 
     // MARK: - Private Methods
 
-    private static func makeView() -> AuthorizationView {
-        let storyboard = UIStoryboard(name: "\(AuthorizationView.self)", bundle: .uikit)
+    private static func makeView() -> UIView {
+       // TODO: Add view generating
 
-        guard let view = storyboard.instantiateViewController(withIdentifier: "\(AuthorizationView.self)") as? AuthorizationView else {
-            //TODO: Add Logs
-            return AuthorizationView()
-        }
-
-        return view
+        return UIView()
     }
 
     private func checkCredentials(data: CredentialsDataSource) {

@@ -7,7 +7,7 @@ public final class CaBTextField: UITextField, CaBUIControl {
     private enum Constants {
 
         static var contentEdgeInsets: UIEdgeInsets {
-            return .init(top: 4.0, left: 8.0, bottom: 4.0, right: 8.0)
+            return .init(top: 12.0, left: 8.0, bottom: 12.0, right: 8.0)
         }
 
     }
