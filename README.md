@@ -3,11 +3,7 @@
 ## **HealthSpot UI**
 
 ### Figma: 
-
-```html
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F6lne5Oatz988BiLXRhN6w3%2FHealth-Spot%3Fnode-id%3D0%253A1" allowfullscreen>
-</iframe>
-```
+https://www.figma.com/file/6lne5Oatz988BiLXRhN6w3/Health-Spot?node-id=0%3A1
 
 **Что же это и кому надо?**
 Все мы хотим быть здоровенькими и чтобы это было удобно я начинаю разработку небольшой экосистемы iOS - приложений для контроля этого вашего здоровья (кхе-кхе)
