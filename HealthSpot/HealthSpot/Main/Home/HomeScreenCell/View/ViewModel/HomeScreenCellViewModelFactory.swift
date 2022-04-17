@@ -1,4 +1,5 @@
 import Foundation
+import CaBSDK
 
 // MARK: - Protocol
 
@@ -69,7 +70,7 @@ final class HomeScreenCellViewModelFactoryImpl: HomeScreenCellViewModelFactory {
         let viewModel: HomeScreenCellViewModel
 
         guard let homeScreenCellPath = indexPath.toHomeScreenCellPath else {
-            // TODO: Add log
+            logWarning(message: "Failed to init homeScreenCellPath for row <\(indexPath.row)> and section <\(indexPath.section)>")
             return nil
         }
 

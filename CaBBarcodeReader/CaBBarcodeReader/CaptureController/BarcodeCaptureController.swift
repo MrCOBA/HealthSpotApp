@@ -1,4 +1,5 @@
 import AVFoundation
+import CaBSDK
 
 // MARK: - Protocol
 
@@ -48,13 +49,13 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
 
     public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject else {
-            // TODO: Add logs
+            logWarning(message: "Failed to get metadataObject from camera")
             return
         }
 
         if supportedCodeTypes.contains(metadataObject.type) {
             guard let stringValue = metadataObject.stringValue else {
-                // TODO: Add logs
+                logWarning(message: "Failed to convert metadataObject to string format")
                 return
             }
 
@@ -70,7 +71,7 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
                                                                       position: .back)
 
         guard let captureDevice = deviceDiscoverySession.devices.first else {
-            // TODO: Add logs
+            logWarning(message: "Failed to convert metadataObject to string format")
             return
         }
 
@@ -78,7 +79,7 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
             let input = try AVCaptureDeviceInput(device: captureDevice)
             captureSession.addInput(input)
         } catch {
-            // TODO: Add logs
+            logWarning(message: "An error occurred during capture session: <\(error)>")
             return
         }
 

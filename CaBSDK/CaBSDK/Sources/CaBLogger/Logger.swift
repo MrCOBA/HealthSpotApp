@@ -16,14 +16,15 @@ public func logInfo(message: String) {
     logger.info("<INFO> \(message)")
 }
 
-// MARK: - Error Log
-
-public func logError(message: String) {
-    logger.error("<ERROR> \(message)")
-}
-
 // MARK: - Warning Log
 
 public func logWarning(message: String) {
     logger.warning("<WARNING> \(message)")
+}
+
+// MARK: - Error Log
+
+public func logError(message: String) {
+    logger.error("<ERROR> \(message)")
+    assertionFailure(message)
 }

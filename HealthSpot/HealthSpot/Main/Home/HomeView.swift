@@ -1,5 +1,6 @@
 import UIKit
 import CaBUIKit
+import CaBSDK
 
 protocol HomeViewDelegate: AnyObject {
 
@@ -39,7 +40,7 @@ final class HomeView: UIViewController {
 
     private func cellModel(for indexPath: IndexPath) -> HomeScreenCellViewModel {
         guard let viewModelFactory = viewModelFactory else {
-            // TODO: Add log
+            logWarning(message: "ViewModelFactory expected to be set!")
             return .empty
         }
 
@@ -52,7 +53,7 @@ extension HomeView: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let viewModelFactory = viewModelFactory else {
-            // TODO: Add log
+            logWarning(message: "ViewModelFactory expected to be set!")
             return 0
         }
 
@@ -61,12 +62,12 @@ extension HomeView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let viewModelFactory = viewModelFactory else {
-            // TODO: Add log
+            logWarning(message: "ViewModelFactory expected to be set!")
             return 0
         }
 
         guard let section = HomeScreenCellViewModelFactoryImpl.Section(rawValue: section) else {
-            // TODO: Add log
+            logWarning(message: "There is no section with id <\(section)>")
             return 0
         }
 
@@ -76,7 +77,7 @@ extension HomeView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeScreenCell.cellIdentifier,
                                                        for: indexPath) as? HomeScreenCell else {
-            // TODO: Add log
+            logWarning(message: "Failed to dequeue reusable cell with id <\(HomeScreenCell.cellIdentifier)>")
             return UITableViewCell()
         }
 

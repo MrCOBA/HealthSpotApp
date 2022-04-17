@@ -1,4 +1,5 @@
 import UIKit
+import CaBSDK
 
 public class FeatureInfoView: UIViewController {
 
@@ -117,12 +118,12 @@ public class FeatureInfoView: UIViewController {
 
     @IBAction private func actionButtonTapped() {
         guard let eventsHandler = viewModel.eventsHandler else {
-            // TODO: Add Log
+            logWarning(message: "Eventshandler expected to be set")
             return
         }
 
         guard let featureID = viewModel.featureID else {
-            // TODO: Add Log
+            logWarning(message: "The featureID expected to be specific")
             return
         }
 

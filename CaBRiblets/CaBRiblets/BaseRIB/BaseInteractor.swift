@@ -1,3 +1,4 @@
+import CaBSDK
 
 // MARK: - Protocol
 
@@ -28,7 +29,7 @@ open class BaseInteractor: Interactor {
 
     public func start() {
         guard !isStarted else {
-            // TODO: Add Logs
+            logWarning(message: "Interactor has already started")
             return
         }
 
@@ -37,7 +38,7 @@ open class BaseInteractor: Interactor {
 
     public func stop() {
         guard isStarted else {
-            // TODO: Add Logs
+            logWarning(message: "Interactor has already started")
             return
         }
 

@@ -1,5 +1,6 @@
 import UIKit
 import CaBUIKit
+import CaBSDK
 
 class HomeScreenCell: UITableViewCell {
 
@@ -192,7 +193,7 @@ class HomeScreenCell: UITableViewCell {
 
     @IBAction private func actionButtonTapped() {
         guard let eventsHandler = viewModel.eventsHandler else {
-            // TODO: Add Log
+            logWarning(message: "Eventshandler expected to be set")
             return
         }
 

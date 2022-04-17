@@ -1,4 +1,5 @@
 import UIKit
+import CaBSDK
 
 // MARK: - Protocol
 
@@ -39,7 +40,7 @@ open class BaseRouter: Router {
 
     public func attachChild(_ child: Router) {
         guard !children.contains(where: { $0 === child }) else {
-            // TODO: Add Logs
+            logWarning(message: "This child has already attached")
             return
         }
 
@@ -49,7 +50,7 @@ open class BaseRouter: Router {
 
     public func detachChild(_ child: Router) {
         guard let index = children.firstIndex(where: { $0 === child }) else {
-            // TODO: Add Logs
+            logWarning(message: "This child has already detached")
             return
         }
 
@@ -61,7 +62,7 @@ open class BaseRouter: Router {
 
     public func start() {
         guard !isStarted else {
-            // TODO: Add Logs
+            logWarning(message: "Router has already started")
             return
         }
 
@@ -72,7 +73,7 @@ open class BaseRouter: Router {
 
     public func stop() {
         guard isStarted else {
-            // TODO: Add Logs
+            logWarning(message: "Router has already stopped")
             return
         }
 

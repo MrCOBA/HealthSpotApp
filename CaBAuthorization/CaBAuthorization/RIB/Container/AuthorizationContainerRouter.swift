@@ -1,5 +1,6 @@
 import CaBRiblets
 import CaBUIKit
+import CaBSDK
 import UIKit
 
 public enum AuthorizationResult {
@@ -68,7 +69,7 @@ final class AuthorizationContainerRouterImpl: AuthorizationContainerRouter, Base
 
     private func detachChildWithPop(_ child: ViewableRouter) {
         guard currentChild === child else {
-            // TODO: Add logs
+            logWarning(message: "There is no child to detach")
             return
         }
 
