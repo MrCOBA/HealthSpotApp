@@ -1,4 +1,5 @@
 import CaBRiblets
+import UIKit
 
 public protocol AuthorizationPresenter: AnyObject {
 
@@ -8,7 +9,7 @@ public protocol AuthorizationPresenter: AnyObject {
 
 public final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
-    weak var view: AuthorizationView?
+    weak var view: UIView?
 
     public init() {
 

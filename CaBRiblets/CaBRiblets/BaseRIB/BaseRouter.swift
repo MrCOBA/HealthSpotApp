@@ -1,3 +1,4 @@
+import UIKit
 
 // MARK: - Protocol
 
@@ -5,6 +6,12 @@ public protocol Router: AnyObject {
 
     func start()
     func stop()
+
+}
+
+public protocol ViewableRouter: Router {
+
+    var view: UIViewController { get set }
 
 }
 

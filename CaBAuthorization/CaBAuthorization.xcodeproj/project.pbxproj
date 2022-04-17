@@ -16,6 +16,9 @@
 		3133DD8327B05EC900007428 /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8127B05EC900007428 /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3133DD8527B05ED200007428 /* CaBRiblets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8427B05ED200007428 /* CaBRiblets.framework */; };
 		3133DD8627B05ED200007428 /* CaBRiblets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8427B05ED200007428 /* CaBRiblets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */; };
+		315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */; };
+		315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */; };
 		31DCB4C727D55AF50069C5D2 /* AuthorizationViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */; };
 		31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */; };
 		31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */; };
@@ -47,6 +50,9 @@
 		3133DD7D27B05EC400007428 /* CaBUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3133DD8127B05EC900007428 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3133DD8427B05ED200007428 /* CaBRiblets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBRiblets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerRouter.swift; sourceTree = "<group>"; };
+		315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerInteractor.swift; sourceTree = "<group>"; };
+		315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerBuilder.swift; sourceTree = "<group>"; };
 		31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewSource.swift; sourceTree = "<group>"; };
 		31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 				3133DD6E27B0552700007428 /* Views */,
 				3133DD6D27B0551E00007428 /* RIB */,
 				3133DD6C27B0550A00007428 /* Sources */,
+				315DBAE32803061000DCA5E4 /* Resources */,
 				3133DD5B27B054B800007428 /* CaBAuthorization.h */,
 				3133DD5C27B054B800007428 /* CaBAuthorization.docc */,
 			);
@@ -107,6 +114,7 @@
 		3133DD6D27B0551E00007428 /* RIB */ = {
 			isa = PBXGroup;
 			children = (
+				315DBAE728031CEA00DCA5E4 /* Container */,
 				31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */,
 				31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */,
 				31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */,
@@ -148,6 +156,23 @@
 				3133DD7D27B05EC400007428 /* CaBUIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		315DBAE32803061000DCA5E4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		315DBAE728031CEA00DCA5E4 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */,
+				315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */,
+				315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */,
+			);
+			path = Container;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +257,12 @@
 			files = (
 				31F1DB5A27D7CEE4002581FD /* AuthorizationPresenter.swift in Sources */,
 				3133DD7827B0593100007428 /* AuthorizationViewModel.swift in Sources */,
+				315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */,
+				315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */,
 				31DCB4C727D55AF50069C5D2 /* AuthorizationViewSource.swift in Sources */,
 				31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */,
 				3133DD5D27B054B800007428 /* CaBAuthorization.docc in Sources */,
+				315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */,
 				31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */,
 				31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */,
 			);

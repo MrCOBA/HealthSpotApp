@@ -16,6 +16,8 @@
 		3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */; };
 		3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3141320C2685E5A000BB2749 /* Assets.xcassets */; };
 		315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */; };
+		315DBAE628030BEF00DCA5E4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE528030BEF00DCA5E4 /* InputView.swift */; };
+		315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */; };
 		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
 		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
 		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -74,6 +76,8 @@
 		3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButtonConfiguration.swift; sourceTree = "<group>"; };
 		3141320C2685E5A000BB2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorScheme.swift; sourceTree = "<group>"; };
+		315DBAE528030BEF00DCA5E4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		3191928F26F5321A0090C262 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		31932CBA278309F400BCBDAA /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureInfoView.swift; sourceTree = "<group>"; };
@@ -203,6 +207,14 @@
 			path = Default;
 			sourceTree = "<group>";
 		};
+		315DBAE428030BC400DCA5E4 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				315DBAE528030BEF00DCA5E4 /* InputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
 		3191928E26F520570090C262 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +227,7 @@
 			children = (
 				310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */,
 				31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */,
+				315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -266,6 +279,7 @@
 		31A453D02786461100290D97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				315DBAE428030BC400DCA5E4 /* InputView */,
 				31A453C82786458800290D97 /* FeatureInfoView */,
 			);
 			path = Views;
@@ -512,9 +526,11 @@
 				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,
 				31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */,
 				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
+				315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */,
 				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,
 				31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */,
 				310539CA26F68DD800502C2D /* CaBSwitch.swift in Sources */,
+				315DBAE628030BEF00DCA5E4 /* InputView.swift in Sources */,
 				31FB818E26860D8100500FE1 /* UIFont+CaBUIKit.swift in Sources */,
 				31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */,
 				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
