@@ -20,6 +20,7 @@
 		315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */; };
 		315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */; };
 		31DCB4C727D55AF50069C5D2 /* AuthorizationViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */; };
+		31EB6868281216840072FD93 /* AuthorizationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EB6867281216840072FD93 /* AuthorizationView.storyboard */; };
 		31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */; };
 		31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */; };
 		31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */; };
@@ -54,6 +55,7 @@
 		315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerInteractor.swift; sourceTree = "<group>"; };
 		315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerBuilder.swift; sourceTree = "<group>"; };
 		31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewSource.swift; sourceTree = "<group>"; };
+		31EB6867281216840072FD93 /* AuthorizationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizationView.storyboard; sourceTree = "<group>"; };
 		31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationBuilder.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		315DBAE32803061000DCA5E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31EB6867281216840072FD93 /* AuthorizationView.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31EB6868281216840072FD93 /* AuthorizationView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +420,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBAuthorization";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -445,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBAuthorization";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

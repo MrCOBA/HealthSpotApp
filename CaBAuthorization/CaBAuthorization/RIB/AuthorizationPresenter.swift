@@ -1,17 +1,22 @@
 import CaBRiblets
 import UIKit
 
-public protocol AuthorizationPresenter: AnyObject {
+protocol AuthorizationPresenter: AnyObject {
 
     func update(for mode: AuthorizationViewModel.Mode)
 
 }
 
-public final class AuthorizationPresenterImpl: AuthorizationPresenter {
+final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
     weak var view: UIView?
 
-    public init() {
+    init() {
 
     }
+
+    func update(for mode: AuthorizationViewModel.Mode) {
+        <#code#>
+    }
+
 }
