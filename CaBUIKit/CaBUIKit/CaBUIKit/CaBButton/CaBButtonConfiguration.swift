@@ -28,7 +28,7 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
         }
 
         static var borderWidth: CGFloat {
-            return 2
+            return 1
         }
 
     }
@@ -37,36 +37,46 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
 
     public enum Default {
 
-        public static func primaryButton(with colorScheme: CaBColorScheme) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(backgroundColor: colorScheme.activePrimaryColor,
-                                          textColor: colorScheme.activeSecondaryColor,
-                                          borderColor: colorScheme.activeSecondaryColor,
-                                          borderWidth: Constant.borderWidth,
-                                          cornerRadius: Constant.PrimaryButton.cornerRadius,
-                                          font: CaBFont.Comfortaa.bold(size: Constant.fontSize))
+        public enum `Type` {
+            case primary
+            case secondary
+            case tertiary
         }
 
-        public static func secondaryButton(with colorScheme: CaBColorScheme) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(backgroundColor: colorScheme.activeSecondaryColor,
-                                          textColor: colorScheme.activePrimaryColor,
+        public static func button(of type: Type, with colorScheme: CaBColorScheme) -> CaBButtonConfiguration {
+            let backgroundColor: UIColor
+            switch type {
+                case .primary:
+                    backgroundColor = colorScheme.attributesPrimaryColor
+
+                case .secondary:
+                    backgroundColor = colorScheme.backgroundPrimaryColor
+
+                case .tertiary:
+                    backgroundColor = colorScheme.attributesSecondaryColor
+            }
+
+            return CaBButtonConfiguration(backgroundColor: backgroundColor,
+                                          textColor: colorScheme.highlightPrimaryColor,
+                                          borderColor: colorScheme.highlightPrimaryColor,
+                                          borderWidth: Constant.borderWidth,
                                           cornerRadius: Constant.PrimaryButton.cornerRadius,
-                                          font: CaBFont.Comfortaa.light(size: Constant.fontSize))
+                                          font: CaBFont.Comfortaa.regular(size: Constant.fontSize))
         }
-        
     }
 
     public enum Service {
 
         public static func generalButton(with colorScheme: CaBColorScheme, icon: UIImage? = nil) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(textColor: colorScheme.textColor,
+            return CaBButtonConfiguration(textColor: colorScheme.highlightPrimaryColor,
                                           cornerRadius: Constant.ServiceButton.cornerRadius,
                                           font: CaBFont.Comfortaa.light(size: Constant.fontSize),
                                           icon: icon)
         }
 
         public static func noticeButton(with colorScheme: CaBColorScheme, icon: UIImage? = nil) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(textColor: colorScheme.attributesColor,
-                                          borderColor: colorScheme.attributesColor,
+            return CaBButtonConfiguration(textColor: colorScheme.attributesPrimaryColor,
+                                          borderColor: colorScheme.attributesPrimaryColor,
                                           borderWidth: Constant.borderWidth,
                                           cornerRadius: Constant.ServiceButton.cornerRadius,
                                           font: CaBFont.Comfortaa.medium(size: Constant.fontSize),
@@ -74,9 +84,15 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
         }
 
         public static func selectableButton(with colorScheme: CaBColorScheme, icon: UIImage? = nil, isSelected: Bool = false) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(backgroundColor: isSelected ? colorScheme.activeSecondaryColor : colorScheme.activePrimaryColor,
-                                          textColor: isSelected ? colorScheme.activePrimaryColor : colorScheme.activeSecondaryColor,
-                                          borderColor: isSelected ? nil : colorScheme.activeSecondaryColor,
+            return CaBButtonConfiguration(backgroundColor: isSelected
+                                            ? colorScheme.attributesPrimaryColor
+                                            : colorScheme.backgroundPrimaryColor,
+                                          textColor: isSelected
+                                            ? colorScheme.highlightPrimaryColor
+                                            : colorScheme.attributesTertiaryColor,
+                                          borderColor: isSelected
+                                            ? colorScheme.highlightPrimaryColor
+                                            : colorScheme.attributesTertiaryColor,
                                           borderWidth: Constant.borderWidth,
                                           cornerRadius: Constant.ServiceButton.cornerRadius,
                                           font: CaBFont.Comfortaa.bold(size: Constant.fontSize),

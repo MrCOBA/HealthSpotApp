@@ -21,10 +21,10 @@ public final class CaBSliderConfiguration: CaBUIConfiguration {
     public enum Default {
 
         public static func general(with colorScheme: CaBColorScheme) -> CaBSliderConfiguration {
-            return CaBSliderConfiguration(tintColor: colorScheme.textColor,
-                                          borderColor: colorScheme.textColor,
+            return CaBSliderConfiguration(tintColor: colorScheme.highlightPrimaryColor,
+                                          borderColor: colorScheme.highlightPrimaryColor,
                                           externalColors: [
-                                            colorScheme.attributesColor,
+                                            colorScheme.attributesPrimaryColor,
                                             .transparentGray50Alpha
                                           ],
                                           cornerRadius: Constant.cornerRadius,

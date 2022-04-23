@@ -15,12 +15,17 @@
 		314131E42685DF0100BB2749 /* CaBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314131E32685DF0100BB2749 /* CaBButton.swift */; };
 		3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */; };
 		3141320D2685E5A000BB2749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3141320C2685E5A000BB2749 /* Assets.xcassets */; };
+		315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */; };
+		315DBAE628030BEF00DCA5E4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE528030BEF00DCA5E4 /* InputView.swift */; };
+		315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */; };
 		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
 		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
 		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */; };
 		31A453CE278645F200290D97 /* FeatureInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A453CD278645F200290D97 /* FeatureInfoView.xib */; };
 		31A453D22786462300290D97 /* FeatureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453D12786462300290D97 /* FeatureInfoViewModel.swift */; };
+		31BF832127A5BFD50095184C /* CaBNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BF832027A5BFD50095184C /* CaBNavigationController.swift */; };
+		31BF832727A5C9540095184C /* NavigationContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31BF832627A5C9540095184C /* NavigationContainer.storyboard */; };
 		31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5426FF880B0031FA20 /* CaBSlider.swift */; };
 		31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */; };
 		31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */; };
@@ -28,6 +33,8 @@
 		31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */; };
 		31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */; };
 		31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31CE0E4327358E610027DC06 /* CaBSliderView.xib */; };
+		31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C1279C6AFB00F9B095 /* CaBTextField.swift */; };
+		31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */; };
 		31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */; };
 		31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */; };
 		31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */; };
@@ -68,11 +75,16 @@
 		314131E32685DF0100BB2749 /* CaBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButton.swift; sourceTree = "<group>"; };
 		3141320A2685E16700BB2749 /* CaBButtonConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBButtonConfiguration.swift; sourceTree = "<group>"; };
 		3141320C2685E5A000BB2749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorScheme.swift; sourceTree = "<group>"; };
+		315DBAE528030BEF00DCA5E4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		3191928F26F5321A0090C262 /* SelectableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableButton.swift; sourceTree = "<group>"; };
 		31932CBA278309F400BCBDAA /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureInfoView.swift; sourceTree = "<group>"; };
 		31A453CD278645F200290D97 /* FeatureInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeatureInfoView.xib; sourceTree = "<group>"; };
 		31A453D12786462300290D97 /* FeatureInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureInfoViewModel.swift; sourceTree = "<group>"; };
+		31BF832027A5BFD50095184C /* CaBNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBNavigationController.swift; sourceTree = "<group>"; };
+		31BF832627A5C9540095184C /* NavigationContainer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NavigationContainer.storyboard; sourceTree = "<group>"; };
 		31C9DF5426FF880B0031FA20 /* CaBSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSlider.swift; sourceTree = "<group>"; };
 		31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIControl.swift; sourceTree = "<group>"; };
 		31C9DF5826FF89BD0031FA20 /* CaBUIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBUIConfiguration.swift; sourceTree = "<group>"; };
@@ -80,6 +92,8 @@
 		31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBUIKit.swift"; sourceTree = "<group>"; };
 		31CE0E4127358E4E0027DC06 /* CaBSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBSliderView.swift; sourceTree = "<group>"; };
 		31CE0E4327358E610027DC06 /* CaBSliderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaBSliderView.xib; sourceTree = "<group>"; };
+		31E630C1279C6AFB00F9B095 /* CaBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextField.swift; sourceTree = "<group>"; };
+		31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTextFieldConfiguration.swift; sourceTree = "<group>"; };
 		31EF64E726F3DF90008629D2 /* SunsetColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetColorScheme.swift; sourceTree = "<group>"; };
 		31EF64EA26F3E00D008629D2 /* ColdRowanColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColdRowanColorScheme.swift; sourceTree = "<group>"; };
 		31EF64ED26F3E5DE008629D2 /* SpringLilacsColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringLilacsColorScheme.swift; sourceTree = "<group>"; };
@@ -119,6 +133,7 @@
 		310833EB26B843F700EC8532 /* ColorScheme */ = {
 			isa = PBXGroup;
 			children = (
+				315DBAE02802EA8300DCA5E4 /* Default */,
 				31EF64EF26F3E62B008629D2 /* Cappuccino */,
 				31EF64E926F3DFF1008629D2 /* ColdRowan */,
 				31EF64EC26F3E5AE008629D2 /* SpringLilacs */,
@@ -160,9 +175,11 @@
 			children = (
 				3191929326F5C8080090C262 /* Extensions */,
 				31A453D02786461100290D97 /* Views */,
+				31E630C0279C6AAD00F9B095 /* CaBTextField */,
 				31C9DF5326FF87F60031FA20 /* CaBSlider */,
 				314131E22685DEC200BB2749 /* CaBButton */,
 				310539C826F61ECC00502C2D /* CaBSwitch */,
+				31BF831F27A5BF5F0095184C /* CaBNavigationController */,
 				31A453C92786459A00290D97 /* Resources */,
 				3191929426F5C82C0090C262 /* Sources */,
 				31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */,
@@ -182,6 +199,22 @@
 			path = CaBButton;
 			sourceTree = "<group>";
 		};
+		315DBAE02802EA8300DCA5E4 /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				315DBAE12802EA9E00DCA5E4 /* DefaultColorScheme.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		315DBAE428030BC400DCA5E4 /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				315DBAE528030BEF00DCA5E4 /* InputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
 		3191928E26F520570090C262 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +227,7 @@
 			children = (
 				310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */,
 				31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */,
+				315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -228,6 +262,7 @@
 		31A453C92786459A00290D97 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31BF832227A5C8720095184C /* NavigationContainer */,
 				31A453CA278645A400290D97 /* FeatureInfoView */,
 			);
 			path = Resources;
@@ -244,9 +279,26 @@
 		31A453D02786461100290D97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				315DBAE428030BC400DCA5E4 /* InputView */,
 				31A453C82786458800290D97 /* FeatureInfoView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		31BF831F27A5BF5F0095184C /* CaBNavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				31BF832027A5BFD50095184C /* CaBNavigationController.swift */,
+			);
+			path = CaBNavigationController;
+			sourceTree = "<group>";
+		};
+		31BF832227A5C8720095184C /* NavigationContainer */ = {
+			isa = PBXGroup;
+			children = (
+				31BF832627A5C9540095184C /* NavigationContainer.storyboard */,
+			);
+			path = NavigationContainer;
 			sourceTree = "<group>";
 		};
 		31C9DF5326FF87F60031FA20 /* CaBSlider */ = {
@@ -266,6 +318,15 @@
 				31CE0E4327358E610027DC06 /* CaBSliderView.xib */,
 			);
 			path = CaBSliderView;
+			sourceTree = "<group>";
+		};
+		31E630C0279C6AAD00F9B095 /* CaBTextField */ = {
+			isa = PBXGroup;
+			children = (
+				31E630C1279C6AFB00F9B095 /* CaBTextField.swift */,
+				31E630C3279C6CB500F9B095 /* CaBTextFieldConfiguration.swift */,
+			);
+			path = CaBTextField;
 			sourceTree = "<group>";
 		};
 		31EF64E626F3DF7A008629D2 /* Sunset */ = {
@@ -437,6 +498,7 @@
 				31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */,
 				31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */,
 				31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */,
+				31BF832727A5C9540095184C /* NavigationContainer.storyboard in Resources */,
 				31A453CE278645F200290D97 /* FeatureInfoView.xib in Resources */,
 				31FB818B268609E600500FE1 /* Comfortaa-Bold.ttf in Resources */,
 				31CE0E4427358E610027DC06 /* CaBSliderView.xib in Resources */,
@@ -458,21 +520,27 @@
 				31C9DF5B26FF94320031FA20 /* CaBSliderConfiguration.swift in Sources */,
 				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
+				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
 				3191929026F5321A0090C262 /* SelectableButton.swift in Sources */,
+				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,
 				31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */,
 				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
+				315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */,
 				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,
 				31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */,
 				310539CA26F68DD800502C2D /* CaBSwitch.swift in Sources */,
+				315DBAE628030BEF00DCA5E4 /* InputView.swift in Sources */,
 				31FB818E26860D8100500FE1 /* UIFont+CaBUIKit.swift in Sources */,
 				31C9DF5D26FF9C140031FA20 /* UIImage+CaBUIKit.swift in Sources */,
 				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
 				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
+				31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */,
 				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
 				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,
 				3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */,
 				31A453D22786462300290D97 /* FeatureInfoViewModel.swift in Sources */,
+				31BF832127A5BFD50095184C /* CaBNavigationController.swift in Sources */,
 				31EF64EE26F3E5DE008629D2 /* SpringLilacsColorScheme.swift in Sources */,
 				31C9DF5926FF89BD0031FA20 /* CaBUIConfiguration.swift in Sources */,
 			);

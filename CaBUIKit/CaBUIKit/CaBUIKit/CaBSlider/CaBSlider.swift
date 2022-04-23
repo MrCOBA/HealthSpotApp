@@ -1,5 +1,7 @@
 import UIKit
 
+// TODO: Need modification with label
+
 public class CaBSlider: UISlider, CaBUIControl {
 
     @IBOutlet weak var sliderValueLabel: UILabel!

@@ -1,5 +1,6 @@
 import UIKit
 import CaBUIKit
+import CaBSDK
 
 class HomeScreenCell: UITableViewCell {
 
@@ -113,7 +114,7 @@ class HomeScreenCell: UITableViewCell {
         let attributedTitle = NSAttributedString(string: viewModel.title,
                                                  attributes: [
                                                     .font : Constant.Fonts.firstLevel,
-                                                    .foregroundColor : colorScheme.textColor
+                                                    .foregroundColor : colorScheme.highlightPrimaryColor
                                                  ])
         titleLabel.attributedText = attributedTitle
     }
@@ -128,7 +129,7 @@ class HomeScreenCell: UITableViewCell {
         let attributedSubtitle = NSAttributedString(string: subtitle,
                                                     attributes: [
                                                         .font : Constant.Fonts.thirdLevel,
-                                                        .foregroundColor : colorScheme.textColor
+                                                        .foregroundColor : colorScheme.highlightPrimaryColor
                                                     ])
         subtitleLabel.attributedText = attributedSubtitle
     }
@@ -143,7 +144,7 @@ class HomeScreenCell: UITableViewCell {
         let attributedDescription = NSAttributedString(string: description,
                                                        attributes: [
                                                         .font : Constant.Fonts.secondLevel,
-                                                        .foregroundColor : colorScheme.textColor
+                                                        .foregroundColor : colorScheme.highlightPrimaryColor
                                                        ])
         descriptionTextView.attributedText = attributedDescription
 
@@ -160,7 +161,7 @@ class HomeScreenCell: UITableViewCell {
         let attributedHint = NSAttributedString(string: hint,
                                                 attributes: [
                                                     .font : Constant.Fonts.thirdLevel,
-                                                    .foregroundColor : colorScheme.textColor
+                                                    .foregroundColor : colorScheme.highlightPrimaryColor
                                                 ])
         actionHintLabel.attributedText = attributedHint
     }
@@ -182,7 +183,7 @@ class HomeScreenCell: UITableViewCell {
     private func configureShadow() {
         let containerLayer = containerView.layer
 
-        containerLayer.shadowColor = colorScheme.textColor.cgColor
+        containerLayer.shadowColor = colorScheme.highlightPrimaryColor.cgColor
         containerLayer.shadowRadius = Constant.Shadow.radius
         containerLayer.shadowOpacity = Constant.Shadow.opacity
         containerLayer.shadowOffset = .zero
@@ -192,7 +193,7 @@ class HomeScreenCell: UITableViewCell {
 
     @IBAction private func actionButtonTapped() {
         guard let eventsHandler = viewModel.eventsHandler else {
-            // TODO: Add Log
+            logWarning(message: "Eventshandler expected to be set")
             return
         }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */; };
+		31A806C827D54DB10021215E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A806C727D54DB10021215E /* Logger.swift */; };
 		31E630A9279C50D000F9B095 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630A8279C50D000F9B095 /* FirebaseAnalytics */; };
 		31E630AB279C50D000F9B095 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630AA279C50D000F9B095 /* FirebaseAuth */; };
 		31E630AD279C50D000F9B095 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630AC279C50D000F9B095 /* FirebaseDatabase */; };
@@ -16,17 +18,23 @@
 		31E630B5279C50D000F9B095 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630B4279C50D000F9B095 /* FirebaseStorage */; };
 		31E630B7279C514200F9B095 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630B6279C514200F9B095 /* RootServices.swift */; };
 		31E630B9279C54AB00F9B095 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */; };
+		31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630CA279D746A00F9B095 /* AutorizationManager.swift */; };
+		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		31FB81AA2686151000500FE1 /* Bundle+CaBFrameworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */; };
+		31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CaBSDK.swift"; sourceTree = "<group>"; };
+		31A806C727D54DB10021215E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		31E630B6279C514200F9B095 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		31E630CA279D746A00F9B095 /* AutorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
+		31EB6861280F11510072FD93 /* FileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWriter.swift; sourceTree = "<group>"; };
 		31FB819D268614E900500FE1 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBFrameworks.swift"; sourceTree = "<group>"; };
+		31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBSDK.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31A806C627D54D6F0021215E /* CaBLogger */ = {
+			isa = PBXGroup;
+			children = (
+				31A806C727D54DB10021215E /* Logger.swift */,
+				31EB6861280F11510072FD93 /* FileWriter.swift */,
+			);
+			path = CaBLogger;
+			sourceTree = "<group>";
+		};
+		31E630C8279D743500F9B095 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */,
+				31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		31E630C9279D744600F9B095 /* AuthorizationManager */ = {
+			isa = PBXGroup;
+			children = (
+				31E630CA279D746A00F9B095 /* AutorizationManager.swift */,
+			);
+			path = AuthorizationManager;
+			sourceTree = "<group>";
+		};
 		31FB8193268614E900500FE1 = {
 			isa = PBXGroup;
 			children = (
@@ -77,7 +111,9 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				31FB81A92686151000500FE1 /* Bundle+CaBFrameworks.swift */,
+				31A806C627D54D6F0021215E /* CaBLogger */,
+				31E630C9279D744600F9B095 /* AuthorizationManager */,
+				31E630C8279D743500F9B095 /* Extensions */,
 				31E630B6279C514200F9B095 /* RootServices.swift */,
 			);
 			path = Sources;
@@ -175,8 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31FB81AA2686151000500FE1 /* Bundle+CaBFrameworks.swift in Sources */,
+				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
+				31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */,
+				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
+				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
+				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

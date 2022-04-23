@@ -5,6 +5,7 @@ public protocol FeatureInfoViewEventsHandler: AnyObject {
 }
 
 public struct FeatureInfoViewModel: Equatable {
+    
     public enum ActionButtonState: Equatable {
         case shown(title: String)
         case hidden
