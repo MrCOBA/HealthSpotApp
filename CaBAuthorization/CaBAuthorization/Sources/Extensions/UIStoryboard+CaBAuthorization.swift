@@ -39,7 +39,7 @@ extension UIStoryboard.AuthorizationInfoView {
         return .authorization
     }
 
-    static func instantiateAuthorizationInfoViewController() -> UIViewController {
+    static func instantiateAuthorizationInfoViewController() -> AuthorizationInfoViewImpl {
         return instantiateViewController(withIdentifier: "AuthorizationInfoViewImpl")
     }
 

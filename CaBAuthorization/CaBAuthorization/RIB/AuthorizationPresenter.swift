@@ -1,4 +1,5 @@
 import CaBRiblets
+import CaBSDK
 import UIKit
 
 protocol AuthorizationPresenter: AnyObject {
@@ -10,9 +11,11 @@ protocol AuthorizationPresenter: AnyObject {
 final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
     weak var view: AuthorizationView?
+    private weak var interactor: AuthorizationInteractor?
 
-    init(view: AuthorizationView) {
+    init(view: AuthorizationView, interactor: AuthorizationInteractor?) {
         self.view = view
+        self.interactor = interactor
     }
 
     func update(for mode: AuthorizationViewModel.Mode) {
@@ -76,20 +79,41 @@ final class AuthorizationPresenterImpl: AuthorizationPresenter {
                      eventsHandler: self)
     }
 
+    private func checkIfInteractorSet() {
+        guard interactor != nil else {
+            logError(message: "Interactor expected to be set")
+            return
+        }
+    }
+
 }
 
 extension AuthorizationPresenterImpl: AutorizationEventsHandler {
 
     func mainActionButtonTap(for mode: AuthorizationViewModel.Mode, with credentials: [Int: String]) {
+        checkIfInteractorSet()
 
+        switch mode {
+        case .signIn:
+            interactor?.signIn(with: credentials)
+
+        case .signUp,
+             .infoFailure:
+            interactor?.signUp(with: credentials)
+
+        case .infoSuccess:
+            interactor?.completeAuthorization()
+        }
     }
 
     func additionalActionButtonTap(for mode: AuthorizationViewModel.Mode) {
-
+        checkIfInteractorSet()
+        interactor?.showSignUpScreen()
     }
 
     func backButtonTap() {
-
+        checkIfInteractorSet()
+        interactor?.returnBack()
     }
 
 }

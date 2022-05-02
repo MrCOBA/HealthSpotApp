@@ -9,30 +9,32 @@ public final class AuthorizationBuilder: Builder {
     }
 
     public func build(mode: AuthorizationViewModel.Mode) -> ViewableRouter {
+        let view: AuthorizationView
+
         switch mode {
         case .signIn,
              .signUp:
-            return buildAuthorizationView(mode: mode)
+            view = AuthorizationViewImpl.makeView()
 
         case .infoSuccess,
              .infoFailure:
-            fatalError("Unexpected authorization mode: <\(mode)>")
+            view = AuthorizationInfoViewImpl.makeView()
         }
-
-    }
-
-    private func buildAuthorizationView(mode: AuthorizationViewModel.Mode) -> ViewableRouter {
-        let view = AuthorizationViewImpl.makeView()
 
         let presenter = AuthorizationPresenterImpl(view: view)
 
-        let authorizationManager = AuthorizationManagerImpl()
-        let interactor = AuthorizationInteractorImpl(mode: mode, authorizationManager: authorizationManager, listener: listener)
+        let storage = AuthorithationCredentialsTemporaryStorageImpl()
+        let authorizationManager = AuthorizationManagerImpl(temporaryCredentialsStorage: storage)
+
+        let interactor = AuthorizationInteractorImpl(mode: mode,
+                                                     authorizationManager: authorizationManager,
+                                                     temporaryCredentialsStorage: storage,
+                                                     listener: listener)
         interactor.presenter = presenter
 
         let router = AuthorizationRouter(view: view, interactor: interactor)
 
         return router
     }
-
+    
 }
