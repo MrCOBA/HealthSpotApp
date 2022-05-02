@@ -47,7 +47,15 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
     }
 
     public func attachInfoScreen(with result: AuthorizationResult) {
-
+        let router: ViewableRouter
+        switch result {
+        case .success:
+            router = AuthorizationBuilder(listener: interactor).build(mode: .infoSuccess)
+            attachChildWithEmbed(router)
+        case .failure:
+            router = AuthorizationBuilder(listener: interactor).build(mode: .infoFailure)
+            attachChildWithPush(router)
+        }
     }
 
     // MARK: - Private Methods

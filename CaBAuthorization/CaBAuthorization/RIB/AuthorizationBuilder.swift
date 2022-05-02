@@ -21,8 +21,6 @@ public final class AuthorizationBuilder: Builder {
             view = AuthorizationInfoViewImpl.makeView()
         }
 
-        let presenter = AuthorizationPresenterImpl(view: view)
-
         let storage = AuthorithationCredentialsTemporaryStorageImpl()
         let authorizationManager = AuthorizationManagerImpl(temporaryCredentialsStorage: storage)
 
@@ -30,6 +28,8 @@ public final class AuthorizationBuilder: Builder {
                                                      authorizationManager: authorizationManager,
                                                      temporaryCredentialsStorage: storage,
                                                      listener: listener)
+        let presenter = AuthorizationPresenterImpl(view: view, interactor: interactor)
+        
         interactor.presenter = presenter
 
         let router = AuthorizationRouter(view: view, interactor: interactor)

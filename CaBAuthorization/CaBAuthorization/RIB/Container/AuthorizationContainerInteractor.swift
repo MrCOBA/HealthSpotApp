@@ -15,11 +15,12 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 extension AuthorizationContainerInteractor: AuthorizationListener {
 
     public func showSignUpScreen() {
-        <#code#>
     }
 
     public func returnBack() {
-        <#code#>
+    }
+
+    public func completeAuthorization() {
     }
 
 }
