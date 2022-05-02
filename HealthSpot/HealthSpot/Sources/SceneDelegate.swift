@@ -2,6 +2,7 @@ import UIKit
 import CaBUIKit
 import CaBAuthorization
 import CaBSDK
+import CaBBarcodeReader
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -14,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        let initialViewController = makeAuthorizationView()
+        let initialViewController = makeBarcodeReaderView()
         let navigationViewController = CaBNavigationController(rootViewController: initialViewController)
 
         window.rootViewController = navigationViewController
@@ -51,13 +52,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
-    private func makeAuthorizationView() -> UIViewController {
-        let authorizationViewSource = AuthorizationViewSource(authorizationManager: rootServices.autorizationManager)
+//    private func makeAuthorizationView() -> UIViewController {
+//        let authorizationViewSource = AuthorizationViewSource(authorizationManager: rootServices.autorizationManager)
+//
+//        let viewModel = authorizationViewSource.makeViewModel(for: .signIn)
+//        authorizationViewSource.sharedView.viewModel = viewModel
+//
+//        return authorizationViewSource.sharedView
+//    }
 
-        let viewModel = authorizationViewSource.makeViewModel(for: .signIn)
-        authorizationViewSource.sharedView.viewModel = viewModel
+    private func makeBarcodeReaderView() -> UIViewController {
+        let storyboard = UIStoryboard(name: "BarcodeReaderView", bundle: .barcodeReader)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DemoBarcodeViewController")
 
-        return authorizationViewSource.sharedView
+        return controller
     }
 
 }

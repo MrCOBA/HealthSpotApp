@@ -1,5 +1,13 @@
 import UIKit
 
+// MARK: - Delegate
+
+public protocol InputViewDelegate: AnyObject {
+
+    func didEndEditingText(for id: Int, with text: String?)
+
+}
+
 public class InputView: UIView {
 
     // MARK: - Private Types
@@ -15,6 +23,11 @@ public class InputView: UIView {
         }
 
     }
+
+    // MARK: - Public Properties
+
+    public let id: Int
+    public var delegate: InputViewDelegate?
 
     // MARK: - Private Properties
 
@@ -33,7 +46,8 @@ public class InputView: UIView {
 
     // MARK: - Init
 
-    public init(frame: CGRect, configuration: CaBTextFieldConfiguration, icon: UIImage? = nil) {
+    public init(frame: CGRect, id: Int, configuration: CaBTextFieldConfiguration, icon: UIImage? = nil) {
+        self.id = id
         self.configuration = configuration
         self.icon = icon
         super.init(frame: frame)
@@ -68,6 +82,7 @@ public class InputView: UIView {
     private func configureTextField() -> UITextField {
         let textField = CaBTextField()
         textField.apply(configuration: configuration)
+        textField.delegate = self
         return textField
     }
 
@@ -86,6 +101,21 @@ public class InputView: UIView {
         imageView.image = icon
 
         return imageView
+    }
+
+}
+
+// MARK: - Protocol UITextFieldDelegate
+
+extension InputView: UITextFieldDelegate {
+
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        delegate?.didEndEditingText(for: id, with: textField.text)
+    }
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        endEditing(true)
+        return false
     }
 
 }

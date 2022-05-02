@@ -48,6 +48,7 @@
 		31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */; };
 		31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */; };
 		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
+		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -107,6 +108,7 @@
 		31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BadScript-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
+		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +230,7 @@
 				310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */,
 				31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */,
 				315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */,
+				FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				31EF64F126F3E661008629D2 /* CappuccinoColorScheme.swift in Sources */,
 				31C9DF5B26FF94320031FA20 /* CaBSliderConfiguration.swift in Sources */,
 				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
+				FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
 				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
@@ -683,6 +687,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CaBUIKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -691,6 +696,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -709,6 +715,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CaBUIKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -717,6 +724,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

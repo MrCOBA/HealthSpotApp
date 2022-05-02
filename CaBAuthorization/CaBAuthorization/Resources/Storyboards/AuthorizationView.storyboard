@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,10 +20,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Authorization View Impl-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AuthorizationView" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorizationViewImpl" id="Y6W-OH-hqX" customClass="AuthorizationViewImpl" customModule="CaBAuthorization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="PrimaryButton"/>
+                                        <connections>
+                                            <action selector="mainActionButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="GM4-kI-O3K"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WVt-b6-sdq" customClass="CaBButton" customModule="CaBUIKit">
                                         <rect key="frame" x="0.0" y="58" width="382" height="42"/>
@@ -52,6 +55,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="SecondaryButton"/>
+                                        <connections>
+                                            <action selector="additionalActionButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="n0H-cc-iVp"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -126,20 +132,29 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="9e9-aC-3KH" id="j3I-jf-hcp"/>
+                        <outlet property="additionalActionButton" destination="WVt-b6-sdq" id="W6F-ym-Xm7"/>
+                        <outlet property="backButton" destination="7HA-qV-Pfb" id="zDK-52-4DI"/>
+                        <outlet property="hintLabel" destination="IKv-WM-jey" id="34a-cD-Bgm"/>
+                        <outlet property="inputStackView" destination="Nzz-ng-7eF" id="7Ke-v3-84Y"/>
+                        <outlet property="subtitleLabel" destination="iIA-md-JVC" id="7OS-Nj-uB8"/>
+                        <outlet property="titleLabel" destination="aB4-0T-YyB" id="zEb-2G-eF9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="16" y="8"/>
         </scene>
-        <!--View Controller-->
+        <!--Authorization Info View Impl-->
         <scene sceneID="Sim-Eg-MrZ">
             <objects>
-                <viewController storyboardIdentifier="AuthorizationInfoView" id="sO7-eJ-kcW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorizationInfoViewImpl" id="sO7-eJ-kcW" customClass="AuthorizationInfoViewImpl" customModule="CaBAuthorization" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qzy-tg-m20">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vs2-WJ-DDO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vs2-WJ-DDO" customClass="CaBButton" customModule="CaBUIKit">
                                 <rect key="frame" x="16" y="788" width="382" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="uuy-rw-7sZ"/>
@@ -156,13 +171,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jwc-la-8Ij">
                                 <rect key="frame" x="16" y="564" width="382" height="51"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUZ-Pf-yd3">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUZ-Pf-yd3">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="27"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qf-s3-k9g">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qf-s3-k9g">
                                         <rect key="frame" x="0.0" y="35" width="382" height="16"/>
                                         <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -202,6 +217,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="vs2-WJ-DDO" id="cDO-zM-SKy"/>
+                        <outlet property="backButton" destination="2hc-ab-ZYH" id="cMN-hy-DpY"/>
+                        <outlet property="hintLabel" destination="8qf-s3-k9g" id="hR3-rk-NOI"/>
+                        <outlet property="infoImageView" destination="ZgY-hN-lGZ" id="q5W-ks-x1n"/>
+                        <outlet property="titleLabel" destination="iUZ-Pf-yd3" id="cay-Sc-SwW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5F5-ww-H8n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,6 +239,9 @@
         </designable>
         <designable name="9e9-aC-3KH">
             <size key="intrinsicContentSize" width="99" height="30"/>
+        </designable>
+        <designable name="WVt-b6-sdq">
+            <size key="intrinsicContentSize" width="120" height="30"/>
         </designable>
     </designables>
     <resources>

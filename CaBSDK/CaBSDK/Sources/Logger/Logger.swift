@@ -7,7 +7,7 @@ private let logger = Logger()
 // MARK: - Default Log
 
 public func log(message: String) {
-    logger.log(message)
+    logger.log("\(message)")
 }
 
 // MARK: - Info Log

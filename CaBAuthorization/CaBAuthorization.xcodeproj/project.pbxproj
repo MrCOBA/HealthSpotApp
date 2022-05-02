@@ -19,12 +19,26 @@
 		315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */; };
 		315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */; };
 		315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */; };
-		31DCB4C727D55AF50069C5D2 /* AuthorizationViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */; };
 		31EB6868281216840072FD93 /* AuthorizationView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31EB6867281216840072FD93 /* AuthorizationView.storyboard */; };
 		31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */; };
 		31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */; };
 		31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */; };
 		31F1DB5A27D7CEE4002581FD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5927D7CEE4002581FD /* AuthorizationPresenter.swift */; };
+		FD9B8806281428AC0081A1AB /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B8805281428AC0081A1AB /* AuthorizationView.swift */; };
+		FDA3C0D9281FC957008CDDDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA3C0D8281FC957008CDDDF /* Assets.xcassets */; };
+		FDA3C0DD281FCB47008CDDDF /* UIImage+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C0DC281FCB47008CDDDF /* UIImage+CaBAuthorization.swift */; };
+		FDA3C13028201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12F28201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift */; };
+		FDA3C1322820210C008CDDDF /* UserDefaults+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1312820210C008CDDDF /* UserDefaults+CaBAuthorization.swift */; };
+		FDA3C13928202A63008CDDDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDA3C13828202A63008CDDDF /* GoogleService-Info.plist */; };
+		FDA3C13C28202B0F008CDDDF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C13B28202B0F008CDDDF /* FirebaseAnalytics */; };
+		FDA3C13E28202B0F008CDDDF /* FirebaseAnalyticsSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C13D28202B0F008CDDDF /* FirebaseAnalyticsSwift-Beta */; };
+		FDA3C14028202B0F008CDDDF /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C13F28202B0F008CDDDF /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		FDA3C14228202B0F008CDDDF /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C14128202B0F008CDDDF /* FirebaseAuth */; };
+		FDA3C14428202B0F008CDDDF /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C14328202B0F008CDDDF /* FirebaseAuthCombine-Community */; };
+		FDA3C14628202B0F008CDDDF /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = FDA3C14528202B0F008CDDDF /* FirebaseFunctions */; };
+		FDA3C14D28202F29008CDDDF /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */; };
+		FDA3C19528204676008CDDDF /* UIStoryboard+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */; };
+		FDA3C19928207F24008CDDDF /* AuthorizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,12 +68,20 @@
 		315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerRouter.swift; sourceTree = "<group>"; };
 		315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerInteractor.swift; sourceTree = "<group>"; };
 		315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationContainerBuilder.swift; sourceTree = "<group>"; };
-		31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewSource.swift; sourceTree = "<group>"; };
 		31EB6867281216840072FD93 /* AuthorizationView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthorizationView.storyboard; sourceTree = "<group>"; };
 		31F1DB5327D7C7B4002581FD /* AuthorizationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRouter.swift; sourceTree = "<group>"; };
 		31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationBuilder.swift; sourceTree = "<group>"; };
 		31F1DB5927D7CEE4002581FD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		FD9B8805281428AC0081A1AB /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		FDA3C0D8281FC957008CDDDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDA3C0DC281FCB47008CDDDF /* UIImage+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBAuthorization.swift"; sourceTree = "<group>"; };
+		FDA3C12F28201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorithationCredentialsTemporaryStorage.swift; sourceTree = "<group>"; };
+		FDA3C1312820210C008CDDDF /* UserDefaults+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBAuthorization.swift"; sourceTree = "<group>"; };
+		FDA3C13828202A63008CDDDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
+		FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBAuthorization.swift"; sourceTree = "<group>"; };
+		FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +89,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA3C13E28202B0F008CDDDF /* FirebaseAnalyticsSwift-Beta in Frameworks */,
+				FDA3C14028202B0F008CDDDF /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				3133DD8227B05EC900007428 /* CaBSDK.framework in Frameworks */,
+				FDA3C14628202B0F008CDDDF /* FirebaseFunctions in Frameworks */,
 				3133DD8527B05ED200007428 /* CaBRiblets.framework in Frameworks */,
+				FDA3C13C28202B0F008CDDDF /* FirebaseAnalytics in Frameworks */,
+				FDA3C14228202B0F008CDDDF /* FirebaseAuth in Frameworks */,
 				3133DD7E27B05EC400007428 /* CaBUIKit.framework in Frameworks */,
+				FDA3C14428202B0F008CDDDF /* FirebaseAuthCombine-Community in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +129,7 @@
 				3133DD6C27B0550A00007428 /* Sources */,
 				315DBAE32803061000DCA5E4 /* Resources */,
 				3133DD5B27B054B800007428 /* CaBAuthorization.h */,
+				FDA3C13828202A63008CDDDF /* GoogleService-Info.plist */,
 				3133DD5C27B054B800007428 /* CaBAuthorization.docc */,
 			);
 			path = CaBAuthorization;
@@ -109,6 +138,9 @@
 		3133DD6C27B0550A00007428 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDA3C14728202E94008CDDDF /* AuthorizationManager */,
+				FDA3C12E28201F7F008CDDDF /* CredentialsStorage */,
+				FDA3C0DB281FCB2C008CDDDF /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -137,7 +169,8 @@
 			isa = PBXGroup;
 			children = (
 				3133DD7427B0593100007428 /* ViewModel */,
-				31DCB4C627D55AF50069C5D2 /* AuthorizationViewSource.swift */,
+				FD9B8805281428AC0081A1AB /* AuthorizationView.swift */,
+				FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */,
 			);
 			path = AuthorizationView;
 			sourceTree = "<group>";
@@ -163,7 +196,8 @@
 		315DBAE32803061000DCA5E4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31EB6867281216840072FD93 /* AuthorizationView.storyboard */,
+				FDA3C0DA281FC965008CDDDF /* Storyboards */,
+				FDA3C0D8281FC957008CDDDF /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -176,6 +210,41 @@
 				315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */,
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
+		FDA3C0DA281FC965008CDDDF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				31EB6867281216840072FD93 /* AuthorizationView.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FDA3C0DB281FCB2C008CDDDF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C0DC281FCB47008CDDDF /* UIImage+CaBAuthorization.swift */,
+				FDA3C1312820210C008CDDDF /* UserDefaults+CaBAuthorization.swift */,
+				FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDA3C12E28201F7F008CDDDF /* CredentialsStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C12F28201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift */,
+			);
+			path = CredentialsStorage;
+			sourceTree = "<group>";
+		};
+		FDA3C14728202E94008CDDDF /* AuthorizationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */,
+			);
+			name = AuthorizationManager;
+			path = ../../../CaBSDK/CaBSDK/Sources/AuthorizationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +276,14 @@
 			dependencies = (
 			);
 			name = CaBAuthorization;
+			packageProductDependencies = (
+				FDA3C13B28202B0F008CDDDF /* FirebaseAnalytics */,
+				FDA3C13D28202B0F008CDDDF /* FirebaseAnalyticsSwift-Beta */,
+				FDA3C13F28202B0F008CDDDF /* FirebaseAnalyticsWithoutAdIdSupport */,
+				FDA3C14128202B0F008CDDDF /* FirebaseAuth */,
+				FDA3C14328202B0F008CDDDF /* FirebaseAuthCombine-Community */,
+				FDA3C14528202B0F008CDDDF /* FirebaseFunctions */,
+			);
 			productName = CaBAuthorization;
 			productReference = 3133DD5827B054B800007428 /* CaBAuthorization.framework */;
 			productType = "com.apple.product-type.framework";
@@ -234,6 +311,9 @@
 				Base,
 			);
 			mainGroup = 3133DD4E27B054B800007428;
+			packageReferences = (
+				FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3133DD5927B054B800007428 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,7 +328,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA3C0D9281FC957008CDDDF /* Assets.xcassets in Resources */,
 				31EB6868281216840072FD93 /* AuthorizationView.storyboard in Resources */,
+				FDA3C13928202A63008CDDDF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,13 +344,19 @@
 				31F1DB5A27D7CEE4002581FD /* AuthorizationPresenter.swift in Sources */,
 				3133DD7827B0593100007428 /* AuthorizationViewModel.swift in Sources */,
 				315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */,
+				FDA3C13028201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift in Sources */,
 				315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */,
-				31DCB4C727D55AF50069C5D2 /* AuthorizationViewSource.swift in Sources */,
 				31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */,
 				3133DD5D27B054B800007428 /* CaBAuthorization.docc in Sources */,
+				FDA3C1322820210C008CDDDF /* UserDefaults+CaBAuthorization.swift in Sources */,
+				FDA3C14D28202F29008CDDDF /* AutorizationManager.swift in Sources */,
+				FDA3C0DD281FCB47008CDDDF /* UIImage+CaBAuthorization.swift in Sources */,
+				FDA3C19528204676008CDDDF /* UIStoryboard+CaBAuthorization.swift in Sources */,
 				315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */,
 				31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */,
 				31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */,
+				FDA3C19928207F24008CDDDF /* AuthorizationInfoView.swift in Sources */,
+				FD9B8806281428AC0081A1AB /* AuthorizationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,14 +498,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBAuthorization";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -440,14 +528,14 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBAuthorization";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBAuthorization;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -479,6 +567,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDA3C13B28202B0F008CDDDF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		FDA3C13D28202B0F008CDDDF /* FirebaseAnalyticsSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAnalyticsSwift-Beta";
+		};
+		FDA3C13F28202B0F008CDDDF /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		FDA3C14128202B0F008CDDDF /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FDA3C14328202B0F008CDDDF /* FirebaseAuthCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseAuthCombine-Community";
+		};
+		FDA3C14528202B0F008CDDDF /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDA3C13A28202B0F008CDDDF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3133DD4F27B054B800007428 /* Project object */;
 }

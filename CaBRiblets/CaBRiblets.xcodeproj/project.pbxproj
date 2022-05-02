@@ -12,7 +12,23 @@
 		3133DD4027A9A98400007428 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD3F27A9A98400007428 /* BaseRouter.swift */; };
 		3133DD4227A9AAC000007428 /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD4127A9AAC000007428 /* BaseInteractor.swift */; };
 		3133DD4427A9AC2900007428 /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD4327A9AC2900007428 /* BaseBuilder.swift */; };
+		FD9B88952814B24A0081A1AB /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9B88942814B24A0081A1AB /* CaBSDK.framework */; };
+		FD9B88962814B24A0081A1AB /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD9B88942814B24A0081A1AB /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD9B88972814B24A0081A1AB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FD9B88962814B24A0081A1AB /* CaBSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3133DD1D27A9A8AA00007428 /* CaBRiblets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBRiblets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +37,7 @@
 		3133DD3F27A9A98400007428 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		3133DD4127A9AAC000007428 /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		3133DD4327A9AC2900007428 /* BaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
+		FD9B88942814B24A0081A1AB /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD9B88952814B24A0081A1AB /* CaBSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +57,7 @@
 			children = (
 				3133DD1F27A9A8AA00007428 /* CaBRiblets */,
 				3133DD1E27A9A8AA00007428 /* Products */,
+				FD9B88932814B24A0081A1AB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +89,14 @@
 			path = BaseRIB;
 			sourceTree = "<group>";
 		};
+		FD9B88932814B24A0081A1AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD9B88942814B24A0081A1AB /* CaBSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -92,6 +119,7 @@
 				3133DD1927A9A8AA00007428 /* Sources */,
 				3133DD1A27A9A8AA00007428 /* Frameworks */,
 				3133DD1B27A9A8AA00007428 /* Resources */,
+				FD9B88972814B24A0081A1AB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -294,6 +322,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBRiblets";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,6 +352,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBRiblets";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

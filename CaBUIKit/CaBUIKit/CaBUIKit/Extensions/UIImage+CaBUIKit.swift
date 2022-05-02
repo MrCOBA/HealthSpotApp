@@ -22,20 +22,4 @@ extension UIImage {
 
     }
 
-    public enum Autorization {
-
-        public static var user: UIImage {
-            return UIImage(named: "user",
-                           in: .uikit,
-                           compatibleWith: nil) ?? UIImage()
-        }
-
-        public static var newUser: UIImage {
-            return UIImage(named: "newUser",
-                           in: .uikit,
-                           compatibleWith: nil) ?? UIImage()
-        }
-
-    }
-
 }

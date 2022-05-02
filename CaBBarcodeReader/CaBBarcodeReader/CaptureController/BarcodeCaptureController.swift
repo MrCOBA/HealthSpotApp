@@ -4,6 +4,8 @@ import CaBSDK
 // MARK: - Protocol
 
 public protocol BarcodeCaptureController: AnyObject {
+    var captureSession: AVCaptureSession { get set }
+    
     func start()
     func stop()
 }
@@ -19,7 +21,7 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
 
     // MARK: - Private Properties
 
-    private let captureSession: AVCaptureSession
+    public var captureSession: AVCaptureSession
     private let supportedCodeTypes: [BarcodeObjectType]
     private var codeHandler: CodeHandler?
 
@@ -84,6 +86,8 @@ public final class BarcodeCaptureControllerImpl: NSObject, BarcodeCaptureControl
         }
 
         let captureMetadataOutput = AVCaptureMetadataOutput()
+        captureMetadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
+        captureMetadataOutput.metadataObjectTypes = supportedCodeTypes
         captureSession.addOutput(captureMetadataOutput)
     }
 

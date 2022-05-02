@@ -1,28 +1,26 @@
+import UIKit
 
 public protocol AutorizationEventsHandler: AnyObject {
 
-    func mainActionButtonTap(data: [AuthorizationViewModel.Key : String])
-    func additionalActionButtonTap()
+    func mainActionButtonTap(for mode: AuthorizationViewModel.Mode, with credentials: [Int: String])
+    func additionalActionButtonTap(for mode: AuthorizationViewModel.Mode)
+    func backButtonTap()
 
 }
 
 public struct AuthorizationViewModel: Equatable {
 
-    public enum Key {
-        case email
-        case password
-        case repeatedPassword
+    public struct TextModel: Equatable {
+        let title: String?
+        let subtitle: String?
+        let hint: String?
     }
 
     public enum Mode: Equatable {
         case signIn
         case signUp
-    }
-
-    public enum TextField: Equatable {
-        case email(state: InputTextFieldState)
-        case password(state: InputTextFieldState)
-        case repeatPassword(state: InputTextFieldState)
+        case infoSuccess
+        case infoFailure
     }
 
     public enum ActionButtonState: Equatable {
@@ -31,42 +29,51 @@ public struct AuthorizationViewModel: Equatable {
     }
 
     public enum InputTextFieldState: Equatable {
-        case shown(placeholder: String)
+        case shown(placeholder: String, icon: UIImage?)
         case hidden
     }
 
     let mode: Mode
-    let textFields: [TextField]
+    let textModel: TextModel
+    let inputTextFieldsStates: [InputTextFieldState]
     let mainActionButtonTitle: String
     let additionalActionButtonState: ActionButtonState
+    let backButtonState: ActionButtonState
 
     weak var eventsHandler: AutorizationEventsHandler?
 
     public static var empty: Self {
         return .init(mode: .signUp,
-                     textFields: [],
+                     textModel: .init(title: nil, subtitle: nil, hint: nil),
+                     inputTextFieldsStates: [],
                      mainActionButtonTitle: "",
                      additionalActionButtonState: .hidden,
+                     backButtonState: .hidden,
                      eventsHandler: nil)
     }
 
     public init(mode: Mode,
-                textFields: [TextField],
+                textModel: TextModel,
+                inputTextFieldsStates: [InputTextFieldState],
                 mainActionButtonTitle: String,
                 additionalActionButtonState: ActionButtonState,
+                backButtonState: ActionButtonState,
                 eventsHandler: AutorizationEventsHandler?) {
         self.mode = mode
-        self.textFields = textFields
+        self.textModel = textModel
+        self.inputTextFieldsStates = inputTextFieldsStates
         self.mainActionButtonTitle = mainActionButtonTitle
         self.additionalActionButtonState = additionalActionButtonState
+        self.backButtonState = backButtonState
         self.eventsHandler = eventsHandler
     }
 
     public static func == (lhs: AuthorizationViewModel, rhs: AuthorizationViewModel) -> Bool {
         return (lhs.mode == rhs.mode)
-        && (lhs.textFields == rhs.textFields)
+        && (lhs.inputTextFieldsStates == rhs.inputTextFieldsStates)
         && (lhs.mainActionButtonTitle == rhs.mainActionButtonTitle)
         && (lhs.additionalActionButtonState == rhs.additionalActionButtonState)
+        && (lhs.backButtonState == rhs.backButtonState)
         && (lhs.eventsHandler === rhs.eventsHandler)
     }
 

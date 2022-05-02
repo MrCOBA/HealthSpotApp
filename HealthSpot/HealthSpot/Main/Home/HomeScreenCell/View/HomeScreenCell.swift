@@ -51,7 +51,7 @@ class HomeScreenCell: UITableViewCell {
     // MARK: - Internal Properties
 
     static var nib: UINib {
-        return UINib(nibName: cellIdentifier, bundle: .main)
+        return UINib(nibName: cellIdentifier, bundle: nil)
     }
 
     static var cellIdentifier: String {
@@ -176,7 +176,7 @@ class HomeScreenCell: UITableViewCell {
 
             case let .shown(title):
                 actionButton.setTitle(title, for: .normal)
-                actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
+                //actionButton.apply(configuration: CaBButtonConfiguration.Default.secondaryButton(with: colorScheme))
         }
     }
 

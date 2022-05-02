@@ -1,14 +1,15 @@
+import UIKit
 import CaBRiblets
 
-public final class AuthorizationRouter: BaseRouter {
+public final class AuthorizationRouter: BaseRouter, ViewableRouter {
 
     // MARK: - Public  Properties
 
-    public var view: UIView
+    public var view: UIViewController
 
     // MARK: - Init
 
-    public init(view: UIView, interactor: AuthorizationInteractor) {
+    public init(view: UIViewController, interactor: AuthorizationInteractor) {
         self.view = view
 
         super.init(interactor: interactor)

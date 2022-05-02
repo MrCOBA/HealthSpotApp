@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DemoBarcodeViewController" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Demo Barcode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYO-GQ-u7G">
+                                <rect key="frame" x="32" y="226" width="350" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWv-rg-OMC">
+                                <rect key="frame" x="147" y="437" width="120" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="UC5-gS-5Au"/>
+                                    <constraint firstAttribute="width" constant="120" id="bZi-cL-vYH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Demo"/>
+                                <connections>
+                                    <segue destination="lgW-sQ-cNP" kind="presentation" id="Us0-rZ-JDC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CWv-rg-OMC" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="0w7-Ss-IfD"/>
+                            <constraint firstItem="CWv-rg-OMC" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="vRg-wV-XXa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FUe-lR-MT9"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="22"/>
+        </scene>
+        <!--Barcode Reader View-->
+        <scene sceneID="Jds-Z0-BbO">
+            <objects>
+                <viewController id="lgW-sQ-cNP" customClass="BarcodeReaderView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J8i-YU-F7A">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rL1-nO-FYB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GrY-5B-onN">
+                                        <rect key="frame" x="185" y="38" width="44" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3DH-2W-vyZ">
+                                        <rect key="frame" x="32" y="33" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="d0T-B4-AX4"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="dcF-l8-dXQ"/>
+                                            <constraint firstAttribute="width" constant="24" id="ine-Rb-FaU"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="clear" catalog="system"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3DH-2W-vyZ" secondAttribute="bottom" constant="13" id="Hc8-H2-flv"/>
+                                    <constraint firstItem="GrY-5B-onN" firstAttribute="centerX" secondItem="rL1-nO-FYB" secondAttribute="centerX" id="m36-tB-wPm"/>
+                                    <constraint firstAttribute="bottom" secondItem="GrY-5B-onN" secondAttribute="bottom" constant="8" id="pBv-Gc-7wg"/>
+                                    <constraint firstItem="3DH-2W-vyZ" firstAttribute="leading" secondItem="rL1-nO-FYB" secondAttribute="leading" constant="32" id="vQN-ey-Aux"/>
+                                    <constraint firstAttribute="height" constant="70" id="yiT-7j-wPL"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgz-Qh-CLi">
+                                <rect key="frame" x="0.0" y="768" width="414" height="40"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0rz-rQ-jjT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HIU-14-df5"/>
+                        <constraints>
+                            <constraint firstItem="HIU-14-df5" firstAttribute="trailing" secondItem="rL1-nO-FYB" secondAttribute="trailing" id="0ze-Yp-bz6"/>
+                            <constraint firstItem="rL1-nO-FYB" firstAttribute="top" secondItem="J8i-YU-F7A" secondAttribute="top" id="46L-T1-Net"/>
+                            <constraint firstItem="rL1-nO-FYB" firstAttribute="leading" secondItem="J8i-YU-F7A" secondAttribute="leading" id="5JZ-g9-iLp"/>
+                            <constraint firstItem="sgz-Qh-CLi" firstAttribute="leading" secondItem="HIU-14-df5" secondAttribute="leading" id="QTT-tA-gE8"/>
+                            <constraint firstItem="HIU-14-df5" firstAttribute="bottom" secondItem="sgz-Qh-CLi" secondAttribute="bottom" id="dis-l5-YST"/>
+                            <constraint firstItem="HIU-14-df5" firstAttribute="trailing" secondItem="sgz-Qh-CLi" secondAttribute="trailing" id="nTl-8t-A4v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1VB-Lo-hct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="986" y="21"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="clear" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

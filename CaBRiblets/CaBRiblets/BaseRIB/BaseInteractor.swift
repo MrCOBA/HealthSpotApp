@@ -27,7 +27,7 @@ open class BaseInteractor: Interactor {
 
     // MARK: Protocol Interactor
 
-    public func start() {
+    open func start() {
         guard !isStarted else {
             logWarning(message: "Interactor has already started")
             return
@@ -36,7 +36,7 @@ open class BaseInteractor: Interactor {
         isStarted = true
     }
 
-    public func stop() {
+    open func stop() {
         guard isStarted else {
             logWarning(message: "Interactor has already started")
             return

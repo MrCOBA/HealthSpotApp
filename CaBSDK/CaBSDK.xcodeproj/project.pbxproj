@@ -18,10 +18,11 @@
 		31E630B5279C50D000F9B095 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E630B4279C50D000F9B095 /* FirebaseStorage */; };
 		31E630B7279C514200F9B095 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630B6279C514200F9B095 /* RootServices.swift */; };
 		31E630B9279C54AB00F9B095 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */; };
-		31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630CA279D746A00F9B095 /* AutorizationManager.swift */; };
 		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */; };
+		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
+		FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +30,13 @@
 		31A806C727D54DB10021215E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		31E630B6279C514200F9B095 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		31E630B8279C54AB00F9B095 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		31E630CA279D746A00F9B095 /* AutorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
 		31EB6861280F11510072FD93 /* FileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWriter.swift; sourceTree = "<group>"; };
 		31FB819D268614E900500FE1 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBSDK.swift"; sourceTree = "<group>"; };
+		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
+		FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBSDK.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +57,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		31A806C627D54D6F0021215E /* CaBLogger */ = {
+		31A806C627D54D6F0021215E /* Logger */ = {
 			isa = PBXGroup;
 			children = (
 				31A806C727D54DB10021215E /* Logger.swift */,
 				31EB6861280F11510072FD93 /* FileWriter.swift */,
 			);
-			path = CaBLogger;
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		31E630C8279D743500F9B095 /* Extensions */ = {
@@ -69,16 +71,9 @@
 			children = (
 				3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */,
 				31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */,
+				FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		31E630C9279D744600F9B095 /* AuthorizationManager */ = {
-			isa = PBXGroup;
-			children = (
-				31E630CA279D746A00F9B095 /* AutorizationManager.swift */,
-			);
-			path = AuthorizationManager;
 			sourceTree = "<group>";
 		};
 		31FB8193268614E900500FE1 = {
@@ -111,12 +106,20 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				31A806C627D54D6F0021215E /* CaBLogger */,
-				31E630C9279D744600F9B095 /* AuthorizationManager */,
+				31A806C627D54D6F0021215E /* Logger */,
+				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
 				31E630B6279C514200F9B095 /* RootServices.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		FDA3C12B28201E13008CDDDF /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */,
+			);
+			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,10 +215,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
-				31E630CB279D746A00F9B095 /* AutorizationManager.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
+				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
+				FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -349,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F5RU76NTBA;
@@ -357,6 +362,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CaBSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -364,7 +370,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -375,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F5RU76NTBA;
@@ -383,6 +392,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = CaBSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +400,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

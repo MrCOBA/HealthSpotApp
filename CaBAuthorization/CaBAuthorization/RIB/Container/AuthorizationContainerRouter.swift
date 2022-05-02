@@ -5,16 +5,16 @@ import UIKit
 
 public enum AuthorizationResult {
     case success
-    case failure(message: String?)
+    case failure
 }
 
-public protocol AuthorizationContainerRouter: ViewableRouter {
+public protocol AuthorizationContainerRouter: AnyObject {
     func attachSignInScreen()
     func attachSignUpScreen()
     func attachInfoScreen(with result: AuthorizationResult)
 }
 
-final class AuthorizationContainerRouterImpl: AuthorizationContainerRouter, BaseRouter {
+final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainerRouter {
 
     // MARK: - Public Properties
 
@@ -22,12 +22,14 @@ final class AuthorizationContainerRouterImpl: AuthorizationContainerRouter, Base
 
     // MARK: - Private Properties
 
+    private let interactor: AuthorizationContainerInteractor
     private var currentChild: ViewableRouter?
 
     // MARK: - Init
 
     public init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
         self.view = view
+        self.interactor = interactor
 
         super.init(interactor: interactor)
     }
@@ -35,11 +37,13 @@ final class AuthorizationContainerRouterImpl: AuthorizationContainerRouter, Base
     // MARK: - Public Methods
 
     public func attachSignInScreen() {
-
+        let router = AuthorizationBuilder(listener: interactor).build(mode: .signIn)
+        attachChildWithEmbed(router)
     }
 
     public func attachSignUpScreen() {
-
+        let router = AuthorizationBuilder(listener: interactor).build(mode: .signUp)
+        attachChildWithPush(router)
     }
 
     public func attachInfoScreen(with result: AuthorizationResult) {
@@ -49,21 +53,20 @@ final class AuthorizationContainerRouterImpl: AuthorizationContainerRouter, Base
     // MARK: - Private Methods
 
     private func attachChildWithPush(_ child: ViewableRouter) {
-        if let currentChild = currentChild {
-            detachChildWithDismiss(child)
-            currentChild = nil
+        if currentChild != nil {
+            detachChildWithPop(child)
+            self.currentChild = nil
         }
 
         attachChild(child)
 
-        currentChild = child
+        self.currentChild = child
         view.pushViewController(child.view, animated: true)
     }
 
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         attachChild(child)
 
-        currentChild = child
         view.embedIn(child.view, animated: true)
     }
 
