@@ -22,6 +22,12 @@ extension UIImage {
                            compatibleWith: nil) ?? UIImage()
         }
 
+        public static var back: UIImage {
+            return UIImage(named: "back-icon",
+                           in: .authorization,
+                           compatibleWith: nil) ?? UIImage()
+        }
+
         public static var error: UIImage {
             return UIImage(named: "error-image",
                            in: .authorization,

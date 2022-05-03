@@ -10,16 +10,21 @@ protocol AuthorizationPresenter: AnyObject {
 
 final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
-    weak var view: AuthorizationView?
+    weak var view: UIViewController?
     private weak var interactor: AuthorizationInteractor?
 
-    init(view: AuthorizationView, interactor: AuthorizationInteractor?) {
+    init(view: UIViewController, interactor: AuthorizationInteractor?) {
         self.view = view
         self.interactor = interactor
     }
 
     func update(for mode: AuthorizationViewModel.Mode) {
-        view?.viewModel = makeViewModel(for: mode)
+        guard let authorizationFlowView = view as? AuthorizationView else {
+            logError(message: "View expected to be type of <AuthorizationView>")
+            return
+        }
+
+        authorizationFlowView.viewModel = makeViewModel(for: mode)
     }
 
     private func makeViewModel(for mode: AuthorizationViewModel.Mode) -> AuthorizationViewModel {

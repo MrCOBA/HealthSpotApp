@@ -1,24 +1,23 @@
 import UIKit
-import CaBUIKit
-import CaBAuthorization
 import CaBSDK
-import CaBBarcodeReader
+import CaBRiblets
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
     private let rootServices = RootServicesImpl()
+    private var rootRouter: ViewableRouter?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let window = UIWindow(windowScene: windowScene)
 
-        let initialViewController = makeBarcodeReaderView()
-        let navigationViewController = CaBNavigationController(rootViewController: initialViewController)
+        rootRouter = HealthSpotRootBuilder().build()
+        rootRouter?.start()
 
-        window.rootViewController = navigationViewController
+        window.rootViewController = rootRouter?.view
 
         self.window = window
         window.makeKeyAndVisible()
@@ -50,22 +49,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-
-//    private func makeAuthorizationView() -> UIViewController {
-//        let authorizationViewSource = AuthorizationViewSource(authorizationManager: rootServices.autorizationManager)
-//
-//        let viewModel = authorizationViewSource.makeViewModel(for: .signIn)
-//        authorizationViewSource.sharedView.viewModel = viewModel
-//
-//        return authorizationViewSource.sharedView
-//    }
-
-    private func makeBarcodeReaderView() -> UIViewController {
-        let storyboard = UIStoryboard(name: "BarcodeReaderView", bundle: .barcodeReader)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DemoBarcodeViewController")
-
-        return controller
     }
 
 }

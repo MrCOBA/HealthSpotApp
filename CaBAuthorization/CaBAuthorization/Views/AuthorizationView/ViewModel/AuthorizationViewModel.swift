@@ -43,7 +43,7 @@ public struct AuthorizationViewModel: Equatable {
     weak var eventsHandler: AutorizationEventsHandler?
 
     public static var empty: Self {
-        return .init(mode: .signUp,
+        return .init(mode: .signIn,
                      textModel: .init(title: nil, subtitle: nil, hint: nil),
                      inputTextFieldsStates: [],
                      mainActionButtonTitle: "",

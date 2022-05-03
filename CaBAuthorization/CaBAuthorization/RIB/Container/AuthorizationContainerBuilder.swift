@@ -17,7 +17,7 @@ public final class AuthorizationContainerBuilder: Builder {
 
     // MARK: - Public Methods
 
-    public func build() -> Router {
+    public func build() -> ViewableRouter {
         let view = CaBNavigationController()
         view.isNavigationBarHidden = true
 

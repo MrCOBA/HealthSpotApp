@@ -1,3 +1,4 @@
+import Firebase
 import CaBRiblets
 import CaBSDK
 
@@ -23,6 +24,7 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 
     public init(listener: AuthorizationContainerListener?) {
         self.listener = listener
+        FirebaseApp.configure()
 
         super.init()
     }
@@ -44,12 +46,12 @@ extension AuthorizationContainerInteractor: AuthorizationListener {
 
     public func showSignUpScreen() {
         checkIfRouterSet()
-        router?.attachSignUpScreen()
+        router?.attachScreen(for: .signUp)
     }
 
     public func returnBackToSignIn() {
         checkIfRouterSet()
-        router?.attachSignInScreen()
+        router?.attachScreen(for: .signIn)
     }
 
     public func completeAuthorization() {

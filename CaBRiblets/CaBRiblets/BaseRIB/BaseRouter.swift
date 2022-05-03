@@ -12,7 +12,7 @@ public protocol Router: AnyObject {
 
 public protocol ViewableRouter: Router {
 
-    var view: UIViewController { get set }
+    var view: UIViewController { get }
 
 }
 
@@ -56,6 +56,13 @@ open class BaseRouter: Router {
 
         child.stop()
         children.remove(at: index)
+    }
+
+    public func detachAll() {
+        let childrenToDetach = children
+        childrenToDetach.forEach {
+            detachChild($0)
+        }
     }
 
     // MARK: Protocol Router

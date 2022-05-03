@@ -29,7 +29,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Nzz-ng-7eF">
-                                <rect key="frame" x="16" y="243" width="382" height="100"/>
+                                <rect key="frame" x="16" y="237" width="382" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" placeholder="YES" id="9bn-pU-8n3"/>
                                 </constraints>
@@ -62,18 +62,21 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="MFJ-s9-OHq">
-                                <rect key="frame" x="16" y="76" width="382" height="135"/>
+                                <rect key="frame" x="16" y="76" width="382" height="129"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7HA-qV-Pfb" customClass="CaBButton" customModule="CaBUIKit">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="hPv-tx-g6W"/>
+                                        </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="BackButton"/>
                                         <connections>
                                             <action selector="backButtonTapped" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2AK-zq-AtW"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-js-RFs">
-                                        <rect key="frame" x="0.0" y="46" width="88" height="89"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AoW-js-RFs">
+                                        <rect key="frame" x="0.0" y="48" width="88" height="81"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aB4-0T-YyB">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="38.5"/>
@@ -82,13 +85,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIA-md-JVC">
-                                                <rect key="frame" x="0.0" y="42.5" width="88" height="29"/>
+                                                <rect key="frame" x="0.0" y="38.5" width="88" height="29"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                                 <color key="textColor" name="HighlightPrimary_Default"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-WM-jey">
-                                                <rect key="frame" x="0.0" y="75.5" width="88" height="13.5"/>
+                                                <rect key="frame" x="0.0" y="67.5" width="88" height="13.5"/>
                                                 <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="12"/>
                                                 <color key="textColor" name="HighlightPrimary_Default"/>
                                                 <nil key="highlightedColor"/>
@@ -143,6 +146,7 @@
                         <outlet property="inputStackView" destination="Nzz-ng-7eF" id="7Ke-v3-84Y"/>
                         <outlet property="subtitleLabel" destination="iIA-md-JVC" id="7OS-Nj-uB8"/>
                         <outlet property="titleLabel" destination="aB4-0T-YyB" id="zEb-2G-eF9"/>
+                        <outlet property="titleStackView" destination="AoW-js-RFs" id="yNa-Kl-VTi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -192,7 +196,10 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-ab-ZYH" customClass="CaBButton" customModule="CaBUIKit">
-                                <rect key="frame" x="16" y="76" width="80" height="30"/>
+                                <rect key="frame" x="16" y="76" width="80" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="X8m-en-HZF"/>
+                                </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="BackButton"/>
                                 <connections>
@@ -251,6 +258,9 @@
         </designable>
         <designable name="WVt-b6-sdq">
             <size key="intrinsicContentSize" width="120" height="30"/>
+        </designable>
+        <designable name="vs2-WJ-DDO">
+            <size key="intrinsicContentSize" width="67" height="31"/>
         </designable>
     </designables>
     <resources>

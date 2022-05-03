@@ -34,7 +34,7 @@ public final class AuthorizationInteractorImpl: BaseInteractor, AuthorizationInt
     // MARK: - Internal Properties
 
     weak var listener: AuthorizationListener?
-    weak var presenter: AuthorizationPresenter?
+    var presenter: AuthorizationPresenter?
 
     // MARK: - Private Properties
 

@@ -1,4 +1,5 @@
 import CaBRiblets
+import UIKit
 
 public final class AuthorizationBuilder: Builder {
 
@@ -9,7 +10,7 @@ public final class AuthorizationBuilder: Builder {
     }
 
     public func build(mode: AuthorizationViewModel.Mode) -> ViewableRouter {
-        let view: AuthorizationView
+        let view: UIViewController
 
         switch mode {
         case .signIn,

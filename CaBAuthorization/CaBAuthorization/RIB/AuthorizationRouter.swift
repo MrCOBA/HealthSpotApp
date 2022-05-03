@@ -4,17 +4,13 @@ import CaBSDK
 
 public final class AuthorizationRouter: BaseRouter, ViewableRouter {
 
-    // MARK: - Public  Properties
+    // MARK: - Public Properties
 
     public var view: UIViewController
 
     // MARK: - Init
 
-    public init(view: AuthorizationView, interactor: AuthorizationInteractor) {
-        guard let view = view as? UIViewController else {
-            logError(message: "View expected to be UIViewController type")
-        }
-
+    public init(view: UIViewController, interactor: AuthorizationInteractor) {
         self.view = view
 
         super.init(interactor: interactor)

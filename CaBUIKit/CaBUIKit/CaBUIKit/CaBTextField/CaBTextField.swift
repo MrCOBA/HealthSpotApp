@@ -19,6 +19,11 @@ public final class CaBTextField: UITextField, CaBUIControl {
         configureFont(with: configuration)
         configureLayout(with: configuration)
         configureBorder(with: configuration)
+
+        guard let configuration = configuration as? CaBTextFieldConfiguration else {
+            return
+        }
+        configurePlaceHolder(with: configuration)
     }
 
     // MARK: - Overrides
@@ -36,6 +41,13 @@ public final class CaBTextField: UITextField, CaBUIControl {
     }
 
     // MARK: - Private Methods
+
+    private func configurePlaceHolder(with configuration: CaBTextFieldConfiguration) {
+        attributedPlaceholder = NSAttributedString(string: configuration.placeholder.text ?? "",
+                                                   attributes: [.foregroundColor: configuration.placeholder.color ?? UIColor.black,
+                                                                .font: configuration.placeholder.font
+                                                               ])
+    }
 
     private func configureColors(with configuration: CaBUIConfiguration) {
         backgroundColor = configuration.backgroundColor

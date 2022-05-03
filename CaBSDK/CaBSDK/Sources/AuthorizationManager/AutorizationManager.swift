@@ -1,4 +1,5 @@
 import FirebaseAuth
+import Firebase
 import CaBSDK
 
 // MARK: - Protocol

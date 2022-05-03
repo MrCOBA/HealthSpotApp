@@ -27,6 +27,9 @@
 		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
 		31A453AF2785AFC300290D97 /* CaBBarcodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; };
 		31A453B02785AFC300290D97 /* CaBBarcodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */; };
+		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
+		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +106,9 @@
 		31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBSDK.xcodeproj; path = ../CaBSDK/CaBSDK.xcodeproj; sourceTree = "<group>"; };
 		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
 		31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBBarcodeReader.xcodeproj; path = ../CaBBarcodeReader/CaBBarcodeReader.xcodeproj; sourceTree = "<group>"; };
+		FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootRouter.swift; sourceTree = "<group>"; };
+		FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootInteractor.swift; sourceTree = "<group>"; };
+		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +207,7 @@
 		31932C8C2782FEDE00BCBDAA /* HealthSpot */ = {
 			isa = PBXGroup;
 			children = (
+				FDA3C19A28212D48008CDDDF /* Root */,
 				3104C327278B27ED006AF28B /* Main */,
 				31932CA32782FF8900BCBDAA /* Resources */,
 				31932CA22782FF2600BCBDAA /* Sources */,
@@ -278,6 +285,24 @@
 				31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FDA3C19A28212D48008CDDDF /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C19B28212D56008CDDDF /* RIB */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		FDA3C19B28212D56008CDDDF /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */,
+				FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */,
+				FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */,
+			);
+			path = RIB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,11 +438,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */,
 				3104C32F278B288C006AF28B /* HomeScreenCell.swift in Sources */,
 				3104C333278C587C006AF28B /* HomeScreenCellViewModel.swift in Sources */,
 				319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
+				FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */,
 				3104C336278C8556006AF28B /* HomeView.swift in Sources */,
+				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

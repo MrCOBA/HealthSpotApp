@@ -8,29 +8,30 @@ public enum AuthorizationResult {
     case failure
 }
 
-protocol AuthorizationContainerRouter: AnyObject {
-    func attachSignInScreen()
-    func attachSignUpScreen()
-    func attachInfoScreen(with result: AuthorizationResult)
+public protocol AuthorizationContainerRouter: ViewableRouter {
+    func attachScreen(for mode: AuthorizationViewModel.Mode)
 }
 
 final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainerRouter {
 
     // MARK: - Internal Properties
 
-    var view: UINavigationController
+    var view: UIViewController {
+        return containerViewController
+    }
 
     // MARK: - Private Properties
+
+    private var containerViewController: UINavigationController
 
     private let interactor: AuthorizationContainerInteractor
 
     private var rootChild: ViewableRouter?
-    private var currentChild: ViewableRouter?
 
     // MARK: - Init
 
     init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
-        self.view = view
+        self.containerViewController = view
         self.interactor = interactor
 
         super.init(interactor: interactor)
@@ -42,69 +43,31 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
         attachRoot()
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
-    func attachSignInScreen() {
-        let router = AuthorizationBuilder(listener: interactor).build(mode: .signIn)
-        attachChildWithEmbed(router)
-    }
-
-    func attachSignUpScreen() {
-        let router = AuthorizationBuilder(listener: interactor).build(mode: .signUp)
-        attachChildWithPush(router)
-    }
-
-    func attachInfoScreen(with result: AuthorizationResult) {
-        let router: ViewableRouter
-        switch result {
-        case .success:
-            router = AuthorizationBuilder(listener: interactor).build(mode: .infoSuccess)
-            attachChildWithEmbed(router)
-        case .failure:
-            router = AuthorizationBuilder(listener: interactor).build(mode: .infoFailure)
-            attachChildWithPush(router)
-        }
+    public func attachScreen(for mode: AuthorizationViewModel.Mode) {
+        attachChildWithEmbed(makeAuthorizationRouter(with: mode))
     }
 
     // MARK: - Private Methods
 
-    private func attachRoot() {
-        attachSignInScreen()
+    private func makeAuthorizationRouter(with mode: AuthorizationViewModel.Mode) -> ViewableRouter {
+        return AuthorizationBuilder(listener: interactor).build(mode: mode)
     }
 
-    private func attachChildWithPush(_ child: ViewableRouter) {
-        if currentChild != nil {
-            detachChildWithPop(child)
-            currentChild = nil
-        }
-
-        attachChild(child)
-
-        currentChild = child
-        view.pushViewController(child.view, animated: true)
+    private func attachRoot() {
+        attachScreen(for: .signIn)
     }
 
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
-            detachChild(child)
+            rootChild?.stop()
             rootChild = nil
         }
 
-        attachChild(child)
-
         rootChild = child
-        view.embedIn(child.view, animated: true)
-    }
-
-    private func detachChildWithPop(_ child: ViewableRouter) {
-        guard currentChild === child else {
-            logWarning(message: "There is no child to detach")
-            return
-        }
-
-        detachChild(child)
-        currentChild = nil
-        view.popViewController(animated: true)
+        rootChild?.start()
+        containerViewController.embedIn(child.view, animated: true)
     }
 
 }
