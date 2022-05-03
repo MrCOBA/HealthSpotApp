@@ -8,7 +8,7 @@ public enum AuthorizationResult {
     case failure
 }
 
-public protocol AuthorizationContainerRouter: AnyObject {
+protocol AuthorizationContainerRouter: AnyObject {
     func attachSignInScreen()
     func attachSignUpScreen()
     func attachInfoScreen(with result: AuthorizationResult)
@@ -16,37 +16,45 @@ public protocol AuthorizationContainerRouter: AnyObject {
 
 final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainerRouter {
 
-    // MARK: - Public Properties
+    // MARK: - Internal Properties
 
-    public var view: UINavigationController
+    var view: UINavigationController
 
     // MARK: - Private Properties
 
     private let interactor: AuthorizationContainerInteractor
+
+    private var rootChild: ViewableRouter?
     private var currentChild: ViewableRouter?
 
     // MARK: - Init
 
-    public init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
+    init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
         self.view = view
         self.interactor = interactor
 
         super.init(interactor: interactor)
     }
 
-    // MARK: - Public Methods
+    override func start() {
+        super.start()
 
-    public func attachSignInScreen() {
+        attachRoot()
+    }
+
+    // MARK: - Internal Methods
+
+    func attachSignInScreen() {
         let router = AuthorizationBuilder(listener: interactor).build(mode: .signIn)
         attachChildWithEmbed(router)
     }
 
-    public func attachSignUpScreen() {
+    func attachSignUpScreen() {
         let router = AuthorizationBuilder(listener: interactor).build(mode: .signUp)
         attachChildWithPush(router)
     }
 
-    public func attachInfoScreen(with result: AuthorizationResult) {
+    func attachInfoScreen(with result: AuthorizationResult) {
         let router: ViewableRouter
         switch result {
         case .success:
@@ -60,21 +68,31 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     // MARK: - Private Methods
 
+    private func attachRoot() {
+        attachSignInScreen()
+    }
+
     private func attachChildWithPush(_ child: ViewableRouter) {
         if currentChild != nil {
             detachChildWithPop(child)
-            self.currentChild = nil
+            currentChild = nil
         }
 
         attachChild(child)
 
-        self.currentChild = child
+        currentChild = child
         view.pushViewController(child.view, animated: true)
     }
 
     private func attachChildWithEmbed(_ child: ViewableRouter) {
+        if rootChild != nil {
+            detachChild(child)
+            rootChild = nil
+        }
+
         attachChild(child)
 
+        rootChild = child
         view.embedIn(child.view, animated: true)
     }
 

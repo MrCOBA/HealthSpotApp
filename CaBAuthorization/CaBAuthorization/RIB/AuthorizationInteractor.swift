@@ -5,7 +5,7 @@ import CaBSDK
 
 public protocol AuthorizationListener: AnyObject {
     func showSignUpScreen()
-    func returnBack()
+    func returnBackToSignIn()
     func completeAuthorization()
 }
 
@@ -87,7 +87,7 @@ public final class AuthorizationInteractorImpl: BaseInteractor, AuthorizationInt
 
     public func returnBack() {
         checkIfListenerSet()
-        listener?.returnBack()
+        listener?.returnBackToSignIn()
     }
 
     public func completeAuthorization() {

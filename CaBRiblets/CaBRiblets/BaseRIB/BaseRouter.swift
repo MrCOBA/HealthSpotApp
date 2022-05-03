@@ -60,7 +60,7 @@ open class BaseRouter: Router {
 
     // MARK: Protocol Router
 
-    public func start() {
+    open func start() {
         guard !isStarted else {
             logWarning(message: "Router has already started")
             return
@@ -71,7 +71,7 @@ open class BaseRouter: Router {
         isStarted = true
     }
 
-    public func stop() {
+    open func stop() {
         guard isStarted else {
             logWarning(message: "Router has already stopped")
             return

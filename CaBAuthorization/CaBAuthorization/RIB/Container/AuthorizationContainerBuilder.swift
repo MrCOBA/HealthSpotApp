@@ -1,8 +1,32 @@
-//
-//  AuthorizationContainerBuilder.swift
-//  CaBAuthorization
-//
-//  Created by Oparin Oleg on 10.04.2022.
-//
+import CaBRiblets
+import CaBUIKit
 
-import Foundation
+// MARK: - Builder
+
+public final class AuthorizationContainerBuilder: Builder {
+
+    // MARK: - Private Properties
+
+    private weak var listener: AuthorizationContainerListener?
+
+    // MARK: -  Init
+
+    public init(listener: AuthorizationContainerListener?) {
+        self.listener = listener
+    }
+
+    // MARK: - Public Methods
+
+    public func build() -> Router {
+        let view = CaBNavigationController()
+        view.isNavigationBarHidden = true
+
+        let interactor = AuthorizationContainerInteractor(listener: listener)
+
+        let router = AuthorizationContainerRouterImpl(view: view, interactor: interactor)
+        interactor.router = router
+
+        return router
+    }
+
+}
