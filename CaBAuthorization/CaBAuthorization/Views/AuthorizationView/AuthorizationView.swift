@@ -153,6 +153,7 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
         model.inputTextFieldsStates.enumerated().forEach {
             if let inputView = configureInputTextField(for: $0.element, with: $0.offset) {
                 inputStackView.addArrangedSubview(inputView)
+                inputView.delegate = self
             }
         }
     }
