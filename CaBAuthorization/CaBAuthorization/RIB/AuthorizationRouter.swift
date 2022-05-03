@@ -1,9 +1,10 @@
 import UIKit
 import CaBRiblets
+import CaBSDK
 
 public final class AuthorizationRouter: BaseRouter, ViewableRouter {
 
-    // MARK: - Public  Properties
+    // MARK: - Public Properties
 
     public var view: UIViewController
 

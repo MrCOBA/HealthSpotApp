@@ -1,4 +1,5 @@
 import CaBRiblets
+import CaBSDK
 import UIKit
 
 protocol AuthorizationPresenter: AnyObject {
@@ -9,14 +10,21 @@ protocol AuthorizationPresenter: AnyObject {
 
 final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
-    weak var view: AuthorizationView?
+    weak var view: UIViewController?
+    private weak var interactor: AuthorizationInteractor?
 
-    init(view: AuthorizationView) {
+    init(view: UIViewController, interactor: AuthorizationInteractor?) {
         self.view = view
+        self.interactor = interactor
     }
 
     func update(for mode: AuthorizationViewModel.Mode) {
-        view?.viewModel = makeViewModel(for: mode)
+        guard let authorizationFlowView = view as? AuthorizationView else {
+            logError(message: "View expected to be type of <AuthorizationView>")
+            return
+        }
+
+        authorizationFlowView.viewModel = makeViewModel(for: mode)
     }
 
     private func makeViewModel(for mode: AuthorizationViewModel.Mode) -> AuthorizationViewModel {
@@ -76,20 +84,41 @@ final class AuthorizationPresenterImpl: AuthorizationPresenter {
                      eventsHandler: self)
     }
 
+    private func checkIfInteractorSet() {
+        guard interactor != nil else {
+            logError(message: "Interactor expected to be set")
+            return
+        }
+    }
+
 }
 
 extension AuthorizationPresenterImpl: AutorizationEventsHandler {
 
     func mainActionButtonTap(for mode: AuthorizationViewModel.Mode, with credentials: [Int: String]) {
+        checkIfInteractorSet()
 
+        switch mode {
+        case .signIn:
+            interactor?.signIn(with: credentials)
+
+        case .signUp,
+             .infoFailure:
+            interactor?.signUp(with: credentials)
+
+        case .infoSuccess:
+            interactor?.completeAuthorization()
+        }
     }
 
     func additionalActionButtonTap(for mode: AuthorizationViewModel.Mode) {
-
+        checkIfInteractorSet()
+        interactor?.showSignUpScreen()
     }
 
     func backButtonTap() {
-
+        checkIfInteractorSet()
+        interactor?.returnBack()
     }
 
 }

@@ -55,6 +55,12 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
 
     }
 
+    // MARK: - Public Properties
+
+    public var placeholder: Placeholder
+
+    // MARK: - Init
+    
     private init(backgroundColor: UIColor = .clear,
                  textColor: UIColor? = nil,
                  placeholder: Placeholder = .empty,
@@ -63,6 +69,7 @@ public final class CaBTextFieldConfiguration: CaBUIConfiguration {
                  cornerRadius: CGFloat = 0.0,
                  borderWidth: CGFloat = 0.0,
                  font: UIFont = CaBFont.Comfortaa.light(size: 15)) {
+        self.placeholder = placeholder
         super.init(backgroundColor: backgroundColor,
                    textColor: textColor,
                    borderColor: borderColor,

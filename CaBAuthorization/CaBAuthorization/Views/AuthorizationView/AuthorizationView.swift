@@ -10,6 +10,24 @@ public protocol AuthorizationView: AnyObject {
 
 final class AuthorizationViewImpl: UIViewController, AuthorizationView {
 
+    // MARK: - Private Types
+
+    private enum Constant {
+
+        static var inputStackViewItemSpacing: CGFloat {
+            return 16.0
+        }
+
+        static var titleLargeStackViewItemSpacing: CGFloat {
+            return 10.0
+        }
+
+        static var titleSmallStackViewItemSpacing: CGFloat {
+            return 0.0
+        }
+
+    }
+
     // MARK: - Internal Properties
 
     var viewModel: AuthorizationViewModel = .empty {
@@ -32,6 +50,7 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
 
     @IBOutlet private weak var backButton: CaBButton!
 
+    @IBOutlet private weak var titleStackView: UIStackView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var subtitleLabel: UILabel!
     @IBOutlet private weak var hintLabel: UILabel!
@@ -75,23 +94,25 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
         configureInputStackView(with: model)
         configureMainActionButton(with: model)
         configureAdditionalActionButton(with: model)
+        configureBackButton(with: model)
     }
 
     private func configureSignIn() {
         titleLabel.isHidden = false
         subtitleLabel.isHidden = false
         hintLabel.isHidden = false
-        backButton.isHidden = true
     }
 
     private func configureSignUp() {
-        titleLabel.isHidden = false
-        subtitleLabel.isHidden = true
+        titleLabel.isHidden = true
+        subtitleLabel.isHidden = false
         hintLabel.isHidden = true
-        backButton.isHidden = false
     }
 
     private func configureTextModel(with model: AuthorizationViewModel) {
+        titleStackView.setCustomSpacing(Constant.titleSmallStackViewItemSpacing, after: titleLabel)
+        titleStackView.setCustomSpacing(Constant.titleLargeStackViewItemSpacing, after: subtitleLabel)
+
         titleLabel.text = model.textModel.title
         subtitleLabel.text = model.textModel.subtitle
         hintLabel.text = model.textModel.hint
@@ -107,15 +128,32 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
             additionalActionButton.isHidden = false
             additionalActionButton.setTitle(title, for: .normal)
             additionalActionButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
+            return
         }
 
         additionalActionButton.isHidden = true
     }
 
+    private func configureBackButton(with model: AuthorizationViewModel) {
+        if case .shown(let title) = model.backButtonState {
+            backButton.isHidden = false
+            backButton.setTitle(title, for: .normal)
+            backButton.apply(configuration: CaBButtonConfiguration.Service.generalButton(with: colorScheme, icon: .Autorization.back))
+            backButton.imageView?.tintColor = colorScheme.highlightPrimaryColor
+            return
+        }
+
+        backButton.isHidden = true
+    }
+
     private func configureInputStackView(with model: AuthorizationViewModel) {
+        inputStackView.spacing = Constant.inputStackViewItemSpacing
+        inputStackView.removeArrangedSubviews()
+
         model.inputTextFieldsStates.enumerated().forEach {
             if let inputView = configureInputTextField(for: $0.element, with: $0.offset) {
                 inputStackView.addArrangedSubview(inputView)
+                inputView.delegate = self
             }
         }
     }
@@ -125,7 +163,8 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
             return .init(frame: .zero,
                          id: id,
                          configuration: .Default.general(placeholderText: placeholder, with: colorScheme),
-                         icon: icon)
+                         icon: icon,
+                         colorScheme: colorScheme)
         }
         return nil
     }

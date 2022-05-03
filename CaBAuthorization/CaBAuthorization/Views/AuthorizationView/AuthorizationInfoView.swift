@@ -87,5 +87,34 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
             return
         }
     }
-    
+
+    private func checkIfEventsHandlerSet() {
+        guard viewModel.eventsHandler != nil else {
+            logError(message: "EventsHandler expected to be set")
+            return
+        }
+    }
+
+    // MARK: User Actions
+
+    @IBAction private func mainActionButtonTapped() {
+        checkIfEventsHandlerSet()
+        viewModel.eventsHandler?.mainActionButtonTap(for: viewModel.mode, with: [:])
+    }
+
+    @IBAction private func backButtonTapped() {
+        checkIfEventsHandlerSet()
+        viewModel.eventsHandler?.backButtonTap()
+    }
+
+}
+
+// MARK: - View Factory
+
+extension AuthorizationInfoViewImpl {
+
+    static func makeView() -> AuthorizationInfoViewImpl {
+        return UIStoryboard.AuthorizationInfoView.instantiateAuthorizationInfoViewController()
+    }
+
 }

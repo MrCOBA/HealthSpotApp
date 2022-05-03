@@ -1,5 +1,3 @@
-import Firebase
-
 // MARK: - Protocol
 
 public protocol RootServices: AnyObject {

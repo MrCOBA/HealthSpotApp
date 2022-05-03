@@ -12,7 +12,7 @@ public protocol Router: AnyObject {
 
 public protocol ViewableRouter: Router {
 
-    var view: UIViewController { get set }
+    var view: UIViewController { get }
 
 }
 
@@ -58,9 +58,16 @@ open class BaseRouter: Router {
         children.remove(at: index)
     }
 
+    public func detachAll() {
+        let childrenToDetach = children
+        childrenToDetach.forEach {
+            detachChild($0)
+        }
+    }
+
     // MARK: Protocol Router
 
-    public func start() {
+    open func start() {
         guard !isStarted else {
             logWarning(message: "Router has already started")
             return
@@ -71,7 +78,7 @@ open class BaseRouter: Router {
         isStarted = true
     }
 
-    public func stop() {
+    open func stop() {
         guard isStarted else {
             logWarning(message: "Router has already stopped")
             return

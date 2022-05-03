@@ -48,6 +48,8 @@
 		31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */; };
 		31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */; };
 		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
+		FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */; };
+		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BadScript-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
+		FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+CaBUIKit.swift"; sourceTree = "<group>"; };
+		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -230,7 +234,9 @@
 				310539CD26F691E300502C2D /* UIColor+CaBUIKit.swift */,
 				31C9DF5C26FF9C140031FA20 /* UIImage+CaBUIKit.swift */,
 				315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */,
+				FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */,
 				FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */,
+				FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,
 				31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */,
 				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
+				FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */,
 				315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */,
 				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,
 				31C9DF5526FF880B0031FA20 /* CaBSlider.swift in Sources */,
@@ -540,6 +547,7 @@
 				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
 				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
 				31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */,
+				FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */,
 				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
 				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,
 				3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */,

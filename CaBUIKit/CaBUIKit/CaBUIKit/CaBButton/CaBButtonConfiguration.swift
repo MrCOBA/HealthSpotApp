@@ -101,6 +101,10 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
 
     }
 
+    // MARK: - Public Properties
+
+    public var icon: UIImage?
+
     // MARK: - Init & Deinit
 
     private init(backgroundColor: UIColor = .clear,
@@ -110,6 +114,7 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
                  cornerRadius: CGFloat = 0.0,
                  font: UIFont = CaBFont.Comfortaa.light(size: 15),
                  icon: UIImage? = nil) {
+        self.icon = icon
         super.init(backgroundColor: backgroundColor,
                    textColor: textColor,
                    borderColor: borderColor,

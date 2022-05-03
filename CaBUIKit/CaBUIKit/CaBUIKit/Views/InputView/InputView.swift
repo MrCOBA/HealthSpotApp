@@ -14,6 +14,10 @@ public class InputView: UIView {
 
     private enum Constant {
 
+        static var stackViewItemSpacing: CGFloat {
+            return 8.0
+        }
+
         static var height: CGFloat {
             return 40.0
         }
@@ -33,23 +37,17 @@ public class InputView: UIView {
 
     private let configuration: CaBTextFieldConfiguration
     private let icon: UIImage?
+    private let colorScheme: CaBColorScheme
 
-    private var stackView: UIStackView {
-        let originStackView = UIStackView()
-        originStackView.axis = .horizontal
-        originStackView.distribution = .fill
-        originStackView.alignment = .fill
-        originStackView.heightAnchor.constraint(equalToConstant: Constant.height).isActive = true
-
-        return originStackView
-    }
+    private let stackView = UIStackView()
 
     // MARK: - Init
 
-    public init(frame: CGRect, id: Int, configuration: CaBTextFieldConfiguration, icon: UIImage? = nil) {
+    public init(frame: CGRect, id: Int, configuration: CaBTextFieldConfiguration, icon: UIImage? = nil, colorScheme: CaBColorScheme) {
         self.id = id
         self.configuration = configuration
         self.icon = icon
+        self.colorScheme = colorScheme
         super.init(frame: frame)
 
         configure()
@@ -62,9 +60,15 @@ public class InputView: UIView {
     // MARK: - Private Methods
 
     private func configure() {
+        stackView.axis = .horizontal
+        stackView.spacing = Constant.stackViewItemSpacing
+        stackView.alignment = .center
+
         addSubview(stackView)
 
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
+            stackView.heightAnchor.constraint(equalToConstant: Constant.height),
             stackView.topAnchor.constraint(equalTo: topAnchor),
             stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -92,13 +96,15 @@ public class InputView: UIView {
         }
 
         let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             imageView.heightAnchor.constraint(equalToConstant: Constant.iconSize.height),
-            imageView.heightAnchor.constraint(equalToConstant: Constant.iconSize.width),
+            imageView.widthAnchor.constraint(equalToConstant: Constant.iconSize.width),
         ])
 
         imageView.image = icon
+        imageView.tintColor = colorScheme.attributesTertiaryColor
 
         return imageView
     }
