@@ -2,6 +2,12 @@ import UIKit
 
 public final class CaBNavigationController: UINavigationController {
 
+    public var colorScheme: CaBColorScheme = .default {
+        didSet {
+            configureNavigationBar()
+        }
+    }
+
     public override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -9,7 +15,7 @@ public final class CaBNavigationController: UINavigationController {
     }
 
     private func configureNavigationBar() {
-        let appearance = makeAppearance()
+        let appearance = makeAppearance(with: colorScheme)
 
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.standardAppearance = appearance
@@ -17,9 +23,10 @@ public final class CaBNavigationController: UINavigationController {
         navigationController?.navigationBar.backgroundColor = appearance.backgroundColor
     }
 
-    private func makeAppearance() -> UINavigationBarAppearance {
+    private func makeAppearance(with colorScheme: CaBColorScheme) -> UINavigationBarAppearance {
         let attrs = [
-            NSAttributedString.Key.font: CaBFont.Comfortaa.bold(size: 20)
+            NSAttributedString.Key.font: CaBFont.Comfortaa.medium(size: 16),
+            NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
         ]
 
         let appearance = UINavigationBarAppearance()
@@ -29,24 +36,6 @@ public final class CaBNavigationController: UINavigationController {
         appearance.backgroundImage = UIImage(color: .transparentGray50Alpha)
 
         return appearance
-    }
-
-}
-
-// MARK: - Helper
-
-extension UIImage {
-
-    fileprivate convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
-        color.setFill()
-        UIRectFill(rect)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        guard let cgImage = image?.cgImage else { return nil }
-        self.init(cgImage: cgImage)
     }
 
 }

@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = rootRouter?.view
 
         self.window = window
+        window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
     }
 

@@ -50,6 +50,7 @@
 		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
 		FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */; };
 		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
+		FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -112,6 +113,7 @@
 		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
 		FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
+		FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarController.swift; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +188,7 @@
 				314131E22685DEC200BB2749 /* CaBButton */,
 				310539C826F61ECC00502C2D /* CaBSwitch */,
 				31BF831F27A5BF5F0095184C /* CaBNavigationController */,
+				FD7F7C592823F8CB0055D2F3 /* CaBTabBarController */,
 				31A453C92786459A00290D97 /* Resources */,
 				3191929426F5C82C0090C262 /* Sources */,
 				31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */,
@@ -434,6 +437,14 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FD7F7C592823F8CB0055D2F3 /* CaBTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */,
+			);
+			path = CaBTabBarController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -547,6 +558,7 @@
 				31EF64E826F3DF90008629D2 /* SunsetColorScheme.swift in Sources */,
 				31C9DF5726FF894E0031FA20 /* CaBUIControl.swift in Sources */,
 				31E630C4279C6CB500F9B095 /* CaBTextFieldConfiguration.swift in Sources */,
+				FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */,
 				FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */,
 				310539CE26F691E300502C2D /* UIColor+CaBUIKit.swift in Sources */,
 				3141320B2685E16700BB2749 /* CaBButtonConfiguration.swift in Sources */,
