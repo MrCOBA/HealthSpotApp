@@ -31,10 +31,35 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 
     // MARK: - Private Methods
 
+    private func subscribeForNotifications() {
+        // MARK: Success Auth
+        let successNotifications: [Notification.Name] = [.Authorization.signIn(result: .success), .Authorization.signUp(result: .success)]
+        successNotifications.forEach { notification in
+            NotificationCenter.default.addObserver(self, selector: #selector(successAuthHandling(notification:)), name: notification, object: nil)
+        }
+
+        // TODO: Add erros handling
+    }
+
     private func checkIfRouterSet() {
         guard router != nil else {
             logError(message: "Router expected to be set")
             return
+        }
+    }
+
+    @objc
+    private func successAuthHandling(notification: Notification) {
+        switch notification.name {
+        case .Authorization.signIn(result: .success):
+            completeAuthorization()
+
+        case .Authorization.signUp(result: .success):
+            checkIfRouterSet()
+            router?.attachScreen(for: .infoSuccess)
+
+        default:
+            logError(message: "Unknown notification recieved: <\(notification.name)>")
         }
     }
 

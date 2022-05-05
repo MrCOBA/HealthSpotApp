@@ -53,7 +53,13 @@ final class AuthorizationManagerImpl: AuthorizationManager {
         }
 
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            // TODO: Implement this part of authorization
+            guard let _ = error else {
+                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
+                                                object: nil)
+                return
+            }
+
+            // TODO: Add error handling
         }
     }
 
@@ -86,7 +92,13 @@ final class AuthorizationManagerImpl: AuthorizationManager {
         }
 
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            // TODO: Implement this part of authorization
+            guard let _ = error else {
+                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
+                                                object: nil)
+                return
+            }
+
+            // TODO: Add error handling
         }
     }
 
