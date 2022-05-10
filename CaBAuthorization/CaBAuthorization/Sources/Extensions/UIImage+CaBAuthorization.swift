@@ -2,6 +2,8 @@ import UIKit
 
 extension UIImage {
 
+    // MARK: Autorization
+    
     public enum Autorization {
 
         public static var email: UIImage {

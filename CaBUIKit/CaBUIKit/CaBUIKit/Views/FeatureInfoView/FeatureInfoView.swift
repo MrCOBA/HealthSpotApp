@@ -137,13 +137,7 @@ public class FeatureInfoView: UIViewController {
 extension UIImage {
 
     fileprivate static func image(for feature: FeatureInfoViewModel.Feature?) -> UIImage? {
-        switch feature {
-            case .barCodeScanner:
-                return FeatureInfoView.barcodeScannerFeature
-
-            case .none:
-                return nil
-        }
+        return nil
     }
 
 }

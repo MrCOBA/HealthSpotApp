@@ -9,12 +9,22 @@ protocol HealthSpotRootInteractor: Interactor,
 
 final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteractor {
 
+    weak var router: HealthSpotRootRouter?
+
+    private func checkIfRouterSet() {
+        guard router != nil else {
+            logError(message: "Router expected to be set")
+            return
+        }
+    }
+
 }
 
 extension HealthSpotRootInteractorImpl: AuthorizationContainerListener {
 
     func completeAuthorization() {
-        // TODO: Add move to the main screen
+        checkIfRouterSet()
+        router?.attachMainFlow()
     }
 
 }

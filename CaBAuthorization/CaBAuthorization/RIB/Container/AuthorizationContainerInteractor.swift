@@ -29,6 +29,14 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
         super.init()
     }
 
+    // MARK: - Public Methods
+
+    public override func start() {
+        super.start()
+
+        subscribeForNotifications()
+    }
+
     // MARK: - Private Methods
 
     private func subscribeForNotifications() {

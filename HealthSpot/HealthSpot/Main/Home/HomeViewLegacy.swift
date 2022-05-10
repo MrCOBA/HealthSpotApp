@@ -2,15 +2,15 @@ import UIKit
 import CaBUIKit
 import CaBSDK
 
-protocol HomeViewDelegate: AnyObject {
+protocol HomeViewLegacyDelegate: AnyObject {
 
     func didTapCellActionButton(forCellWith id: Int)
 
 }
 
-final class HomeView: UIViewController {
+final class HomeViewLegacy: UIViewController {
 
-    weak var delegate: HomeViewDelegate?
+    weak var delegate: HomeViewLegacyDelegate?
     var viewModelFactory: HomeScreenCellViewModelFactory?
 
     var colorScheme: CaBColorScheme = .default {
@@ -49,7 +49,7 @@ final class HomeView: UIViewController {
 
 }
 
-extension HomeView: UITableViewDataSource {
+extension HomeViewLegacy: UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let viewModelFactory = viewModelFactory else {
@@ -92,7 +92,7 @@ extension HomeView: UITableViewDataSource {
 
 }
 
-extension HomeView: HomeScreenCellEventsHandler {
+extension HomeViewLegacy: HomeScreenCellEventsHandler {
 
     func actionButtonTap(forCellWith id: Int) {
         delegate?.didTapCellActionButton(forCellWith: id)

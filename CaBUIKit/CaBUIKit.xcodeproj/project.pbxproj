@@ -51,6 +51,8 @@
 		FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */; };
 		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
 		FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */; };
+		FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */; };
+		FD92D06E28292B8E008CE6DA /* CaBTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,8 @@
 		FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarController.swift; sourceTree = "<group>"; };
+		FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBContainerViewController.swift; sourceTree = "<group>"; };
+		FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarItem.swift; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +185,7 @@
 		314131E12685DE9800BB2749 /* CaBUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				FD7F7C6E2824CA160055D2F3 /* CaBContainerViewController */,
 				3191929326F5C8080090C262 /* Extensions */,
 				31A453D02786461100290D97 /* Views */,
 				31E630C0279C6AAD00F9B095 /* CaBTextField */,
@@ -441,8 +446,17 @@
 			isa = PBXGroup;
 			children = (
 				FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */,
+				FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */,
 			);
 			path = CaBTabBarController;
+			sourceTree = "<group>";
+		};
+		FD7F7C6E2824CA160055D2F3 /* CaBContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */,
+			);
+			path = CaBContainerViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -541,7 +555,9 @@
 				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
 				FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
+				FD92D06E28292B8E008CE6DA /* CaBTabBarItem.swift in Sources */,
 				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
+				FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
 				3191929026F5321A0090C262 /* SelectableButton.swift in Sources */,
 				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,

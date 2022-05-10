@@ -5,11 +5,11 @@ import UIKit
 final class HealthSpotRootBuilder: Builder {
 
     func build() -> ViewableRouter {
-        let view = UITabBarController()
-        view.tabBar.isHidden = true
+        let view = BaseContainerViewController()
 
         let interactor = HealthSpotRootInteractorImpl()
         let router = HealthSpotRootRouterImpl(view: view, interactor: interactor)
+        interactor.router = router
 
         return router
     }

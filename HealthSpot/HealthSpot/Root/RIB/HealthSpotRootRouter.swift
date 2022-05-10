@@ -1,4 +1,5 @@
 import UIKit
+import CaBUIKit
 import CaBRiblets
 import CaBAuthorization
 import CaBSDK
@@ -6,6 +7,7 @@ import CaBSDK
 protocol HealthSpotRootRouter: ViewableRouter {
 
     func attachAuthorizationFlow()
+    func attachMainFlow()
 
 }
 
@@ -13,21 +15,18 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
 
     // MARK: - Internal Properties
 
-    var view: UIViewController {
-        return containerViewController
-    }
+    var view: UIViewController
 
     // MARK: - Private Properties
-
-    private var containerViewController: UITabBarController
 
     private let interactor: HealthSpotRootInteractor
 
     private var rootChild: Router?
     private weak var authorizationContainerRouter: ViewableRouter?
+    private weak var mainContainerRouter: ViewableRouter?
 
-    init(view: UITabBarController, interactor: HealthSpotRootInteractor) {
-        self.containerViewController = view
+    init(view: BaseContainerViewController, interactor: HealthSpotRootInteractor) {
+        self.view = view
         self.interactor = interactor
 
         super.init(interactor: interactor)
@@ -50,6 +49,17 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
         authorizationContainerRouter = router
     }
 
+    func attachMainFlow() {
+        guard mainContainerRouter == nil else {
+            logError(message: "Main flow router already attached")
+            return
+        }
+
+        let router = MainBuilder().build()
+        attachChildWithEmbed(router)
+        mainContainerRouter = router
+    }
+
     // MARK: - Private Methods
 
     private func attachRoot() {
@@ -59,13 +69,14 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
 
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
-            detachChild(child)
+            detachChild(rootChild!)
             rootChild = nil
         }
 
         attachChild(child)
 
         rootChild = child
-        containerViewController.embedIn(child.view, animated: true)
+        view.addChild(child.view)
     }
+
 }
