@@ -3,6 +3,8 @@ import CaBUIKit
 import CaBRiblets
 import CaBSDK
 
+// MARK: - Protocol
+
 protocol MainRouter: ViewableRouter {
 
     func attachHomeRouter()
@@ -12,20 +14,30 @@ protocol MainRouter: ViewableRouter {
 
 }
 
+// MARK: - Implementation
+
 final class MainRouterImpl: BaseRouter, MainRouter {
 
+    // MARK: - Internal Properties
+
     var view: UIViewController
+
+    // MARK: - Private Properties
 
     private var homeRouter: ViewableRouter?
     private var medicineControllerRouter: ViewableRouter?
     private var foodControllerRouter: ViewableRouter?
     private var settingsRouter: ViewableRouter?
 
+    // MARK: - Init
+
     init(view: CaBTabBarController, interactor: MainInteractor) {
         self.view = view
 
         super.init(interactor: interactor)
     }
+
+    // MARK: - Internal Methods
 
     func attachHomeRouter() {
         guard homeRouter == nil else {
@@ -54,6 +66,8 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         }
         // TODO: Implement screen attaching
     }
+
+    // MARK: - Private Methods
 
     private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {
         guard let view = view as? CaBTabBarController else {

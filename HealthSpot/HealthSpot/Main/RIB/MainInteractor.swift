@@ -1,13 +1,52 @@
 import CaBRiblets
 import CaBSDK
 
+// MARK: - Implementation
+
 protocol MainInteractor: Interactor {
+
+    func showHomeScreen()
+    func showMedicineControllerScreen()
+    func showFoodControllerScreen()
+    func showSettingsScreen()
 
 }
 
 final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
     weak var router: MainRouter?
+
+    var presenter: MainPresenter?
+
+    override func start() {
+        super.start()
+
+        guard presenter != nil else {
+            logError(message: "Presenter expected to be set")
+            return
+        }
+        presenter?.updateView(with: [.home, .medicineController, .foodController, .settings])
+    }
+
+    func showHomeScreen() {
+        checkIfRouterSet()
+        router?.attachHomeRouter()
+    }
+
+    func showMedicineControllerScreen() {
+        checkIfRouterSet()
+        router?.attachMedicineControllerRouter()
+    }
+
+    func showFoodControllerScreen() {
+        checkIfRouterSet()
+        router?.attachFoodControllerRouter()
+    }
+
+    func showSettingsScreen() {
+        checkIfRouterSet()
+        router?.attachSettingsRouter()
+    }
 
     private func checkIfRouterSet() {
         guard router != nil else {

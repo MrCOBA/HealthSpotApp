@@ -6,7 +6,10 @@ final class MainBuilder: Builder {
         let view = MainView()
 
         let interactor = MainInteractorImpl()
-        view.eventsHandler = interactor
+
+        let presenter = MainPresenterImpl(view: view, interactor: interactor)
+        view.eventsHandler = presenter
+        interactor.presenter = presenter
 
         let router = MainRouterImpl(view: view, interactor: interactor)
         interactor.router = router
