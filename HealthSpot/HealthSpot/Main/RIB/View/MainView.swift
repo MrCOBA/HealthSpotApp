@@ -13,7 +13,7 @@ final class MainView: CaBTabBarController {
 
     // MARK: - Internal Properties
 
-    var dataSource = [Item]() {
+    var dataSource = Item.allCases {
         didSet {
             configureTabBarController()
         }
@@ -29,8 +29,6 @@ final class MainView: CaBTabBarController {
         super.viewDidLoad()
 
         itemDelegate = self
-        
-        dataSource = Item.allCases
         configureTabBarController()
     }
 

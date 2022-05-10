@@ -88,6 +88,17 @@ open class CaBTabBarController: UITabBarController {
         container.container.addChild(controller)
     }
 
+    // MARK: - Public Methods
+
+    public func containerIndex(_ item: Item) -> Int {
+        guard let container = itemContainers.enumerated().first(where: { $0.element.item == item } ) else {
+            logError(message: "Container with item: <\(item.rawValue)> not attached")
+            return -1
+        }
+
+        return container.offset
+    }
+
     // MARK: - Private Methods
 
     private func configureTabBar() {

@@ -52,7 +52,6 @@
 		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
 		FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */; };
 		FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */; };
-		FD92D06E28292B8E008CE6DA /* CaBTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
 /* End PBXBuildFile section */
 
@@ -117,7 +116,6 @@
 		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarController.swift; sourceTree = "<group>"; };
 		FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBContainerViewController.swift; sourceTree = "<group>"; };
-		FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarItem.swift; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,13 +227,6 @@
 			path = InputView;
 			sourceTree = "<group>";
 		};
-		3191928E26F520570090C262 /* Shadow */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shadow;
-			sourceTree = "<group>";
-		};
 		3191929326F5C8080090C262 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,7 +245,6 @@
 			children = (
 				31FB81BA26861AB200500FE1 /* Fonts */,
 				310833EB26B843F700EC8532 /* ColorScheme */,
-				3191928E26F520570090C262 /* Shadow */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -446,7 +436,6 @@
 			isa = PBXGroup;
 			children = (
 				FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */,
-				FD92D06D28292B8E008CE6DA /* CaBTabBarItem.swift */,
 			);
 			path = CaBTabBarController;
 			sourceTree = "<group>";
@@ -555,7 +544,6 @@
 				314131E42685DF0100BB2749 /* CaBButton.swift in Sources */,
 				FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
-				FD92D06E28292B8E008CE6DA /* CaBTabBarItem.swift in Sources */,
 				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
 				FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
