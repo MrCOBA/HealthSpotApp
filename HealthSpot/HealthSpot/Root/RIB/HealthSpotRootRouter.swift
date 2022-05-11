@@ -70,7 +70,6 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
             detachChild(rootChild!)
-            rootChild = nil
         }
 
         attachChild(child)

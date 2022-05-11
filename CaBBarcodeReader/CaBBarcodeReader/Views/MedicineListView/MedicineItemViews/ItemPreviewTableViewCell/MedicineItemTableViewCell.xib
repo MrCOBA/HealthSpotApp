@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+        <array key="Comfortaa-Light.ttf">
+            <string>Comfortaa-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MedicineItemTableViewCell" rowHeight="128" id="KGk-i7-Jjw" customClass="MedicineItemTableViewCell" customModule="CaBBarcodeReader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FF-5n-1oX">
+                        <rect key="frame" x="24" y="12" width="272" height="112"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qwR-tg-qAa">
+                                <rect key="frame" x="8" y="8" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="mJR-KZ-KOt"/>
+                                    <constraint firstAttribute="height" constant="72" id="pT4-DU-3Cm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oa1-yu-nQh">
+                                <rect key="frame" x="240" y="8" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="J5b-ww-bZz"/>
+                                    <constraint firstAttribute="width" constant="24" id="Yk3-RA-PZb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wci-Rv-Brb">
+                                <rect key="frame" x="88" y="8" width="144" height="19.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemBarcde" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEC-hZ-8SE">
+                                <rect key="frame" x="88" y="35.5" width="176" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemReceptionTime" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjT-lV-8dr">
+                                <rect key="frame" x="8" y="88" width="256" height="16"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" constant="8" id="3WQ-yM-gkM"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="leading" id="3vp-4F-UMe"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="leading" id="3xI-uH-hBA"/>
+                            <constraint firstItem="wci-Rv-Brb" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="top" id="5Nv-4F-THO"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OEC-hZ-8SE" secondAttribute="bottom" constant="8" id="5v4-pw-rbQ"/>
+                            <constraint firstItem="oa1-yu-nQh" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="trailing" constant="8" id="Fg4-kW-ob5"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="top" secondItem="wci-Rv-Brb" secondAttribute="bottom" constant="8" id="H35-zm-fbp"/>
+                            <constraint firstAttribute="bottom" secondItem="WjT-lV-8dr" secondAttribute="bottom" constant="8" id="I5Z-eY-oHj"/>
+                            <constraint firstItem="wci-Rv-Brb" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="trailing" constant="8" id="Qbm-jU-92d"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="bottom" constant="8" id="UDo-k1-G9o"/>
+                            <constraint firstItem="qwR-tg-qAa" firstAttribute="leading" secondItem="3FF-5n-1oX" secondAttribute="leading" constant="8" id="VLZ-35-z2K"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" id="WCb-2Y-Jrm"/>
+                            <constraint firstItem="oa1-yu-nQh" firstAttribute="top" secondItem="3FF-5n-1oX" secondAttribute="top" constant="8" id="nCe-EC-OqJ"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="trailing" secondItem="OEC-hZ-8SE" secondAttribute="trailing" id="nEJ-jS-Tpk"/>
+                            <constraint firstItem="qwR-tg-qAa" firstAttribute="top" secondItem="3FF-5n-1oX" secondAttribute="top" constant="8" id="whz-qW-a7Z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3FF-5n-1oX" secondAttribute="bottom" constant="12" id="70e-I7-paF"/>
+                    <constraint firstItem="3FF-5n-1oX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="GSp-np-koe"/>
+                    <constraint firstAttribute="trailing" secondItem="3FF-5n-1oX" secondAttribute="trailing" constant="24" id="KR0-tU-tIl"/>
+                    <constraint firstItem="3FF-5n-1oX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="NxT-cd-3M3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="184" y="-27"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

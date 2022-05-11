@@ -2,6 +2,7 @@ import UIKit
 import CaBUIKit
 import CaBRiblets
 import CaBSDK
+import CaBBarcodeReader
 
 // MARK: - Protocol
 
@@ -20,9 +21,15 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     // MARK: - Internal Properties
 
-    var view: UIViewController
+    var view: UIViewController {
+        return containerViewController
+    }
 
     // MARK: - Private Properties
+
+    private let interactor: MainInteractor
+
+    private var containerViewController: CaBTabBarController
 
     private var homeRouter: ViewableRouter?
     private var medicineControllerRouter: ViewableRouter?
@@ -32,7 +39,8 @@ final class MainRouterImpl: BaseRouter, MainRouter {
     // MARK: - Init
 
     init(view: CaBTabBarController, interactor: MainInteractor) {
-        self.view = view
+        self.containerViewController = view
+        self.interactor = interactor
 
         super.init(interactor: interactor)
     }
@@ -50,7 +58,12 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         guard medicineControllerRouter == nil else {
             return
         }
-        // TODO: Implement screen attaching
+
+        let router = MedicineCheckerContainerBuilder(listener: interactor).build()
+        router.start()
+
+        medicineControllerRouter = router
+        showItemRouter(.medicineController, router: router)
     }
 
     func attachFoodControllerRouter() {
@@ -70,17 +83,12 @@ final class MainRouterImpl: BaseRouter, MainRouter {
     // MARK: - Private Methods
 
     private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {
-        guard let view = view as? CaBTabBarController else {
-            logError(message: "View expected to be of type CaBTabBarController")
-            return
-        }
-
         guard let router = router else {
             logError(message: "Router expected to be provided")
             return
         }
 
-        view.setController(router.view, to: item)
+        containerViewController.setController(router.view, to: item)
     }
 
 }

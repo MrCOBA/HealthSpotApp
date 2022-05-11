@@ -1,9 +1,11 @@
 import CaBRiblets
 import CaBSDK
+import CaBBarcodeReader
 
-// MARK: - Implementation
+// MARK: - Protocol
 
-protocol MainInteractor: Interactor {
+protocol MainInteractor: Interactor,
+                         MedicineCheckerContainerListener {
 
     func showHomeScreen()
     func showMedicineControllerScreen()
@@ -12,11 +14,19 @@ protocol MainInteractor: Interactor {
 
 }
 
+// MARK: - Implementation
+
 final class MainInteractorImpl: BaseInteractor, MainInteractor {
+
+    // MARK: - Internal Properties
 
     weak var router: MainRouter?
 
     var presenter: MainPresenter?
+
+    // MARK: - Internal Methods
+
+    // MARK: Overrides
 
     override func start() {
         super.start()
@@ -27,6 +37,8 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
         }
         presenter?.updateView(with: [.home, .medicineController, .foodController, .settings])
     }
+
+    // MARK: Protocol MainInteractor
 
     func showHomeScreen() {
         checkIfRouterSet()
@@ -48,6 +60,8 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
         router?.attachSettingsRouter()
     }
 
+    // MARK: - Private Methods
+
     private func checkIfRouterSet() {
         guard router != nil else {
             logError(message: "Router expected to be set")
@@ -57,27 +71,6 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
 }
 
-extension MainInteractorImpl: MainViewEventsHandler {
-
-    func didSelectTab(with child: MainView.Item) {
-        checkIfRouterSet()
-
-        switch child {
-        case .home:
-            router?.attachHomeRouter()
-
-        case .medicineController:
-            router?.attachMedicineControllerRouter()
-
-        case .foodController:
-            router?.attachFoodControllerRouter()
-
-        case .settings:
-            router?.attachSettingsRouter()
-
-        default:
-            logError(message: "Unknown item recieved with identifier: <\(child.rawValue)>")
-        }
-    }
-
+extension MainInteractorImpl: MedicineCheckerContainerListener {
+    
 }

@@ -22,7 +22,7 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     // MARK: - Private Properties
 
-    private var containerViewController: UINavigationController
+    private var containerViewController: CaBNavigationController
 
     private let interactor: AuthorizationContainerInteractor
 
@@ -30,7 +30,7 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     // MARK: - Init
 
-    init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
+    init(view: CaBNavigationController, interactor: AuthorizationContainerInteractor) {
         self.containerViewController = view
         self.interactor = interactor
 
@@ -62,7 +62,6 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
             rootChild?.stop()
-            rootChild = nil
         }
 
         rootChild = child
