@@ -22,7 +22,6 @@ final class MedicineItemInfoView: UIViewController {
                 return CaBFont.Comfortaa.bold(size: 20.0)
             }
 
-
         }
 
     }
@@ -48,7 +47,7 @@ final class MedicineItemInfoView: UIViewController {
     @IBOutlet private weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var itemIconImageView: UIImageView!
     @IBOutlet private weak var itemTitleLabel: UILabel!
-    @IBOutlet private weak var itemCostLabel: UILabel!
+    @IBOutlet private weak var getMoreButton: CaBButton!
 
     @IBOutlet private weak var itemInfoDataTableView: UITableView!
 
@@ -85,7 +84,7 @@ final class MedicineItemInfoView: UIViewController {
 
         configureIconImageView(with: viewModel)
         configureTitleLabel(with: viewModel)
-        configureCostLabel(with: viewModel)
+        configureGetMoreButton(with: viewModel)
     }
 
     private func configureIconImageView(with viewModel: MedicineItemViewModel) {
@@ -104,12 +103,11 @@ final class MedicineItemInfoView: UIViewController {
         itemTitleLabel.attributedText = attributedTitle
     }
 
-    private func configureCostLabel(with viewModel: MedicineItemViewModel) {
-        let costString = "\(viewModel.cost) ₽"
-        let attributedCostString = NSAttributedString(string: costString,
-                                                      attributes: [.foregroundColor: colorScheme.attributesTertiaryColor,
-                                                                   .font: Constants.Fonts.costLabelFont])
-        itemCostLabel.attributedText = attributedCostString
+    private func configureGetMoreButton(with viewModel: MedicineItemViewModel) {
+        getMoreButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
+        getMoreButton.setTitle("Get more...", for: .normal)
+
+        // TODO: Add Browser opening
     }
 
 }

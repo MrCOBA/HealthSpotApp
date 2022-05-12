@@ -9,11 +9,6 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Comfortaa-Bold.ttf">
-            <string>Comfortaa-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Medicine List View-->
         <scene sceneID="s0d-6b-0kx">
@@ -73,45 +68,47 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="iCd-ar-lXf">
-                                <rect key="frame" x="0.0" y="373.5" width="414" height="488.5"/>
+                                <rect key="frame" x="0.0" y="351" width="414" height="429"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemCost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APg-UZ-Mea">
-                                <rect key="frame" x="24" y="343" width="366" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fOX-Ui-T14">
                                 <rect key="frame" x="103.5" y="76" width="207" height="207"/>
                                 <color key="color" name="HighlightPrimary_Default"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbN-e5-epn" customClass="CaBButton" customModule="CaBUIKit">
+                                <rect key="frame" x="24" y="788" width="366" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="XUd-eL-zh3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="GetMoreButton"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eS0-67-JHN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iCd-ar-lXf" firstAttribute="trailing" secondItem="eS0-67-JHN" secondAttribute="trailing" id="0yt-FR-wsR"/>
                             <constraint firstItem="oRh-wK-80M" firstAttribute="centerX" secondItem="eS0-67-JHN" secondAttribute="centerX" id="2ag-QH-xNt"/>
-                            <constraint firstItem="APg-UZ-Mea" firstAttribute="trailing" secondItem="Q6a-Xv-3OQ" secondAttribute="trailing" id="3gJ-GR-OZW"/>
                             <constraint firstItem="iCd-ar-lXf" firstAttribute="leading" secondItem="eS0-67-JHN" secondAttribute="leading" id="BJI-ma-d5h"/>
-                            <constraint firstItem="iCd-ar-lXf" firstAttribute="top" secondItem="APg-UZ-Mea" secondAttribute="bottom" constant="8" id="OOR-g2-h0Y"/>
+                            <constraint firstItem="iCd-ar-lXf" firstAttribute="centerX" secondItem="eS0-67-JHN" secondAttribute="centerX" id="GsI-NI-f5s"/>
                             <constraint firstItem="fOX-Ui-T14" firstAttribute="centerY" secondItem="oRh-wK-80M" secondAttribute="centerY" id="V67-30-KKE"/>
                             <constraint firstItem="Q6a-Xv-3OQ" firstAttribute="centerX" secondItem="eS0-67-JHN" secondAttribute="centerX" id="XQX-Xf-ohc"/>
                             <constraint firstItem="Q6a-Xv-3OQ" firstAttribute="top" secondItem="oRh-wK-80M" secondAttribute="bottom" constant="16" id="Ypw-Mz-Aga"/>
                             <constraint firstItem="oRh-wK-80M" firstAttribute="top" secondItem="eS0-67-JHN" secondAttribute="top" constant="32" id="Z4R-AQ-FID"/>
                             <constraint firstItem="oRh-wK-80M" firstAttribute="width" secondItem="DUV-aC-2f5" secondAttribute="width" multiplier="0.5" id="eTM-rb-fxy"/>
-                            <constraint firstItem="APg-UZ-Mea" firstAttribute="top" secondItem="Q6a-Xv-3OQ" secondAttribute="bottom" constant="8" id="eXl-3U-qPW"/>
                             <constraint firstItem="fOX-Ui-T14" firstAttribute="top" secondItem="oRh-wK-80M" secondAttribute="top" id="ff1-6v-Drs"/>
+                            <constraint firstItem="UbN-e5-epn" firstAttribute="leading" secondItem="eS0-67-JHN" secondAttribute="leading" constant="24" id="gET-KD-0Nf"/>
                             <constraint firstItem="fOX-Ui-T14" firstAttribute="leading" secondItem="oRh-wK-80M" secondAttribute="leading" id="hWb-hQ-AMV"/>
+                            <constraint firstItem="UbN-e5-epn" firstAttribute="centerX" secondItem="eS0-67-JHN" secondAttribute="centerX" id="jg2-wI-0Qq"/>
+                            <constraint firstItem="UbN-e5-epn" firstAttribute="top" secondItem="iCd-ar-lXf" secondAttribute="bottom" constant="8" id="kr9-1I-3Oa"/>
                             <constraint firstItem="fOX-Ui-T14" firstAttribute="centerX" secondItem="oRh-wK-80M" secondAttribute="centerX" id="lUf-JS-U7Z"/>
-                            <constraint firstItem="iCd-ar-lXf" firstAttribute="bottom" secondItem="eS0-67-JHN" secondAttribute="bottom" id="mHZ-Wr-ygk"/>
-                            <constraint firstItem="APg-UZ-Mea" firstAttribute="leading" secondItem="Q6a-Xv-3OQ" secondAttribute="leading" id="vZC-A0-3Nz"/>
+                            <constraint firstItem="iCd-ar-lXf" firstAttribute="top" secondItem="Q6a-Xv-3OQ" secondAttribute="bottom" constant="16" id="pDk-vD-Cbw"/>
+                            <constraint firstItem="eS0-67-JHN" firstAttribute="bottom" secondItem="UbN-e5-epn" secondAttribute="bottom" constant="32" id="ucw-5e-DXL"/>
                             <constraint firstItem="Q6a-Xv-3OQ" firstAttribute="leading" secondItem="eS0-67-JHN" secondAttribute="leading" constant="24" id="vkH-CO-HsN"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="getMoreButton" destination="UbN-e5-epn" id="rIr-WZ-mb0"/>
                         <outlet property="imageLoadingIndicator" destination="fOX-Ui-T14" id="IQ3-JW-23C"/>
-                        <outlet property="itemCostLabel" destination="APg-UZ-Mea" id="Fpc-dx-U8a"/>
                         <outlet property="itemIconImageView" destination="oRh-wK-80M" id="4Ln-E4-en2"/>
                         <outlet property="itemInfoDataTableView" destination="iCd-ar-lXf" id="YH0-dy-gxT"/>
                         <outlet property="itemTitleLabel" destination="Q6a-Xv-3OQ" id="AiC-cO-9C6"/>
