@@ -13,6 +13,8 @@
 		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */; };
+		FD7936FF282C64DC009B091C /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936FE282C64DC009B091C /* ImageLoader.swift */; };
+		FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */; };
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +28,8 @@
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBSDK.swift"; sourceTree = "<group>"; };
+		FD7936FE282C64DC009B091C /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CaBSDK.swift"; sourceTree = "<group>"; };
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBSDK.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +60,7 @@
 				3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */,
 				31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */,
 				FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */,
+				FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -89,12 +94,21 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FD7936FD282C64A0009B091C /* Network */,
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
 				31E630B6279C514200F9B095 /* RootServices.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		FD7936FD282C64A0009B091C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936FE282C64DC009B091C /* ImageLoader.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FDA3C12B28201E13008CDDDF /* PropertyWrappers */ = {
@@ -194,7 +208,9 @@
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */,
+				FD7936FF282C64DC009B091C /* ImageLoader.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
+				FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

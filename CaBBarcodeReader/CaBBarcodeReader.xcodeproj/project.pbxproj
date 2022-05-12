@@ -25,6 +25,10 @@
 		FD7936EB282C157A009B091C /* MedicineItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD7936E9282C157A009B091C /* MedicineItemTableViewCell.xib */; };
 		FD7936EF282C24A5009B091C /* MedicineItemInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936ED282C24A5009B091C /* MedicineItemInfoTableViewCell.swift */; };
 		FD7936F0282C24A5009B091C /* MedicineItemInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */; };
+		FD7936F2282C311C009B091C /* MedicineItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */; };
+		FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */; };
+		FD7936F7282C4A78009B091C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7936F6282C4A78009B091C /* Assets.xcassets */; };
+		FD793702282C6888009B091C /* UIImage+CaBBarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD793701282C6888009B091C /* UIImage+CaBBarcodeReader.swift */; };
 		FD7DCBA9282AA9E20068434E /* MedicineCheckerContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA6282AA9E20068434E /* MedicineCheckerContainerBuilder.swift */; };
 		FD7DCBAA282AA9E20068434E /* MedicineCheckerContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA7282AA9E20068434E /* MedicineCheckerContainerInteractor.swift */; };
 		FD7DCBAB282AA9E20068434E /* MedicineCheckerContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA8282AA9E20068434E /* MedicineCheckerContainerRouter.swift */; };
@@ -63,6 +67,10 @@
 		FD7936E9282C157A009B091C /* MedicineItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineItemTableViewCell.xib; sourceTree = "<group>"; };
 		FD7936ED282C24A5009B091C /* MedicineItemInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoTableViewCell.swift; sourceTree = "<group>"; };
 		FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineItemInfoTableViewCell.xib; sourceTree = "<group>"; };
+		FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoView.swift; sourceTree = "<group>"; };
+		FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemViewModel.swift; sourceTree = "<group>"; };
+		FD7936F6282C4A78009B091C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD793701282C6888009B091C /* UIImage+CaBBarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBBarcodeReader.swift"; sourceTree = "<group>"; };
 		FD7DCBA6282AA9E20068434E /* MedicineCheckerContainerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerBuilder.swift; sourceTree = "<group>"; };
 		FD7DCBA7282AA9E20068434E /* MedicineCheckerContainerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerInteractor.swift; sourceTree = "<group>"; };
 		FD7DCBA8282AA9E20068434E /* MedicineCheckerContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerRouter.swift; sourceTree = "<group>"; };
@@ -103,6 +111,7 @@
 				FD51DA66282AD8C6008E4E2F /* Views */,
 				FD7DCBA4282AA9550068434E /* RIB */,
 				31A453B22785B08A00290D97 /* CaptureController */,
+				FD793700282C6872009B091C /* Sources */,
 				FD62DE5A2819F993004A1B75 /* Resources */,
 				31A4539E2785AF9400290D97 /* CaBBarcodeReader.h */,
 				31A4539F2785AF9400290D97 /* CaBBarcodeReader.docc */,
@@ -152,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				FD62DE5B2819F9A9004A1B75 /* Storyboards */,
+				FD7936F6282C4A78009B091C /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -184,6 +194,7 @@
 		FD7936E1282C12C9009B091C /* MedicineListView */ = {
 			isa = PBXGroup;
 			children = (
+				FD7936F3282C3235009B091C /* ViewModel */,
 				FD7936E6282C1541009B091C /* MedicineItemViews */,
 				FD7936E2282C12DD009B091C /* MedicineListView.swift */,
 			);
@@ -195,6 +206,7 @@
 			children = (
 				FD7936EC282C247C009B091C /* ItemInfoTableViewCell */,
 				FD7936E7282C1554009B091C /* ItemPreviewTableViewCell */,
+				FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */,
 			);
 			path = MedicineItemViews;
 			sourceTree = "<group>";
@@ -215,6 +227,22 @@
 				FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */,
 			);
 			path = ItemInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		FD7936F3282C3235009B091C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD793700282C6872009B091C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FD793701282C6888009B091C /* UIImage+CaBBarcodeReader.swift */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		FD7DCBA4282AA9550068434E /* RIB */ = {
@@ -309,6 +337,7 @@
 				FD7936EB282C157A009B091C /* MedicineItemTableViewCell.xib in Resources */,
 				FD7936F0282C24A5009B091C /* MedicineItemInfoTableViewCell.xib in Resources */,
 				FD7936E5282C1329009B091C /* MedicineListView.storyboard in Resources */,
+				FD7936F7282C4A78009B091C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +359,12 @@
 				FD7DCBAB282AA9E20068434E /* MedicineCheckerContainerRouter.swift in Sources */,
 				FD7936DD282BBAE9009B091C /* CalendarDateCollectionViewCell.swift in Sources */,
 				FD7936EA282C157A009B091C /* MedicineItemTableViewCell.swift in Sources */,
+				FD7936F2282C311C009B091C /* MedicineItemInfoView.swift in Sources */,
 				FD7DCBA9282AA9E20068434E /* MedicineCheckerContainerBuilder.swift in Sources */,
 				31A453A02785AF9400290D97 /* CaBBarcodeReader.docc in Sources */,
 				31A453B42785B0B900290D97 /* BarcodeCaptureController.swift in Sources */,
+				FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */,
+				FD793702282C6888009B091C /* UIImage+CaBBarcodeReader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -184,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				FD7F7C6E2824CA160055D2F3 /* CaBContainerViewController */,
-				3191929326F5C8080090C262 /* Extensions */,
 				31A453D02786461100290D97 /* Views */,
 				31E630C0279C6AAD00F9B095 /* CaBTextField */,
 				31C9DF5326FF87F60031FA20 /* CaBSlider */,
@@ -243,6 +242,7 @@
 		3191929426F5C82C0090C262 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3191929326F5C8080090C262 /* Extensions */,
 				31FB81BA26861AB200500FE1 /* Fonts */,
 				310833EB26B843F700EC8532 /* ColorScheme */,
 			);

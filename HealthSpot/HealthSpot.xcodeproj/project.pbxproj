@@ -27,6 +27,7 @@
 		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
 		31A453AF2785AFC300290D97 /* CaBBarcodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; };
 		31A453B02785AFC300290D97 /* CaBBarcodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
 		FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C672824722D0055D2F3 /* MainRouter.swift */; };
@@ -112,6 +113,7 @@
 		31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBSDK.xcodeproj; path = ../CaBSDK/CaBSDK.xcodeproj; sourceTree = "<group>"; };
 		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
 		31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBBarcodeReader.xcodeproj; path = ../CaBBarcodeReader/CaBBarcodeReader.xcodeproj; sourceTree = "<group>"; };
+		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		FD7F7C672824722D0055D2F3 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		31932CA32782FF8900BCBDAA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FD793742282D4EAC009B091C /* CoreDataModel */,
 				31932CA52782FFA100BCBDAA /* Plists */,
 				31932CA42782FF9500BCBDAA /* Storyboards */,
 				31932C962782FEE100BCBDAA /* Assets.xcassets */,
@@ -299,6 +302,14 @@
 				31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		FD793742282D4EAC009B091C /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 		FD7F7C5E282470070055D2F3 /* RIB */ = {
@@ -499,6 +510,7 @@
 				FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
+				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
 				3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
@@ -726,6 +738,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */,
+			);
+			currentVersion = FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */;
+			path = HealthSpot.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 31932C822782FEDE00BCBDAA /* Project object */;
 }
