@@ -1,44 +1,88 @@
 import UIKit
+import CaBUIKit
+
+// MARK: - Delegate
+
+protocol CalendarPickerHeaderDelegate: AnyObject {
+
+    func didTapHeaderView()
+    
+}
 
 final class CalendarPickerHeaderView: UIView {
 
-    lazy var monthLabel: UILabel = {
+    // MARK: - Private Types
+
+    private enum Constants {
+
+        enum Fonts {
+
+            static var titleFont: UIFont {
+                return .init(name: "HelveticeNeue-Bold", size: 26.0)!
+            }
+
+            static var dayOfWeekFont: UIFont {
+                return CaBFont.Comfortaa.bold(size: 12.0)
+            }
+
+        }
+
+        enum Padding {
+
+            static var monthLabel: CGFloat {
+                return 16.0
+            }
+
+            static var dayOfWeekStackView: CGFloat {
+                return 4.0
+            }
+
+        }
+
+        static var separatorHeight: CGFloat {
+            return 1.0
+        }
+
+        static var cornerRadius: CGFloat {
+            return 8.0
+        }
+
+    }
+
+    // MARK: - Internal Properties
+
+    var colorScheme: CaBColorScheme = .default
+    var delegate: CalendarPickerHeaderDelegate?
+
+    var baseDate = Date() {
+        didSet {
+            monthLabel.text = dateFormatter.string(from: baseDate)
+        }
+    }
+
+    // MARK: - Private Properties
+
+    private lazy var monthLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 26, weight: .bold)
+        label.font = Constants.Fonts.titleFont
         label.text = "Month"
         label.accessibilityTraits = .header
         label.isAccessibilityElement = true
         return label
     }()
 
-    lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
-        let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: configuration)
-        button.setImage(image, for: .normal)
-
-        button.tintColor = .secondaryLabel
-        button.contentMode = .scaleAspectFill
-        button.isUserInteractionEnabled = true
-        button.isAccessibilityElement = true
-        button.accessibilityLabel = "Close Picker"
-        return button
-    }()
-
-    lazy var dayOfWeekStackView: UIStackView = {
+    private lazy var dayOfWeekStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.distribution = .fillEqually
         return stackView
     }()
 
-    lazy var separatorView: UIView = {
+    private lazy var separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor.label.withAlphaComponent(0.2)
+        view.backgroundColor = .transparentGray20Alpha
         return view
     }()
 
@@ -50,73 +94,75 @@ final class CalendarPickerHeaderView: UIView {
         return dateFormatter
     }()
 
-    var baseDate = Date() {
-        didSet {
-            monthLabel.text = dateFormatter.string(from: baseDate)
-        }
-    }
+    // MARK: - Init
 
-    var exitButtonTappedCompletionHandler: (() -> Void)
-
-    init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
-        self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
-
+    init(colorScheme: CaBColorScheme) {
+        self.colorScheme = colorScheme
         super.init(frame: CGRect.zero)
 
-        translatesAutoresizingMaskIntoConstraints = false
-
-        backgroundColor = .systemGroupedBackground
-
-        layer.maskedCorners = [
-            .layerMinXMinYCorner,
-            .layerMaxXMinYCorner
-        ]
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-
-        addSubview(monthLabel)
-        addSubview(closeButton)
-        addSubview(dayOfWeekStackView)
-        addSubview(separatorView)
-
-        for dayNumber in 1...7 {
-            let dayLabel = UILabel()
-            dayLabel.font = .systemFont(ofSize: 12, weight: .bold)
-            dayLabel.textColor = .secondaryLabel
-            dayLabel.textAlignment = .center
-            dayLabel.text = dayOfWeekLetter(for: dayNumber)
-            dayLabel.isAccessibilityElement = false
-            dayOfWeekStackView.addArrangedSubview(dayLabel)
-        }
-
-        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
+        configure()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Internal Methods
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        NSLayoutConstraint.activate([
-            monthLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            monthLabel.trailingAnchor.constraint(equalTo: closeButton.leadingAnchor, constant: 4),
+        configureConstraints()
+    }
 
-            closeButton.centerYAnchor.constraint(equalTo: monthLabel.centerYAnchor),
-            closeButton.heightAnchor.constraint(equalToConstant: 28),
-            closeButton.widthAnchor.constraint(equalToConstant: 28),
-            closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+    // MARK: - Private Methods
+
+    private func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundColor = .white
+
+        layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = Constants.cornerRadius
+
+        addSubview(monthLabel)
+        addSubview(dayOfWeekStackView)
+        addSubview(separatorView)
+
+        for dayNumber in 1...7 {
+            let dayLabel = UILabel()
+            let attributedDay = NSAttributedString(string: dayOfWeekLetter(for: dayNumber),
+                                                   attributes: [
+                                                    .font: Constants.Fonts.dayOfWeekFont,
+                                                    .foregroundColor: colorScheme.highlightPrimaryColor
+                                                   ])
+            dayLabel.attributedText = attributedDay
+            dayLabel.textAlignment = .center
+            dayOfWeekStackView.addArrangedSubview(dayLabel)
+        }
+
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapHeaderView(_:)))
+        addGestureRecognizer(gestureRecognizer)
+    }
+
+    private func configureConstraints() {
+        NSLayoutConstraint.activate([
+            monthLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.Padding.monthLabel),
+            monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.Padding.monthLabel),
+            monthLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Constants.Padding.monthLabel),
 
             dayOfWeekStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
             dayOfWeekStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            dayOfWeekStackView.bottomAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: -4),
+            dayOfWeekStackView.bottomAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: -Constants.Padding.dayOfWeekStackView),
 
             separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
             separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
             separatorView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            separatorView.heightAnchor.constraint(equalToConstant: 1)
+            separatorView.heightAnchor.constraint(equalToConstant: Constants.separatorHeight)
         ])
     }
 
@@ -141,8 +187,9 @@ final class CalendarPickerHeaderView: UIView {
         }
     }
 
-    @objc private func didTapExitButton() {
-        exitButtonTappedCompletionHandler()
+    @objc
+    private func didTapHeaderView(_ recognizer: UIGestureRecognizer) {
+        delegate?.didTapHeaderView()
     }
 
 }

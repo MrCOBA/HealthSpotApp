@@ -19,26 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5o-iZ-yg0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                <rect key="frame" x="8" y="52" width="398" height="150"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" placeholder="YES" id="lpv-TJ-E7q"/>
+                                    <constraint firstAttribute="height" constant="150" placeholder="YES" id="lpv-TJ-E7q"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-qF-1GT">
-                                <rect key="frame" x="0.0" y="244" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="202" width="414" height="660"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="600-bV-M2x"/>
+                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="600-bV-M2x"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QWI-1g-Lz9"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="top" secondItem="l5o-iZ-yg0" secondAttribute="bottom" id="RcL-oZ-KEG"/>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="WBN-WX-8yp"/>
+                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="SYU-zG-faF"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ZNn-uB-gbQ"/>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ePg-pG-lGw"/>
+                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ePg-pG-lGw"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="iMv-00-qAS"/>
                         </constraints>
                     </view>
@@ -119,6 +119,11 @@
             <point key="canvasLocation" x="318.84057971014494" y="75"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="UbN-e5-epn">
+            <size key="intrinsicContentSize" width="123.5" height="31"/>
+        </designable>
+    </designables>
     <resources>
         <namedColor name="HighlightPrimary_Default">
             <color red="0.20784313725490197" green="0.21568627450980393" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
