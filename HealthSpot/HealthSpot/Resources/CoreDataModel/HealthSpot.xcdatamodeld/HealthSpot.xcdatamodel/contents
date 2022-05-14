@@ -24,8 +24,8 @@
         <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
     </entity>
     <elements>
-        <element name="User" positionX="-951.4246215820312" positionY="-190.7820739746094" width="128" height="88"/>
-        <element name="MedicineItem" positionX="-631.7738037109375" positionY="-39.888916015625" width="128" height="178"/>
-        <element name="MedicineItemPeriod" positionX="-774" positionY="-18" width="128" height="118"/>
+        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="88"/>
+        <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="178"/>
+        <element name="MedicineItemPeriod" positionX="-850.9652099609375" positionY="-35.4676513671875" width="128" height="118"/>
     </elements>
 </model>

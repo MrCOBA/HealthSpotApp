@@ -2,7 +2,7 @@ import CaBSDK
 
 // MARK: - Protocol
 
-protocol MedicineItemPeriodTemporaryStorage: AnyObject {
+public protocol MedicineItemPeriodTemporaryStorage: AnyObject {
 
     var startDate: Date { get set }
     var endDate: Date? { get set }

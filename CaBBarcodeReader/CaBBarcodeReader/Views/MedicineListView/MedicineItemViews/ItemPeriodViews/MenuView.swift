@@ -4,7 +4,7 @@ import CaBUIKit
 
 protocol ItemPeriodMenuViewDelegate: AnyObject {
 
-    func didSelectAction(for case: MenuAction)
+    func didSelectAction(for action: MenuAction)
 
 }
 
@@ -126,18 +126,18 @@ final class ItemPeriodMenuView: UIView {
         menuButton.menu?.replacingChildren(updatedChildren)
     }
 
-    private func makeSelectActions(for cases: [MenuAction]) -> [UIAction] {
-        return cases.map { makeSelectAction(for: $0) }
+    private func makeSelectActions(for menuActions: [MenuAction]) -> [UIAction] {
+        return menuActions.map { makeSelectAction(for: $0) }
     }
 
-    private func makeSelectAction(for case: MenuAction) -> UIAction {
-        return UIAction(title: `case`.title, image: `case`.image) { [weak self] _ in
+    private func makeSelectAction(for menuAction: MenuAction) -> UIAction {
+        return UIAction(title: menuAction.title, image: menuAction.image) { [weak self] _ in
             if #available(iOS 15.0, *) {
                 /* Do Nothing */
             } else {
-                self?.menuButton.setTitle(`case`.title, for: .normal)
+                self?.menuButton.setTitle(menuAction.title, for: .normal)
             }
-            self?.delegate?.didSelectAction(for: `case`)
+            self?.delegate?.didSelectAction(for: menuAction)
         }
     }
 

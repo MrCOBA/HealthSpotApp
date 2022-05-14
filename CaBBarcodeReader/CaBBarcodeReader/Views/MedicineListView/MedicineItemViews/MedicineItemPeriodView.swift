@@ -8,7 +8,7 @@ protocol MedicineItemPeriodViewEventsHandler: AnyObject {
 
     func didTapAddPeriodButton()
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date)
-    func didSelectAction(for case: MenuAction)
+    func didSelectAction(for action: MenuAction)
     func didEndEditingText(for id: Int, with text: String?)
 
 }
@@ -149,14 +149,14 @@ final class MedicineItemPeriodView: UIViewController {
         addPeriodButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .tertiary, with: colorScheme))
     }
 
-    private func checkIfEventsHandler() {
+    private func checkIfEventsHandlerSet() {
         if eventsHandler == nil {
             logError(message: "Eventshandler expected to be set")
         }
     }
 
     @IBAction private func tapAddPeriodButton() {
-        checkIfEventsHandler()
+        checkIfEventsHandlerSet()
 
         eventsHandler?.didTapAddPeriodButton()
     }
@@ -168,7 +168,7 @@ final class MedicineItemPeriodView: UIViewController {
 extension MedicineItemPeriodView: ItemPeriodDatePickerViewDelegate {
 
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date) {
-        checkIfEventsHandler()
+        checkIfEventsHandlerSet()
 
         eventsHandler?.didChangeDate(for: id, to: date)
     }
@@ -179,10 +179,10 @@ extension MedicineItemPeriodView: ItemPeriodDatePickerViewDelegate {
 
 extension MedicineItemPeriodView: ItemPeriodMenuViewDelegate {
 
-    func didSelectAction(for case: MenuAction) {
-        checkIfEventsHandler()
+    func didSelectAction(for action: MenuAction) {
+        checkIfEventsHandlerSet()
 
-        eventsHandler?.didSelectAction(for: `case`)
+        eventsHandler?.didSelectAction(for: action)
     }
 
 }
@@ -192,7 +192,7 @@ extension MedicineItemPeriodView: ItemPeriodMenuViewDelegate {
 extension MedicineItemPeriodView: InputViewDelegate {
 
     func didEndEditingText(for id: Int, with text: String?) {
-        checkIfEventsHandler()
+        checkIfEventsHandlerSet()
 
         eventsHandler?.didEndEditingText(for: id, with: text)
     }
