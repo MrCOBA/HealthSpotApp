@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="MedicineItem" representedClassName="MedicineItem" syncable="YES" codeGenerationType="class">
+        <attribute name="activeComponent" optional="YES" attributeType="String"/>
+        <attribute name="barcode" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="marketUrl" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="producer" attributeType="String"/>
+        <relationship name="periods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineItemPeriod" inverseName="medicineItem" inverseEntity="MedicineItemPeriod"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="medicineItems" inverseEntity="User"/>
+    </entity>
+    <entity name="MedicineItemPeriod" representedClassName="MedicineItemPeriod" syncable="YES" codeGenerationType="class">
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="notificationHint" attributeType="String"/>
+        <attribute name="repeatType" optional="YES" attributeType="String"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="medicineItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MedicineItem" inverseName="periods" inverseEntity="MedicineItem"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
+    </entity>
+    <elements>
+        <element name="User" positionX="-951.4246215820312" positionY="-190.7820739746094" width="128" height="88"/>
+        <element name="MedicineItem" positionX="-631.7738037109375" positionY="-39.888916015625" width="128" height="178"/>
+        <element name="MedicineItemPeriod" positionX="-774" positionY="-18" width="128" height="118"/>
+    </elements>
 </model>

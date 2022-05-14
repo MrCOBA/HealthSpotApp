@@ -51,7 +51,7 @@ final class CalendarPickerView: UIView {
     // MARK: - Internal Properties
 
     var colorScheme: CaBColorScheme = .default
-    var delegate: CalendarPickerViewDelegate?
+    weak var delegate: CalendarPickerViewDelegate?
 
     // MARK: - Private Properties
 
@@ -157,6 +157,7 @@ final class CalendarPickerView: UIView {
         ])
 
         headerView.baseDate = baseDate
+        headerView.delegate = self
     }
 
     private func configureFooterView() {

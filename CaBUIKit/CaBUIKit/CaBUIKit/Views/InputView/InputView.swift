@@ -1,4 +1,5 @@
 import UIKit
+import CaBSDK
 
 // MARK: - Delegate
 
@@ -32,6 +33,14 @@ public class InputView: UIView {
 
     public let id: Int
     public var delegate: InputViewDelegate?
+    public var textField: UITextField? {
+        guard let textField = stackView.arrangedSubviews.first as? UITextField else {
+            logError(message: "Text field expected to be set")
+            return nil
+        }
+
+        return textField
+    }
 
     // MARK: - Private Properties
 

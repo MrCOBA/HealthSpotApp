@@ -52,7 +52,7 @@ final class CalendarPickerHeaderView: UIView {
     // MARK: - Internal Properties
 
     var colorScheme: CaBColorScheme = .default
-    var delegate: CalendarPickerHeaderDelegate?
+    weak var delegate: CalendarPickerHeaderDelegate?
 
     var baseDate = Date() {
         didSet {

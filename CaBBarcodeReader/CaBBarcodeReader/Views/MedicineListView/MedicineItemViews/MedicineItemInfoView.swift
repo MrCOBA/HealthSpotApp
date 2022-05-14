@@ -57,7 +57,7 @@ final class MedicineItemInfoView: UIViewController {
 
             dataSource += viewModel.barcode.isEmpty ? [] : [("Barcode:", viewModel.barcode)]
             dataSource += viewModel.producer.isEmpty ? [] : [("Producer:", viewModel.producer)]
-            dataSource += viewModel.dosageForm.isEmpty ? [] : [("Dosage Form:", viewModel.dosageForm)]
+            dataSource += viewModel.activeComponent.isEmpty ? [] : [("Active component:", viewModel.activeComponent)]
 
             return dataSource
         }

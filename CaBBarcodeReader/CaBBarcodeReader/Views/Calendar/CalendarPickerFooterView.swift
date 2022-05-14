@@ -39,7 +39,7 @@ final class CalendarPickerFooterView: UIView {
     // MARK: - Internal Prperties
 
     var colorScheme: CaBColorScheme = .default
-    var delegate: CalendarPickerFooterDelegate?
+    weak var delegate: CalendarPickerFooterDelegate?
 
     // MARK: - Private Properties
 

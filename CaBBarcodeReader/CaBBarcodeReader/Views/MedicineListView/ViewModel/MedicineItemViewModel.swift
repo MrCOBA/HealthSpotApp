@@ -1,27 +1,40 @@
 import UIKit
 
 struct MedicineItemViewModel: Equatable {
+
+    struct Period: Equatable {
+
+        enum Repeat {
+            case daily
+            case weekly
+            case monthly
+            case yearly
+        }
+
+        let startDate: Date
+        let endDate: Date?
+        let `repeat`: Repeat?
+        let hint: String?
+
+    }
+
     let barcode: String
     let marketUrl: URL?
 
     let name: String
     let imageUrl: URL?
     let producer: String
-    let activeSubstance: String
-    let isRecipeNeeded: Bool
-    let dosageForm: String
-    let cost: UInt
+    let activeComponent: String
+    let periods: [Period]
 
     static var empty: Self {
         return .init(barcode: "",
                      marketUrl: nil,
                      name: "",
-                     image: nil,
+                     imageUrl: nil,
                      producer: "",
-                     activeSubstance: "",
-                     isRecipeNeeded: false,
-                     dosageForm: "",
-                     cost: 0)
+                     activeComponent: "",
+                     periods: [])
     }
 
 }
