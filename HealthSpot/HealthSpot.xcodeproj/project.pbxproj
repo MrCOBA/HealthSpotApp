@@ -38,6 +38,12 @@
 		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
 		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
 		FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5D2831202600EE6FE0 /* RootServices.swift */; };
+		FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */; };
+		FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */; };
+		FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */; };
+		FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */; };
+		FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */; };
+		FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +131,12 @@
 		FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootInteractor.swift; sourceTree = "<group>"; };
 		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
 		FDE9FD5D2831202600EE6FE0 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
+		FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +247,7 @@
 		31932CA22782FF2600BCBDAA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDE9FD682831453400EE6FE0 /* CoreDataModel */,
 				FD92D06F28294FAB008CE6DA /* Extensions */,
 				31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */,
 				31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */,
@@ -367,6 +380,19 @@
 				FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */,
 			);
 			path = RIB;
+			sourceTree = "<group>";
+		};
+		FDE9FD682831453400EE6FE0 /* CoreDataModel */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */,
+				FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */,
+				FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */,
+				FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */,
+				FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */,
+				FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */,
+			);
+			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -510,15 +536,21 @@
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
 				319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
+				FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
 				FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
+				FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
+				FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
 				3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
+				FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
 				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
+				FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
+				FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
