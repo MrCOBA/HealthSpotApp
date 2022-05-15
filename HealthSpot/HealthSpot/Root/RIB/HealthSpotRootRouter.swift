@@ -19,13 +19,15 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
 
     // MARK: - Private Properties
 
+    private let rootServices: RootServices
     private let interactor: HealthSpotRootInteractor
 
     private var rootChild: Router?
     private weak var authorizationContainerRouter: ViewableRouter?
     private weak var mainContainerRouter: ViewableRouter?
 
-    init(view: BaseContainerViewController, interactor: HealthSpotRootInteractor) {
+    init(rootServices: RootServices, view: BaseContainerViewController, interactor: HealthSpotRootInteractor) {
+        self.rootServices = rootServices
         self.view = view
         self.interactor = interactor
 
@@ -44,7 +46,7 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
             return
         }
 
-        let router = AuthorizationContainerBuilder(listener: interactor).build()
+        let router = AuthorizationContainerBuilder(factory: rootServices, listener: interactor).build()
         attachChildWithEmbed(router)
         authorizationContainerRouter = router
     }

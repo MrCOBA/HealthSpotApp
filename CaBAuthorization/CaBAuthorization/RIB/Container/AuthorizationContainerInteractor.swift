@@ -24,7 +24,6 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 
     public init(listener: AuthorizationContainerListener?) {
         self.listener = listener
-        FirebaseApp.configure()
 
         super.init()
     }

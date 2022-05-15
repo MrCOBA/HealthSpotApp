@@ -15,7 +15,7 @@ public protocol MedicineItemPeriodTemporaryStorage: AnyObject {
 
 // MARK: - Implementation
 
-final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTemporaryStorage {
+public final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTemporaryStorage {
 
     // MARK: - Public Properties
 
@@ -48,7 +48,7 @@ final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTemporaryS
                                        defaultValue: "")
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
     public func clear() {
         startDate = Date()

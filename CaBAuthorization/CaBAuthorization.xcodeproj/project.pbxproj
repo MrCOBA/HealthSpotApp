@@ -38,6 +38,7 @@
 		FDA3C14D28202F29008CDDDF /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */; };
 		FDA3C19528204676008CDDDF /* UIStoryboard+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */; };
 		FDA3C19928207F24008CDDDF /* AuthorizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */; };
+		FDE9FD67283123FB00EE6FE0 /* AuthorizationRootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -82,6 +83,7 @@
 		FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
 		FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBAuthorization.swift"; sourceTree = "<group>"; };
 		FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInfoView.swift; sourceTree = "<group>"; };
+		FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRootServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		3133DD6C27B0550A00007428 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */,
 				FDA3C14728202E94008CDDDF /* AuthorizationManager */,
 				FDA3C12E28201F7F008CDDDF /* CredentialsStorage */,
 				FDA3C0DB281FCB2C008CDDDF /* Extensions */,
@@ -343,6 +346,7 @@
 				315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */,
 				FDA3C13028201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift in Sources */,
 				315DBAEB28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift in Sources */,
+				FDE9FD67283123FB00EE6FE0 /* AuthorizationRootServices.swift in Sources */,
 				31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */,
 				FD7F7C5D28246F2D0055D2F3 /* Notification+CaBAuthorization.swift in Sources */,
 				3133DD5D27B054B800007428 /* CaBAuthorization.docc in Sources */,

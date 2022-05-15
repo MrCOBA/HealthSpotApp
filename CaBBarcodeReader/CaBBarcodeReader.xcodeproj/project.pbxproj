@@ -42,6 +42,7 @@
 		FDE9FD54282FF0AE00EE6FE0 /* UIStoryboard+CaBBarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBBarcodeReader.swift */; };
 		FDE9FD57282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD56282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift */; };
 		FDE9FD5A282FF79500EE6FE0 /* UserDefaults+CaBBarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBBarcodeReader.swift */; };
+		FDE9FD65283120D300EE6FE0 /* MedicineCheckerRootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,7 @@
 		FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBBarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBBarcodeReader.swift"; sourceTree = "<group>"; };
 		FDE9FD56282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodTemporaryStorage.swift; sourceTree = "<group>"; };
 		FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBBarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBBarcodeReader.swift"; sourceTree = "<group>"; };
+		FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCheckerRootServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				FDE9FD55282FF1A700EE6FE0 /* Extensions */,
+				FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -270,7 +273,7 @@
 		FD7DCBA4282AA9550068434E /* RIB */ = {
 			isa = PBXGroup;
 			children = (
-				FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriodView */,
+				FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriod */,
 				FD7DCBA5282AA95F0068434E /* Container */,
 			);
 			path = RIB;
@@ -295,7 +298,7 @@
 			path = ItemPeriodViews;
 			sourceTree = "<group>";
 		};
-		FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriodView */ = {
+		FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriod */ = {
 			isa = PBXGroup;
 			children = (
 				FDE9FD58282FF4C700EE6FE0 /* Storage */,
@@ -304,7 +307,7 @@
 				FDE9FD4F282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift */,
 				FDE9FD51282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift */,
 			);
-			path = MedicineItemPeriodView;
+			path = MedicineItemPeriod;
 			sourceTree = "<group>";
 		};
 		FDE9FD55282FF1A700EE6FE0 /* Extensions */ = {
@@ -435,6 +438,7 @@
 				FDE9FD50282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift in Sources */,
 				FDE9FD52282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift in Sources */,
 				31A453B42785B0B900290D97 /* BarcodeCaptureController.swift in Sources */,
+				FDE9FD65283120D300EE6FE0 /* MedicineCheckerRootServices.swift in Sources */,
 				FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */,
 				FD793702282C6888009B091C /* UIImage+CaBBarcodeReader.swift in Sources */,
 			);

@@ -13,7 +13,7 @@ public protocol AuthorizationManager: AnyObject {
 
 // MARK: - Implementation
 
-final class AuthorizationManagerImpl: AuthorizationManager {
+public final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Types
 
@@ -25,13 +25,15 @@ final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Init
 
-    init(temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+    public init(temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+        FirebaseApp.configure()
+        
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
-    func signIn() {
+    public func signIn() {
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
 
@@ -63,7 +65,7 @@ final class AuthorizationManagerImpl: AuthorizationManager {
         }
     }
 
-    func signUp() {
+    public func signUp() {
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
         let repeatedPassword = temporaryCredentialsStorage.repeatedPassword

@@ -37,6 +37,7 @@
 		FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */; };
 		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
 		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
+		FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5D2831202600EE6FE0 /* RootServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootRouter.swift; sourceTree = "<group>"; };
 		FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootInteractor.swift; sourceTree = "<group>"; };
 		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
+		FDE9FD5D2831202600EE6FE0 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				FDA3C19B28212D56008CDDDF /* RIB */,
+				FDE9FD5D2831202600EE6FE0 /* RootServices.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
+				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
