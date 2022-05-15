@@ -27,7 +27,7 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
     public init(temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
         FirebaseApp.configure()
-        
+
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
     }
 
