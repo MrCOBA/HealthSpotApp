@@ -1,27 +1,40 @@
 import CaBSDK
 
+// MARK: - Protocol
+
 protocol MedicineItemPeriodPresenter: AnyObject {
 
     func updateView()
 
 }
 
+// MARK: - Implementation
+
 final class MedicineItemPeriodPresenterImpl: MedicineItemPeriodPresenter {
 
+    // MARK: - Internal Properties
+
+    weak var interactor: MedicineItemPeriodInteractor?
     weak var view: MedicineItemPeriodView?
 
-    private weak var interactor: MedicineItemPeriodInteractor?
+    // MARK: - Private Properties
+
     private let storage: MedicineItemPeriodTemporaryStorage
 
-    init(view: MedicineItemPeriodView, interactor: MedicineItemPeriodInteractor, storage: MedicineItemPeriodTemporaryStorage) {
+    // MARK: - Init
+
+    init(view: MedicineItemPeriodView, storage: MedicineItemPeriodTemporaryStorage) {
         self.view = view
-        self.interactor = interactor
         self.storage = storage
     }
+
+    // MARK: - Internal Methods
 
     func updateView() {
         view?.viewModel = makeViewModel()
     }
+
+    // MARK: - Private Methods
 
     private func makeViewModel() -> MedicineItemPeriodViewModel {
         return .init(startDate: storage.startDate,
@@ -38,12 +51,14 @@ final class MedicineItemPeriodPresenterImpl: MedicineItemPeriodPresenter {
 
 }
 
+// MARK: - Protocol MedicineItemPeriodViewEventsHandler
+
 extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
 
     func didTapAddPeriodButton() {
         checkIfInteractorSet()
 
-        interactor?.addNewPeriod()
+        interactor?.updatePeriod()
     }
 
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date) {
@@ -68,12 +83,14 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
         case .concreteEndDate:
             interactor?.updateStorage(.endDate, with: Date())
 
-        case .noRepeat,
-             .daily,
+        case .daily,
              .weekly,
              .monthly,
              .yearly:
             interactor?.updateStorage(.repeatType, with: action.rawValue)
+
+        case .noRepeat:
+            interactor?.updateStorage(.repeatType, with: nil)
 
         default:
             logError(message: "Unknown action provided: <\(action.rawValue)>")
@@ -84,6 +101,12 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
         checkIfInteractorSet()
 
         interactor?.updateStorage(.notificationHint, with: text)
+    }
+
+    func didFinishEditing() {
+        checkIfInteractorSet()
+
+        interactor?.cancelUpdatePeriod()
     }
 
 }

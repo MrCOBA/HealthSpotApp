@@ -10,6 +10,7 @@ protocol MedicineItemPeriodViewEventsHandler: AnyObject {
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date)
     func didSelectAction(for action: MenuAction)
     func didEndEditingText(for id: Int, with text: String?)
+    func didFinishEditing()
 
 }
 
@@ -81,6 +82,16 @@ final class MedicineItemPeriodView: UIViewController {
 
         configureHintView()
         configure()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if isMovingFromParent {
+            checkIfEventsHandlerSet()
+
+            eventsHandler?.didFinishEditing()
+        }
     }
 
     // MARK: - Private Methods
@@ -198,3 +209,14 @@ extension MedicineItemPeriodView: InputViewDelegate {
     }
 
 }
+
+// MARK: - View Factory
+
+extension MedicineItemPeriodView {
+
+    static func makeView() -> MedicineItemPeriodView {
+        return UIStoryboard.MedicineItemPeriodView.instantiateMedicineItemPeriodViewController()
+    }
+
+}
+

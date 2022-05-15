@@ -9,6 +9,8 @@ public protocol MedicineItemPeriodTemporaryStorage: AnyObject {
     var repeatType: String? { get set }
     var notificationHint: String { get set }
 
+    func clear()
+
 }
 
 // MARK: - Implementation
@@ -44,6 +46,15 @@ final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTemporaryS
         self._notificationHint = .init(underlyingDefaults: userDefaults,
                                        key: UserDefaults.Key.MedicineChecker.notificationHint,
                                        defaultValue: "")
+    }
+
+    // MARK: - Internal Methods
+
+    public func clear() {
+        startDate = Date()
+        endDate = nil
+        repeatType = nil
+        notificationHint = ""
     }
 
 }

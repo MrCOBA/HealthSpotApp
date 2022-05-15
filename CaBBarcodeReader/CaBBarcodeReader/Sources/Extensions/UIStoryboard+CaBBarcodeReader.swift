@@ -22,7 +22,7 @@ extension UIStoryboard.MedicineItemInfoView {
         return .barcodeReader
     }
 
-    static func instantiateAuthorizationViewController() -> MedicineItemInfoView {
+    static func instantiateMedicineItemInfoViewController() -> MedicineItemInfoView {
         return instantiateViewController(withIdentifier: "MedicineItemInfoView")
     }
 
@@ -40,7 +40,7 @@ extension UIStoryboard.MedicineItemPeriodView {
         return .barcodeReader
     }
 
-    static func instantiateAuthorizationInfoViewController() -> MedicineItemPeriodView {
+    static func instantiateMedicineItemPeriodViewController() -> MedicineItemPeriodView {
         return instantiateViewController(withIdentifier: "MedicineItemPeriodView")
     }
 
@@ -58,7 +58,7 @@ extension UIStoryboard.MedicineListView {
         return .barcodeReader
     }
 
-    static func instantiateAuthorizationInfoViewController() -> MedicineListView {
+    static func instantiateMedicineListViewController() -> MedicineListView {
         return instantiateViewController(withIdentifier: "MedicineListView")
     }
 
