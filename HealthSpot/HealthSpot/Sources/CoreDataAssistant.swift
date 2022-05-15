@@ -49,9 +49,9 @@ final class CoreDataAssistantImpl: CoreDataAssistant {
         }
 
         do {
-            let searchResult = try context.fetch(fetchRequest)
-            if searchResult.count > 0 {
-                return NSMutableArray.init(array: searchResult)
+            let fetchResult = try context.fetch(fetchRequest)
+            if fetchResult.count > 0 {
+                return NSMutableArray.init(array: fetchResult)
             } else {
                 return nil
             }

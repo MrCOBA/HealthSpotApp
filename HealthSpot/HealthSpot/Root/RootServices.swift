@@ -6,7 +6,7 @@ import CaBBarcodeReader
 protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
     // MARK: RootServices
-    
+
     var coreDataAssistant: CoreDataAssistant { get }
 
     // MARK: AuthorizationRootServices
