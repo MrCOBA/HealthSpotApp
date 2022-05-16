@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import CaBAuthorization
 import CaBBarcodeReader
+import CaBSDK
 
 protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
@@ -39,7 +40,7 @@ final class RootServicesImpl: RootServices {
         medicineItemPeriodStorage = MedicineItemPeriodTemporaryStorageImpl()
         credentialsStorage = AuthorithationCredentialsTemporaryStorageImpl()
 
-        authorizationManager = AuthorizationManagerImpl(temporaryCredentialsStorage: credentialsStorage)
+        authorizationManager = AuthorizationManagerImpl(coreDataAssistant: coreDataAssistant, temporaryCredentialsStorage: credentialsStorage)
     }
 
 }

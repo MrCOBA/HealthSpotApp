@@ -21,13 +21,16 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Properties
 
+    private let coreDataAssistant: CoreDataAssistant
     private let temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     // MARK: - Init
 
-    public init(temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+    public init(coreDataAssistant: CoreDataAssistant,
+                temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
         FirebaseApp.configure()
 
+        self.coreDataAssistant = coreDataAssistant
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
     }
 

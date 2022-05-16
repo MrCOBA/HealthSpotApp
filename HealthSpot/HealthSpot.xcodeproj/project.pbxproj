@@ -44,7 +44,6 @@
 		FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */; };
 		FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */; };
 		FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */; };
-		FDE9FD8228314BEA00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8128314BEA00EE6FE0 /* CoreDataAssistant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,7 +137,6 @@
 		FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FDE9FD8128314BEA00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,7 +249,6 @@
 			children = (
 				31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */,
 				31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */,
-				FDE9FD8128314BEA00EE6FE0 /* CoreDataAssistant.swift */,
 				FDE9FD682831453400EE6FE0 /* CoreDataModel */,
 				FD92D06F28294FAB008CE6DA /* Extensions */,
 			);
@@ -546,7 +543,6 @@
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
 				FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
-				FDE9FD8228314BEA00EE6FE0 /* CoreDataAssistant.swift in Sources */,
 				3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */,
