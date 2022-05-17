@@ -13,6 +13,7 @@
     </entity>
     <entity name="MedicineItemPeriod" representedClassName=".MedicineItemPeriod" syncable="YES">
         <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="notificationHint" attributeType="String"/>
         <attribute name="repeatType" optional="YES" attributeType="String"/>
         <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
@@ -24,8 +25,8 @@
         <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
     </entity>
     <elements>
-        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="88"/>
         <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="178"/>
-        <element name="MedicineItemPeriod" positionX="-850.9652099609375" positionY="-35.4676513671875" width="128" height="118"/>
+        <element name="MedicineItemPeriod" positionX="-850.9652099609375" positionY="-35.4676513671875" width="128" height="133"/>
+        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="88"/>
     </elements>
 </model>

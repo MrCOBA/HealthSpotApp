@@ -12,10 +12,13 @@
 		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */; };
-		FD1EB76C2832996800FBB6BA /* ManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1EB76B2832996800FBB6BA /* ManagedObject.swift */; };
+		FD1EB7B42832A5EA00FBB6BA /* NSManagedObject+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1EB7B32832A5EA00FBB6BA /* NSManagedObject+CaBSDK.swift */; };
 		FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */; };
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */; };
+		FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */; };
+		FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */; };
+		FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */; };
 		FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5B2830112100EE6FE0 /* Helpers.swift */; };
 		FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */; };
 /* End PBXBuildFile section */
@@ -28,10 +31,13 @@
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBSDK.swift"; sourceTree = "<group>"; };
-		FD1EB76B2832996800FBB6BA /* ManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObject.swift; sourceTree = "<group>"; };
+		FD1EB7B32832A5EA00FBB6BA /* NSManagedObject+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+CaBSDK.swift"; sourceTree = "<group>"; };
 		FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CaBSDK.swift"; sourceTree = "<group>"; };
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBSDK.swift"; sourceTree = "<group>"; };
+		FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodEntityWrapper.swift; sourceTree = "<group>"; };
+		FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityWrapper.swift; sourceTree = "<group>"; };
+		FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemEntityWrapper.swift; sourceTree = "<group>"; };
 		FDE9FD5B2830112100EE6FE0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +69,7 @@
 				31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */,
 				FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */,
 				FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */,
+				FD1EB7B32832A5EA00FBB6BA /* NSManagedObject+CaBSDK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -86,8 +93,7 @@
 		31FB819F268614E900500FE1 /* CaBSDK */ = {
 			isa = PBXGroup;
 			children = (
-				FD1EB76B2832996800FBB6BA /* ManagedObject.swift */,
-				FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */,
+				FDE94B5B2832FDDC00C6536B /* CoreData */,
 				31FB81A8268614F000500FE1 /* Sources */,
 				31FB81A0268614E900500FE1 /* CaBSDK.h */,
 				31FB81A1268614E900500FE1 /* Info.plist */,
@@ -112,6 +118,25 @@
 				FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */,
 			);
 			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		FDE94B5B2832FDDC00C6536B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FDE94B5C2832FDF100C6536B /* EntityWrappers */,
+				FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FDE94B5C2832FDF100C6536B /* EntityWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */,
+				FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */,
+				FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */,
+			);
+			path = EntityWrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,14 +224,17 @@
 			files = (
 				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
-				FD1EB76C2832996800FBB6BA /* ManagedObject.swift in Sources */,
+				FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */,
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
+				FD1EB7B42832A5EA00FBB6BA /* NSManagedObject+CaBSDK.swift in Sources */,
 				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */,
+				FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
 				FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */,
+				FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
