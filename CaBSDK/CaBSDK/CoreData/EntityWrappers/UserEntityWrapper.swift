@@ -5,16 +5,32 @@ public final class UserEntityWrapper {
     // MARK: - Public Properties
 
     public var email: String {
-        return entityObject.value(forKey: "email") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "email") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "email")
+        }
     }
 
     public var password: String {
-        return entityObject.value(forKey: "password") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "password") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "password")
+        }
     }
 
     public var medicineItems: NSMutableArray? {
-        let predicate = NSPredicate(format: "user = %@", entityObject)
-        return coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil)
+        get {
+            let predicate = NSPredicate(format: "user = %@", entityObject)
+            return coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil) ?? []
+        }
+        set {
+            let array: [NSManagedObject] = newValue ?? []
+            entityObject.setValue(NSSet(array: array), forKey: "medicineItems")
+        }
     }
 
     // MARK: - Private Properties

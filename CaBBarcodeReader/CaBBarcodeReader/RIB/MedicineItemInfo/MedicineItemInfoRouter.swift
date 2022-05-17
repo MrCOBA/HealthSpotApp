@@ -18,6 +18,7 @@ final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
     private var currentChild: ViewableRouter?
 
     init(rootServices: MedicineCheckerRootServices, view: MedicineItemInfoView, interactor: MedicineItemInfoInteractor) {
+        self.interactor = interactor
         self.rootServices = rootServices
         self.view = view
 

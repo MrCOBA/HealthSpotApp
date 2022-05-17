@@ -2,7 +2,7 @@ import CoreData
 import CaBRiblets
 import CaBSDK
 
-protocol MedicineItemInfoInteractor: Interactor {
+protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 
 }
 
@@ -11,50 +11,43 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor {
     weak var router: MedicineItemInfoRouter?
 
     private let coreDataAssistant: CoreDataAssistant
-    private var entityObject: NSManagedObject?
+
+    private let entityId: Int16
+    private var medicineItem: MedicineItemEntityWrapper?
+    private var periods = [MedicineItemPeriodEntityWrapper]()
 
     init(coreDataAssistant: CoreDataAssistant, entityId: Int16) {
+        self.entityId = entityId
         self.coreDataAssistant = coreDataAssistant
+        self.periods = []
     }
 
-    private func loadEntity() {
-        entityObject = coreDataAssistant.createEntity(NSManagedObject.EntityName.medicineItem)
+    override func start() {
+        super.start()
+
+        medicineItem = loadEntity(with: entityId)
+        periods = loadPeriods(from: medicineItem?.periods)
     }
 
-    private func performEntity() {
-        guard let id = entityObject?.value(forKey: "id") as? Int16 else {
-            logError(message: "Failed to fetch <id> field")
-            return
-        }
-
-        guard let barcode = entityObject?.value(forKey: "barcode") as? String else {
-            logError(message: "Failed to fetch <barcode> field")
-            return
-        }
-
-        guard let marketPath = entityObject?.value(forKey: "marketUrl") as? String else {
-            logError(message: "Failed to fetch <id> field")
-            return
-        }
-
-        guard let name = entityObject?.value(forKey: "name") as? String else {
-            logError(message: "Failed to fetch <name> field")
-            return
-        }
-
-        let imagePath = entityObject?.value(forKey: "imageUrl") as? String
-
-        guard let producer = entityObject?.value(forKey: "producer") as? String else {
-            logError(message: "Failed to fetch <producer> field")
-            return
-        }
-
-        let activeComponent = entityObject?.value(forKey: "activeComponent") as? String
-        
+    private func loadEntity(with id: Int16) -> MedicineItemEntityWrapper? {
+        return MedicineItemEntityWrapper(id: id, coreDataAssistant: coreDataAssistant)
     }
 
-    private func performEntities(from set: NSSet) {
+    private func loadPeriods(from rawData: NSMutableArray?) -> [MedicineItemPeriodEntityWrapper] {
+        guard let rawData = rawData else {
+            logWarning(message: "Failed to load periods")
+            return []
+        }
 
+        let periods: [MedicineItemPeriodEntityWrapper] = rawData.compactMap {
+            guard let rawPeriod = $0 as? NSManagedObject else {
+                return nil
+            }
+
+            return MedicineItemPeriodEntityWrapper(entityObject: rawPeriod, coreDataAssistant: coreDataAssistant)
+        }
+
+        return periods
     }
 
     private func checkIfRouterSet() {

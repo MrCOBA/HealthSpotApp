@@ -5,40 +5,86 @@ public final class MedicineItemEntityWrapper {
     // MARK: - Public Properties
 
     public var id: Int16 {
-        return entityObject.value(forKey: "id") as? Int16 ?? -1
+        get {
+            return entityObject.value(forKey: "id") as? Int16 ?? -1
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "id")
+        }
     }
 
     public var name: String {
-        return entityObject.value(forKey: "name") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "name") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "name")
+        }
     }
 
     public var barcode: String {
-        return entityObject.value(forKey: "barcode") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "barcode") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "barcode")
+        }
     }
 
     public var marketUrlString: String {
-        return entityObject.value(forKey: "marketUrl") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "marketUrl") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "marketUrl")
+        }
     }
 
     public var imageUrlString: String {
-        return entityObject.value(forKey: "imageUrl") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "imageUrl") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "imageUrl")
+        }
     }
 
     public var producer: String {
-        return entityObject.value(forKey: "producer") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "producer") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "producer")
+        }
     }
 
     public var activeComponent: String {
-        return entityObject.value(forKey: "activeComponent") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "activeComponent") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "activeComponent")
+        }
     }
 
-    public var periods: NSMutableArray? {
-        let predicate = NSPredicate(format: "medicineItem = %@", entityObject)
-        return coreDataAssistant.loadData("MedicineItemPeriod", predicate: predicate, sortDescriptor: nil)
+    public var periods: NSMutableArray {
+        get {
+            let predicate = NSPredicate(format: "medicineItem = %@", entityObject)
+            return coreDataAssistant.loadData("MedicineItemPeriod", predicate: predicate, sortDescriptor: nil) ?? []
+        }
+        set {
+            let array: [NSManagedObject] = newValue ?? []
+            entityObject.setValue(NSSet(array: array), forKey: "periods")
+        }
     }
 
     public var User: NSManagedObject? {
-        return entityObject.value(forKey: "user") as? NSManagedObject
+        get {
+            return entityObject.value(forKey: "user") as? NSManagedObject
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "user")
+        }
     }
 
     // MARK: - Private properties

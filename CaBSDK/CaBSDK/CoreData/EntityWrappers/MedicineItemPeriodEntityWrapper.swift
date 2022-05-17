@@ -5,27 +5,57 @@ public final class MedicineItemPeriodEntityWrapper {
     // MARK: - Public Properties
 
     public var id: Int16 {
-        return entityObject.value(forKey: "id") as? Int16 ?? -1
+        get {
+            return entityObject.value(forKey: "id") as? Int16 ?? -1
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "id")
+        }
     }
 
     public var startDate: Date {
-        return entityObject.value(forKey: "startDate") as? Date ?? Date()
+        get {
+            return entityObject.value(forKey: "startDate") as? Date
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "startDate")
+        }
     }
 
     public var endDateDate: Date? {
-        return entityObject.value(forKey: "endDate") as? Date
+        get {
+            return entityObject.value(forKey: "endDateDate") as? Date
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "endDateDate")
+        }
     }
 
     public var repeatType: String? {
-        return entityObject.value(forKey: "repeatType") as? String
+        get {
+            return entityObject.value(forKey: "repeatType") as? String
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "repeatType")
+        }
     }
 
     public var notificationHint: String {
-        return entityObject.value(forKey: "notificationHint") as? String ?? ""
+        get {
+            return entityObject.value(forKey: "notificationHint") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "notificationHint")
+        }
     }
 
     public var medicineItem: NSManagedObject? {
-        return entityObject.value(forKey: "medicineItem") as? NSManagedObject
+        get {
+            return entityObject.value(forKey: "medicineItem") as? NSManagedObject
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "medicineItem")
+        }
     }
 
     // MARK: - Private properties
