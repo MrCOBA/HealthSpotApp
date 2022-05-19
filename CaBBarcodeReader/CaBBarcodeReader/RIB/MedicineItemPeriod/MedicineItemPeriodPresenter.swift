@@ -36,11 +36,11 @@ final class MedicineItemPeriodPresenterImpl: MedicineItemPeriodPresenter {
 
     // MARK: - Private Methods
 
-    private func makeViewModel() -> MedicineItemPeriodViewModel {
+    private func makeViewModel() -> MedicineItemViewModel.Period {
         return .init(startDate: storage.startDate,
                      endDate: storage.endDate,
-                     repeatType: storage.repeatType,
-                     notificationHint: storage.notificationHint)
+                     frequency: .init(rawValue: storage.frequency ?? ""),
+                     hint: storage.notificationHint)
     }
 
     private func checkIfInteractorSet() {
@@ -87,10 +87,10 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
              .weekly,
              .monthly,
              .yearly:
-            interactor?.updateStorage(.repeatType, with: action.rawValue)
+            interactor?.updateStorage(.frequency, with: action.rawValue)
 
         case .noRepeat:
-            interactor?.updateStorage(.repeatType, with: nil)
+            interactor?.updateStorage(.frequency, with: nil)
 
         default:
             logError(message: "Unknown action provided: <\(action.rawValue)>")

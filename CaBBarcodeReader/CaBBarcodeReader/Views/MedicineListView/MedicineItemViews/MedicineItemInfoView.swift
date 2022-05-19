@@ -49,6 +49,7 @@ final class MedicineItemInfoView: UIViewController {
     @IBOutlet private weak var itemTitleLabel: UILabel!
     @IBOutlet private weak var getMoreButton: CaBButton!
 
+    @IBOutlet private weak var itemPeriodCollectionView: UICollectionView!
     @IBOutlet private weak var itemInfoDataTableView: UITableView!
 
     private var dataSource: [(title: String, source: String)] {
@@ -133,6 +134,30 @@ extension MedicineItemInfoView: UITableViewDataSource {
         cell.colorScheme = colorScheme
         cell.configure(with: infoSource.title, source: infoSource.source)
         
+        return cell
+    }
+
+}
+
+// MARK: - Protocol UICollectionViewDataSource
+
+extension MedicineItemInfoView: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.periods.count
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeriodCollectionViewCell.cellIdentifier,
+                                                            for: indexPath) as? PeriodCollectionViewCell
+        else {
+            logError(message: "Unexpected cell type, fall to the default")
+            return UICollectionViewCell()
+        }
+
+        cell.colorScheme = colorScheme
+        cell.cellModel = viewModel.periods[indexPath.row]
+
         return cell
     }
 

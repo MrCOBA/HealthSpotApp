@@ -15,14 +15,14 @@ public final class MedicineItemPeriodEntityWrapper {
 
     public var startDate: Date {
         get {
-            return entityObject.value(forKey: "startDate") as? Date
+            return entityObject.value(forKey: "startDate") as? Date ?? Date()
         }
         set {
             entityObject.setValue(newValue, forKey: "startDate")
         }
     }
 
-    public var endDateDate: Date? {
+    public var endDate: Date? {
         get {
             return entityObject.value(forKey: "endDateDate") as? Date
         }
@@ -31,12 +31,12 @@ public final class MedicineItemPeriodEntityWrapper {
         }
     }
 
-    public var repeatType: String? {
+    public var frequency: String {
         get {
-            return entityObject.value(forKey: "repeatType") as? String
+            return entityObject.value(forKey: "frequency") as? String ?? ""
         }
         set {
-            entityObject.setValue(newValue, forKey: "repeatType")
+            entityObject.setValue(newValue, forKey: "frequency")
         }
     }
 

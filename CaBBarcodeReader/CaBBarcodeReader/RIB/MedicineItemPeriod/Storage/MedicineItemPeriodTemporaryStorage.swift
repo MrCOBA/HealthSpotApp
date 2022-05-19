@@ -6,7 +6,7 @@ public protocol MedicineItemPeriodTemporaryStorage: AnyObject {
 
     var startDate: Date { get set }
     var endDate: Date? { get set }
-    var repeatType: String? { get set }
+    var frequency: String? { get set }
     var notificationHint: String { get set }
 
     func clear()
@@ -26,7 +26,7 @@ public final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTem
     public var endDate: Date?
 
     @UserDefaultsStored
-    public var repeatType: String?
+    public var frequency: String?
 
     @UserDefaultsStored
     public var notificationHint: String
@@ -40,9 +40,9 @@ public final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTem
         self._endDate = .init(underlyingDefaults: userDefaults,
                               key: UserDefaults.Key.MedicineChecker.endDate,
                               defaultValue: nil)
-        self._repeatType = .init(underlyingDefaults: userDefaults,
-                                 key: UserDefaults.Key.MedicineChecker.repeatType,
-                                 defaultValue: nil)
+        self._frequency = .init(underlyingDefaults: userDefaults,
+                                key: UserDefaults.Key.MedicineChecker.frequency,
+                                defaultValue: nil)
         self._notificationHint = .init(underlyingDefaults: userDefaults,
                                        key: UserDefaults.Key.MedicineChecker.notificationHint,
                                        defaultValue: "")
@@ -53,7 +53,7 @@ public final class MedicineItemPeriodTemporaryStorageImpl: MedicineItemPeriodTem
     public func clear() {
         startDate = Date()
         endDate = nil
-        repeatType = nil
+        frequency = nil
         notificationHint = ""
     }
 

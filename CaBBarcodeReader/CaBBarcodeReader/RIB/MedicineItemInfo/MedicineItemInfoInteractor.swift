@@ -9,6 +9,7 @@ protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 final class MedicineItemInfoInteractorImpl: BaseInteractor {
 
     weak var router: MedicineItemInfoRouter?
+    var presenter: MedicineItemInfoPresenter?
 
     private let coreDataAssistant: CoreDataAssistant
 
@@ -27,6 +28,17 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor {
 
         medicineItem = loadEntity(with: entityId)
         periods = loadPeriods(from: medicineItem?.periods)
+
+        updateView()
+    }
+
+    private func updateView() {
+        guard let medicineItem = medicineItem else {
+            logWarning(message: "Failed to load medicineItem")
+            return
+        }
+
+        presenter?.updateView(rawData: medicineItem, periods)
     }
 
     private func loadEntity(with id: Int16) -> MedicineItemEntityWrapper? {

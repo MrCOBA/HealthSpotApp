@@ -29,7 +29,7 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
     enum UpdateField {
         case startDate
         case endDate
-        case repeatType
+        case frequency
         case notificationHint
     }
 
@@ -69,8 +69,8 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
         case .notificationHint:
             storage.notificationHint = (data as? String) ?? ""
 
-        case .repeatType:
-            storage.repeatType = (data as? String)
+        case .frequency:
+            storage.frequency = (data as? String)
         }
 
         presenter?.updateView()

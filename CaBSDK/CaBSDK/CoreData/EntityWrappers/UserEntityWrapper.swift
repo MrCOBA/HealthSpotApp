@@ -22,13 +22,13 @@ public final class UserEntityWrapper {
         }
     }
 
-    public var medicineItems: NSMutableArray? {
+    public var medicineItems: NSMutableArray {
         get {
             let predicate = NSPredicate(format: "user = %@", entityObject)
             return coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil) ?? []
         }
         set {
-            let array: [NSManagedObject] = newValue ?? []
+            let array: [NSManagedObject] = newValue.compactMap { $0 as? NSManagedObject }
             entityObject.setValue(NSSet(array: array), forKey: "medicineItems")
         }
     }

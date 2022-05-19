@@ -1,21 +1,24 @@
 import UIKit
+import CaBSDK
 
 struct MedicineItemViewModel: Equatable {
 
     struct Period: Equatable {
 
-        enum Repeat {
-            case daily
-            case weekly
-            case monthly
-            case yearly
-        }
+        typealias Frequency = Date.Frequency
 
         let startDate: Date
         let endDate: Date?
-        let `repeat`: Repeat?
+        let frequency: Frequency?
         let hint: String?
 
+        static var empty: Self {
+            return .init(startDate: Date(),
+                         endDate: nil,
+                         frequency: nil,
+                         hint: "")
+        }
+        
     }
 
     let id: Int16

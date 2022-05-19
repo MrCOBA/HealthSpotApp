@@ -12,8 +12,8 @@ extension UserDefaults.Key {
             return "MedicineCheckerTemporaryEndDate"
         }
 
-        static var repeatType: String {
-            return "MedicineCheckerTemporaryRepeatType"
+        static var frequency: String {
+            return "MedicineCheckerTemporaryFrequency"
         }
 
         static var notificationHint: String {

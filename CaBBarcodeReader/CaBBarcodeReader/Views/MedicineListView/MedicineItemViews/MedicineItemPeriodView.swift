@@ -14,29 +14,6 @@ protocol MedicineItemPeriodViewEventsHandler: AnyObject {
 
 }
 
-struct MedicineItemPeriodViewModel: Equatable {
-
-    let startDate: Date
-    let endDate: Date?
-    let repeatType: String?
-    let notificationHint: String
-
-    static var empty: Self {
-        return .init(startDate: Date(), endDate: nil, repeatType: nil, notificationHint: "")
-    }
-
-    var toRepeatMenuAction: MenuAction {
-        let action = MenuAction.repeatCases.first(where: { $0.rawValue == repeatType }) ?? .noRepeat
-        return action
-    }
-
-    var toEndDateMenuAction: MenuAction {
-        let action: MenuAction = (endDate == nil) ? .noEndDate : .concreteEndDate
-        return action
-    }
-
-}
-
 final class MedicineItemPeriodView: UIViewController {
 
     // MARK: - Private Types
@@ -51,7 +28,7 @@ final class MedicineItemPeriodView: UIViewController {
 
     // MARK: - Internal Properties
 
-    var viewModel: MedicineItemPeriodViewModel = .empty {
+    var viewModel: MedicineItemViewModel.Period = .empty {
         didSet {
             if oldValue != viewModel {
                 configure()
@@ -153,7 +130,7 @@ final class MedicineItemPeriodView: UIViewController {
                                                     .font: Constants.font
                                                  ])
         hintTitleLabel.attributedText = attributetTitle
-        hintInputView.textField?.text = viewModel.notificationHint
+        hintInputView.textField?.text = viewModel.hint
     }
 
     private func configureAddPeriodButton() {
@@ -210,6 +187,22 @@ extension MedicineItemPeriodView: InputViewDelegate {
 
 }
 
+// MARK: - Helper
+
+extension MedicineItemViewModel.Period {
+
+    fileprivate var toRepeatMenuAction: MenuAction {
+        let action = MenuAction.repeatCases.first(where: { $0.rawValue == frequency?.rawValue }) ?? .noRepeat
+        return action
+    }
+
+    fileprivate var toEndDateMenuAction: MenuAction {
+        let action: MenuAction = (endDate == nil) ? .noEndDate : .concreteEndDate
+        return action
+    }
+
+}
+
 // MARK: - View Factory
 
 extension MedicineItemPeriodView {
@@ -219,4 +212,3 @@ extension MedicineItemPeriodView {
     }
 
 }
-

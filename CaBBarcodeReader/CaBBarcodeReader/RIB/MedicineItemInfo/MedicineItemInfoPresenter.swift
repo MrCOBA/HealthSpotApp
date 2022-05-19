@@ -1,8 +1,40 @@
-//
-//  MedicineItemInfoPresenter.swift
-//  CaBBarcodeReader
-//
-//  Created by Oparin on 15.05.2022.
-//
+import CaBRiblets
+import CaBSDK
 
-import Foundation
+protocol MedicineItemInfoPresenter: AnyObject {
+
+    func updateView(rawData medicineItem: MedicineItemEntityWrapper, _ periods: [MedicineItemPeriodEntityWrapper])
+
+}
+
+final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
+
+    typealias PeriodModel = MedicineItemViewModel.Period
+
+    weak var view: MedicineItemInfoView?
+
+    func updateView(rawData medicineItem: MedicineItemEntityWrapper, _ periods: [MedicineItemPeriodEntityWrapper]) {
+        let viewModel = makeViewModel(rawData: medicineItem, periods)
+
+        view?.viewModel = viewModel
+    }
+
+    private func makeViewModel(rawData medicineItemWrapper: MedicineItemEntityWrapper, _ periodsWrappers: [MedicineItemPeriodEntityWrapper]) -> MedicineItemViewModel {
+        let periods: [PeriodModel] = periodsWrappers.map {
+            return .init(startDate: $0.startDate,
+                         endDate: $0.endDate,
+                         frequency: PeriodModel.Frequency(rawValue: $0.frequency),
+                         hint: $0.notificationHint)
+        }
+
+        return .init(id: medicineItemWrapper.id,
+                     barcode: medicineItemWrapper.barcode,
+                     marketUrl: URL(string: medicineItemWrapper.marketUrlString),
+                     name: medicineItemWrapper.name,
+                     imageUrl: URL(string: medicineItemWrapper.imageUrlString),
+                     producer: medicineItemWrapper.producer,
+                     activeComponent: medicineItemWrapper.activeComponent,
+                     periods: periods)
+    }
+
+}
