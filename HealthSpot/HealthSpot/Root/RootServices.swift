@@ -1,7 +1,7 @@
 import UIKit
 import CoreData
 import CaBAuthorization
-import CaBBarcodeReader
+import CaBMedicineChecker
 import CaBSDK
 
 protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {

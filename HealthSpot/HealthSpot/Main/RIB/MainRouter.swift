@@ -2,7 +2,7 @@ import UIKit
 import CaBUIKit
 import CaBRiblets
 import CaBSDK
-import CaBBarcodeReader
+import CaBMedicineChecker
 
 // MARK: - Protocol
 

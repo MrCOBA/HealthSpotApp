@@ -19,7 +19,7 @@ extension UIStoryboard.MedicineItemInfoView {
     }
 
     public static var bundle: Bundle {
-        return .barcodeReader
+        return .medicineChecker
     }
 
     static func instantiateMedicineItemInfoViewController() -> MedicineItemInfoView {
@@ -37,7 +37,7 @@ extension UIStoryboard.MedicineItemPeriodView {
     }
 
     public static var bundle: Bundle {
-        return .barcodeReader
+        return .medicineChecker
     }
 
     static func instantiateMedicineItemPeriodViewController() -> MedicineItemPeriodView {
@@ -55,7 +55,7 @@ extension UIStoryboard.MedicineListView {
     }
 
     public static var bundle: Bundle {
-        return .barcodeReader
+        return .medicineChecker
     }
 
     static func instantiateMedicineListViewController() -> MedicineListView {

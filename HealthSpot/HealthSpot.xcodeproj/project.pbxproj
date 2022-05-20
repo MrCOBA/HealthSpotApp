@@ -25,8 +25,6 @@
 		31932CB8278309E300BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CB7278309DB00BCBDAA /* CaBSDK.framework */; };
 		31932CB9278309E300BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CB7278309DB00BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
-		31A453AF2785AFC300290D97 /* CaBBarcodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; };
-		31A453B02785AFC300290D97 /* CaBBarcodeReader.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
@@ -44,6 +42,8 @@
 		FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */; };
 		FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */; };
 		FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */; };
+		FDED1362283714CA0038C892 /* CaBMedicineChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; };
+		FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,12 +75,12 @@
 			remoteGlobalIDString = 31FB819D268614E900500FE1;
 			remoteInfo = CaBSDK;
 		};
-		31A453AB2785AFBD00290D97 /* PBXContainerItemProxy */ = {
+		FDED1360283712AD0038C892 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */;
+			containerPortal = 31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 31A4539B2785AF9300290D97;
-			remoteInfo = CaBBarcodeReader;
+			remoteInfo = CaBMedicineChecker;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -91,10 +91,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */,
 				31932CB9278309E300BCBDAA /* CaBSDK.framework in Embed Frameworks */,
 				3133DD6B27B054F200007428 /* CaBAuthorization.framework in Embed Frameworks */,
 				31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */,
-				31A453B02785AFC300290D97 /* CaBBarcodeReader.framework in Embed Frameworks */,
 				3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -119,7 +119,7 @@
 		31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBUIKit.xcodeproj; path = ../CaBUIKit/CaBUIKit.xcodeproj; sourceTree = "<group>"; };
 		31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBSDK.xcodeproj; path = ../CaBSDK/CaBSDK.xcodeproj; sourceTree = "<group>"; };
 		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
-		31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBBarcodeReader.xcodeproj; path = ../CaBBarcodeReader/CaBBarcodeReader.xcodeproj; sourceTree = "<group>"; };
+		31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBMedicineChecker.xcodeproj; path = ../CaBMedicineChecker/CaBMedicineChecker.xcodeproj; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -144,10 +144,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDED1362283714CA0038C892 /* CaBMedicineChecker.framework in Frameworks */,
 				31932CB8278309E300BCBDAA /* CaBSDK.framework in Frameworks */,
 				3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */,
 				31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */,
-				31A453AF2785AFC300290D97 /* CaBBarcodeReader.framework in Frameworks */,
 				3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +288,7 @@
 			children = (
 				3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */,
 				3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */,
-				31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */,
+				31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */,
 				31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */,
 				31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */,
 			);
@@ -307,14 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				31932CB7278309DB00BCBDAA /* CaBSDK.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		31A453A82785AFBD00290D97 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,6 +387,14 @@
 			path = CoreDataModel;
 			sourceTree = "<group>";
 		};
+		FDED135D283712AD0038C892 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -448,8 +448,8 @@
 					ProjectRef = 3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */;
 				},
 				{
-					ProductGroup = 31A453A82785AFBD00290D97 /* Products */;
-					ProjectRef = 31A453A72785AFBD00290D97 /* CaBBarcodeReader.xcodeproj */;
+					ProductGroup = FDED135D283712AD0038C892 /* Products */;
+					ProjectRef = 31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */;
 				},
 				{
 					ProductGroup = 3133DD3727A9A90F00007428 /* Products */;
@@ -500,11 +500,11 @@
 			remoteRef = 31932CB6278309DB00BCBDAA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		31A453AC2785AFBD00290D97 /* CaBBarcodeReader.framework */ = {
+		FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = CaBBarcodeReader.framework;
-			remoteRef = 31A453AB2785AFBD00290D97 /* PBXContainerItemProxy */;
+			path = CaBMedicineChecker.framework;
+			remoteRef = FDED1360283712AD0038C892 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

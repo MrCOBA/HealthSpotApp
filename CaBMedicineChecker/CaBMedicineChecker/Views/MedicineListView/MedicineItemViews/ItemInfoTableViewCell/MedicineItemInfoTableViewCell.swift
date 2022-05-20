@@ -33,7 +33,7 @@ final class MedicineItemInfoTableViewCell: UITableViewCell {
     }
 
     static var nib: UINib {
-        return .init(nibName: cellIdentifier, bundle: .barcodeReader)
+        return .init(nibName: cellIdentifier, bundle: .medicineChecker)
     }
 
     var colorScheme: CaBColorScheme = .default
