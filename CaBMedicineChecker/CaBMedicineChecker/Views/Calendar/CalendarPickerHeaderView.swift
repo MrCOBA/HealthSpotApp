@@ -18,7 +18,7 @@ final class CalendarPickerHeaderView: UIView {
         enum Fonts {
 
             static var titleFont: UIFont {
-                return .init(name: "HelveticeNeue-Bold", size: 26.0)!
+                return .init(name: "HelveticaNeue-Bold", size: 26.0)!
             }
 
             static var dayOfWeekFont: UIFont {

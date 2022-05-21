@@ -1,6 +1,6 @@
 import CoreData
 
-public final class UserEntityWrapper {
+public final class UserEntityWrapper: EntityWrapper {
 
     // MARK: - Public Properties
 

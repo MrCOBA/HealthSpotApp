@@ -11,7 +11,12 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
 
     typealias PeriodModel = MedicineItemViewModel.Period
 
+    weak var interactor: MedicineItemInfoInteractor?
     weak var view: MedicineItemInfoView?
+
+    init(view: MedicineItemInfoView) {
+        self.view = view
+    }
 
     func updateView(rawData medicineItem: MedicineItemEntityWrapper, _ periods: [MedicineItemPeriodEntityWrapper]) {
         let viewModel = makeViewModel(rawData: medicineItem, periods)
@@ -35,6 +40,14 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
                      producer: medicineItemWrapper.producer,
                      activeComponent: medicineItemWrapper.activeComponent,
                      periods: periods)
+    }
+
+}
+
+extension MedicineItemInfoPresenterImpl: MedicineItemInfoViewEventsHandler {
+
+    func didFinish() {
+        
     }
 
 }

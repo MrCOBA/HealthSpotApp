@@ -29,6 +29,7 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     private let interactor: MainInteractor
 
+    private let rootServices: RootServices
     private var containerViewController: CaBTabBarController
 
     private var homeRouter: ViewableRouter?
@@ -38,7 +39,8 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     // MARK: - Init
 
-    init(view: CaBTabBarController, interactor: MainInteractor) {
+    init(rootServices: RootServices, view: CaBTabBarController, interactor: MainInteractor) {
+        self.rootServices = rootServices
         self.containerViewController = view
         self.interactor = interactor
 
@@ -59,7 +61,7 @@ final class MainRouterImpl: BaseRouter, MainRouter {
             return
         }
 
-        let router = MedicineCheckerContainerBuilder(listener: interactor).build()
+        let router = MedicineCheckerContainerBuilder(factory: rootServices, listener: interactor).build()
         router.start()
 
         medicineControllerRouter = router

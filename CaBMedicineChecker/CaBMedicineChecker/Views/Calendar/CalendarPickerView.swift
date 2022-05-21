@@ -28,13 +28,13 @@ final class CalendarPickerView: UIView {
             return 8.0
         }
 
-        static func multiplier(for mode: Mode, numberOfWeeks: Int) -> CGFloat {
+        static func multiplier(for mode: Mode, numberOfWeeks: Double) -> CGFloat {
             switch mode {
             case .large:
-                return CGFloat(numberOfWeeks/7)
+                return CGFloat(numberOfWeeks/7.0)
 
             case .small:
-                return 1/7
+                return CGFloat(1.0/7.0)
             }
         }
 
@@ -64,13 +64,14 @@ final class CalendarPickerView: UIView {
         }
     }
 
-    private var selectedDate: Date {
+    private var selectedDate: Date = Date() {
         didSet {
             mode = .small
+            baseDate = selectedDate
         }
     }
 
-    private var baseDate: Date {
+    private var baseDate: Date = Date() {
         didSet {
             days = (mode == .small) ? generateDaysInWeek(for: baseDate) : generateDaysInMonth(for: baseDate)
             collectionView.reloadData()
@@ -98,20 +99,14 @@ final class CalendarPickerView: UIView {
     private lazy var headerView = CalendarPickerHeaderView(colorScheme: colorScheme)
     private lazy var footerView = CalendarPickerFooterView(colorScheme: colorScheme)
 
-    // MARK: - Init
+    // MARK: - Internal Methods
 
-    init(baseDate: Date, colorScheme: CaBColorScheme) {
-        self.baseDate = baseDate
-        self.selectedDate = baseDate
-        self.colorScheme = colorScheme
+    override func awakeFromNib() {
+        super.awakeFromNib()
 
-        super.init(frame: .zero)
+        selectedDate = Date()
 
         configure()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Private Methods
@@ -140,16 +135,19 @@ final class CalendarPickerView: UIView {
     }
 
     private func setHeightConstraint(for mode: Mode) {
+        collectionViewHeightConstraint?.isActive = false
         let numberOfWeeks = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
         collectionViewHeightConstraint = collectionView.heightAnchor.constraint(equalTo: widthAnchor,
-                                                                                multiplier: Constants.multiplier(for: mode, numberOfWeeks: numberOfWeeks))
+                                                                                multiplier: Constants.multiplier(for: mode, numberOfWeeks: Double(numberOfWeeks)))
         collectionViewHeightConstraint?.isActive = true
+        layoutIfNeeded()
     }
 
     private func configureHeaderView() {
         addSubview(headerView)
 
         NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: topAnchor),
             headerView.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
             headerView.bottomAnchor.constraint(equalTo: collectionView.topAnchor),
@@ -206,12 +204,17 @@ private extension CalendarPickerView {
     func generateDaysInWeek(for baseDate: Date) -> [Day] {
         let monthDays = generateDaysInMonth(for: baseDate)
 
-        guard let dayIndex = monthDays.firstIndex(where: { $0.date == baseDate }) else {
+        guard let dayIndex = monthDays.firstIndex(where: { $0.date.hasSame(.day, as: baseDate) }) else {
             logError(message: "Day must be included in the month days")
             return []
         }
 
-        let weekDays = monthDays.enumerated().filter { return ($0.offset % 7) == (dayIndex % 7) }.map { $0.element }
+        let div = dayIndex % 7
+
+        let firstWeekDayIndex = dayIndex - div
+        let lastWeekDayIndex = dayIndex + (6 - div)
+
+        let weekDays = Array(monthDays[firstWeekDayIndex...lastWeekDayIndex])
 
         return weekDays
     }
@@ -237,7 +240,7 @@ private extension CalendarPickerView {
         dateFormatter.dateFormat = "d"
 
         return Day(date: date,
-                   number: dateFormatter.string(from: date),
+                   number: Int(dateFormatter.string(from: date))!,
                    isSelected: calendar.isDate(date, inSameDayAs: selectedDate),
                    isWithinDisplayedMonth: isWithinDisplayedMonth
         )
@@ -306,11 +309,24 @@ extension CalendarPickerView: UICollectionViewDelegateFlowLayout {
 extension CalendarPickerView: CalendarPickerFooterDelegate {
 
     func didTapPreviousMonthButton() {
-        baseDate = calendar.date(byAdding: .month, value: -1, to: baseDate) ?? baseDate
+        updateCalendar(with: -1)
     }
 
     func didTapNextMonthButton() {
-        baseDate = calendar.date(byAdding: .month, value: 1, to: baseDate) ?? baseDate
+        updateCalendar(with: 1)
+    }
+
+    private func updateCalendar(with value: Int) {
+        let newDate: Date
+        switch mode {
+        case .small:
+            newDate = calendar.date(byAdding: .weekOfYear, value: value, to: baseDate) ?? baseDate
+
+        case .large:
+            newDate = calendar.date(byAdding: .month, value: value, to: baseDate) ?? baseDate
+        }
+
+        baseDate = newDate
     }
 
 }

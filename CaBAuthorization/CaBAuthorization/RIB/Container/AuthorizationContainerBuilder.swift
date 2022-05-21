@@ -23,7 +23,9 @@ public final class AuthorizationContainerBuilder: Builder {
         let view = CaBNavigationController()
         view.isNavigationBarHidden = true
 
-        let interactor = AuthorizationContainerInteractor(listener: listener)
+        let interactor = AuthorizationContainerInteractor(coreDataAssistant: factory.coreDataAssistant,
+                                                          credentialsStorage: factory.credentialsStorage,
+                                                          listener: listener)
 
         let router = AuthorizationContainerRouterImpl(rootServices: factory, view: view, interactor: interactor)
         interactor.router = router

@@ -5,6 +5,8 @@ import UIKit
 
 public protocol MedicineCheckerContainerRouter: ViewableRouter {
 
+    func attachMedicineListRouter()
+
 }
 
 final class MedicineCheckerContainerRouterImpl: BaseRouter, MedicineCheckerContainerRouter {
@@ -18,14 +20,15 @@ final class MedicineCheckerContainerRouterImpl: BaseRouter, MedicineCheckerConta
     // MARK: - Private Properties
 
     private var containerViewController: CaBNavigationController
-
+    private let rootServices: MedicineCheckerRootServices
     private let interactor: MedicineCheckerContainerInteractor
 
     private var rootChild: ViewableRouter?
 
     // MARK: - Init
 
-    init(view: CaBNavigationController, interactor: MedicineCheckerContainerInteractor) {
+    init(rootServices: MedicineCheckerRootServices, view: CaBNavigationController, interactor: MedicineCheckerContainerInteractor) {
+        self.rootServices = rootServices
         self.containerViewController = view
         self.interactor = interactor
 
@@ -34,6 +37,14 @@ final class MedicineCheckerContainerRouterImpl: BaseRouter, MedicineCheckerConta
 
     override func start() {
         super.start()
+
+        attachMedicineListRouter()
+    }
+
+    func attachMedicineListRouter() {
+        let router = MedicineListBuilder(factory: rootServices).build()
+
+        attachChildWithEmbed(router)
     }
 
     // MARK: - Private Methods

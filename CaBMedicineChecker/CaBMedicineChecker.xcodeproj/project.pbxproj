@@ -48,6 +48,10 @@
 		FDE9FD8928319E3900EE6FE0 /* MedicineItemInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8828319E3900EE6FE0 /* MedicineItemInfoInteractor.swift */; };
 		FDE9FD8B28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8A28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift */; };
 		FDE9FD8D28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */; };
+		FDFF0B152839074D006B82B3 /* MedicineListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */; };
+		FDFF0B172839076F006B82B3 /* MedicineListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */; };
+		FDFF0B192839077E006B82B3 /* MedicineListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */; };
+		FDFF0B1B28390795006B82B3 /* MedicineListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -106,6 +110,10 @@
 		FDE9FD8828319E3900EE6FE0 /* MedicineItemInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoInteractor.swift; sourceTree = "<group>"; };
 		FDE9FD8A28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoBuilder.swift; sourceTree = "<group>"; };
 		FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoPresenter.swift; sourceTree = "<group>"; };
+		FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListRouter.swift; sourceTree = "<group>"; };
+		FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListInteractor.swift; sourceTree = "<group>"; };
+		FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListBuilder.swift; sourceTree = "<group>"; };
+		FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +291,7 @@
 		FD7DCBA4282AA9550068434E /* RIB */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0B1328390726006B82B3 /* MedicineList */,
 				FDE9FD8528319E0F00EE6FE0 /* MedicineItemInfo */,
 				FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriod */,
 				FD7DCBA5282AA95F0068434E /* Container */,
@@ -349,6 +358,17 @@
 				FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */,
 			);
 			path = MedicineItemInfo;
+			sourceTree = "<group>";
+		};
+		FDFF0B1328390726006B82B3 /* MedicineList */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */,
+				FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */,
+				FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */,
+				FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */,
+			);
+			path = MedicineList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +465,7 @@
 				FD7DCBAA282AA9E20068434E /* MedicineCheckerContainerInteractor.swift in Sources */,
 				FD51DA69282AD9A2008E4E2F /* CalendarPickerView.swift in Sources */,
 				FDE9FD54282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift in Sources */,
+				FDFF0B192839077E006B82B3 /* MedicineListBuilder.swift in Sources */,
 				FDE9FD49282FAAA200EE6FE0 /* MenuView.swift in Sources */,
 				FD7936D9282BBA9D009B091C /* CalendarPickerFooterView.swift in Sources */,
 				FDE9FD8D28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift in Sources */,
@@ -452,6 +473,7 @@
 				FDE9FD4C282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift in Sources */,
 				FDE9FD8928319E3900EE6FE0 /* MedicineItemInfoInteractor.swift in Sources */,
 				FDE9FD44282F127100EE6FE0 /* MedicineItemPeriodView.swift in Sources */,
+				FDFF0B1B28390795006B82B3 /* MedicineListPresenter.swift in Sources */,
 				FDE9FD57282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift in Sources */,
 				FD7936E0282BBE39009B091C /* CalendarModels.swift in Sources */,
 				FDE9FD47282F150400EE6FE0 /* DatePickerView.swift in Sources */,
@@ -461,11 +483,13 @@
 				FD7936EA282C157A009B091C /* MedicineItemTableViewCell.swift in Sources */,
 				FD7936F2282C311C009B091C /* MedicineItemInfoView.swift in Sources */,
 				FD7DCBA9282AA9E20068434E /* MedicineCheckerContainerBuilder.swift in Sources */,
+				FDFF0B172839076F006B82B3 /* MedicineListInteractor.swift in Sources */,
 				31A453A02785AF9400290D97 /* CaBMedicineChecker.docc in Sources */,
 				FDE9FD50282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift in Sources */,
 				FDA0C0802835197D00280F72 /* PeriodCollectionViewCell.swift in Sources */,
 				FDE9FD52282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift in Sources */,
 				31A453B42785B0B900290D97 /* BarcodeCaptureController.swift in Sources */,
+				FDFF0B152839074D006B82B3 /* MedicineListRouter.swift in Sources */,
 				FDE9FD65283120D300EE6FE0 /* MedicineCheckerRootServices.swift in Sources */,
 				FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */,
 				FD793702282C6888009B091C /* UIImage+CaBMedicineChecker.swift in Sources */,

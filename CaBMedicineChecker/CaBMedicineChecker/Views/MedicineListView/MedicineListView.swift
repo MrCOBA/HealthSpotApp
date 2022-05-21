@@ -1,13 +1,39 @@
 import UIKit
 import CaBUIKit
+import CaBSDK
+
+// MARK: - EventsHandler
+
+protocol MedicineListViewEventsHandler: AnyObject {
+
+    func didSelectRow(with id: Int16)
+    func didFinish()
+
+}
 
 final class MedicineListView: UIViewController {
 
-    var colorScheme: CaBColorScheme = .default
+    // MARK: - Internal Properties
 
-    private var calendarPickerView: CalendarPickerView!
-    @IBOutlet private weak var calendarContainerView: UIView!
+    weak var eventsHandler: MedicineListViewEventsHandler?
+    
+    var colorScheme: CaBColorScheme = .default {
+        didSet {
+            configure()
+        }
+    }
 
+    var cellModels: [MedicineItemViewModel] = [] {
+        didSet {
+            if oldValue != cellModels {
+                configure()
+            }
+        }
+    }
+
+    // MARK: - Private Properties
+
+    @IBOutlet private weak var calendarPickerView: CalendarPickerView!
     @IBOutlet private weak var medicineItemsListTableView: UITableView!
 
     override func viewDidLoad() {
@@ -16,24 +42,72 @@ final class MedicineListView: UIViewController {
         configure()
     }
 
-    private func configure() {
-        configureCalendarPickerView()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
 
+        if isMovingFromParent {
+            checkIfEventsHandlerSet()
 
+            eventsHandler?.didFinish()
+        }
     }
 
-    private func configureCalendarPickerView() {
-        calendarPickerView = CalendarPickerView(baseDate: Date(),
-                                                colorScheme: colorScheme)
-        calendarContainerView.addSubview(calendarPickerView)
-        calendarPickerView.translatesAutoresizingMaskIntoConstraints = false
+    private func configure() {
+        medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
+                                            forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
+    }
 
-        NSLayoutConstraint.activate([
-            calendarPickerView.leadingAnchor.constraint(equalTo: calendarContainerView.leadingAnchor),
-            calendarPickerView.trailingAnchor.constraint(equalTo: calendarContainerView.trailingAnchor),
-            calendarPickerView.topAnchor.constraint(equalTo: calendarContainerView.topAnchor),
-            calendarPickerView.bottomAnchor.constraint(equalTo: calendarContainerView.bottomAnchor)
-        ])
+    private func checkIfEventsHandlerSet() {
+        guard eventsHandler != nil else {
+            logError(message: "EventsHandler expected to be set")
+            return
+        }
+    }
+
+}
+
+// MARK: - Protocol UITableViewDataSource
+
+extension MedicineListView: UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellModels.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MedicineItemTableViewCell.cellIdentifier,
+                                                       for: indexPath) as? MedicineItemTableViewCell
+        else {
+            logError(message: "Unexpected cell type, fall to the default")
+            return UITableViewCell()
+        }
+
+        cell.colorScheme = colorScheme
+        cell.cellModel = cellModels[indexPath.row]
+
+        return cell
+    }
+
+}
+
+// MARK: - Protocl UITableViewDelegate
+
+extension MedicineListView: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didSelectRow(with: cellModels[indexPath.row].id)
+    }
+
+}
+
+// MARK: - View Factory
+
+extension MedicineListView {
+
+    static func makeView() -> MedicineListView {
+        return UIStoryboard.MedicineListView.instantiateMedicineListViewController()
     }
 
 }

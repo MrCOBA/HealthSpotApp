@@ -32,7 +32,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let day = day else { return }
 
-            numberLabel.text = day.number
+            numberLabel.text = "\(day.number)"
             accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
             updateSelectionStatus()
         }

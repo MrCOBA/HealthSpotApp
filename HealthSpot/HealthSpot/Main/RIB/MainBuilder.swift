@@ -2,6 +2,12 @@ import CaBRiblets
 
 final class MainBuilder: Builder {
 
+    private let factory: RootServices
+
+    init(factory: RootServices) {
+        self.factory = factory
+    }
+
     func build() -> ViewableRouter {
         let view = MainView()
 
@@ -11,7 +17,7 @@ final class MainBuilder: Builder {
         view.eventsHandler = presenter
         interactor.presenter = presenter
 
-        let router = MainRouterImpl(view: view, interactor: interactor)
+        let router = MainRouterImpl(rootServices: factory, view: view, interactor: interactor)
         interactor.router = router
 
         return router

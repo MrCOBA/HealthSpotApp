@@ -60,4 +60,24 @@ extension Date {
         return resultDate
     }
 
+    public func hasSame(_ component: Calendar.Component, as date: Date) -> Bool {
+        distance(from: date, only: component) == 0
+    }
+
+    public static func closestDate(from eventDates: [Date]) -> Date? {
+        return (eventDates.count > 0) ? eventDates.sorted(by: { $0 < $1 }).first : nil
+    }
+
+}
+
+// MARK: - Helper
+
+extension Date {
+
+    private func distance(from date: Date, only component: Calendar.Component, calendar: Calendar = .current) -> Int {
+        let days1 = calendar.component(component, from: self)
+        let days2 = calendar.component(component, from: date)
+        return days1 - days2
+    }
+
 }

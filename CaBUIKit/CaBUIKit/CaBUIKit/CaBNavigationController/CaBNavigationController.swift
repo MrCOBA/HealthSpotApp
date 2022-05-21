@@ -17,10 +17,10 @@ public final class CaBNavigationController: UINavigationController {
     private func configureNavigationBar() {
         let appearance = makeAppearance(with: colorScheme)
 
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.backgroundColor = appearance.backgroundColor
+        navigationBar.compactAppearance = appearance
+        navigationBar.standardAppearance = appearance
+        navigationBar.scrollEdgeAppearance = appearance
+        navigationBar.backgroundColor = appearance.backgroundColor
     }
 
     private func makeAppearance(with colorScheme: CaBColorScheme) -> UINavigationBarAppearance {

@@ -57,7 +57,7 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
             return
         }
 
-        let router = MainBuilder().build()
+        let router = MainBuilder(factory: rootServices).build()
         attachChildWithEmbed(router)
         mainContainerRouter = router
     }

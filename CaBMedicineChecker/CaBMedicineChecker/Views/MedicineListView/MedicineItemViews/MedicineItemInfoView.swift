@@ -2,6 +2,12 @@ import UIKit
 import CaBUIKit
 import CaBSDK
 
+protocol MedicineItemInfoViewEventsHandler: AnyObject {
+
+    func didFinish()
+    
+}
+
 final class MedicineItemInfoView: UIViewController {
 
     // MARK: - Private Types
@@ -27,6 +33,8 @@ final class MedicineItemInfoView: UIViewController {
     }
 
     // MARK: - Internal Properties
+
+    weak var eventsHandler: MedicineItemInfoViewEventsHandler?
 
     var colorScheme: CaBColorScheme = .default {
         didSet {
@@ -66,6 +74,8 @@ final class MedicineItemInfoView: UIViewController {
 
     // MARK: - Internal Methods
 
+    // MARK: Overrides
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -73,6 +83,16 @@ final class MedicineItemInfoView: UIViewController {
                                        forCellReuseIdentifier: MedicineItemInfoTableViewCell.cellIdentifier)
 
         configure(with: viewModel)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if isMovingFromParent {
+            checkIfEventsHandlerSet()
+
+            eventsHandler?.didFinish()
+        }
     }
 
     // MARK: - Private Methods
@@ -109,6 +129,13 @@ final class MedicineItemInfoView: UIViewController {
         getMoreButton.setTitle("Get more...", for: .normal)
 
         // TODO: Add Browser opening
+    }
+
+    private func checkIfEventsHandlerSet() {
+        guard eventsHandler != nil else {
+            logError(message: "EventsHandler expected to be set")
+            return
+        }
     }
 
 }
@@ -159,6 +186,16 @@ extension MedicineItemInfoView: UICollectionViewDataSource {
         cell.cellModel = viewModel.periods[indexPath.row]
 
         return cell
+    }
+
+}
+
+// MARK: - View Factory
+
+extension MedicineItemInfoView {
+
+    static func makeView() -> MedicineItemInfoView {
+        return UIStoryboard.MedicineItemInfoView.instantiateMedicineItemInfoViewController()
     }
 
 }

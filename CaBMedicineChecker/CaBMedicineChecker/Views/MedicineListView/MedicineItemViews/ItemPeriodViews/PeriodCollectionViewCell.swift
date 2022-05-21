@@ -76,8 +76,9 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
     // MARK: Overrides
 
     override func awakeFromNib() {
-        dateFormatter = DateFormatter()
+        super.awakeFromNib()
 
+        dateFormatter = DateFormatter()
         configure(with: cellModel)
     }
 

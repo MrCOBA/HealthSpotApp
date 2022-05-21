@@ -1,6 +1,5 @@
-import FirebaseAuth
-import Firebase
 import CaBSDK
+import CaBFirebaseKit
 
 // MARK: - Protocol
 
@@ -21,17 +20,20 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Properties
 
+    private let authorizationController: FirebaseAuthorizationController
     private let coreDataAssistant: CoreDataAssistant
     private let temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     // MARK: - Init
 
-    public init(coreDataAssistant: CoreDataAssistant,
+    public init(authorizationController: FirebaseAuthorizationController,
+                coreDataAssistant: CoreDataAssistant,
                 temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
-        FirebaseApp.configure()
-
         self.coreDataAssistant = coreDataAssistant
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
+        self.authorizationController = authorizationController
+
+        authorizationController.delegate = self
     }
 
     // MARK: - Public Methods
@@ -57,15 +59,7 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            guard let _ = error else {
-                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
-                                                object: nil)
-                return
-            }
-
-            // TODO: Add error handling
-        }
+        authorizationController.signIn(email: email, password: password)
     }
 
     public func signUp() {
@@ -96,15 +90,7 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard let _ = error else {
-                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
-                                                object: nil)
-                return
-            }
-
-            // TODO: Add error handling
-        }
+        authorizationController.signUp(email: email, password: password)
     }
 
     // MARK: - Private Methods
@@ -126,6 +112,32 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
     private func postErrorNotification(_ error: Error) {
         NotificationCenter.default.post(name: .Authorization.signUp(result: .failure(error: error)),
                                         object: nil)
+    }
+
+}
+
+// MARK: - Protocol FirebaseAuthorizationDelegate
+
+extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
+
+    public func didSignIn(with error: Swift.Error?) {
+        guard let _ = error else {
+            NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
+                                            object: nil)
+            return
+        }
+
+        // TODO: Add error handling
+    }
+
+    public func didSignUp(with error: Swift.Error?) {
+        guard let _ = error else {
+            NotificationCenter.default.post(name: .Authorization.signUp(result: .success),
+                                            object: nil)
+            return
+        }
+
+        // TODO: Add error handling
     }
 
 }

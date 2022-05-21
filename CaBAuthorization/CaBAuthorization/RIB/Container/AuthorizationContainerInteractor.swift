@@ -20,9 +20,14 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 
     private weak var listener: AuthorizationContainerListener?
 
+    private let coreDataAssistant: CoreDataAssistant
+    private let credentialsStorage: AuthorithationCredentialsTemporaryStorage
+
     // MARK: - Init
 
-    public init(listener: AuthorizationContainerListener?) {
+    public init(coreDataAssistant: CoreDataAssistant, credentialsStorage: AuthorithationCredentialsTemporaryStorage, listener: AuthorizationContainerListener?) {
+        self.coreDataAssistant = coreDataAssistant
+        self.credentialsStorage = credentialsStorage
         self.listener = listener
 
         super.init()
@@ -46,6 +51,19 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
         }
 
         // TODO: Add erros handling
+    }
+
+    private func saveCredentials() {
+        guard let user = coreDataAssistant.createEntity("User") else {
+            logError(message: "Failed to create User entity")
+            return
+        }
+        let userWrapper = UserEntityWrapper(entityObject: user, coreDataAssistant: coreDataAssistant)
+
+        userWrapper.email = credentialsStorage.email
+        userWrapper.password = credentialsStorage.password
+
+        coreDataAssistant.saveData()
     }
 
     private func checkIfRouterSet() {
@@ -92,6 +110,7 @@ extension AuthorizationContainerInteractor: AuthorizationListener {
             return
         }
 
+        saveCredentials()
         listener?.completeAuthorization()
     }
 

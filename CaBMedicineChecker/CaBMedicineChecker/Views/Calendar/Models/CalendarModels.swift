@@ -15,7 +15,7 @@ struct MonthMetadata {
 struct Day {
 
     let date: Date
-    let number: String
+    let number: Int
     let isSelected: Bool
     let isWithinDisplayedMonth: Bool
 

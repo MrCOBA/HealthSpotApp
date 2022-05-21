@@ -6,7 +6,7 @@ protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 
 }
 
-final class MedicineItemInfoInteractorImpl: BaseInteractor {
+final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInteractor {
 
     weak var router: MedicineItemInfoRouter?
     var presenter: MedicineItemInfoPresenter?
@@ -20,7 +20,6 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor {
     init(coreDataAssistant: CoreDataAssistant, entityId: Int16) {
         self.entityId = entityId
         self.coreDataAssistant = coreDataAssistant
-        self.periods = []
     }
 
     override func start() {

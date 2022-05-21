@@ -1,6 +1,6 @@
 import CoreData
 
-public final class MedicineItemEntityWrapper {
+public final class MedicineItemEntityWrapper: EntityWrapper {
 
     // MARK: - Public Properties
 
