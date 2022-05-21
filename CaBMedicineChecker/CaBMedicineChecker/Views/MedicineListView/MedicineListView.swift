@@ -6,7 +6,7 @@ import CaBSDK
 
 protocol MedicineListViewEventsHandler: AnyObject {
 
-    func didSelectRow(with id: Int16)
+    func didSelectRow(with id: String)
     func didFinish()
 
 }
@@ -53,6 +53,7 @@ final class MedicineListView: UIViewController {
     }
 
     private func configure() {
+        navigationItem.title = "Medicine Checker"
         medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
                                             forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
     }

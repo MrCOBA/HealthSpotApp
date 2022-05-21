@@ -31,7 +31,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5o-iZ-yg0" customClass="CalendarPickerView" customModule="CaBMedicineChecker" customModuleProvider="target">
                                 <rect key="frame" x="8" y="96" width="398" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" placeholder="YES" id="lpv-TJ-E7q"/>
+                                    <constraint firstAttribute="height" constant="150" placeholder="YES" id="bgP-nM-Ztb"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-qF-1GT">
@@ -47,9 +47,9 @@
                         <color key="backgroundColor" name="BackgroundPrimary_Default"/>
                         <constraints>
                             <constraint firstItem="l5o-iZ-yg0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="600-bV-M2x"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="l5o-iZ-yg0" secondAttribute="trailing" constant="8" id="PcH-E3-ajd"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QWI-1g-Lz9"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="top" secondItem="l5o-iZ-yg0" secondAttribute="bottom" id="RcL-oZ-KEG"/>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="SYU-zG-faF"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ZNn-uB-gbQ"/>
                             <constraint firstItem="l5o-iZ-yg0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ePg-pG-lGw"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="iMv-00-qAS"/>

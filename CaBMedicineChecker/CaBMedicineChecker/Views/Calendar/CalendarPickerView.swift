@@ -128,7 +128,7 @@ final class CalendarPickerView: UIView {
 
         setHeightConstraint(for: mode)
 
-        collectionView.register(CalendarDateCollectionViewCell.self, forCellWithReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier)
+        collectionView.register(CalendarDateCollectionViewCell.self, forCellWithReuseIdentifier: CalendarDateCollectionViewCell.cellIdentifier)
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -276,7 +276,7 @@ extension CalendarPickerView: UICollectionViewDataSource {
         let day = days[indexPath.row]
 
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
+            withReuseIdentifier: CalendarDateCollectionViewCell.cellIdentifier,
             for: indexPath) as! CalendarDateCollectionViewCell
 
         cell.day = day

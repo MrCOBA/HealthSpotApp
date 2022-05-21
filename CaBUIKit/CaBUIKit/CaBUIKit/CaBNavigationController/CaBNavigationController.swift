@@ -25,7 +25,7 @@ public final class CaBNavigationController: UINavigationController {
 
     private func makeAppearance(with colorScheme: CaBColorScheme) -> UINavigationBarAppearance {
         let attrs = [
-            NSAttributedString.Key.font: CaBFont.Comfortaa.medium(size: 16),
+            NSAttributedString.Key.font: CaBFont.Comfortaa.bold(size: 16),
             NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
         ]
 
@@ -33,7 +33,7 @@ public final class CaBNavigationController: UINavigationController {
         appearance.configureWithTransparentBackground()
         appearance.titleTextAttributes = attrs
         appearance.backgroundColor = .clear
-        appearance.backgroundImage = UIImage(color: .transparentGray50Alpha)
+        appearance.backgroundImage = UIImage(color: .transparentGray20Alpha)
 
         return appearance
     }

@@ -4,6 +4,15 @@ public final class UserEntityWrapper: EntityWrapper {
 
     // MARK: - Public Properties
 
+    public var id: String {
+        get {
+            return entityObject.value(forKey: "id") as? String ?? ""
+        }
+        set {
+            entityObject.setValue(newValue, forKey: "id")
+        }
+    }
+
     public var email: String {
         get {
             return entityObject.value(forKey: "email") as? String ?? ""

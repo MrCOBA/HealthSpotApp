@@ -4,9 +4,9 @@ public final class MedicineItemPeriodEntityWrapper: EntityWrapper {
 
     // MARK: - Public Properties
 
-    public var id: Int16 {
+    public var id: String {
         get {
-            return entityObject.value(forKey: "id") as? Int16 ?? -1
+            return entityObject.value(forKey: "id") as? String ?? ""
         }
         set {
             entityObject.setValue(newValue, forKey: "id")
@@ -70,7 +70,7 @@ public final class MedicineItemPeriodEntityWrapper: EntityWrapper {
         self.coreDataAssistant = coreDataAssistant
     }
 
-    public init?(id: Int16, coreDataAssistant: CoreDataAssistant) {
+    public init?(id: String, coreDataAssistant: CoreDataAssistant) {
         self.coreDataAssistant = coreDataAssistant
 
         let predicate = NSPredicate(format: "id = %@", id)

@@ -21,7 +21,7 @@ struct MedicineItemViewModel: Equatable {
         
     }
 
-    let id: Int16
+    let id: String
     let barcode: String
     let marketUrl: URL?
 
@@ -32,7 +32,7 @@ struct MedicineItemViewModel: Equatable {
     let periods: [Period]
 
     static var empty: Self {
-        return .init(id: -1,
+        return .init(id: "",
                      barcode: "",
                      marketUrl: nil,
                      name: "",

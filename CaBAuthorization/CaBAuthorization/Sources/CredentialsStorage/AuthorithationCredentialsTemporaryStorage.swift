@@ -4,6 +4,7 @@ import CaBSDK
 
 public protocol AuthorithationCredentialsTemporaryStorage: AnyObject {
 
+    var id: String { get set }
     var email: String { get set }
     var password: String { get set }
     var repeatedPassword: String { get set }
@@ -17,6 +18,9 @@ public final class AuthorithationCredentialsTemporaryStorageImpl: Authorithation
     // MARK: - Public Properties
 
     @UserDefaultsStored
+    public var id: String
+
+    @UserDefaultsStored
     public var email: String
 
     @UserDefaultsStored
@@ -28,6 +32,9 @@ public final class AuthorithationCredentialsTemporaryStorageImpl: Authorithation
     // MARK: - Init
     
     public init(userDefaults: UserDefaults = .standard) {
+        self._id = .init(underlyingDefaults: userDefaults,
+                         key: UserDefaults.Key.Authorization.id,
+                         defaultValue: "")
         self._email = .init(underlyingDefaults: userDefaults,
                             key: UserDefaults.Key.Authorization.email,
                             defaultValue: "")

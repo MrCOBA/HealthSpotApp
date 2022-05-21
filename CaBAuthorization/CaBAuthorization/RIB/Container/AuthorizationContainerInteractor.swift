@@ -60,6 +60,7 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
         }
         let userWrapper = UserEntityWrapper(entityObject: user, coreDataAssistant: coreDataAssistant)
 
+        userWrapper.id = credentialsStorage.id
         userWrapper.email = credentialsStorage.email
         userWrapper.password = credentialsStorage.password
 

@@ -4,7 +4,7 @@ import UIKit
 
 protocol MedicineListRouter: ViewableRouter {
 
-    func attachItemInfoView(with id: Int16)
+    func attachItemInfoView(with id: String)
     func detachItemInfoView(isPopNeeded: Bool)
 
 }
@@ -25,7 +25,7 @@ final class MedicineListRouterImpl: BaseRouter, MedicineListRouter {
         super.init(interactor: interactor)
     }
 
-    func attachItemInfoView(with id: Int16) {
+    func attachItemInfoView(with id: String) {
         let router = MedicineItemInfoBuilder(factory: rootServices).build(with: id)
 
         attachChildWithPush(router)

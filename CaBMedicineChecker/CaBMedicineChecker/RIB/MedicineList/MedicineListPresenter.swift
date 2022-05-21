@@ -50,7 +50,7 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
 
 extension MedicineListPresenterImpl: MedicineListViewEventsHandler {
 
-    func didSelectRow(with id: Int16) {
+    func didSelectRow(with id: String) {
         
     }
 

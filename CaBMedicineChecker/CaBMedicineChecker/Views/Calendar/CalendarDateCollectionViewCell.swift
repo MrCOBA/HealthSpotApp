@@ -1,12 +1,33 @@
 import UIKit
+import CaBUIKit
 
 class CalendarDateCollectionViewCell: UICollectionViewCell {
+
+    // MARK: - Internal Properties
+
+    var colorScheme: CaBColorScheme = .default
     
+    static var cellIdentifier: String {
+        return "CalendarDateCollectionViewCell"
+    }
+
+    var day: Day? {
+        didSet {
+            guard let day = day else { return }
+
+            numberLabel.text = "\(day.number)"
+            accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
+            updateSelectionStatus()
+        }
+    }
+
+    // MARK: - Private Properties
+
     private lazy var selectionBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
-        view.backgroundColor = .systemRed
+        view.backgroundColor = colorScheme.errorColor
         return view
     }()
 
@@ -26,17 +47,15 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
         return dateFormatter
     }()
 
-    static let reuseIdentifier = String(describing: CalendarDateCollectionViewCell.self)
+    private var isSmallScreenSize: Bool {
+        let isCompact = traitCollection.horizontalSizeClass == .compact
+        let smallWidth = UIScreen.main.bounds.width <= 350
+        let widthGreaterThanHeight = UIScreen.main.bounds.width > UIScreen.main.bounds.height
 
-    var day: Day? {
-        didSet {
-            guard let day = day else { return }
-
-            numberLabel.text = "\(day.number)"
-            accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
-            updateSelectionStatus()
-        }
+        return isCompact && (smallWidth || widthGreaterThanHeight)
     }
+
+    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,6 +70,8 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
+    // MARK: - Internal Methods
 
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -79,21 +100,10 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
 
         layoutSubviews()
     }
-}
 
-// MARK: - Appearance
+    // MARK: - Private Methods
 
-private extension CalendarDateCollectionViewCell {
-
-    var isSmallScreenSize: Bool {
-        let isCompact = traitCollection.horizontalSizeClass == .compact
-        let smallWidth = UIScreen.main.bounds.width <= 350
-        let widthGreaterThanHeight = UIScreen.main.bounds.width > UIScreen.main.bounds.height
-
-        return isCompact && (smallWidth || widthGreaterThanHeight)
-    }
-
-    func updateSelectionStatus() {
+    private func updateSelectionStatus() {
         guard let day = day else { return }
 
         if day.isSelected {
@@ -103,7 +113,7 @@ private extension CalendarDateCollectionViewCell {
         }
     }
 
-    func applySelectedStyle() {
+    private func applySelectedStyle() {
         accessibilityTraits.insert(.selected)
         accessibilityHint = nil
 
@@ -111,7 +121,7 @@ private extension CalendarDateCollectionViewCell {
         selectionBackgroundView.isHidden = isSmallScreenSize
     }
 
-    func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
+    private func applyDefaultStyle(isWithinDisplayedMonth: Bool) {
         accessibilityTraits.remove(.selected)
         accessibilityHint = "Tap to select"
 

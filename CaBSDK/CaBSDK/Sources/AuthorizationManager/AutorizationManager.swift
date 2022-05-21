@@ -120,8 +120,9 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
 extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
 
-    public func didSignIn(with error: Swift.Error?) {
+    public func didSignIn(id: String?, with error: Swift.Error?) {
         guard let _ = error else {
+            temporaryCredentialsStorage.id = id ?? ""
             NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
                                             object: nil)
             return
@@ -130,8 +131,9 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
         // TODO: Add error handling
     }
 
-    public func didSignUp(with error: Swift.Error?) {
+    public func didSignUp(id: String?, with error: Swift.Error?) {
         guard let _ = error else {
+            temporaryCredentialsStorage.id = id ?? ""
             NotificationCenter.default.post(name: .Authorization.signUp(result: .success),
                                             object: nil)
             return

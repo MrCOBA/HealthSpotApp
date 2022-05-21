@@ -14,7 +14,7 @@ final class MedicineItemInfoBuilder: Builder {
 
     // MARK: - Internal Methods
 
-    func build(with id: Int16) -> ViewableRouter {
+    func build(with id: String) -> ViewableRouter {
         let view = MedicineItemInfoView.makeView()
 
         let presenter = MedicineItemInfoPresenterImpl(view: view)

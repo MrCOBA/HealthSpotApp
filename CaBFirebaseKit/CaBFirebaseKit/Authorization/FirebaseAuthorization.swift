@@ -4,8 +4,8 @@ import FirebaseAuth
 
 public protocol FirebaseAuthorizationDelegate: AnyObject {
 
-    func didSignIn(with error: Error?)
-    func didSignUp(with error: Error?)
+    func didSignIn(id: String?, with error: Error?)
+    func didSignUp(id: String?, with error: Error?)
 
 }
 
@@ -29,14 +29,16 @@ final class FirebaseAuthorizationControllerImpl: FirebaseAuthorizationController
     // MARK: - Internal Methods
 
     func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] _, error in
-            self?.delegate?.didSignIn(with: error)
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            let id = authResult?.user.uid
+            self?.delegate?.didSignIn(id: id, with: error)
         }
     }
 
     func signUp(email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] _, error in
-            self?.delegate?.didSignUp(with: error)
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
+            let id = authResult?.user.uid
+            self?.delegate?.didSignUp(id: id, with: error)
         }
     }
 

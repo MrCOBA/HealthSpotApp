@@ -20,7 +20,6 @@
 		FDFF0B052838DB06006B82B3 /* FirebaseAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B042838DB06006B82B3 /* FirebaseAuthorization.swift */; };
 		FDFF0B072838DD08006B82B3 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */; };
 		FDFF0B0D2838E368006B82B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF0B0C2838E368006B82B3 /* FirebaseFirestore */; };
-		FDFF0B102838E3BD006B82B3 /* FirebasePushNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B0F2838E3BD006B82B3 /* FirebasePushNotifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		FDFF0AF12838D903006B82B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDFF0B042838DB06006B82B3 /* FirebaseAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthorization.swift; sourceTree = "<group>"; };
 		FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
-		FDFF0B0F2838E3BD006B82B3 /* FirebasePushNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebasePushNotifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				FDFF0B082838DD14006B82B3 /* Sources */,
-				FDFF0B0E2838E389006B82B3 /* PushNotifications */,
 				FDFF0B032838DADC006B82B3 /* Authorization */,
 				FDFF0AF12838D903006B82B3 /* GoogleService-Info.plist */,
 				FDFF0AE02838D71E006B82B3 /* CaBFirebaseKit.h */,
@@ -103,14 +100,6 @@
 				FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		FDFF0B0E2838E389006B82B3 /* PushNotifications */ = {
-			isa = PBXGroup;
-			children = (
-				FDFF0B0F2838E3BD006B82B3 /* FirebasePushNotifications.swift */,
-			);
-			path = PushNotifications;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,7 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDFF0B052838DB06006B82B3 /* FirebaseAuthorization.swift in Sources */,
-				FDFF0B102838E3BD006B82B3 /* FirebasePushNotifications.swift in Sources */,
 				FDFF0B072838DD08006B82B3 /* ServicesProvider.swift in Sources */,
 				FDFF0AE22838D71E006B82B3 /* CaBFirebaseKit.docc in Sources */,
 			);

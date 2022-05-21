@@ -13,7 +13,7 @@ extension MedicineItem {
     @NSManaged public var imageUrl: String?
     @NSManaged public var producer: String?
     @NSManaged public var activeComponent: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var id: String
     @NSManaged public var user: User?
     @NSManaged public var periods: NSSet?
 

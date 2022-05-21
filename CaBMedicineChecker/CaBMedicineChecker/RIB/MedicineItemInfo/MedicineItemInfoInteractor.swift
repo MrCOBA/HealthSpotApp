@@ -13,11 +13,11 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
 
     private let coreDataAssistant: CoreDataAssistant
 
-    private let entityId: Int16
+    private let entityId: String
     private var medicineItem: MedicineItemEntityWrapper?
     private var periods = [MedicineItemPeriodEntityWrapper]()
 
-    init(coreDataAssistant: CoreDataAssistant, entityId: Int16) {
+    init(coreDataAssistant: CoreDataAssistant, entityId: String) {
         self.entityId = entityId
         self.coreDataAssistant = coreDataAssistant
     }
@@ -40,7 +40,7 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
         presenter?.updateView(rawData: medicineItem, periods)
     }
 
-    private func loadEntity(with id: Int16) -> MedicineItemEntityWrapper? {
+    private func loadEntity(with id: String) -> MedicineItemEntityWrapper? {
         return MedicineItemEntityWrapper(id: id, coreDataAssistant: coreDataAssistant)
     }
 
