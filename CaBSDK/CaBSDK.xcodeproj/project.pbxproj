@@ -9,25 +9,45 @@
 /* Begin PBXBuildFile section */
 		3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */; };
 		31A806C827D54DB10021215E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A806C727D54DB10021215E /* Logger.swift */; };
-		31E630B7279C514200F9B095 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E630B6279C514200F9B095 /* RootServices.swift */; };
 		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */; };
+		FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */; };
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */; };
+		FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */; };
+		FDE3B93A283586E400DC7192 /* Date+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3B939283586E400DC7192 /* Date+CaBSDK.swift */; };
+		FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */; };
+		FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */; };
+		FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5B2830112100EE6FE0 /* Helpers.swift */; };
+		FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */; };
+		FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */; };
+		FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */; };
+		FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C47283ABA94006B82B3 /* Observable.swift */; };
+		FDFF0C4B283ABAF4006B82B3 /* Locking+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CaBSDK.swift"; sourceTree = "<group>"; };
 		31A806C727D54DB10021215E /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		31E630B6279C514200F9B095 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		31EB6861280F11510072FD93 /* FileWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileWriter.swift; sourceTree = "<group>"; };
 		31FB819D268614E900500FE1 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FB81A0268614E900500FE1 /* CaBSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBSDK.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBSDK.swift"; sourceTree = "<group>"; };
+		FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CaBSDK.swift"; sourceTree = "<group>"; };
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBSDK.swift"; sourceTree = "<group>"; };
+		FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodEntityWrapper.swift; sourceTree = "<group>"; };
+		FDE3B939283586E400DC7192 /* Date+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CaBSDK.swift"; sourceTree = "<group>"; };
+		FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityWrapper.swift; sourceTree = "<group>"; };
+		FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemEntityWrapper.swift; sourceTree = "<group>"; };
+		FDE9FD5B2830112100EE6FE0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
+		FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+CaBSDK.swift"; sourceTree = "<group>"; };
+		FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeWrapper.swift; sourceTree = "<group>"; };
+		FDFF0C47283ABA94006B82B3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locking+CaBSDK.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +73,13 @@
 		31E630C8279D743500F9B095 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FDE3B939283586E400DC7192 /* Date+CaBSDK.swift */,
 				3133DD1127A68A7000007428 /* Notification+CaBSDK.swift */,
 				31FB81A92686151000500FE1 /* Bundle+CaBSDK.swift */,
 				FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */,
+				FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */,
+				FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */,
+				FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -79,6 +103,8 @@
 		31FB819F268614E900500FE1 /* CaBSDK */ = {
 			isa = PBXGroup;
 			children = (
+				FDE237102836397E003B1E16 /* Notifications */,
+				FDE94B5B2832FDDC00C6536B /* CoreData */,
 				31FB81A8268614F000500FE1 /* Sources */,
 				31FB81A0268614E900500FE1 /* CaBSDK.h */,
 				31FB81A1268614E900500FE1 /* Info.plist */,
@@ -89,10 +115,11 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C46283ABA80006B82B3 /* Observable */,
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
-				31E630B6279C514200F9B095 /* RootServices.swift */,
+				FDE9FD5B2830112100EE6FE0 /* Helpers.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -103,6 +130,41 @@
 				FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */,
 			);
 			path = PropertyWrappers;
+			sourceTree = "<group>";
+		};
+		FDE237102836397E003B1E16 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		FDE94B5B2832FDDC00C6536B /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FDE94B5C2832FDF100C6536B /* EntityWrappers */,
+				FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FDE94B5C2832FDF100C6536B /* EntityWrappers */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */,
+				FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */,
+				FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */,
+				FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */,
+			);
+			path = EntityWrappers;
+			sourceTree = "<group>";
+		};
+		FDFF0C46283ABA80006B82B3 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0C47283ABA94006B82B3 /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +207,7 @@
 		31FB8194268614E900500FE1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					31FB819C268614E900500FE1 = {
 						CreatedOnToolsVersion = 12.5;
@@ -188,13 +250,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */,
 				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
+				FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */,
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
+				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
+				FDFF0C4B283ABAF4006B82B3 /* Locking+CaBSDK.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
-				31E630B7279C514200F9B095 /* RootServices.swift in Sources */,
+				FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */,
+				FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBSDK.swift in Sources */,
+				FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBSDK.swift in Sources */,
+				FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
+				FD79374C282D519B009B091C /* UIImageView+CaBSDK.swift in Sources */,
+				FDE3B93A283586E400DC7192 /* Date+CaBSDK.swift in Sources */,
+				FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +325,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -311,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -327,7 +399,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F5RU76NTBA;
@@ -357,7 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = F5RU76NTBA;

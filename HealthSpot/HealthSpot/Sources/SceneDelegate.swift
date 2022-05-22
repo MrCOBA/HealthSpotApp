@@ -14,7 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let window = UIWindow(windowScene: windowScene)
 
-        rootRouter = HealthSpotRootBuilder().build()
+        rootRouter = HealthSpotRootBuilder(rootServices: rootServices).build()
         rootRouter?.start()
 
         window.rootViewController = rootRouter?.view

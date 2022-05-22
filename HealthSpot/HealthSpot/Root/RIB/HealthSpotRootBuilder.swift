@@ -4,11 +4,23 @@ import UIKit
 
 final class HealthSpotRootBuilder: Builder {
 
+    // MARK: - Private Properties
+
+    private let rootServices: RootServices
+
+    // MARK: - Init
+
+    init(rootServices: RootServices) {
+        self.rootServices = rootServices
+    }
+
+    // MARK: - Internal Methods
+    
     func build() -> ViewableRouter {
         let view = BaseContainerViewController()
 
         let interactor = HealthSpotRootInteractorImpl()
-        let router = HealthSpotRootRouterImpl(view: view, interactor: interactor)
+        let router = HealthSpotRootRouterImpl(rootServices: rootServices, view: view, interactor: interactor)
         interactor.router = router
 
         return router

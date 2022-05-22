@@ -14,8 +14,8 @@ public extension Bundle {
         return .init(identifier: "com.crunch.bugs.club.CaBUIKit")!
     }
 
-    static var barcodeReader: Bundle {
-        return .init(identifier: "com.crunch.bugs.club.CaBBarcodeReader")!
+    static var medicineChecker: Bundle {
+        return .init(identifier: "com.crunch.bugs.club.CaBMedicineChecker")!
     }
 
     static var authorization: Bundle {

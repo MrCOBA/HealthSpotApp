@@ -22,15 +22,15 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     // MARK: - Private Properties
 
-    private var containerViewController: UINavigationController
-
+    private let rootServices: AuthorizationRootServices
+    private var containerViewController: CaBNavigationController
     private let interactor: AuthorizationContainerInteractor
-
     private var rootChild: ViewableRouter?
 
     // MARK: - Init
 
-    init(view: UINavigationController, interactor: AuthorizationContainerInteractor) {
+    init(rootServices: AuthorizationRootServices, view: CaBNavigationController, interactor: AuthorizationContainerInteractor) {
+        self.rootServices = rootServices
         self.containerViewController = view
         self.interactor = interactor
 
@@ -52,7 +52,7 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
     // MARK: - Private Methods
 
     private func makeAuthorizationRouter(with mode: AuthorizationViewModel.Mode) -> ViewableRouter {
-        return AuthorizationBuilder(listener: interactor).build(mode: mode)
+        return AuthorizationBuilder(factory: rootServices, listener: interactor).build(mode: mode)
     }
 
     private func attachRoot() {
@@ -62,7 +62,6 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
             rootChild?.stop()
-            rootChild = nil
         }
 
         rootChild = child

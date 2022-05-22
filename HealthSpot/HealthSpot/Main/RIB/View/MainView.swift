@@ -47,6 +47,8 @@ final class MainView: CaBTabBarController {
 
 }
 
+// MARK: - Protocol CaBTabBarControllerDelegate
+
 extension MainView: CaBTabBarControllerDelegate {
 
     func didSelectItem(_ item: CaBTabBarController.Item) {

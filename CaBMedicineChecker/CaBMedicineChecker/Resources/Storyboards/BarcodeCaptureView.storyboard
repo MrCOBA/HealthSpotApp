@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Barcode Capture View-->
+        <scene sceneID="T24-wc-Clp">
+            <objects>
+                <viewController storyboardIdentifier="BarcodeCaptureView" id="LPv-wP-jz0" customClass="BarcodeCaptureView" customModule="CaBMedicineChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Akx-E1-mLr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy5-jK-rOK">
+                                <rect key="frame" x="0.0" y="822" width="414" height="40"/>
+                                <color key="backgroundColor" name="Gray_Transparent_20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bHG-ib-00j"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="HighlightPrimary_Default"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4xG-JT-UnB"/>
+                        <constraints>
+                            <constraint firstItem="4xG-JT-UnB" firstAttribute="bottom" secondItem="dy5-jK-rOK" secondAttribute="bottom" id="76h-Dw-pu9"/>
+                            <constraint firstItem="4xG-JT-UnB" firstAttribute="trailing" secondItem="dy5-jK-rOK" secondAttribute="trailing" id="jeO-Fa-WZn"/>
+                            <constraint firstItem="dy5-jK-rOK" firstAttribute="leading" secondItem="4xG-JT-UnB" secondAttribute="leading" id="n4O-uw-EbU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="dy5-jK-rOK" id="GTC-uW-Z1p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Fy-vc-3du" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6289" y="328"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Gray_Transparent_20">
+            <color red="0.5" green="0.5" blue="0.5" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HighlightPrimary_Default">
+            <color red="0.20784313725490197" green="0.21568627450980393" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

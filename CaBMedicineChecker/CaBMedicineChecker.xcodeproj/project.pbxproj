@@ -1,0 +1,736 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31A453A02785AF9400290D97 /* CaBMedicineChecker.docc in Sources */ = {isa = PBXBuildFile; fileRef = 31A4539F2785AF9400290D97 /* CaBMedicineChecker.docc */; };
+		31A453A12785AF9400290D97 /* CaBMedicineChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 31A4539E2785AF9400290D97 /* CaBMedicineChecker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		31A453B42785B0B900290D97 /* BarcodeCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */; };
+		FD51DA69282AD9A2008E4E2F /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51DA68282AD9A2008E4E2F /* CalendarPickerView.swift */; };
+		FD62DE5D2819F9D7004A1B75 /* BarcodeCaptureView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */; };
+		FD62DEF4281ABCA2004A1B75 /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */; };
+		FD62DEF5281ABCA2004A1B75 /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD7936D9282BBA9D009B091C /* CalendarPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936D8282BBA9D009B091C /* CalendarPickerFooterView.swift */; };
+		FD7936DB282BBACB009B091C /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DA282BBACB009B091C /* CalendarPickerHeaderView.swift */; };
+		FD7936DD282BBAE9009B091C /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */; };
+		FD7936E0282BBE39009B091C /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DF282BBE39009B091C /* CalendarModels.swift */; };
+		FD7936E3282C12DD009B091C /* MedicineListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936E2282C12DD009B091C /* MedicineListView.swift */; };
+		FD7936E5282C1329009B091C /* MedicineListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD7936E4282C1329009B091C /* MedicineListView.storyboard */; };
+		FD7936EA282C157A009B091C /* MedicineItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936E8282C157A009B091C /* MedicineItemTableViewCell.swift */; };
+		FD7936EB282C157A009B091C /* MedicineItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD7936E9282C157A009B091C /* MedicineItemTableViewCell.xib */; };
+		FD7936EF282C24A5009B091C /* MedicineItemInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936ED282C24A5009B091C /* MedicineItemInfoTableViewCell.swift */; };
+		FD7936F0282C24A5009B091C /* MedicineItemInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */; };
+		FD7936F2282C311C009B091C /* MedicineItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */; };
+		FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */; };
+		FD7936F7282C4A78009B091C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD7936F6282C4A78009B091C /* Assets.xcassets */; };
+		FD793702282C6888009B091C /* UIImage+CaBMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD793701282C6888009B091C /* UIImage+CaBMedicineChecker.swift */; };
+		FD7DCBA9282AA9E20068434E /* MedicineCheckerContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA6282AA9E20068434E /* MedicineCheckerContainerBuilder.swift */; };
+		FD7DCBAA282AA9E20068434E /* MedicineCheckerContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA7282AA9E20068434E /* MedicineCheckerContainerInteractor.swift */; };
+		FD7DCBAB282AA9E20068434E /* MedicineCheckerContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCBA8282AA9E20068434E /* MedicineCheckerContainerRouter.swift */; };
+		FDA0C0802835197D00280F72 /* PeriodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA0C07F2835197D00280F72 /* PeriodCollectionViewCell.swift */; };
+		FDE9FD44282F127100EE6FE0 /* MedicineItemPeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD43282F127100EE6FE0 /* MedicineItemPeriodView.swift */; };
+		FDE9FD47282F150400EE6FE0 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD46282F150400EE6FE0 /* DatePickerView.swift */; };
+		FDE9FD49282FAAA200EE6FE0 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD48282FAAA200EE6FE0 /* MenuView.swift */; };
+		FDE9FD4C282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD4B282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift */; };
+		FDE9FD4E282FEDA800EE6FE0 /* MedicineItemPeriodInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD4D282FEDA800EE6FE0 /* MedicineItemPeriodInteractor.swift */; };
+		FDE9FD50282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD4F282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift */; };
+		FDE9FD52282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD51282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift */; };
+		FDE9FD54282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift */; };
+		FDE9FD57282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD56282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift */; };
+		FDE9FD5A282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift */; };
+		FDE9FD65283120D300EE6FE0 /* MedicineCheckerRootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */; };
+		FDE9FD8728319E2900EE6FE0 /* MedicineItemInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8628319E2900EE6FE0 /* MedicineItemInfoRouter.swift */; };
+		FDE9FD8928319E3900EE6FE0 /* MedicineItemInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8828319E3900EE6FE0 /* MedicineItemInfoInteractor.swift */; };
+		FDE9FD8B28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8A28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift */; };
+		FDE9FD8D28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */; };
+		FDFF0B152839074D006B82B3 /* MedicineListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */; };
+		FDFF0B172839076F006B82B3 /* MedicineListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */; };
+		FDFF0B192839077E006B82B3 /* MedicineListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */; };
+		FDFF0B1B28390795006B82B3 /* MedicineListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */; };
+		FDFF0BA3283A2D93006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA2283A2D93006B82B3 /* CaBFirebaseKit.framework */; };
+		FDFF0BA4283A2D93006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA2283A2D93006B82B3 /* CaBFirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFF0BA6283A2D9F006B82B3 /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA5283A2D9F006B82B3 /* CaBUIKit.framework */; };
+		FDFF0BA7283A2D9F006B82B3 /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA5283A2D9F006B82B3 /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFF0BA9283A2DA4006B82B3 /* CaBRiblets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA8283A2DA4006B82B3 /* CaBRiblets.framework */; };
+		FDFF0BAA283A2DA4006B82B3 /* CaBRiblets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0BA8283A2DA4006B82B3 /* CaBRiblets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFF0BF5283A827B006B82B3 /* BarcodeCaptureRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF4283A827B006B82B3 /* BarcodeCaptureRouter.swift */; };
+		FDFF0BF7283A8286006B82B3 /* BarcodeCaptureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF6283A8286006B82B3 /* BarcodeCaptureInteractor.swift */; };
+		FDFF0BF9283A82B8006B82B3 /* BarcodeCaptureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF8283A82B7006B82B3 /* BarcodeCaptureBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD62DEF6281ABCA2004A1B75 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FD62DEF5281ABCA2004A1B75 /* CaBSDK.framework in Embed Frameworks */,
+				FDFF0BA7283A2D9F006B82B3 /* CaBUIKit.framework in Embed Frameworks */,
+				FDFF0BA4283A2D93006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */,
+				FDFF0BAA283A2DA4006B82B3 /* CaBRiblets.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		31A4539B2785AF9300290D97 /* CaBMedicineChecker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBMedicineChecker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31A4539E2785AF9400290D97 /* CaBMedicineChecker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBMedicineChecker.h; sourceTree = "<group>"; };
+		31A4539F2785AF9400290D97 /* CaBMedicineChecker.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CaBMedicineChecker.docc; sourceTree = "<group>"; };
+		31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureView.swift; sourceTree = "<group>"; };
+		FD51DA68282AD9A2008E4E2F /* CalendarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerView.swift; sourceTree = "<group>"; };
+		FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BarcodeCaptureView.storyboard; sourceTree = "<group>"; };
+		FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD7936D8282BBA9D009B091C /* CalendarPickerFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerFooterView.swift; sourceTree = "<group>"; };
+		FD7936DA282BBACB009B091C /* CalendarPickerHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPickerHeaderView.swift; sourceTree = "<group>"; };
+		FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
+		FD7936DF282BBE39009B091C /* CalendarModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarModels.swift; sourceTree = "<group>"; };
+		FD7936E2282C12DD009B091C /* MedicineListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListView.swift; sourceTree = "<group>"; };
+		FD7936E4282C1329009B091C /* MedicineListView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MedicineListView.storyboard; sourceTree = "<group>"; };
+		FD7936E8282C157A009B091C /* MedicineItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemTableViewCell.swift; sourceTree = "<group>"; };
+		FD7936E9282C157A009B091C /* MedicineItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineItemTableViewCell.xib; sourceTree = "<group>"; };
+		FD7936ED282C24A5009B091C /* MedicineItemInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoTableViewCell.swift; sourceTree = "<group>"; };
+		FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineItemInfoTableViewCell.xib; sourceTree = "<group>"; };
+		FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoView.swift; sourceTree = "<group>"; };
+		FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemViewModel.swift; sourceTree = "<group>"; };
+		FD7936F6282C4A78009B091C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD793701282C6888009B091C /* UIImage+CaBMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBMedicineChecker.swift"; sourceTree = "<group>"; };
+		FD7DCBA6282AA9E20068434E /* MedicineCheckerContainerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerBuilder.swift; sourceTree = "<group>"; };
+		FD7DCBA7282AA9E20068434E /* MedicineCheckerContainerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerInteractor.swift; sourceTree = "<group>"; };
+		FD7DCBA8282AA9E20068434E /* MedicineCheckerContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineCheckerContainerRouter.swift; sourceTree = "<group>"; };
+		FDA0C07F2835197D00280F72 /* PeriodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCollectionViewCell.swift; sourceTree = "<group>"; };
+		FDE9FD43282F127100EE6FE0 /* MedicineItemPeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodView.swift; sourceTree = "<group>"; };
+		FDE9FD46282F150400EE6FE0 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		FDE9FD48282FAAA200EE6FE0 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		FDE9FD4B282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodRouter.swift; sourceTree = "<group>"; };
+		FDE9FD4D282FEDA800EE6FE0 /* MedicineItemPeriodInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodInteractor.swift; sourceTree = "<group>"; };
+		FDE9FD4F282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodBuilder.swift; sourceTree = "<group>"; };
+		FDE9FD51282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodPresenter.swift; sourceTree = "<group>"; };
+		FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBMedicineChecker.swift"; sourceTree = "<group>"; };
+		FDE9FD56282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodTemporaryStorage.swift; sourceTree = "<group>"; };
+		FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBMedicineChecker.swift"; sourceTree = "<group>"; };
+		FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineCheckerRootServices.swift; sourceTree = "<group>"; };
+		FDE9FD8628319E2900EE6FE0 /* MedicineItemInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoRouter.swift; sourceTree = "<group>"; };
+		FDE9FD8828319E3900EE6FE0 /* MedicineItemInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoInteractor.swift; sourceTree = "<group>"; };
+		FDE9FD8A28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoBuilder.swift; sourceTree = "<group>"; };
+		FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemInfoPresenter.swift; sourceTree = "<group>"; };
+		FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListRouter.swift; sourceTree = "<group>"; };
+		FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListInteractor.swift; sourceTree = "<group>"; };
+		FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListBuilder.swift; sourceTree = "<group>"; };
+		FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineListPresenter.swift; sourceTree = "<group>"; };
+		FDFF0B9F283A2D89006B82B3 /* CaBAuthorization.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBAuthorization.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDFF0BA2283A2D93006B82B3 /* CaBFirebaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFirebaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDFF0BA5283A2D9F006B82B3 /* CaBUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDFF0BA8283A2DA4006B82B3 /* CaBRiblets.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBRiblets.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDFF0BF4283A827B006B82B3 /* BarcodeCaptureRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureRouter.swift; sourceTree = "<group>"; };
+		FDFF0BF6283A8286006B82B3 /* BarcodeCaptureInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureInteractor.swift; sourceTree = "<group>"; };
+		FDFF0BF8283A82B7006B82B3 /* BarcodeCaptureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureBuilder.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31A453982785AF9300290D97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62DEF4281ABCA2004A1B75 /* CaBSDK.framework in Frameworks */,
+				FDFF0BA6283A2D9F006B82B3 /* CaBUIKit.framework in Frameworks */,
+				FDFF0BA3283A2D93006B82B3 /* CaBFirebaseKit.framework in Frameworks */,
+				FDFF0BA9283A2DA4006B82B3 /* CaBRiblets.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31A453912785AF9300290D97 = {
+			isa = PBXGroup;
+			children = (
+				31A4539D2785AF9300290D97 /* CaBMedicineChecker */,
+				31A4539C2785AF9300290D97 /* Products */,
+				FD62DEF2281ABCA2004A1B75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		31A4539C2785AF9300290D97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31A4539B2785AF9300290D97 /* CaBMedicineChecker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31A4539D2785AF9300290D97 /* CaBMedicineChecker */ = {
+			isa = PBXGroup;
+			children = (
+				FD51DA66282AD8C6008E4E2F /* Views */,
+				FD7DCBA4282AA9550068434E /* RIB */,
+				31A453B22785B08A00290D97 /* CaptureController */,
+				FD793700282C6872009B091C /* Sources */,
+				FD62DE5A2819F993004A1B75 /* Resources */,
+				31A4539E2785AF9400290D97 /* CaBMedicineChecker.h */,
+				31A4539F2785AF9400290D97 /* CaBMedicineChecker.docc */,
+			);
+			path = CaBMedicineChecker;
+			sourceTree = "<group>";
+		};
+		31A453B22785B08A00290D97 /* CaptureController */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0BF3283A7FE3006B82B3 /* RIB */,
+				31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */,
+			);
+			path = CaptureController;
+			sourceTree = "<group>";
+		};
+		FD51DA66282AD8C6008E4E2F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936E1282C12C9009B091C /* MedicineListView */,
+				FD51DA67282AD8CF008E4E2F /* Calendar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD51DA67282AD8CF008E4E2F /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936DE282BBE2B009B091C /* Models */,
+				FD51DA68282AD9A2008E4E2F /* CalendarPickerView.swift */,
+				FD7936D8282BBA9D009B091C /* CalendarPickerFooterView.swift */,
+				FD7936DA282BBACB009B091C /* CalendarPickerHeaderView.swift */,
+				FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		FD62DE5A2819F993004A1B75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD62DE5B2819F9A9004A1B75 /* Storyboards */,
+				FD7936F6282C4A78009B091C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FD62DE5B2819F9A9004A1B75 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */,
+				FD7936E4282C1329009B091C /* MedicineListView.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FD62DEF2281ABCA2004A1B75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0BA8283A2DA4006B82B3 /* CaBRiblets.framework */,
+				FDFF0BA5283A2D9F006B82B3 /* CaBUIKit.framework */,
+				FDFF0BA2283A2D93006B82B3 /* CaBFirebaseKit.framework */,
+				FDFF0B9F283A2D89006B82B3 /* CaBAuthorization.framework */,
+				FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD7936DE282BBE2B009B091C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936DF282BBE39009B091C /* CalendarModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FD7936E1282C12C9009B091C /* MedicineListView */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936F3282C3235009B091C /* ViewModel */,
+				FD7936E6282C1541009B091C /* MedicineItemViews */,
+				FD7936E2282C12DD009B091C /* MedicineListView.swift */,
+			);
+			path = MedicineListView;
+			sourceTree = "<group>";
+		};
+		FD7936E6282C1541009B091C /* MedicineItemViews */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD45282F14E600EE6FE0 /* ItemPeriodViews */,
+				FD7936EC282C247C009B091C /* ItemInfoTableViewCell */,
+				FD7936E7282C1554009B091C /* ItemPreviewTableViewCell */,
+				FD7936F1282C311C009B091C /* MedicineItemInfoView.swift */,
+				FDE9FD43282F127100EE6FE0 /* MedicineItemPeriodView.swift */,
+			);
+			path = MedicineItemViews;
+			sourceTree = "<group>";
+		};
+		FD7936E7282C1554009B091C /* ItemPreviewTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936E8282C157A009B091C /* MedicineItemTableViewCell.swift */,
+				FD7936E9282C157A009B091C /* MedicineItemTableViewCell.xib */,
+			);
+			path = ItemPreviewTableViewCell;
+			sourceTree = "<group>";
+		};
+		FD7936EC282C247C009B091C /* ItemInfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936ED282C24A5009B091C /* MedicineItemInfoTableViewCell.swift */,
+				FD7936EE282C24A5009B091C /* MedicineItemInfoTableViewCell.xib */,
+			);
+			path = ItemInfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		FD7936F3282C3235009B091C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FD7936F4282C3251009B091C /* MedicineItemViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FD793700282C6872009B091C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD55282FF1A700EE6FE0 /* Extensions */,
+				FDE9FD64283120D300EE6FE0 /* MedicineCheckerRootServices.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FD7DCBA4282AA9550068434E /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0B1328390726006B82B3 /* MedicineList */,
+				FDE9FD8528319E0F00EE6FE0 /* MedicineItemInfo */,
+				FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriod */,
+				FD7DCBA5282AA95F0068434E /* Container */,
+			);
+			path = RIB;
+			sourceTree = "<group>";
+		};
+		FD7DCBA5282AA95F0068434E /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				FD7DCBA6282AA9E20068434E /* MedicineCheckerContainerBuilder.swift */,
+				FD7DCBA7282AA9E20068434E /* MedicineCheckerContainerInteractor.swift */,
+				FD7DCBA8282AA9E20068434E /* MedicineCheckerContainerRouter.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		FDE9FD45282F14E600EE6FE0 /* ItemPeriodViews */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD46282F150400EE6FE0 /* DatePickerView.swift */,
+				FDE9FD48282FAAA200EE6FE0 /* MenuView.swift */,
+				FDA0C07F2835197D00280F72 /* PeriodCollectionViewCell.swift */,
+			);
+			path = ItemPeriodViews;
+			sourceTree = "<group>";
+		};
+		FDE9FD4A282FECD900EE6FE0 /* MedicineItemPeriod */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD58282FF4C700EE6FE0 /* Storage */,
+				FDE9FD4B282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift */,
+				FDE9FD4D282FEDA800EE6FE0 /* MedicineItemPeriodInteractor.swift */,
+				FDE9FD4F282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift */,
+				FDE9FD51282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift */,
+			);
+			path = MedicineItemPeriod;
+			sourceTree = "<group>";
+		};
+		FDE9FD55282FF1A700EE6FE0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FD793701282C6888009B091C /* UIImage+CaBMedicineChecker.swift */,
+				FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift */,
+				FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FDE9FD58282FF4C700EE6FE0 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD56282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		FDE9FD8528319E0F00EE6FE0 /* MedicineItemInfo */ = {
+			isa = PBXGroup;
+			children = (
+				FDE9FD8628319E2900EE6FE0 /* MedicineItemInfoRouter.swift */,
+				FDE9FD8828319E3900EE6FE0 /* MedicineItemInfoInteractor.swift */,
+				FDE9FD8A28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift */,
+				FDE9FD8C28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift */,
+			);
+			path = MedicineItemInfo;
+			sourceTree = "<group>";
+		};
+		FDFF0B1328390726006B82B3 /* MedicineList */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0B142839074D006B82B3 /* MedicineListRouter.swift */,
+				FDFF0B162839076F006B82B3 /* MedicineListInteractor.swift */,
+				FDFF0B182839077E006B82B3 /* MedicineListBuilder.swift */,
+				FDFF0B1A28390795006B82B3 /* MedicineListPresenter.swift */,
+			);
+			path = MedicineList;
+			sourceTree = "<group>";
+		};
+		FDFF0BF3283A7FE3006B82B3 /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0BF4283A827B006B82B3 /* BarcodeCaptureRouter.swift */,
+				FDFF0BF6283A8286006B82B3 /* BarcodeCaptureInteractor.swift */,
+				FDFF0BF8283A82B7006B82B3 /* BarcodeCaptureBuilder.swift */,
+			);
+			path = RIB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		31A453962785AF9300290D97 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31A453A12785AF9400290D97 /* CaBMedicineChecker.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		31A4539A2785AF9300290D97 /* CaBMedicineChecker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31A453A42785AF9400290D97 /* Build configuration list for PBXNativeTarget "CaBMedicineChecker" */;
+			buildPhases = (
+				31A453962785AF9300290D97 /* Headers */,
+				31A453972785AF9300290D97 /* Sources */,
+				31A453982785AF9300290D97 /* Frameworks */,
+				31A453992785AF9300290D97 /* Resources */,
+				FD62DEF6281ABCA2004A1B75 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CaBMedicineChecker;
+			productName = CaBBarcodeReader;
+			productReference = 31A4539B2785AF9300290D97 /* CaBMedicineChecker.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31A453922785AF9300290D97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					31A4539A2785AF9300290D97 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 31A453952785AF9300290D97 /* Build configuration list for PBXProject "CaBMedicineChecker" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 31A453912785AF9300290D97;
+			productRefGroup = 31A4539C2785AF9300290D97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31A4539A2785AF9300290D97 /* CaBMedicineChecker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31A453992785AF9300290D97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD62DE5D2819F9D7004A1B75 /* BarcodeCaptureView.storyboard in Resources */,
+				FD7936EB282C157A009B091C /* MedicineItemTableViewCell.xib in Resources */,
+				FD7936F0282C24A5009B091C /* MedicineItemInfoTableViewCell.xib in Resources */,
+				FD7936E5282C1329009B091C /* MedicineListView.storyboard in Resources */,
+				FD7936F7282C4A78009B091C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31A453972785AF9300290D97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE9FD8B28319E7000EE6FE0 /* MedicineItemInfoBuilder.swift in Sources */,
+				FDE9FD5A282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift in Sources */,
+				FD7936DB282BBACB009B091C /* CalendarPickerHeaderView.swift in Sources */,
+				FDE9FD4E282FEDA800EE6FE0 /* MedicineItemPeriodInteractor.swift in Sources */,
+				FD7936EF282C24A5009B091C /* MedicineItemInfoTableViewCell.swift in Sources */,
+				FD7DCBAA282AA9E20068434E /* MedicineCheckerContainerInteractor.swift in Sources */,
+				FD51DA69282AD9A2008E4E2F /* CalendarPickerView.swift in Sources */,
+				FDE9FD54282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift in Sources */,
+				FDFF0BF9283A82B8006B82B3 /* BarcodeCaptureBuilder.swift in Sources */,
+				FDFF0B192839077E006B82B3 /* MedicineListBuilder.swift in Sources */,
+				FDE9FD49282FAAA200EE6FE0 /* MenuView.swift in Sources */,
+				FDFF0BF5283A827B006B82B3 /* BarcodeCaptureRouter.swift in Sources */,
+				FD7936D9282BBA9D009B091C /* CalendarPickerFooterView.swift in Sources */,
+				FDE9FD8D28319E8B00EE6FE0 /* MedicineItemInfoPresenter.swift in Sources */,
+				FDE9FD8728319E2900EE6FE0 /* MedicineItemInfoRouter.swift in Sources */,
+				FDE9FD4C282FED9800EE6FE0 /* MedicineItemPeriodRouter.swift in Sources */,
+				FDE9FD8928319E3900EE6FE0 /* MedicineItemInfoInteractor.swift in Sources */,
+				FDE9FD44282F127100EE6FE0 /* MedicineItemPeriodView.swift in Sources */,
+				FDFF0B1B28390795006B82B3 /* MedicineListPresenter.swift in Sources */,
+				FDE9FD57282FF4C100EE6FE0 /* MedicineItemPeriodTemporaryStorage.swift in Sources */,
+				FD7936E0282BBE39009B091C /* CalendarModels.swift in Sources */,
+				FDE9FD47282F150400EE6FE0 /* DatePickerView.swift in Sources */,
+				FD7936E3282C12DD009B091C /* MedicineListView.swift in Sources */,
+				FD7DCBAB282AA9E20068434E /* MedicineCheckerContainerRouter.swift in Sources */,
+				FD7936DD282BBAE9009B091C /* CalendarDateCollectionViewCell.swift in Sources */,
+				FD7936EA282C157A009B091C /* MedicineItemTableViewCell.swift in Sources */,
+				FD7936F2282C311C009B091C /* MedicineItemInfoView.swift in Sources */,
+				FD7DCBA9282AA9E20068434E /* MedicineCheckerContainerBuilder.swift in Sources */,
+				FDFF0B172839076F006B82B3 /* MedicineListInteractor.swift in Sources */,
+				FDFF0BF7283A8286006B82B3 /* BarcodeCaptureInteractor.swift in Sources */,
+				31A453A02785AF9400290D97 /* CaBMedicineChecker.docc in Sources */,
+				FDE9FD50282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift in Sources */,
+				FDA0C0802835197D00280F72 /* PeriodCollectionViewCell.swift in Sources */,
+				FDE9FD52282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift in Sources */,
+				31A453B42785B0B900290D97 /* BarcodeCaptureView.swift in Sources */,
+				FDFF0B152839074D006B82B3 /* MedicineListRouter.swift in Sources */,
+				FDE9FD65283120D300EE6FE0 /* MedicineCheckerRootServices.swift in Sources */,
+				FD7936F5282C3251009B091C /* MedicineItemViewModel.swift in Sources */,
+				FD793702282C6888009B091C /* UIImage+CaBMedicineChecker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		31A453A22785AF9400290D97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		31A453A32785AF9400290D97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		31A453A52785AF9400290D97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F5RU76NTBA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBMedicineChecker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		31A453A62785AF9400290D97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = F5RU76NTBA;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBMedicineChecker;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31A453952785AF9300290D97 /* Build configuration list for PBXProject "CaBMedicineChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31A453A22785AF9400290D97 /* Debug */,
+				31A453A32785AF9400290D97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31A453A42785AF9400290D97 /* Build configuration list for PBXNativeTarget "CaBMedicineChecker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31A453A52785AF9400290D97 /* Debug */,
+				31A453A62785AF9400290D97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 31A453922785AF9300290D97 /* Project object */;
+}

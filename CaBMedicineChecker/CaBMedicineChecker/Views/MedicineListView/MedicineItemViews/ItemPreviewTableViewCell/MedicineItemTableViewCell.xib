@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+        <array key="Comfortaa-Light.ttf">
+            <string>Comfortaa-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MedicineItemTableViewCell" rowHeight="128" id="KGk-i7-Jjw" customClass="MedicineItemTableViewCell" customModule="CaBMedicineChecker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="136"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3FF-5n-1oX">
+                        <rect key="frame" x="16" y="8" width="288" height="116"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qwR-tg-qAa">
+                                <rect key="frame" x="12" y="12" width="72" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="mJR-KZ-KOt"/>
+                                    <constraint firstAttribute="height" constant="72" id="pT4-DU-3Cm"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oa1-yu-nQh">
+                                <rect key="frame" x="264" y="12" width="16" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="J5b-ww-bZz"/>
+                                    <constraint firstAttribute="width" constant="16" id="Yk3-RA-PZb"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemTitle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wci-Rv-Brb">
+                                <rect key="frame" x="92" y="12" width="164" height="19.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemBarcde" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEC-hZ-8SE">
+                                <rect key="frame" x="92" y="39.5" width="188" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemReceptionTime" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjT-lV-8dr">
+                                <rect key="frame" x="12" y="92" width="268" height="16"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cot-aU-HNv">
+                                <rect key="frame" x="12" y="12" width="72" height="72"/>
+                                <color key="color" name="HighlightPrimary_Default"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" constant="8" id="3WQ-yM-gkM"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="leading" id="3vp-4F-UMe"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="leading" id="3xI-uH-hBA"/>
+                            <constraint firstItem="wci-Rv-Brb" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="top" id="5Nv-4F-THO"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OEC-hZ-8SE" secondAttribute="bottom" constant="8" id="5v4-pw-rbQ"/>
+                            <constraint firstItem="cot-aU-HNv" firstAttribute="centerY" secondItem="qwR-tg-qAa" secondAttribute="centerY" id="8qb-qA-EbZ"/>
+                            <constraint firstItem="cot-aU-HNv" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="top" id="Bf6-4O-wHm"/>
+                            <constraint firstItem="oa1-yu-nQh" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="trailing" constant="8" id="Fg4-kW-ob5"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="top" secondItem="wci-Rv-Brb" secondAttribute="bottom" constant="8" id="H35-zm-fbp"/>
+                            <constraint firstAttribute="bottom" secondItem="WjT-lV-8dr" secondAttribute="bottom" constant="8" id="I5Z-eY-oHj"/>
+                            <constraint firstItem="cot-aU-HNv" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="leading" id="QUS-c9-2qb"/>
+                            <constraint firstItem="wci-Rv-Brb" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="trailing" constant="8" id="Qbm-jU-92d"/>
+                            <constraint firstItem="cot-aU-HNv" firstAttribute="centerX" secondItem="qwR-tg-qAa" secondAttribute="centerX" id="Thx-Ct-oPd"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="bottom" constant="8" id="UDo-k1-G9o"/>
+                            <constraint firstItem="qwR-tg-qAa" firstAttribute="leading" secondItem="3FF-5n-1oX" secondAttribute="leading" constant="12" id="VLZ-35-z2K"/>
+                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" id="WCb-2Y-Jrm"/>
+                            <constraint firstItem="oa1-yu-nQh" firstAttribute="top" secondItem="wci-Rv-Brb" secondAttribute="top" id="ilW-IF-q7X"/>
+                            <constraint firstItem="WjT-lV-8dr" firstAttribute="trailing" secondItem="OEC-hZ-8SE" secondAttribute="trailing" id="nEJ-jS-Tpk"/>
+                            <constraint firstItem="qwR-tg-qAa" firstAttribute="top" secondItem="3FF-5n-1oX" secondAttribute="top" constant="12" id="whz-qW-a7Z"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="3FF-5n-1oX" secondAttribute="bottom" constant="12" id="70e-I7-paF"/>
+                    <constraint firstItem="3FF-5n-1oX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="GSp-np-koe"/>
+                    <constraint firstAttribute="trailing" secondItem="3FF-5n-1oX" secondAttribute="trailing" constant="16" id="KR0-tU-tIl"/>
+                    <constraint firstItem="3FF-5n-1oX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="NxT-cd-3M3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="barcodeLabel" destination="OEC-hZ-8SE" id="6Tx-ad-zte"/>
+                <outlet property="containerView" destination="3FF-5n-1oX" id="wfj-WH-TR1"/>
+                <outlet property="imageLoadingIndicator" destination="cot-aU-HNv" id="jAV-AU-QPl"/>
+                <outlet property="itemIconImageView" destination="qwR-tg-qAa" id="adW-BK-ZDL"/>
+                <outlet property="nameLabel" destination="wci-Rv-Brb" id="TqY-Qk-hpc"/>
+                <outlet property="nextEventDateLabel" destination="WjT-lV-8dr" id="ZHi-HS-qjO"/>
+                <outlet property="plainIconImageView" destination="oa1-yu-nQh" id="oJM-IU-576"/>
+            </connections>
+            <point key="canvasLocation" x="281" y="-28"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="HighlightPrimary_Default">
+            <color red="0.20784313725490197" green="0.21568627450980393" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

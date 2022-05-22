@@ -2,6 +2,9 @@ import UIKit
 import CaBUIKit
 import CaBRiblets
 import CaBSDK
+import CaBMedicineChecker
+
+// MARK: - Protocol
 
 protocol MainRouter: ViewableRouter {
 
@@ -12,20 +15,39 @@ protocol MainRouter: ViewableRouter {
 
 }
 
+// MARK: - Implementation
+
 final class MainRouterImpl: BaseRouter, MainRouter {
 
-    var view: UIViewController
+    // MARK: - Internal Properties
+
+    var view: UIViewController {
+        return containerViewController
+    }
+
+    // MARK: - Private Properties
+
+    private let interactor: MainInteractor
+
+    private let rootServices: RootServices
+    private var containerViewController: CaBTabBarController
 
     private var homeRouter: ViewableRouter?
     private var medicineControllerRouter: ViewableRouter?
     private var foodControllerRouter: ViewableRouter?
     private var settingsRouter: ViewableRouter?
 
-    init(view: CaBTabBarController, interactor: MainInteractor) {
-        self.view = view
+    // MARK: - Init
+
+    init(rootServices: RootServices, view: CaBTabBarController, interactor: MainInteractor) {
+        self.rootServices = rootServices
+        self.containerViewController = view
+        self.interactor = interactor
 
         super.init(interactor: interactor)
     }
+
+    // MARK: - Internal Methods
 
     func attachHomeRouter() {
         guard homeRouter == nil else {
@@ -38,7 +60,12 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         guard medicineControllerRouter == nil else {
             return
         }
-        // TODO: Implement screen attaching
+
+        let router = MedicineCheckerContainerBuilder(factory: rootServices, listener: interactor).build()
+        router.start()
+
+        medicineControllerRouter = router
+        showItemRouter(.medicineController, router: router)
     }
 
     func attachFoodControllerRouter() {
@@ -55,18 +82,15 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         // TODO: Implement screen attaching
     }
 
-    private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {
-        guard let view = view as? CaBTabBarController else {
-            logError(message: "View expected to be of type CaBTabBarController")
-            return
-        }
+    // MARK: - Private Methods
 
+    private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {
         guard let router = router else {
             logError(message: "Router expected to be provided")
             return
         }
 
-        view.setController(router.view, to: item)
+        containerViewController.setController(router.view, to: item)
     }
 
 }

@@ -1,13 +1,66 @@
 import CaBRiblets
 import CaBSDK
+import CaBMedicineChecker
 
-protocol MainInteractor: Interactor {
+// MARK: - Protocol
+
+protocol MainInteractor: Interactor,
+                         MedicineCheckerContainerListener {
+
+    func showHomeScreen()
+    func showMedicineControllerScreen()
+    func showFoodControllerScreen()
+    func showSettingsScreen()
 
 }
 
+// MARK: - Implementation
+
 final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
+    // MARK: - Internal Properties
+
     weak var router: MainRouter?
+
+    var presenter: MainPresenter?
+
+    // MARK: - Internal Methods
+
+    // MARK: Overrides
+
+    override func start() {
+        super.start()
+
+        guard presenter != nil else {
+            logError(message: "Presenter expected to be set")
+            return
+        }
+        presenter?.updateView(with: [.home, .medicineController, .foodController, .settings])
+    }
+
+    // MARK: Protocol MainInteractor
+
+    func showHomeScreen() {
+        checkIfRouterSet()
+        router?.attachHomeRouter()
+    }
+
+    func showMedicineControllerScreen() {
+        checkIfRouterSet()
+        router?.attachMedicineControllerRouter()
+    }
+
+    func showFoodControllerScreen() {
+        checkIfRouterSet()
+        router?.attachFoodControllerRouter()
+    }
+
+    func showSettingsScreen() {
+        checkIfRouterSet()
+        router?.attachSettingsRouter()
+    }
+
+    // MARK: - Private Methods
 
     private func checkIfRouterSet() {
         guard router != nil else {
@@ -18,27 +71,6 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
 }
 
-extension MainInteractorImpl: MainViewEventsHandler {
-
-    func didSelectTab(with child: MainView.Item) {
-        checkIfRouterSet()
-
-        switch child {
-        case .home:
-            router?.attachHomeRouter()
-
-        case .medicineController:
-            router?.attachMedicineControllerRouter()
-
-        case .foodController:
-            router?.attachFoodControllerRouter()
-
-        case .settings:
-            router?.attachSettingsRouter()
-
-        default:
-            logError(message: "Unknown item recieved with identifier: <\(child.rawValue)>")
-        }
-    }
-
+extension MainInteractorImpl: MedicineCheckerContainerListener {
+    
 }

@@ -3,11 +3,19 @@ import UIKit
 
 public final class AuthorizationBuilder: Builder {
 
+    // MARK: - Private Properties
+
+    private let factory: AuthorizationRootServices
     private weak var listener: AuthorizationListener?
 
-    public init(listener: AuthorizationListener?) {
+    // MARK: - Init
+
+    public init(factory: AuthorizationRootServices, listener: AuthorizationListener?) {
+        self.factory = factory
         self.listener = listener
     }
+
+    // MARK: - Public Methods
 
     public func build(mode: AuthorizationViewModel.Mode) -> ViewableRouter {
         let view: UIViewController
@@ -22,12 +30,9 @@ public final class AuthorizationBuilder: Builder {
             view = AuthorizationInfoViewImpl.makeView()
         }
 
-        let storage = AuthorithationCredentialsTemporaryStorageImpl()
-        let authorizationManager = AuthorizationManagerImpl(temporaryCredentialsStorage: storage)
-
         let interactor = AuthorizationInteractorImpl(mode: mode,
-                                                     authorizationManager: authorizationManager,
-                                                     temporaryCredentialsStorage: storage,
+                                                     authorizationManager: factory.authorizationManager,
+                                                     temporaryCredentialsStorage: factory.credentialsStorage,
                                                      listener: listener)
         let presenter = AuthorizationPresenterImpl(view: view, interactor: interactor)
         

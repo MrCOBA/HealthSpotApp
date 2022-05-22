@@ -1,6 +1,5 @@
-import FirebaseAuth
-import Firebase
 import CaBSDK
+import CaBFirebaseKit
 
 // MARK: - Protocol
 
@@ -13,7 +12,7 @@ public protocol AuthorizationManager: AnyObject {
 
 // MARK: - Implementation
 
-final class AuthorizationManagerImpl: AuthorizationManager {
+public final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Types
 
@@ -21,17 +20,25 @@ final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Properties
 
+    private let authorizationController: FirebaseAuthorizationController
+    private let coreDataAssistant: CoreDataAssistant
     private let temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     // MARK: - Init
 
-    init(temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+    public init(authorizationController: FirebaseAuthorizationController,
+                coreDataAssistant: CoreDataAssistant,
+                temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+        self.coreDataAssistant = coreDataAssistant
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
+        self.authorizationController = authorizationController
+
+        authorizationController.delegate = self
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
-    func signIn() {
+    public func signIn() {
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
 
@@ -52,18 +59,10 @@ final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            guard let _ = error else {
-                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
-                                                object: nil)
-                return
-            }
-
-            // TODO: Add error handling
-        }
+        authorizationController.signIn(email: email, password: password)
     }
 
-    func signUp() {
+    public func signUp() {
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
         let repeatedPassword = temporaryCredentialsStorage.repeatedPassword
@@ -91,15 +90,7 @@ final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
-        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard let _ = error else {
-                NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
-                                                object: nil)
-                return
-            }
-
-            // TODO: Add error handling
-        }
+        authorizationController.signUp(email: email, password: password)
     }
 
     // MARK: - Private Methods
@@ -121,6 +112,34 @@ final class AuthorizationManagerImpl: AuthorizationManager {
     private func postErrorNotification(_ error: Error) {
         NotificationCenter.default.post(name: .Authorization.signUp(result: .failure(error: error)),
                                         object: nil)
+    }
+
+}
+
+// MARK: - Protocol FirebaseAuthorizationDelegate
+
+extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
+
+    public func didSignIn(id: String?, with error: Swift.Error?) {
+        guard let _ = error else {
+            temporaryCredentialsStorage.id = id ?? ""
+            NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
+                                            object: nil)
+            return
+        }
+
+        // TODO: Add error handling
+    }
+
+    public func didSignUp(id: String?, with error: Swift.Error?) {
+        guard let _ = error else {
+            temporaryCredentialsStorage.id = id ?? ""
+            NotificationCenter.default.post(name: .Authorization.signUp(result: .success),
+                                            object: nil)
+            return
+        }
+
+        // TODO: Add error handling
     }
 
 }
