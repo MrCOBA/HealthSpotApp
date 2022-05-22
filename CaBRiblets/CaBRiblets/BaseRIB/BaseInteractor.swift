@@ -1,4 +1,4 @@
-import CaBSDK
+import CaBFoundation
 
 // MARK: - Protocol
 

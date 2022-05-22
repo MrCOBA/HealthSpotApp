@@ -1,4 +1,4 @@
-import CaBSDK
+import CaBFoundation
 
 public protocol AuthorizationRootServices: AnyObject {
 

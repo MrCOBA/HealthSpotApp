@@ -1,6 +1,6 @@
 import UIKit
 import CaBUIKit
-import CaBSDK
+import CaBFoundation
 
 public protocol AuthorizationView: AnyObject {
 

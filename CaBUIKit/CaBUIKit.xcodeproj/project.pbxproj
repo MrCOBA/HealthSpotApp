@@ -19,8 +19,6 @@
 		315DBAE628030BEF00DCA5E4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE528030BEF00DCA5E4 /* InputView.swift */; };
 		315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAEE280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift */; };
 		3191929026F5321A0090C262 /* SelectableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191928F26F5321A0090C262 /* SelectableButton.swift */; };
-		31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; };
-		31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CBA278309F400BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3194ADA6278703C700B1E7FE /* FeatureInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3194ADA5278703C700B1E7FE /* FeatureInfoView.swift */; };
 		31A453CE278645F200290D97 /* FeatureInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31A453CD278645F200290D97 /* FeatureInfoView.xib */; };
 		31A453D22786462300290D97 /* FeatureInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453D12786462300290D97 /* FeatureInfoViewModel.swift */; };
@@ -53,16 +51,18 @@
 		FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */; };
 		FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
+		FDFF0C71283ACC0A006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C70283ACC0A006B82B3 /* CaBFoundation.framework */; };
+		FDFF0C72283ACC0A006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C70283ACC0A006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		31FB81B92686159E00500FE1 /* Embed Frameworks */ = {
+		FDFF0C73283ACC0A006B82B3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				31932CBC278309F400BCBDAA /* CaBSDK.framework in Embed Frameworks */,
+				FDFF0C72283ACC0A006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +117,7 @@
 		FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarController.swift; sourceTree = "<group>"; };
 		FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBContainerViewController.swift; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
+		FDFF0C70283ACC0A006B82B3 /* CaBFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				31932CBB278309F400BCBDAA /* CaBSDK.framework in Frameworks */,
+				FDFF0C71283ACC0A006B82B3 /* CaBFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +392,7 @@
 		31FB81B52686159E00500FE1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C70283ACC0A006B82B3 /* CaBFoundation.framework */,
 				31932CBA278309F400BCBDAA /* CaBSDK.framework */,
 			);
 			name = Frameworks;
@@ -470,7 +472,7 @@
 				314131D22685DE6900BB2749 /* Sources */,
 				314131D32685DE6900BB2749 /* Frameworks */,
 				314131D42685DE6900BB2749 /* Resources */,
-				31FB81B92686159E00500FE1 /* Embed Frameworks */,
+				FDFF0C73283ACC0A006B82B3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

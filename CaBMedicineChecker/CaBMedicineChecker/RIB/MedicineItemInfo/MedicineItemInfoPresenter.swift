@@ -1,5 +1,5 @@
 import CaBRiblets
-import CaBSDK
+import CaBFoundation
 
 protocol MedicineItemInfoPresenter: AnyObject {
 

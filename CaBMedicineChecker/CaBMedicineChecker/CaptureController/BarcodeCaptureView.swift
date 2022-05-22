@@ -1,6 +1,6 @@
 import UIKit
 import AVFoundation
-import CaBSDK
+import CaBFoundation
 
 protocol BarcodeCaptureEventsHandler: AnyObject {
 

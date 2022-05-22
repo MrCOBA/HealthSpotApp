@@ -1,6 +1,6 @@
 import UIKit
 import CoreData
-import CaBSDK
+import CaBFoundation
 import CaBUIKit
 
 @main

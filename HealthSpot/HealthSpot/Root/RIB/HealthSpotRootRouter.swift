@@ -2,7 +2,7 @@ import UIKit
 import CaBUIKit
 import CaBRiblets
 import CaBAuthorization
-import CaBSDK
+import CaBFoundation
 
 protocol HealthSpotRootRouter: ViewableRouter {
 

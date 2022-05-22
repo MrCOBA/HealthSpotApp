@@ -1,6 +1,6 @@
 import UIKit
 import CaBUIKit
-import CaBSDK
+import CaBFoundation
 
 protocol HomeViewLegacyDelegate: AnyObject {
 

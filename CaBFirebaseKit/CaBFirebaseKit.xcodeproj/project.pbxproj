@@ -21,7 +21,23 @@
 		FDFF0B072838DD08006B82B3 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */; };
 		FDFF0B0D2838E368006B82B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF0B0C2838E368006B82B3 /* FirebaseFirestore */; };
 		FDFF0B7228398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B7128398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift */; };
+		FDFF0C75283ACC20006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C74283ACC20006B82B3 /* CaBFoundation.framework */; };
+		FDFF0C76283ACC20006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C74283ACC20006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FDFF0C77283ACC20006B82B3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FDFF0C76283ACC20006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FDFF0ADD2838D71E006B82B3 /* CaBFirebaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBFirebaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +47,7 @@
 		FDFF0B042838DB06006B82B3 /* FirebaseAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthorization.swift; sourceTree = "<group>"; };
 		FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
 		FDFF0B7128398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreMedicineChecker.swift; sourceTree = "<group>"; };
+		FDFF0C74283ACC20006B82B3 /* CaBFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +61,7 @@
 				FDFF0B002838DA45006B82B3 /* FirebaseFunctions in Frameworks */,
 				FDFF0B022838DA50006B82B3 /* FirebaseStorage in Frameworks */,
 				FDFF0B0D2838E368006B82B3 /* FirebaseFirestore in Frameworks */,
+				FDFF0C75283ACC20006B82B3 /* CaBFoundation.framework in Frameworks */,
 				FDFF0AFC2838DA33006B82B3 /* FirebaseDatabase in Frameworks */,
 				FDFF0AF62838DA03006B82B3 /* FirebaseAuth in Frameworks */,
 			);
@@ -85,6 +103,7 @@
 		FDFF0AF42838DA03006B82B3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C74283ACC20006B82B3 /* CaBFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -135,6 +154,7 @@
 				FDFF0AD92838D71E006B82B3 /* Sources */,
 				FDFF0ADA2838D71E006B82B3 /* Frameworks */,
 				FDFF0ADB2838D71E006B82B3 /* Resources */,
+				FDFF0C77283ACC20006B82B3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

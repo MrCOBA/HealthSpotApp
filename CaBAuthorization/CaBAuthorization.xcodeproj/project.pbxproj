@@ -12,8 +12,6 @@
 		3133DD7827B0593100007428 /* AuthorizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD7627B0593100007428 /* AuthorizationViewModel.swift */; };
 		3133DD7E27B05EC400007428 /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD7D27B05EC400007428 /* CaBUIKit.framework */; };
 		3133DD7F27B05EC400007428 /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD7D27B05EC400007428 /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3133DD8227B05EC900007428 /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8127B05EC900007428 /* CaBSDK.framework */; };
-		3133DD8327B05EC900007428 /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8127B05EC900007428 /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3133DD8527B05ED200007428 /* CaBRiblets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8427B05ED200007428 /* CaBRiblets.framework */; };
 		3133DD8627B05ED200007428 /* CaBRiblets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD8427B05ED200007428 /* CaBRiblets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */; };
@@ -30,12 +28,14 @@
 		FDA3C0DD281FCB47008CDDDF /* UIImage+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C0DC281FCB47008CDDDF /* UIImage+CaBAuthorization.swift */; };
 		FDA3C13028201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12F28201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift */; };
 		FDA3C1322820210C008CDDDF /* UserDefaults+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1312820210C008CDDDF /* UserDefaults+CaBAuthorization.swift */; };
-		FDA3C14D28202F29008CDDDF /* AutorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */; };
 		FDA3C19528204676008CDDDF /* UIStoryboard+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */; };
 		FDA3C19928207F24008CDDDF /* AuthorizationInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */; };
+		FDB78DB1283AD73400117DCA /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB78DB0283AD73400117DCA /* AuthorizationManager.swift */; };
 		FDE9FD67283123FB00EE6FE0 /* AuthorizationRootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */; };
 		FDFF0B0A2838DE0F006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0B092838DE0F006B82B3 /* CaBFirebaseKit.framework */; };
 		FDFF0B0B2838DE0F006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0B092838DE0F006B82B3 /* CaBFirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFF0C6B283ACBF1006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C6A283ACBF1006B82B3 /* CaBFoundation.framework */; };
+		FDFF0C6C283ACBF1006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C6A283ACBF1006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3133DD8327B05EC900007428 /* CaBSDK.framework in Embed Frameworks */,
+				FDFF0C6C283ACBF1006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
 				3133DD8627B05ED200007428 /* CaBRiblets.framework in Embed Frameworks */,
 				3133DD7F27B05EC400007428 /* CaBUIKit.framework in Embed Frameworks */,
 				FDFF0B0B2838DE0F006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */,
@@ -77,11 +77,12 @@
 		FDA3C0DC281FCB47008CDDDF /* UIImage+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CaBAuthorization.swift"; sourceTree = "<group>"; };
 		FDA3C12F28201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorithationCredentialsTemporaryStorage.swift; sourceTree = "<group>"; };
 		FDA3C1312820210C008CDDDF /* UserDefaults+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBAuthorization.swift"; sourceTree = "<group>"; };
-		FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutorizationManager.swift; sourceTree = "<group>"; };
 		FDA3C19428204676008CDDDF /* UIStoryboard+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBAuthorization.swift"; sourceTree = "<group>"; };
 		FDA3C19828207F24008CDDDF /* AuthorizationInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInfoView.swift; sourceTree = "<group>"; };
+		FDB78DB0283AD73400117DCA /* AuthorizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
 		FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRootServices.swift; sourceTree = "<group>"; };
 		FDFF0B092838DE0F006B82B3 /* CaBFirebaseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFirebaseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDFF0C6A283ACBF1006B82B3 /* CaBFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3133DD8227B05EC900007428 /* CaBSDK.framework in Frameworks */,
+				FDFF0C6B283ACBF1006B82B3 /* CaBFoundation.framework in Frameworks */,
 				3133DD8527B05ED200007428 /* CaBRiblets.framework in Frameworks */,
 				3133DD7E27B05EC400007428 /* CaBUIKit.framework in Frameworks */,
 				FDFF0B0A2838DE0F006B82B3 /* CaBFirebaseKit.framework in Frameworks */,
@@ -181,6 +182,7 @@
 		3133DD7C27B05EC400007428 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C6A283ACBF1006B82B3 /* CaBFoundation.framework */,
 				FDFF0B092838DE0F006B82B3 /* CaBFirebaseKit.framework */,
 				3133DD8427B05ED200007428 /* CaBRiblets.framework */,
 				3133DD8127B05EC900007428 /* CaBSDK.framework */,
@@ -238,10 +240,10 @@
 		FDA3C14728202E94008CDDDF /* AuthorizationManager */ = {
 			isa = PBXGroup;
 			children = (
-				FDA3C14C28202F29008CDDDF /* AutorizationManager.swift */,
+				FDB78DB0283AD73400117DCA /* AuthorizationManager.swift */,
 			);
 			name = AuthorizationManager;
-			path = ../../../CaBSDK/CaBSDK/Sources/AuthorizationManager;
+			path = ../../AuthorizationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,10 +342,10 @@
 				FD7F7C5D28246F2D0055D2F3 /* Notification+CaBAuthorization.swift in Sources */,
 				3133DD5D27B054B800007428 /* CaBAuthorization.docc in Sources */,
 				FDA3C1322820210C008CDDDF /* UserDefaults+CaBAuthorization.swift in Sources */,
-				FDA3C14D28202F29008CDDDF /* AutorizationManager.swift in Sources */,
 				FDA3C0DD281FCB47008CDDDF /* UIImage+CaBAuthorization.swift in Sources */,
 				FDA3C19528204676008CDDDF /* UIStoryboard+CaBAuthorization.swift in Sources */,
 				315DBAED28031D9600DCA5E4 /* AuthorizationContainerBuilder.swift in Sources */,
+				FDB78DB1283AD73400117DCA /* AuthorizationManager.swift in Sources */,
 				31F1DB5427D7C7B4002581FD /* AuthorizationRouter.swift in Sources */,
 				31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */,
 				FDA3C19928207F24008CDDDF /* AuthorizationInfoView.swift in Sources */,

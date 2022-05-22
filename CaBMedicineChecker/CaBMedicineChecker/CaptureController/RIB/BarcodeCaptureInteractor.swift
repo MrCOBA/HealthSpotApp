@@ -1,6 +1,6 @@
 import CaBRiblets
 import CaBFirebaseKit
-import CaBSDK
+import CaBFoundation
 
 protocol BarcodeCaptureListener: AnyObject {
 

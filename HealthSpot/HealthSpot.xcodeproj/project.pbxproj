@@ -22,8 +22,6 @@
 		31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31932C982782FEE100BCBDAA /* LaunchScreen.storyboard */; };
 		31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; };
 		31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		31932CB8278309E300BCBDAA /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CB7278309DB00BCBDAA /* CaBSDK.framework */; };
-		31932CB9278309E300BCBDAA /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CB7278309DB00BCBDAA /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
@@ -46,6 +44,8 @@
 		FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; };
 		FDFF0AF02838D782006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDFF0C78283ACC38006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C65283ACA85006B82B3 /* CaBFoundation.framework */; platformFilter = ios; };
+		FDFF0C79283ACC38006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C65283ACA85006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +70,6 @@
 			remoteGlobalIDString = 314131D62685DE6900BB2749;
 			remoteInfo = CaBUIKit;
 		};
-		31932CB6278309DB00BCBDAA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 31FB819D268614E900500FE1;
-			remoteInfo = CaBSDK;
-		};
 		FDED1360283712AD0038C892 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */;
@@ -91,6 +84,13 @@
 			remoteGlobalIDString = FDFF0ADD2838D71E006B82B3;
 			remoteInfo = CaBFirebaseKit;
 		};
+		FDFF0C64283ACA85006B82B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 31FB819D268614E900500FE1;
+			remoteInfo = CaBFoundation;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,9 +100,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FDFF0C79283ACC38006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
 				FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */,
 				FDFF0AF02838D782006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */,
-				31932CB9278309E300BCBDAA /* CaBSDK.framework in Embed Frameworks */,
 				3133DD6B27B054F200007428 /* CaBAuthorization.framework in Embed Frameworks */,
 				31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */,
 				3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */,
@@ -127,7 +127,7 @@
 		31932C992782FEE100BCBDAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31932C9B2782FEE100BCBDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBUIKit.xcodeproj; path = ../CaBUIKit/CaBUIKit.xcodeproj; sourceTree = "<group>"; };
-		31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBSDK.xcodeproj; path = ../CaBSDK/CaBSDK.xcodeproj; sourceTree = "<group>"; };
+		31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBFoundation.xcodeproj; path = ../CaBFoundation/CaBFoundation.xcodeproj; sourceTree = "<group>"; };
 		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
 		31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBMedicineChecker.xcodeproj; path = ../CaBMedicineChecker/CaBMedicineChecker.xcodeproj; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
@@ -155,9 +155,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFF0C78283ACC38006B82B3 /* CaBFoundation.framework in Frameworks */,
 				FDED1362283714CA0038C892 /* CaBMedicineChecker.framework in Frameworks */,
 				FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */,
-				31932CB8278309E300BCBDAA /* CaBSDK.framework in Frameworks */,
 				3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */,
 				31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */,
 				3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */,
@@ -302,7 +302,7 @@
 				3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */,
 				3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */,
 				31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */,
-				31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */,
+				31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */,
 				31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */,
 			);
 			name = Frameworks;
@@ -312,14 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				31932CAE278308E100BCBDAA /* CaBUIKit.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		31932CB3278309DB00BCBDAA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				31932CB7278309DB00BCBDAA /* CaBSDK.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -416,6 +408,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FDFF0C61283ACA85006B82B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0C65283ACA85006B82B3 /* CaBFoundation.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -473,16 +473,16 @@
 					ProjectRef = FDFF0AE92838D773006B82B3 /* CaBFirebaseKit.xcodeproj */;
 				},
 				{
+					ProductGroup = FDFF0C61283ACA85006B82B3 /* Products */;
+					ProjectRef = 31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */;
+				},
+				{
 					ProductGroup = FDED135D283712AD0038C892 /* Products */;
 					ProjectRef = 31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */;
 				},
 				{
 					ProductGroup = 3133DD3727A9A90F00007428 /* Products */;
 					ProjectRef = 3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */;
-				},
-				{
-					ProductGroup = 31932CB3278309DB00BCBDAA /* Products */;
-					ProjectRef = 31932CB2278309DB00BCBDAA /* CaBSDK.xcodeproj */;
 				},
 				{
 					ProductGroup = 31932CAA278308E000BCBDAA /* Products */;
@@ -518,13 +518,6 @@
 			remoteRef = 31932CAD278308E100BCBDAA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		31932CB7278309DB00BCBDAA /* CaBSDK.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CaBSDK.framework;
-			remoteRef = 31932CB6278309DB00BCBDAA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -537,6 +530,13 @@
 			fileType = wrapper.framework;
 			path = CaBFirebaseKit.framework;
 			remoteRef = FDFF0AED2838D773006B82B3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FDFF0C65283ACA85006B82B3 /* CaBFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CaBFoundation.framework;
+			remoteRef = FDFF0C64283ACA85006B82B3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

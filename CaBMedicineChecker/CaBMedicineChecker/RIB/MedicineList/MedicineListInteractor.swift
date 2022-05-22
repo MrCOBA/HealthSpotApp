@@ -1,6 +1,6 @@
 import CoreData
 import CaBRiblets
-import CaBSDK
+import CaBFoundation
 import CaBFirebaseKit
 
 protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCaptureListener {

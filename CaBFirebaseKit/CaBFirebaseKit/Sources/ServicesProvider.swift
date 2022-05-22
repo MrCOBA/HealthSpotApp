@@ -1,5 +1,5 @@
 import Firebase
-import CaBSDK
+import CaBFoundation
 
 // MARK: - Protocol
 

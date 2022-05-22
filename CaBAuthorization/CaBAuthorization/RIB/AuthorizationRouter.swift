@@ -1,6 +1,6 @@
 import UIKit
 import CaBRiblets
-import CaBSDK
+import CaBFoundation
 
 public final class AuthorizationRouter: BaseRouter, ViewableRouter {
 

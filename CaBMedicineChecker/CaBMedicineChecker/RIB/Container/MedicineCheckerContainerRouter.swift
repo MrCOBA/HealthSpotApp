@@ -1,6 +1,6 @@
 import CaBRiblets
 import CaBUIKit
-import CaBSDK
+import CaBFoundation
 import UIKit
 
 public protocol MedicineCheckerContainerRouter: ViewableRouter {

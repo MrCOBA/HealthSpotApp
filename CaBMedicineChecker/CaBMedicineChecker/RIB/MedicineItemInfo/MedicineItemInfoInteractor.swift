@@ -1,6 +1,6 @@
 import CoreData
 import CaBRiblets
-import CaBSDK
+import CaBFoundation
 
 protocol MedicineItemInfoListener: AnyObject {
 

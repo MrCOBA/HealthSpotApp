@@ -12,8 +12,6 @@
 		31A453B42785B0B900290D97 /* BarcodeCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */; };
 		FD51DA69282AD9A2008E4E2F /* CalendarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51DA68282AD9A2008E4E2F /* CalendarPickerView.swift */; };
 		FD62DE5D2819F9D7004A1B75 /* BarcodeCaptureView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */; };
-		FD62DEF4281ABCA2004A1B75 /* CaBSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */; };
-		FD62DEF5281ABCA2004A1B75 /* CaBSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD7936D9282BBA9D009B091C /* CalendarPickerFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936D8282BBA9D009B091C /* CalendarPickerFooterView.swift */; };
 		FD7936DB282BBACB009B091C /* CalendarPickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DA282BBACB009B091C /* CalendarPickerHeaderView.swift */; };
 		FD7936DD282BBAE9009B091C /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */; };
@@ -60,6 +58,8 @@
 		FDFF0BF5283A827B006B82B3 /* BarcodeCaptureRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF4283A827B006B82B3 /* BarcodeCaptureRouter.swift */; };
 		FDFF0BF7283A8286006B82B3 /* BarcodeCaptureInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF6283A8286006B82B3 /* BarcodeCaptureInteractor.swift */; };
 		FDFF0BF9283A82B8006B82B3 /* BarcodeCaptureBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0BF8283A82B7006B82B3 /* BarcodeCaptureBuilder.swift */; };
+		FDFF0C6E283ACBFC006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C6D283ACBFC006B82B3 /* CaBFoundation.framework */; };
+		FDFF0C6F283ACBFC006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C6D283ACBFC006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,7 +69,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FD62DEF5281ABCA2004A1B75 /* CaBSDK.framework in Embed Frameworks */,
+				FDFF0C6F283ACBFC006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
 				FDFF0BA7283A2D9F006B82B3 /* CaBUIKit.framework in Embed Frameworks */,
 				FDFF0BA4283A2D93006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */,
 				FDFF0BAA283A2DA4006B82B3 /* CaBRiblets.framework in Embed Frameworks */,
@@ -131,6 +131,7 @@
 		FDFF0BF4283A827B006B82B3 /* BarcodeCaptureRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureRouter.swift; sourceTree = "<group>"; };
 		FDFF0BF6283A8286006B82B3 /* BarcodeCaptureInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureInteractor.swift; sourceTree = "<group>"; };
 		FDFF0BF8283A82B7006B82B3 /* BarcodeCaptureBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureBuilder.swift; sourceTree = "<group>"; };
+		FDFF0C6D283ACBFC006B82B3 /* CaBFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD62DEF4281ABCA2004A1B75 /* CaBSDK.framework in Frameworks */,
+				FDFF0C6E283ACBFC006B82B3 /* CaBFoundation.framework in Frameworks */,
 				FDFF0BA6283A2D9F006B82B3 /* CaBUIKit.framework in Frameworks */,
 				FDFF0BA3283A2D93006B82B3 /* CaBFirebaseKit.framework in Frameworks */,
 				FDFF0BA9283A2DA4006B82B3 /* CaBRiblets.framework in Frameworks */,
@@ -230,6 +231,7 @@
 		FD62DEF2281ABCA2004A1B75 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C6D283ACBFC006B82B3 /* CaBFoundation.framework */,
 				FDFF0BA8283A2DA4006B82B3 /* CaBRiblets.framework */,
 				FDFF0BA5283A2D9F006B82B3 /* CaBUIKit.framework */,
 				FDFF0BA2283A2D93006B82B3 /* CaBFirebaseKit.framework */,

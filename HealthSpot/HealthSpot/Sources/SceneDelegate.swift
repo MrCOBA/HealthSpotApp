@@ -1,5 +1,5 @@
 import UIKit
-import CaBSDK
+import CaBFoundation
 import CaBRiblets
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

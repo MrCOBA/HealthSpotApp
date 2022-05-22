@@ -1,5 +1,5 @@
 import FirebaseFirestore
-import CaBSDK
+import CaBFoundation
 import CoreData
 
 // MARK: - Protocols

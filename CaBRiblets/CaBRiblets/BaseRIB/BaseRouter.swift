@@ -1,5 +1,5 @@
 import UIKit
-import CaBSDK
+import CaBFoundation
 
 // MARK: - Protocol
 

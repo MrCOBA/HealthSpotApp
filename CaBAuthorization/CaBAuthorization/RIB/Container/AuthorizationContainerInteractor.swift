@@ -1,6 +1,6 @@
 import Firebase
 import CaBRiblets
-import CaBSDK
+import CaBFoundation
 
 // MARK: - Listener
 

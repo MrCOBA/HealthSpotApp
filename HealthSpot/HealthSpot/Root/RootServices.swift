@@ -4,7 +4,7 @@ import CaBFirebaseKit
 import CaBAuthorization
 import CaBMedicineChecker
 import CaBUIKit
-import CaBSDK
+import CaBFoundation
 
 protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
