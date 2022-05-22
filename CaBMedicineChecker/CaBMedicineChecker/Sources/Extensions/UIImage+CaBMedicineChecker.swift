@@ -16,6 +16,12 @@ extension UIImage {
                            compatibleWith: nil) ?? UIImage()
         }
 
+        public static var scanIcon: UIImage {
+            return UIImage(named: "scan-icon",
+                           in: .medicineChecker,
+                           compatibleWith: nil) ?? UIImage()
+        }
+
         public static var dailyIcon: UIImage {
             return UIImage(named: "daily-icon",
                            in: .medicineChecker,

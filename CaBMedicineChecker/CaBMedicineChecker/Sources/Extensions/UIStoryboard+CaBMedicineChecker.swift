@@ -7,6 +7,7 @@ extension UIStoryboard {
     struct MedicineItemInfoView: IdentifiableStoryboard {}
     struct MedicineItemPeriodView: IdentifiableStoryboard {}
     struct MedicineListView: IdentifiableStoryboard {}
+    struct BarcodeCaptureView: IdentifiableStoryboard {}
 
 }
 
@@ -60,6 +61,24 @@ extension UIStoryboard.MedicineListView {
 
     static func instantiateMedicineListViewController() -> MedicineListView {
         return instantiateViewController(withIdentifier: "MedicineListView")
+    }
+
+}
+
+// MARK: - BarcodeCaptureView
+
+extension UIStoryboard.BarcodeCaptureView {
+
+    public static var identifier: String {
+        return "BarcodeCaptureView"
+    }
+
+    public static var bundle: Bundle {
+        return .medicineChecker
+    }
+
+    static func instantiateBarcodeCaptureViewController() -> BarcodeCaptureView {
+        return instantiateViewController(withIdentifier: "BarcodeCaptureView")
     }
 
 }

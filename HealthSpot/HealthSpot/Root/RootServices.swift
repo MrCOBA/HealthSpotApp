@@ -22,6 +22,7 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
     // MARK: MedicineCheckerRootServices
 
     var medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage { get }
+    var firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController { get }
     
 }
 
@@ -37,6 +38,7 @@ final class RootServicesImpl: RootServices {
     let credentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     let medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage
+    let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
 
     init() {
         colorScheme = .default
@@ -45,9 +47,10 @@ final class RootServicesImpl: RootServices {
             context = appDelegate.persistentContainer.viewContext
         }
         coreDataAssistant = CoreDataAssistantImpl(context: context)
-        firebaseServices = FirebaseServicesProviderImpl()
+        firebaseServices = FirebaseServicesProviderImpl(coreDataAssistant: coreDataAssistant)
 
         medicineItemPeriodStorage = MedicineItemPeriodTemporaryStorageImpl()
+        firebaseFirestoreMedicineCheckerController = firebaseServices.firebaseFirestoreMedicineCheckerController
         credentialsStorage = AuthorithationCredentialsTemporaryStorageImpl()
 
         authorizationManager = AuthorizationManagerImpl(authorizationController: firebaseServices.authorizationController,

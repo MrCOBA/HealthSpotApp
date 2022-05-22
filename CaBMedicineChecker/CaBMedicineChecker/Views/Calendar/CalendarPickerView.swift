@@ -58,7 +58,7 @@ final class CalendarPickerView: UIView {
     private var mode: Mode = .small {
         didSet {
             if oldValue != mode {
-                setHeightConstraint(for: mode)
+                //setHeightConstraint(for: mode)
                 baseDate = selectedDate
             }
         }
@@ -126,7 +126,7 @@ final class CalendarPickerView: UIView {
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
 
-        setHeightConstraint(for: mode)
+        //setHeightConstraint(for: mode)
 
         collectionView.register(CalendarDateCollectionViewCell.self, forCellWithReuseIdentifier: CalendarDateCollectionViewCell.cellIdentifier)
 

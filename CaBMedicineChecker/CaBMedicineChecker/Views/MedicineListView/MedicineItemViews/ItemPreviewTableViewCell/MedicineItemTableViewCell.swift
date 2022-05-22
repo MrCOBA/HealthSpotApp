@@ -32,10 +32,6 @@ final class MedicineItemTableViewCell: UITableViewCell {
             return 8.0
         }
 
-        static var imageViewCornerRadius: CGFloat {
-            return 36.0
-        }
-
         static var dateFormat: String {
             return "E, dd.MM.yy HH:mm Z"
         }
@@ -101,7 +97,7 @@ final class MedicineItemTableViewCell: UITableViewCell {
     }
 
     private func configureIconImageView(with cellModel: MedicineItemViewModel) {
-        itemIconImageView.layer.cornerRadius = Constants.imageViewCornerRadius
+        itemIconImageView.layer.cornerRadius = Constants.cornerRadius
 
         imageLoadingIndicator.startAnimating()
         itemIconImageView.imageFromServerURL(cellModel.imageUrl, placeholder: .MedicineChecker.placeholderIcon) { [weak self] in

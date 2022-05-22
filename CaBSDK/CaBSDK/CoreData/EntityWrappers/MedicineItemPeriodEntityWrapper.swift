@@ -24,10 +24,10 @@ public final class MedicineItemPeriodEntityWrapper: EntityWrapper {
 
     public var endDate: Date? {
         get {
-            return entityObject.value(forKey: "endDateDate") as? Date
+            return entityObject.value(forKey: "endDate") as? Date
         }
         set {
-            entityObject.setValue(newValue, forKey: "endDateDate")
+            entityObject.setValue(newValue, forKey: "endDate")
         }
     }
 

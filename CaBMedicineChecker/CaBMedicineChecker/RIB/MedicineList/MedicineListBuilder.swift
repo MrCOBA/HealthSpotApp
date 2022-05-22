@@ -18,11 +18,16 @@ final class MedicineListBuilder: Builder {
         let view = MedicineListView.makeView()
 
         let presenter = MedicineListPresenterImpl(view: view)
-        let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant)
+        view.eventsHandler = presenter
+        
+        let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
+                                                    presenter: presenter,
+                                                    firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController)
 
         presenter.interactor = interactor
 
         let router = MedicineListRouterImpl(rootServices: factory, view: view, interactor: interactor)
+        interactor.router = router
 
         return router
     }

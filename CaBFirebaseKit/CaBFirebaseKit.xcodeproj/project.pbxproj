@@ -20,6 +20,7 @@
 		FDFF0B052838DB06006B82B3 /* FirebaseAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B042838DB06006B82B3 /* FirebaseAuthorization.swift */; };
 		FDFF0B072838DD08006B82B3 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */; };
 		FDFF0B0D2838E368006B82B3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FDFF0B0C2838E368006B82B3 /* FirebaseFirestore */; };
+		FDFF0B7228398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B7128398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		FDFF0AF12838D903006B82B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FDFF0B042838DB06006B82B3 /* FirebaseAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthorization.swift; sourceTree = "<group>"; };
 		FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
+		FDFF0B7128398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFirestoreMedicineChecker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,9 @@
 		FDFF0ADF2838D71E006B82B3 /* CaBFirebaseKit */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF0B082838DD14006B82B3 /* Sources */,
 				FDFF0B032838DADC006B82B3 /* Authorization */,
+				FDFF0B7028398530006B82B3 /* DataBase */,
+				FDFF0B082838DD14006B82B3 /* Sources */,
 				FDFF0AF12838D903006B82B3 /* GoogleService-Info.plist */,
 				FDFF0AE02838D71E006B82B3 /* CaBFirebaseKit.h */,
 				FDFF0AE12838D71E006B82B3 /* CaBFirebaseKit.docc */,
@@ -100,6 +103,14 @@
 				FDFF0B062838DD08006B82B3 /* ServicesProvider.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		FDFF0B7028398530006B82B3 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0B7128398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift */,
+			);
+			path = DataBase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 			files = (
 				FDFF0B052838DB06006B82B3 /* FirebaseAuthorization.swift in Sources */,
 				FDFF0B072838DD08006B82B3 /* ServicesProvider.swift in Sources */,
+				FDFF0B7228398571006B82B3 /* FirebaseFirestoreMedicineChecker.swift in Sources */,
 				FDFF0AE22838D71E006B82B3 /* CaBFirebaseKit.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

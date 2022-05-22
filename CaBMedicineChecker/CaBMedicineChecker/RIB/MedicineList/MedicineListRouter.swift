@@ -4,8 +4,11 @@ import UIKit
 
 protocol MedicineListRouter: ViewableRouter {
 
-    func attachItemInfoView(with id: String)
-    func detachItemInfoView(isPopNeeded: Bool)
+    func attachItemInfoRouter(with id: String)
+    func detachItemInfoRouter(isPopNeeded: Bool)
+
+    func attachBarcodeCaptureRouter()
+    func detachBarcodeCaptureRouter(isDismissNeeded: Bool)
 
 }
 
@@ -25,14 +28,24 @@ final class MedicineListRouterImpl: BaseRouter, MedicineListRouter {
         super.init(interactor: interactor)
     }
 
-    func attachItemInfoView(with id: String) {
-        let router = MedicineItemInfoBuilder(factory: rootServices).build(with: id)
+    func attachItemInfoRouter(with id: String) {
+        let router = MedicineItemInfoBuilder(factory: rootServices, listener: interactor).build(with: id)
 
         attachChildWithPush(router)
     }
 
-    func detachItemInfoView(isPopNeeded: Bool) {
+    func detachItemInfoRouter(isPopNeeded: Bool) {
         detachChildWithPop(isPopNeeded: isPopNeeded)
+    }
+
+    func attachBarcodeCaptureRouter() {
+        let router = BarcodeCaptureBuilder(factory: rootServices, listener: interactor).build()
+
+        attachChildWithPresent(router)
+    }
+
+    func detachBarcodeCaptureRouter(isDismissNeeded: Bool) {
+        detachChildWithDismiss(isDismissNeeded: isDismissNeeded)
     }
 
     private func attachChildWithPush(_ child: ViewableRouter) {
@@ -55,6 +68,30 @@ final class MedicineListRouterImpl: BaseRouter, MedicineListRouter {
         detachChild(currentChild)
         if isPopNeeded {
             view.navigationController?.popViewController(animated: true)
+        }
+        self.currentChild = nil
+    }
+
+    private func attachChildWithPresent(_ child: ViewableRouter) {
+        guard currentChild == nil else {
+            logWarning(message: "Child router has already atttached")
+            return
+        }
+
+        attachChild(child)
+        view.tabBarController?.present(child.view, animated: true)
+        currentChild = child
+    }
+
+    private func detachChildWithDismiss(isDismissNeeded: Bool) {
+        guard let currentChild = currentChild else {
+            logWarning(message: "There is no same child to detach")
+            return
+        }
+
+        detachChild(currentChild)
+        if isDismissNeeded {
+            view.tabBarController?.dismiss(animated: true)
         }
         self.currentChild = nil
     }

@@ -44,7 +44,7 @@ final class MedicineItemInfoView: UIViewController {
 
     var viewModel: MedicineItemViewModel = .empty {
         didSet {
-            if oldValue != viewModel {
+            if oldValue != viewModel && isViewLoaded {
                 configure(with: viewModel)
             }
         }
@@ -59,6 +59,7 @@ final class MedicineItemInfoView: UIViewController {
 
     @IBOutlet private weak var itemPeriodCollectionView: UICollectionView!
     @IBOutlet private weak var itemInfoDataTableView: UITableView!
+    @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
 
     private var dataSource: [(title: String, source: String)] {
         get {
@@ -85,27 +86,32 @@ final class MedicineItemInfoView: UIViewController {
         configure(with: viewModel)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if isMovingFromParent {
-            checkIfEventsHandlerSet()
-
-            eventsHandler?.didFinish()
-        }
-    }
-
     // MARK: - Private Methods
 
     private func configure(with viewModel: MedicineItemViewModel) {
         imageLoadingIndicator.tintColor = colorScheme.highlightPrimaryColor
         imageLoadingIndicator.stopAnimating()
 
+        collectionViewHeightConstraint.constant = (viewModel.periods.count > 0) ? 100 : 0
         view.backgroundColor = colorScheme.backgroundPrimaryColor
 
         configureIconImageView(with: viewModel)
         configureTitleLabel(with: viewModel)
         configureGetMoreButton(with: viewModel)
+        configureBackButton()
+    }
+
+    private func configureBackButton() {
+        let backBarButton = UIBarButtonItem(title: "Back",
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(backButtonPressed))
+        let attrs = [
+            NSAttributedString.Key.font: CaBFont.Comfortaa.bold(size: 16),
+            NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
+        ]
+        backBarButton.setTitleTextAttributes(attrs, for: .normal)
+        navigationItem.leftBarButtonItem = backBarButton
     }
 
     private func configureIconImageView(with viewModel: MedicineItemViewModel) {
@@ -125,8 +131,8 @@ final class MedicineItemInfoView: UIViewController {
     }
 
     private func configureGetMoreButton(with viewModel: MedicineItemViewModel) {
-        getMoreButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
         getMoreButton.setTitle("Get more...", for: .normal)
+        getMoreButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
 
         // TODO: Add Browser opening
     }
@@ -136,6 +142,13 @@ final class MedicineItemInfoView: UIViewController {
             logError(message: "EventsHandler expected to be set")
             return
         }
+    }
+
+    @objc
+    private func backButtonPressed() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didFinish()
     }
 
 }
@@ -182,6 +195,7 @@ extension MedicineItemInfoView: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
 
+        cell.backgroundColor = .clear
         cell.colorScheme = colorScheme
         cell.cellModel = viewModel.periods[indexPath.row]
 

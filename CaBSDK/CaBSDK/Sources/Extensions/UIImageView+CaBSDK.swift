@@ -26,6 +26,12 @@ extension UIImageView {
                 }
             }).resume()
         }
+        else {
+            DispatchQueue.main.async {
+                self.image = placeholder
+                completion()
+            }
+        }
     }
 
 }

@@ -46,16 +46,26 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
         return cellModels
     }
 
+    private func checkIfInteractorSet() {
+        if interactor == nil {
+            logError(message: "Interactor expected to be set")
+        }
+    }
+
 }
 
 extension MedicineListPresenterImpl: MedicineListViewEventsHandler {
 
-    func didSelectRow(with id: String) {
-        
+    func didTapScanButton() {
+        checkIfInteractorSet()
+
+        interactor?.showBarcodeScannerScreen()
     }
 
-    func didFinish() {
-        
+    func didSelectRow(with id: String) {
+        checkIfInteractorSet()
+
+        interactor?.showMedicineItemInfoScreen(with: id)
     }
 
 }

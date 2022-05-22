@@ -4,11 +4,13 @@ final class MedicineItemInfoBuilder: Builder {
 
     // MARK: - Private Properties
 
+    private weak var listener: MedicineItemInfoListener?
     private let factory: MedicineCheckerRootServices
 
     // MARK: - Init
 
-    init(factory: MedicineCheckerRootServices) {
+    init(factory: MedicineCheckerRootServices, listener: MedicineItemInfoListener?) {
+        self.listener = listener
         self.factory = factory
     }
 
@@ -18,8 +20,12 @@ final class MedicineItemInfoBuilder: Builder {
         let view = MedicineItemInfoView.makeView()
 
         let presenter = MedicineItemInfoPresenterImpl(view: view)
-        let interactor = MedicineItemInfoInteractorImpl(coreDataAssistant: factory.coreDataAssistant, entityId: id)
-
+        view.eventsHandler = presenter
+        
+        let interactor = MedicineItemInfoInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
+                                                        presenter: presenter,
+                                                        entityId: id,
+                                                        listener: listener)
         presenter.interactor = interactor
 
         let router = MedicineItemInfoRouterImpl(rootServices: factory, view: view, interactor: interactor)

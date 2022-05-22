@@ -7,7 +7,7 @@ import CaBSDK
 protocol MedicineListViewEventsHandler: AnyObject {
 
     func didSelectRow(with id: String)
-    func didFinish()
+    func didTapScanButton()
 
 }
 
@@ -25,8 +25,8 @@ final class MedicineListView: UIViewController {
 
     var cellModels: [MedicineItemViewModel] = [] {
         didSet {
-            if oldValue != cellModels {
-                configure()
+            if oldValue != cellModels && isViewLoaded {
+                updateTableView()
             }
         }
     }
@@ -42,20 +42,35 @@ final class MedicineListView: UIViewController {
         configure()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-        if isMovingFromParent {
-            checkIfEventsHandlerSet()
-
-            eventsHandler?.didFinish()
-        }
+        medicineItemsListTableView.layoutIfNeeded()
     }
 
     private func configure() {
         navigationItem.title = "Medicine Checker"
         medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
                                             forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
+        configureRightButton()
+
+        updateTableView()
+    }
+
+    private func configureRightButton() {
+        let rightBarButton = UIBarButtonItem(image: .MedicineChecker.scanIcon,
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(rightButtonPressed))
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
+        ]
+        rightBarButton.setTitleTextAttributes(attrs, for: .normal)
+        navigationItem.rightBarButtonItem = rightBarButton
+    }
+
+    private func updateTableView() {
+        medicineItemsListTableView.reloadData()
     }
 
     private func checkIfEventsHandlerSet() {
@@ -63,6 +78,13 @@ final class MedicineListView: UIViewController {
             logError(message: "EventsHandler expected to be set")
             return
         }
+    }
+
+    @objc
+    private func rightButtonPressed() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didTapScanButton()
     }
 
 }
@@ -82,6 +104,8 @@ extension MedicineListView: UITableViewDataSource {
             logError(message: "Unexpected cell type, fall to the default")
             return UITableViewCell()
         }
+
+        cell.backgroundColor = .clear
 
         cell.colorScheme = colorScheme
         cell.cellModel = cellModels[indexPath.row]

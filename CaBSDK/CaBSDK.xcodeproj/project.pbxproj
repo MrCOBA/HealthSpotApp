@@ -23,6 +23,8 @@
 		FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */; };
 		FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */; };
 		FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */; };
+		FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C47283ABA94006B82B3 /* Observable.swift */; };
+		FDFF0C4B283ABAF4006B82B3 /* Locking+CaBSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
 		FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+CaBSDK.swift"; sourceTree = "<group>"; };
 		FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeWrapper.swift; sourceTree = "<group>"; };
+		FDFF0C47283ABA94006B82B3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locking+CaBSDK.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 				FDA3C13328202173008CDDDF /* UserDefaults+CaBSDK.swift */,
 				FD79374B282D519B009B091C /* UIImageView+CaBSDK.swift */,
 				FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBSDK.swift */,
+				FDFF0C4A283ABAF4006B82B3 /* Locking+CaBSDK.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -110,6 +115,7 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDFF0C46283ABA80006B82B3 /* Observable */,
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
@@ -151,6 +157,14 @@
 				FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */,
 			);
 			path = EntityWrappers;
+			sourceTree = "<group>";
+		};
+		FDFF0C46283ABA80006B82B3 /* Observable */ = {
+			isa = PBXGroup;
+			children = (
+				FDFF0C47283ABA94006B82B3 /* Observable.swift */,
+			);
+			path = Observable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,11 +250,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */,
 				3133DD1227A68A7000007428 /* Notification+CaBSDK.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBSDK.swift in Sources */,
 				FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */,
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
 				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
+				FDFF0C4B283ABAF4006B82B3 /* Locking+CaBSDK.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */,
 				FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBSDK.swift in Sources */,

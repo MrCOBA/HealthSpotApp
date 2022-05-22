@@ -183,7 +183,6 @@
 		314131E12685DE9800BB2749 /* CaBUIKit */ = {
 			isa = PBXGroup;
 			children = (
-				FD7F7C6E2824CA160055D2F3 /* CaBContainerViewController */,
 				31A453D02786461100290D97 /* Views */,
 				31E630C0279C6AAD00F9B095 /* CaBTextField */,
 				31C9DF5326FF87F60031FA20 /* CaBSlider */,
@@ -191,6 +190,7 @@
 				310539C826F61ECC00502C2D /* CaBSwitch */,
 				31BF831F27A5BF5F0095184C /* CaBNavigationController */,
 				FD7F7C592823F8CB0055D2F3 /* CaBTabBarController */,
+				FD7F7C6E2824CA160055D2F3 /* CaBContainerViewController */,
 				31A453C92786459A00290D97 /* Resources */,
 				3191929426F5C82C0090C262 /* Sources */,
 				31C9DF5626FF894E0031FA20 /* CaBUIControl.swift */,

@@ -23,7 +23,7 @@
         <attribute name="email" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="password" attributeType="String"/>
-        <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
+        <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
     </entity>
     <elements>
         <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="164"/>

@@ -42,12 +42,20 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
                      periods: periods)
     }
 
+    private func checkIfInteractorSet() {
+        if interactor == nil {
+            logError(message: "Interactor expected to be set")
+        }
+    }
+
 }
 
 extension MedicineItemInfoPresenterImpl: MedicineItemInfoViewEventsHandler {
 
     func didFinish() {
-        
+        checkIfInteractorSet()
+
+        interactor?.didFinish()
     }
 
 }

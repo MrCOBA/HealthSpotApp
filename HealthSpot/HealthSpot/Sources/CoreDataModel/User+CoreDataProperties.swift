@@ -10,7 +10,7 @@ extension User {
     @NSManaged public var id: String
     @NSManaged public var email: String
     @NSManaged public var password: String
-    @NSManaged public var medicineItems: NSOrderedSet?
+    @NSManaged public var medicineItems: NSSet?
 
 }
 
