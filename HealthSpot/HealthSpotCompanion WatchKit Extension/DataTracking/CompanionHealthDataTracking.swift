@@ -1,23 +1,27 @@
 import Foundation
 import HealthKit
 
-protocol CompanionDataTrackingDelegate: AnyObject {
+// MARK: - Protocols
+
+protocol CompanionHealthDataTrackingDelegate: AnyObject {
 
     func didReceiveHealthKitHeartRate(_ heartRate: Double)
     func didReceiveHealthKitStepCounts(_ stepCounts: Double)
 
 }
 
-protocol CompanionDataTracking: AnyObject {
+protocol CompanionHealthDataTracking: AnyObject {
     func start()
     func stop()
 }
 
-final class CompanionDataTrackingImpl: NSObject, CompanionDataTracking {
+// MARK: - Implementation
+
+final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracking {
 
     // MARK: - Internal Properties
 
-    weak var delegate: CompanionDataTrackingDelegate?
+    weak var delegate: CompanionHealthDataTrackingDelegate?
 
     let healthStore: HKHealthStore
     let configuration: HKWorkoutConfiguration
@@ -51,10 +55,10 @@ final class CompanionDataTrackingImpl: NSObject, CompanionDataTracking {
 
             HKHealthStore().requestAuthorization(toShare: infoToShare, read: infoToRead) { (success, error) in
                 if success {
-                    print("Authorization healthkit success")
+                    NSLog("Authorization healthkit success")
                 }
                 else if let error = error {
-                    print(error)
+                    NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
                 }
             }
         } else {
@@ -144,7 +148,7 @@ final class CompanionDataTrackingImpl: NSObject, CompanionDataTracking {
 
             var resultCount = 0.0
             guard let result = result else {
-                print("Failed to fetch steps rate <1>")
+                NSLog("Failed to fetch steps rate <1>")
                 return
             }
 
@@ -153,7 +157,7 @@ final class CompanionDataTrackingImpl: NSObject, CompanionDataTracking {
                 this.delegate?.didReceiveHealthKitStepCounts(resultCount)
             }
             else {
-                print("Failed to fetch steps rate <2>")
+                NSLog("Failed to fetch steps rate <2>")
             }
         }
         healthStore.execute(query)
@@ -163,7 +167,7 @@ final class CompanionDataTrackingImpl: NSObject, CompanionDataTracking {
 
 // MARK: - Protocol HKLiveWorkoutBuilderDelegate
 
-extension CompanionDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
+extension CompanionHealthDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
 
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
         NSLog("%@", "Start data receiving: <\(Date())>")
@@ -184,7 +188,7 @@ extension CompanionDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
 
 }
 
-extension CompanionDataTrackingImpl: HKWorkoutSessionDelegate {
+extension CompanionHealthDataTrackingImpl: HKWorkoutSessionDelegate {
 
     func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
         /* Do Nothing */

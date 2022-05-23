@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD048E5E283C3E8300881AEA /* HealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */; };
 		FDB78DC1283ADDCE00117DCA /* CaBHealthActivity.docc in Sources */ = {isa = PBXBuildFile; fileRef = FDB78DC0283ADDCE00117DCA /* CaBHealthActivity.docc */; };
 		FDB78DC2283ADDCE00117DCA /* CaBHealthActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB78DBF283ADDCE00117DCA /* CaBHealthActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataTracking.swift; sourceTree = "<group>"; };
 		FDB78DBC283ADDCE00117DCA /* CaBHealthActivity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBHealthActivity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB78DBF283ADDCE00117DCA /* CaBHealthActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBHealthActivity.h; sourceTree = "<group>"; };
 		FDB78DC0283ADDCE00117DCA /* CaBHealthActivity.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CaBHealthActivity.docc; sourceTree = "<group>"; };
@@ -28,6 +30,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD048E5C283C3E7200881AEA /* DataTracking */ = {
+			isa = PBXGroup;
+			children = (
+				FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */,
+			);
+			path = DataTracking;
+			sourceTree = "<group>";
+		};
 		FDB78DB2283ADDCE00117DCA = {
 			isa = PBXGroup;
 			children = (
@@ -47,6 +57,7 @@
 		FDB78DBE283ADDCE00117DCA /* CaBHealthActivity */ = {
 			isa = PBXGroup;
 			children = (
+				FD048E5C283C3E7200881AEA /* DataTracking */,
 				FDB78DBF283ADDCE00117DCA /* CaBHealthActivity.h */,
 				FDB78DC0283ADDCE00117DCA /* CaBHealthActivity.docc */,
 			);
@@ -132,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD048E5E283C3E8300881AEA /* HealthDataTracking.swift in Sources */,
 				FDB78DC1283ADDCE00117DCA /* CaBHealthActivity.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

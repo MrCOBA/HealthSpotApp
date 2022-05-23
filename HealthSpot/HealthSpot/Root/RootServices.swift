@@ -12,6 +12,8 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
     var colorScheme: CaBColorScheme { get }
     var coreDataAssistant: CoreDataAssistant { get }
+    var rootSettingsStorage: RootSettingsStorage { get }
+    var localNotificationsAssistant: LocalNotificationAssistant { get }
     var firebaseServices: FirebaseServicesProvider { get }
 
     // MARK: AuthorizationRootServices
@@ -31,6 +33,9 @@ final class RootServicesImpl: RootServices {
     private var context: NSManagedObjectContext?
     let coreDataAssistant: CoreDataAssistant
 
+    let rootSettingsStorage: RootSettingsStorage
+    let localNotificationsAssistant: LocalNotificationAssistant
+
     var colorScheme: CaBColorScheme
     let firebaseServices: FirebaseServicesProvider
 
@@ -47,6 +52,10 @@ final class RootServicesImpl: RootServices {
             context = appDelegate.persistentContainer.viewContext
         }
         coreDataAssistant = CoreDataAssistantImpl(context: context)
+
+        rootSettingsStorage = RootSettingsStorageImpl()
+        localNotificationsAssistant = LocalNotificationAssistantImpl(storage: rootSettingsStorage)
+
         firebaseServices = FirebaseServicesProviderImpl(coreDataAssistant: coreDataAssistant)
 
         medicineItemPeriodStorage = MedicineItemPeriodTemporaryStorageImpl()

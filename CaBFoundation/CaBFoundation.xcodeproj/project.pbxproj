@@ -12,6 +12,8 @@
 		31EB6862280F11510072FD93 /* FileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31EB6861280F11510072FD93 /* FileWriter.swift */; };
 		31FB81A2268614E900500FE1 /* CaBFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = 31FB81A0268614E900500FE1 /* CaBFoundation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31FB81AA2686151000500FE1 /* Bundle+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */; };
+		FD048E61283C43EA00881AEA /* LocalNotificationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */; };
+		FD048E69283C4AEB00881AEA /* RootSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */; };
 		FD79374C282D519B009B091C /* UIImageView+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79374B282D519B009B091C /* UIImageView+CaBFoundation.swift */; };
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */; };
@@ -35,6 +37,8 @@
 		31FB81A0268614E900500FE1 /* CaBFoundation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBFoundation.h; sourceTree = "<group>"; };
 		31FB81A1268614E900500FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBFoundation.swift"; sourceTree = "<group>"; };
+		FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationAssistant.swift; sourceTree = "<group>"; };
+		FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingsStorage.swift; sourceTree = "<group>"; };
 		FD79374B282D519B009B091C /* UIImageView+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBFoundation.swift"; sourceTree = "<group>"; };
@@ -103,6 +107,8 @@
 		31FB819F268614E900500FE1 /* CaBFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				FD048E67283C4ABB00881AEA /* RootStorage */,
+				FD048E5F283C43BF00881AEA /* Notifications */,
 				FDE94B5B2832FDDC00C6536B /* CoreData */,
 				31FB81A8268614F000500FE1 /* Sources */,
 				31FB81A0268614E900500FE1 /* CaBFoundation.h */,
@@ -121,6 +127,22 @@
 				FDE9FD5B2830112100EE6FE0 /* Helpers.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		FD048E5F283C43BF00881AEA /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		FD048E67283C4ABB00881AEA /* RootStorage */ = {
+			isa = PBXGroup;
+			children = (
+				FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */,
+			);
+			path = RootStorage;
 			sourceTree = "<group>";
 		};
 		FDA3C12B28201E13008CDDDF /* PropertyWrappers */ = {
@@ -242,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD048E61283C43EA00881AEA /* LocalNotificationAssistant.swift in Sources */,
 				FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */,
 				3133DD1227A68A7000007428 /* Notification+CaBFoundation.swift in Sources */,
 				31FB81AA2686151000500FE1 /* Bundle+CaBFoundation.swift in Sources */,
@@ -251,6 +274,7 @@
 				FDFF0C4B283ABAF4006B82B3 /* Locking+CaBFoundation.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */,
+				FD048E69283C4AEB00881AEA /* RootSettingsStorage.swift in Sources */,
 				FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift in Sources */,
 				FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */,

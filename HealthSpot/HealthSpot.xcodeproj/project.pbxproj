@@ -23,7 +23,7 @@
 		31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; };
 		31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
-		FD048E10283C34EC00881AEA /* CompanionDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E0F283C34EC00881AEA /* CompanionDataTracking.swift */; };
+		FD048E10283C34EC00881AEA /* CompanionHealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */; };
 		FD16F03A283BFC4B009DFDC0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD16F038283BFC4B009DFDC0 /* Interface.storyboard */; };
 		FD16F03C283BFC4C009DFDC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */; };
 		FD16F042283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD16F041283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -187,7 +187,7 @@
 		31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBFoundation.xcodeproj; path = ../CaBFoundation/CaBFoundation.xcodeproj; sourceTree = "<group>"; };
 		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
 		31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBMedicineChecker.xcodeproj; path = ../CaBMedicineChecker/CaBMedicineChecker.xcodeproj; sourceTree = "<group>"; };
-		FD048E0F283C34EC00881AEA /* CompanionDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionDataTracking.swift; sourceTree = "<group>"; };
+		FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionHealthDataTracking.swift; sourceTree = "<group>"; };
 		FD16F036283BFC4A009DFDC0 /* HealthSpotCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthSpotCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD16F039283BFC4B009DFDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -407,7 +407,7 @@
 		FD048E07283C34DB00881AEA /* DataTracking */ = {
 			isa = PBXGroup;
 			children = (
-				FD048E0F283C34EC00881AEA /* CompanionDataTracking.swift */,
+				FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */,
 			);
 			path = DataTracking;
 			sourceTree = "<group>";
@@ -793,7 +793,7 @@
 				FD16F04B283BFC4C009DFDC0 /* NotificationController.swift in Sources */,
 				FD16F04D283BFC4C009DFDC0 /* ComplicationController.swift in Sources */,
 				FD16F049283BFC4C009DFDC0 /* ExtensionDelegate.swift in Sources */,
-				FD048E10283C34EC00881AEA /* CompanionDataTracking.swift in Sources */,
+				FD048E10283C34EC00881AEA /* CompanionHealthDataTracking.swift in Sources */,
 				FD16F047283BFC4C009DFDC0 /* InterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
