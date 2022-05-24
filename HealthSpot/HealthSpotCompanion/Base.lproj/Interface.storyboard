@@ -9,7 +9,15 @@
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HealthSpotCompanion" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="HealthSpotCompanion" customModuleProvider="target">
+                    <items>
+                        <label width="1" alignment="left" text="Health Spot" textAlignment="center" id="YUr-va-Zsp"/>
+                        <label width="1" alignment="left" text="Heart Rate:" id="Fn8-ar-RfA"/>
+                        <label width="1" alignment="left" text="Step Counts:" id="vUu-PL-H5p"/>
+                        <button width="1" alignment="left" title="Start" id="veM-jI-laN"/>
+                        <button width="1" alignment="left" title="Stop" id="FCy-pq-E4g"/>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
         </scene>

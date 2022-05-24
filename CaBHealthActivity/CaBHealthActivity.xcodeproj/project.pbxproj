@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		FD048E5E283C3E8300881AEA /* HealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */; };
+		FD048E6D283C544100881AEA /* WatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E6C283C544100881AEA /* WatchKitConnection.swift */; };
 		FDB78DC1283ADDCE00117DCA /* CaBHealthActivity.docc in Sources */ = {isa = PBXBuildFile; fileRef = FDB78DC0283ADDCE00117DCA /* CaBHealthActivity.docc */; };
 		FDB78DC2283ADDCE00117DCA /* CaBHealthActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB78DBF283ADDCE00117DCA /* CaBHealthActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthDataTracking.swift; sourceTree = "<group>"; };
+		FD048E6C283C544100881AEA /* WatchKitConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchKitConnection.swift; sourceTree = "<group>"; };
 		FDB78DBC283ADDCE00117DCA /* CaBHealthActivity.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CaBHealthActivity.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDB78DBF283ADDCE00117DCA /* CaBHealthActivity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBHealthActivity.h; sourceTree = "<group>"; };
 		FDB78DC0283ADDCE00117DCA /* CaBHealthActivity.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CaBHealthActivity.docc; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 			isa = PBXGroup;
 			children = (
 				FD048E5D283C3E8300881AEA /* HealthDataTracking.swift */,
+				FD048E6C283C544100881AEA /* WatchKitConnection.swift */,
 			);
 			path = DataTracking;
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD048E5E283C3E8300881AEA /* HealthDataTracking.swift in Sources */,
+				FD048E6D283C544100881AEA /* WatchKitConnection.swift in Sources */,
 				FDB78DC1283ADDCE00117DCA /* CaBHealthActivity.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

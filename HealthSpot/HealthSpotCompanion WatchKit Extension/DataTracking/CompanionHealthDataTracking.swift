@@ -4,10 +4,8 @@ import HealthKit
 // MARK: - Protocols
 
 protocol CompanionHealthDataTrackingDelegate: AnyObject {
-
     func didReceiveHealthKitHeartRate(_ heartRate: Double)
     func didReceiveHealthKitStepCounts(_ stepCounts: Double)
-
 }
 
 protocol CompanionHealthDataTracking: AnyObject {
