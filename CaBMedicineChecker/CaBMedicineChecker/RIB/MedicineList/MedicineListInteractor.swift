@@ -22,18 +22,31 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
     private var user: UserEntityWrapper?
     private var medicineItems = [MedicineItemCompositeWrapper]()
 
-    init(coreDataAssistant: CoreDataAssistant,
+    private let rootServices: MedicineCheckerRootServices
+    private let dataTracking: HealthDataTracking?
+    private let connection: WatchKitConnection?
+
+    init(rootServices: MedicineCheckerRootServices,
+         coreDataAssistant: CoreDataAssistant,
          presenter: MedicineListPresenter,
          firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController) {
+        self.rootServices = rootServices
         self.coreDataAssistant = coreDataAssistant
         self.presenter = presenter
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
+
+        dataTracking = rootServices.dataTracking
+        connection = rootServices.watchKitConnection
     }
 
     override func start() {
         super.start()
 
         firebaseFirestoreMedicineCheckerController.addObserver(self)
+
+        connection?.delegate = self
+        dataTracking?.authorizeHealthKit()
+        dataTracking?.observerHeartRateSamples()
 
         syncStorage()
         firebaseFirestoreMedicineCheckerController.updateData(for: user?.id ?? "")
@@ -153,6 +166,14 @@ extension MedicineListInteractorImpl: BarcodeCaptureListener {
         checkIfRouterSet()
 
         router?.detachBarcodeCaptureRouter(isDismissNeeded: true)
+    }
+
+}
+
+extension MedicineListInteractorImpl: WatchKitConnectionDelegate {
+
+    func didFinishedActiveSession() {
+        connection?.sendMessage(message: ["username" : "mrcoba" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
 }

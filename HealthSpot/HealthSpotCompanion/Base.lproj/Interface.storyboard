@@ -14,9 +14,22 @@
                         <label width="1" alignment="left" text="Health Spot" textAlignment="center" id="YUr-va-Zsp"/>
                         <label width="1" alignment="left" text="Heart Rate:" id="Fn8-ar-RfA"/>
                         <label width="1" alignment="left" text="Step Counts:" id="vUu-PL-H5p"/>
-                        <button width="1" alignment="left" title="Start" id="veM-jI-laN"/>
-                        <button width="1" alignment="left" title="Stop" id="FCy-pq-E4g"/>
+                        <button width="1" alignment="left" title="Start" id="veM-jI-laN">
+                            <connections>
+                                <action selector="startButtonTapped" destination="AgC-eL-Hgc" id="MJf-rZ-cvu"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Stop" id="FCy-pq-E4g">
+                            <connections>
+                                <action selector="stopButtonTapped" destination="AgC-eL-Hgc" id="Cfm-JV-Ncf"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="heartRateLabel" destination="Fn8-ar-RfA" id="yhZ-Oi-MBO"/>
+                        <outlet property="stepCountsLabel" destination="vUu-PL-H5p" id="E7W-Mt-4qg"/>
+                        <outlet property="userNameLabel" destination="YUr-va-Zsp" id="GP3-g7-hcq"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>

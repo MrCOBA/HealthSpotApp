@@ -53,7 +53,12 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         guard homeRouter == nil else {
             return
         }
-        // TODO: Implement screen attaching
+
+        let router = HomeContainerBuilder(factory: rootServices, listener: interactor).build()
+        router.start()
+
+        homeRouter = router
+        showItemRouter(.home, router: router)
     }
 
     func attachMedicineControllerRouter() {
@@ -65,7 +70,7 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         router.start()
 
         medicineControllerRouter = router
-        showItemRouter(.medicineController, router: router)
+        showItemRouter(.medicineChecker, router: router)
     }
 
     func attachFoodControllerRouter() {

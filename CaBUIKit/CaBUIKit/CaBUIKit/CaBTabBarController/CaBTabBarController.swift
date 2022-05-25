@@ -57,6 +57,7 @@ open class CaBTabBarController: UITabBarController {
         didSet {
             let viewControllers = itemContainers.map { $0.container }
             setViewControllers(viewControllers, animated: true)
+            selectedIndex = 0
         }
     }
 

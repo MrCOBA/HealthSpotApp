@@ -1,9 +1,6 @@
 import HealthKit
 import CaBFoundation
-
-public protocol HealthDataTracking: AnyObject {
-    func observerHeartRateSamples()
-}
+import CaBMedicineChecker
 
 public final class HealthDataTrackingImpl: HealthDataTracking {
 
@@ -16,15 +13,15 @@ public final class HealthDataTrackingImpl: HealthDataTracking {
 
     // MARK: - Init
 
-    init(localNotificationsAssistant: LocalNotificationAssistant) {
+    public init(localNotificationsAssistant: LocalNotificationAssistant) {
         healthStore = HKHealthStore()
 
         self.localNotificationsAssistant = localNotificationsAssistant
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
-    func authorizeHealthKit() {
+    public func authorizeHealthKit() {
         if HKHealthStore.isHealthDataAvailable() {
             let infoToRead = Set([
                 HKSampleType.quantityType(forIdentifier: .stepCount)!,
@@ -51,7 +48,7 @@ public final class HealthDataTrackingImpl: HealthDataTracking {
 
     }
 
-    func observerHeartRateSamples() {
+    public func observerHeartRateSamples() {
         guard let heartRateSampleType = HKObjectType.quantityType(forIdentifier: .heartRate) else {
             return
         }
@@ -71,15 +68,15 @@ public final class HealthDataTrackingImpl: HealthDataTracking {
                     return
                 }
 
-                DispatchQueue.main.async {
+                DispatchQueue.main.async { [weak self] in
                     let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                     let heartRate = sample.quantity.doubleValue(for: heartRateUnit)
                     logInfo(message: "Heart Rate Sample: \(heartRate)")
 
-                    localNotificationsAssistant.push(notificationContent: .init(title: "Current heart rate",
-                                                                                body: "Heart Reate = \(heartRate)",
-                                                                                category: "alarm",
-                                                                                userInfo: ["customData": "fizzbuzz"]))
+                    self?.localNotificationsAssistant.push(notificationContent: .init(title: "Current heart rate",
+                                                                                      body: "Heart Rate = \(heartRate)",
+                                                                                      category: "alarm",
+                                                                                      userInfo: ["customData": "fizzbuzz"]))
                 }
             }
         }

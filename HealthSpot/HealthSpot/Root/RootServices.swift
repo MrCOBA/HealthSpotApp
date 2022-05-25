@@ -25,6 +25,9 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
     var medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage { get }
     var firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController { get }
+
+    var dataTracking: HealthDataTracking { get }
+    var watchKitConnection: WatchKitConnection { get }
     
 }
 
@@ -44,6 +47,9 @@ final class RootServicesImpl: RootServices {
 
     let medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage
     let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
+
+    let dataTracking: HealthDataTracking
+    let watchKitConnection: WatchKitConnection
 
     init() {
         colorScheme = .default
@@ -65,6 +71,10 @@ final class RootServicesImpl: RootServices {
         authorizationManager = AuthorizationManagerImpl(authorizationController: firebaseServices.authorizationController,
                                                         coreDataAssistant: coreDataAssistant,
                                                         temporaryCredentialsStorage: credentialsStorage)
+
+        dataTracking = HealthDataTrackingImpl(localNotificationsAssistant: localNotificationsAssistant)
+        watchKitConnection = WatchKitConnectionImpl(localNotificationsAssistant: localNotificationsAssistant)
+        watchKitConnection.startSession()
     }
 
 }

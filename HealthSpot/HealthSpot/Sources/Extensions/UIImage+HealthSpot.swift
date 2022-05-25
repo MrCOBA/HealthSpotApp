@@ -48,4 +48,28 @@ extension UIImage {
 
     }
 
+    // MARK: - HealthActivity
+
+    enum HealthActivity {
+
+        static var pulseFeatureIcon: UIImage {
+            UIImage(named: "pulse-feature-icon",
+                    in: .main,
+                    compatibleWith: nil) ?? UIImage()
+        }
+
+        static var activityFeatureIcon: UIImage {
+            UIImage(named: "activity-feature-icon",
+                    in: .main,
+                    compatibleWith: nil) ?? UIImage()
+        }
+
+        static var calloriesFeatureIcon: UIImage {
+            UIImage(named: "callories-feature-icon",
+                    in: .main,
+                    compatibleWith: nil) ?? UIImage()
+        }
+
+    }
+
 }

@@ -9,8 +9,14 @@ protocol CompanionHealthDataTrackingDelegate: AnyObject {
 }
 
 protocol CompanionHealthDataTracking: AnyObject {
+
+    var delegate: CompanionHealthDataTrackingDelegate? { get set }
+
+    func authorizeHealthKit()
     func start()
     func stop()
+
+    func fetchStepCountsStatisticsData()
 }
 
 // MARK: - Implementation
@@ -37,7 +43,7 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
 
     // MARK: - Internal Methods
 
-    static func authorizeHealthKit() {
+    func authorizeHealthKit() {
         if HKHealthStore.isHealthDataAvailable() {
             let infoToRead = Set([
                 HKSampleType.quantityType(forIdentifier: .stepCount)!,
@@ -90,47 +96,7 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
         }
     }
 
-    // MARK: - Private Methods
-
-    private func configure() {
-        configuration.activityType = .walking
-
-        do {
-            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
-            builder = session?.associatedWorkoutBuilder()
-        }
-        catch {
-            NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
-            return
-        }
-
-        session.delegate = self
-        builder.delegate = self
-
-        builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
-    }
-
-    private func handleSendStatisticsData(_ statistics: HKStatistics) {
-        switch statistics.quantityType {
-        case HKQuantityType.quantityType(forIdentifier: .heartRate):
-            handleHeartRateStatisticsData(statistics)
-
-        case HKQuantityType.quantityType(forIdentifier: .stepCount):
-            handleStepCountsStatisticsData()
-
-        default:
-            return
-        }
-    }
-
-    private func handleHeartRateStatisticsData(_ statistics: HKStatistics) {
-        let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-        let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
-        let roundedValue = Double( round( 1 * value! ) / 1 )
-        delegate?.didReceiveHealthKitHeartRate(roundedValue)
-    }
-
-    private func handleStepCountsStatisticsData() {
+    func fetchStepCountsStatisticsData() {
         guard let stepCounts = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
             return
         }
@@ -159,6 +125,46 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
             }
         }
         healthStore.execute(query)
+    }
+
+    // MARK: - Private Methods
+
+    private func configure() {
+        configuration.activityType = .walking
+
+        do {
+            session = try HKWorkoutSession(healthStore: healthStore, configuration: configuration)
+            builder = session?.associatedWorkoutBuilder()
+        }
+        catch {
+            NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
+            return
+        }
+
+        session.delegate = self
+        builder.delegate = self
+
+        builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
+    }
+
+    private func handleSendStatisticsData(_ statistics: HKStatistics) {
+        switch statistics.quantityType {
+        case HKQuantityType.quantityType(forIdentifier: .heartRate):
+            fetchHeartRateStatisticsData(statistics)
+
+        case HKQuantityType.quantityType(forIdentifier: .stepCount):
+            fetchStepCountsStatisticsData()
+
+        default:
+            return
+        }
+    }
+
+    private func fetchHeartRateStatisticsData(_ statistics: HKStatistics) {
+        let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+        let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
+        let roundedValue = Double( round( 1 * value! ) / 1 )
+        delegate?.didReceiveHealthKitHeartRate(roundedValue)
     }
 
 }

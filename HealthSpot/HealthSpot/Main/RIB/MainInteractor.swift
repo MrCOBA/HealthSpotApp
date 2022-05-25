@@ -5,7 +5,8 @@ import CaBMedicineChecker
 // MARK: - Protocol
 
 protocol MainInteractor: Interactor,
-                         MedicineCheckerContainerListener {
+                         MedicineCheckerContainerListener,
+                         HomeContainerListener {
 
     func showHomeScreen()
     func showMedicineControllerScreen()
@@ -35,7 +36,7 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
             logError(message: "Presenter expected to be set")
             return
         }
-        presenter?.updateView(with: [.home, .medicineController, .foodController, .settings])
+        presenter?.updateView(with: [.home, .medicineChecker, .foodController, .settings])
     }
 
     // MARK: Protocol MainInteractor
@@ -72,5 +73,9 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 }
 
 extension MainInteractorImpl: MedicineCheckerContainerListener {
+    
+}
+
+extension MainInteractorImpl: HomeContainerListener {
     
 }

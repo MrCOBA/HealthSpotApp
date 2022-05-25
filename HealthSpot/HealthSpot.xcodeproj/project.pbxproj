@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3104C32F278B288C006AF28B /* HomeScreenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104C32D278B288C006AF28B /* HomeScreenCell.swift */; };
-		3104C330278B288C006AF28B /* HomeScreenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3104C32E278B288C006AF28B /* HomeScreenCell.xib */; };
-		3104C333278C587C006AF28B /* HomeScreenCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104C332278C587C006AF28B /* HomeScreenCellViewModel.swift */; };
-		3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3104C335278C8556006AF28B /* HomeViewLegacy.swift */; };
 		3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD3B27A9A90F00007428 /* CaBRiblets.framework */; };
 		3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD3B27A9A90F00007428 /* CaBRiblets.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3133DD6927B054D900007428 /* CaBAuthorization.framework */; };
@@ -22,7 +18,6 @@
 		31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31932C982782FEE100BCBDAA /* LaunchScreen.storyboard */; };
 		31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; };
 		31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */; };
 		FD048E10283C34EC00881AEA /* CompanionHealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */; };
 		FD048E6B283C542200881AEA /* CompanionWatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E6A283C542200881AEA /* CompanionWatchKitConnection.swift */; };
 		FD16F03A283BFC4B009DFDC0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD16F038283BFC4B009DFDC0 /* Interface.storyboard */; };
@@ -33,7 +28,28 @@
 		FD16F04B283BFC4C009DFDC0 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD16F04A283BFC4C009DFDC0 /* NotificationController.swift */; };
 		FD16F04D283BFC4C009DFDC0 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD16F04C283BFC4C009DFDC0 /* ComplicationController.swift */; };
 		FD16F04F283BFC4E009DFDC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD16F04E283BFC4E009DFDC0 /* Assets.xcassets */; };
-		FD16F054283BFC4E009DFDC0 /* HealthSpotCompanion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FD16F036283BFC4A009DFDC0 /* HealthSpotCompanion.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD16F054283BFC4E009DFDC0 /* Health Spot Companion.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD32F566283DA0F40019C6CA /* HeartRateActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F565283DA0F40019C6CA /* HeartRateActivityView.swift */; };
+		FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F567283DB0480019C6CA /* BaseActivityView.swift */; };
+		FD32F56B283DB2870019C6CA /* LifeActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F56A283DB2870019C6CA /* LifeActivityView.swift */; };
+		FD32F56E283DB5840019C6CA /* CalloriesActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F56D283DB5840019C6CA /* CalloriesActivityView.swift */; };
+		FD32F572283DBB040019C6CA /* HealthActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F570283DBB040019C6CA /* HealthActivityTableViewCell.swift */; };
+		FD32F57B283DCB7E0019C6CA /* HomeContainerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F578283DCB7E0019C6CA /* HomeContainerBuilder.swift */; };
+		FD32F57C283DCB7E0019C6CA /* HomeContainerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F579283DCB7E0019C6CA /* HomeContainerInteractor.swift */; };
+		FD32F57D283DCB7E0019C6CA /* HomeContainerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F57A283DCB7E0019C6CA /* HomeContainerRouter.swift */; };
+		FD32F57F283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F57E283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift */; };
+		FD32F581283DCEF80019C6CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F580283DCEF80019C6CA /* HomeView.swift */; };
+		FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F582283DDB4F0019C6CA /* HomeInteractor.swift */; };
+		FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F583283DDB4F0019C6CA /* HomeRouter.swift */; };
+		FD32F588283DDB4F0019C6CA /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F584283DDB4F0019C6CA /* HomePresenter.swift */; };
+		FD32F589283DDB4F0019C6CA /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F585283DDB4F0019C6CA /* HomeBuilder.swift */; };
+		FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD32F58A283DE2E50019C6CA /* HomeView.storyboard */; };
+		FD32F591283DE6D70019C6CA /* HealthActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD32F58F283DE6D70019C6CA /* HealthActivityTableViewCell.xib */; };
+		FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD32F5DB283E0BAD0019C6CA /* BaseActivityView.xib */; };
+		FD43F502283D7CCC007E23BA /* HealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */; };
+		FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */; };
+		FD43F504283D81F2007E23BA /* CaBMedicineChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; };
+		FD43F505283D81F2007E23BA /* CaBMedicineChecker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
@@ -44,8 +60,6 @@
 		FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */; };
 		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
 		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
-		FDB78DD4283ADE1400117DCA /* CaBHealthActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD0283ADE0300117DCA /* CaBHealthActivity.framework */; };
-		FDB78DD5283ADE1400117DCA /* CaBHealthActivity.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD0283ADE0300117DCA /* CaBHealthActivity.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDB78DD8283AF88B00117DCA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
 		FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5D2831202600EE6FE0 /* RootServices.swift */; };
 		FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */; };
@@ -54,8 +68,7 @@
 		FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */; };
 		FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */; };
 		FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */; };
-		FDED1362283714CA0038C892 /* CaBMedicineChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; };
-		FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDEF1107283D842D00C7852E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
 		FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; };
 		FDFF0AF02838D782006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FDFF0C78283ACC38006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C65283ACA85006B82B3 /* CaBFoundation.framework */; platformFilter = ios; };
@@ -98,11 +111,11 @@
 			remoteGlobalIDString = FD16F035283BFC4A009DFDC0;
 			remoteInfo = HealthSpotCompanion;
 		};
-		FDB78DCF283ADE0300117DCA /* PBXContainerItemProxy */ = {
+		FD32F519283D8D3C0019C6CA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = FDB78DC8283ADE0300117DCA /* CaBHealthActivity.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FDB78DBC283ADDCE00117DCA;
+			containerPortal = 31932C822782FEDE00BCBDAA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD32F4ED283D8C480019C6CA;
 			remoteInfo = CaBHealthActivity;
 		};
 		FDED1360283712AD0038C892 /* PBXContainerItemProxy */ = {
@@ -136,12 +149,11 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FDFF0C79283ACC38006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
-				FDB78DD5283ADE1400117DCA /* CaBHealthActivity.framework in Embed Frameworks */,
-				FDED1363283714CA0038C892 /* CaBMedicineChecker.framework in Embed Frameworks */,
 				FDFF0AF02838D782006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */,
 				3133DD6B27B054F200007428 /* CaBAuthorization.framework in Embed Frameworks */,
 				31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */,
 				3133DD3D27A9A91A00007428 /* CaBRiblets.framework in Embed Frameworks */,
+				FD43F505283D81F2007E23BA /* CaBMedicineChecker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +164,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				FD16F054283BFC4E009DFDC0 /* HealthSpotCompanion.app in Embed Watch Content */,
+				FD16F054283BFC4E009DFDC0 /* Health Spot Companion.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -171,10 +183,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3104C32D278B288C006AF28B /* HomeScreenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCell.swift; sourceTree = "<group>"; };
-		3104C32E278B288C006AF28B /* HomeScreenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenCell.xib; sourceTree = "<group>"; };
-		3104C332278C587C006AF28B /* HomeScreenCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModel.swift; sourceTree = "<group>"; };
-		3104C335278C8556006AF28B /* HomeViewLegacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewLegacy.swift; sourceTree = "<group>"; };
 		3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBRiblets.xcodeproj; path = ../CaBRiblets/CaBRiblets.xcodeproj; sourceTree = "<group>"; };
 		3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBAuthorization.xcodeproj; path = ../CaBAuthorization/CaBAuthorization.xcodeproj; sourceTree = "<group>"; };
 		31932C8A2782FEDE00BCBDAA /* HealthSpot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthSpot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,11 +194,10 @@
 		31932C9B2782FEE100BCBDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31932CA9278308E000BCBDAA /* CaBUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBUIKit.xcodeproj; path = ../CaBUIKit/CaBUIKit.xcodeproj; sourceTree = "<group>"; };
 		31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBFoundation.xcodeproj; path = ../CaBFoundation/CaBFoundation.xcodeproj; sourceTree = "<group>"; };
-		319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCellViewModelFactory.swift; sourceTree = "<group>"; };
 		31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBMedicineChecker.xcodeproj; path = ../CaBMedicineChecker/CaBMedicineChecker.xcodeproj; sourceTree = "<group>"; };
 		FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionHealthDataTracking.swift; sourceTree = "<group>"; };
 		FD048E6A283C542200881AEA /* CompanionWatchKitConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionWatchKitConnection.swift; sourceTree = "<group>"; };
-		FD16F036283BFC4A009DFDC0 /* HealthSpotCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthSpotCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Spot Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD16F039283BFC4B009DFDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD16F041283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "HealthSpotCompanion WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -201,6 +208,26 @@
 		FD16F04E283BFC4E009DFDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD16F050283BFC4E009DFDC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD16F051283BFC4E009DFDC0 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		FD32F565283DA0F40019C6CA /* HeartRateActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartRateActivityView.swift; sourceTree = "<group>"; };
+		FD32F567283DB0480019C6CA /* BaseActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityView.swift; sourceTree = "<group>"; };
+		FD32F56A283DB2870019C6CA /* LifeActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeActivityView.swift; sourceTree = "<group>"; };
+		FD32F56D283DB5840019C6CA /* CalloriesActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloriesActivityView.swift; sourceTree = "<group>"; };
+		FD32F570283DBB040019C6CA /* HealthActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityTableViewCell.swift; sourceTree = "<group>"; };
+		FD32F578283DCB7E0019C6CA /* HomeContainerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerBuilder.swift; sourceTree = "<group>"; };
+		FD32F579283DCB7E0019C6CA /* HomeContainerInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerInteractor.swift; sourceTree = "<group>"; };
+		FD32F57A283DCB7E0019C6CA /* HomeContainerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContainerRouter.swift; sourceTree = "<group>"; };
+		FD32F57E283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+HealthSpot.swift"; sourceTree = "<group>"; };
+		FD32F580283DCEF80019C6CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		FD32F582283DDB4F0019C6CA /* HomeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		FD32F583283DDB4F0019C6CA /* HomeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		FD32F584283DDB4F0019C6CA /* HomePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		FD32F585283DDB4F0019C6CA /* HomeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		FD32F58A283DE2E50019C6CA /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		FD32F58F283DE6D70019C6CA /* HealthActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthActivityTableViewCell.xib; sourceTree = "<group>"; };
+		FD32F5DB283E0BAD0019C6CA /* BaseActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseActivityView.xib; sourceTree = "<group>"; };
+		FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthDataTracking.swift; sourceTree = "<group>"; };
+		FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitConnection.swift; sourceTree = "<group>"; };
+		FD43F507283D82E7007E23BA /* HealthSpotCompanion WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthSpotCompanion WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -211,7 +238,6 @@
 		FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootRouter.swift; sourceTree = "<group>"; };
 		FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootInteractor.swift; sourceTree = "<group>"; };
 		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
-		FDB78DC8283ADE0300117DCA /* CaBHealthActivity.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBHealthActivity.xcodeproj; path = ../CaBHealthActivity/CaBHealthActivity.xcodeproj; sourceTree = "<group>"; };
 		FDB78DD6283AF88A00117DCA /* HealthSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthSpot.entitlements; sourceTree = "<group>"; };
 		FDB78DD7283AF88B00117DCA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		FDE9FD5D2831202600EE6FE0 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
@@ -230,11 +256,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDFF0C78283ACC38006B82B3 /* CaBFoundation.framework in Frameworks */,
-				FDB78DD4283ADE1400117DCA /* CaBHealthActivity.framework in Frameworks */,
-				FDED1362283714CA0038C892 /* CaBMedicineChecker.framework in Frameworks */,
 				FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */,
 				3133DD6A27B054F200007428 /* CaBAuthorization.framework in Frameworks */,
 				FDB78DD8283AF88B00117DCA /* HealthKit.framework in Frameworks */,
+				FD43F504283D81F2007E23BA /* CaBMedicineChecker.framework in Frameworks */,
 				31932CAF2783098200BCBDAA /* CaBUIKit.framework in Frameworks */,
 				3133DD3C27A9A91A00007428 /* CaBRiblets.framework in Frameworks */,
 			);
@@ -244,6 +269,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDEF1107283D842D00C7852E /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,38 +285,11 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		3104C32B278B2820006AF28B /* HomeScreenCell */ = {
-			isa = PBXGroup;
-			children = (
-				3104C32C278B2840006AF28B /* View */,
-			);
-			path = HomeScreenCell;
-			sourceTree = "<group>";
-		};
-		3104C32C278B2840006AF28B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				3104C331278C5866006AF28B /* ViewModel */,
-				3104C32D278B288C006AF28B /* HomeScreenCell.swift */,
-				3104C32E278B288C006AF28B /* HomeScreenCell.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		3104C331278C5866006AF28B /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				319852B4279045010007890C /* HomeScreenCellViewModelFactory.swift */,
-				3104C332278C587C006AF28B /* HomeScreenCellViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		3104C334278C8480006AF28B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				3104C32B278B2820006AF28B /* HomeScreenCell */,
-				3104C335278C8556006AF28B /* HomeViewLegacy.swift */,
+				FD32F576283DCB7E0019C6CA /* RIB */,
+				FD32F55E283D99A00019C6CA /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -326,7 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				31932C8A2782FEDE00BCBDAA /* HealthSpot.app */,
-				FD16F036283BFC4A009DFDC0 /* HealthSpotCompanion.app */,
+				FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */,
 				FD16F041283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex */,
 			);
 			name = Products;
@@ -336,10 +335,11 @@
 			isa = PBXGroup;
 			children = (
 				FDB78DD6283AF88A00117DCA /* HealthSpot.entitlements */,
+				FD43F4FF283D7CCC007E23BA /* DataTracking */,
 				FDA3C19A28212D48008CDDDF /* Root */,
 				3104C327278B27ED006AF28B /* Main */,
-				31932CA32782FF8900BCBDAA /* Resources */,
 				31932CA22782FF2600BCBDAA /* Sources */,
+				31932CA32782FF8900BCBDAA /* Resources */,
 			);
 			path = HealthSpot;
 			sourceTree = "<group>";
@@ -371,6 +371,7 @@
 			children = (
 				31932C932782FEDE00BCBDAA /* Main.storyboard */,
 				31932C982782FEE100BCBDAA /* LaunchScreen.storyboard */,
+				FD32F58A283DE2E50019C6CA /* HomeView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -387,7 +388,6 @@
 			isa = PBXGroup;
 			children = (
 				FDB78DD7283AF88B00117DCA /* HealthKit.framework */,
-				FDB78DC8283ADE0300117DCA /* CaBHealthActivity.xcodeproj */,
 				FDFF0AE92838D773006B82B3 /* CaBFirebaseKit.xcodeproj */,
 				3133DD6427B054D800007428 /* CaBAuthorization.xcodeproj */,
 				3133DD3627A9A90F00007428 /* CaBRiblets.xcodeproj */,
@@ -427,6 +427,7 @@
 		FD16F045283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FD43F507283D82E7007E23BA /* HealthSpotCompanion WatchKit Extension.entitlements */,
 				FD048E07283C34DB00881AEA /* DataTracking */,
 				FD16F046283BFC4C009DFDC0 /* InterfaceController.swift */,
 				FD16F048283BFC4C009DFDC0 /* ExtensionDelegate.swift */,
@@ -437,6 +438,92 @@
 				FD16F051283BFC4E009DFDC0 /* PushNotificationPayload.apns */,
 			);
 			path = "HealthSpotCompanion WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		FD32F55E283D99A00019C6CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F55F283D99B10019C6CA /* HealthActivityCellViews */,
+				FD32F580283DCEF80019C6CA /* HomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FD32F55F283D99B10019C6CA /* HealthActivityCellViews */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F56F283DBA9A0019C6CA /* TableViewCell */,
+				FD32F56C283DB4720019C6CA /* CalloriesActivity */,
+				FD32F569283DB26B0019C6CA /* LifeActivity */,
+				FD32F560283D99DE0019C6CA /* HeartRateActivity */,
+				FD32F567283DB0480019C6CA /* BaseActivityView.swift */,
+				FD32F5DB283E0BAD0019C6CA /* BaseActivityView.xib */,
+			);
+			path = HealthActivityCellViews;
+			sourceTree = "<group>";
+		};
+		FD32F560283D99DE0019C6CA /* HeartRateActivity */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F565283DA0F40019C6CA /* HeartRateActivityView.swift */,
+			);
+			path = HeartRateActivity;
+			sourceTree = "<group>";
+		};
+		FD32F569283DB26B0019C6CA /* LifeActivity */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F56A283DB2870019C6CA /* LifeActivityView.swift */,
+			);
+			path = LifeActivity;
+			sourceTree = "<group>";
+		};
+		FD32F56C283DB4720019C6CA /* CalloriesActivity */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F56D283DB5840019C6CA /* CalloriesActivityView.swift */,
+			);
+			path = CalloriesActivity;
+			sourceTree = "<group>";
+		};
+		FD32F56F283DBA9A0019C6CA /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F570283DBB040019C6CA /* HealthActivityTableViewCell.swift */,
+				FD32F58F283DE6D70019C6CA /* HealthActivityTableViewCell.xib */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		FD32F576283DCB7E0019C6CA /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F585283DDB4F0019C6CA /* HomeBuilder.swift */,
+				FD32F582283DDB4F0019C6CA /* HomeInteractor.swift */,
+				FD32F584283DDB4F0019C6CA /* HomePresenter.swift */,
+				FD32F583283DDB4F0019C6CA /* HomeRouter.swift */,
+				FD32F577283DCB7E0019C6CA /* Container */,
+			);
+			path = RIB;
+			sourceTree = "<group>";
+		};
+		FD32F577283DCB7E0019C6CA /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				FD32F578283DCB7E0019C6CA /* HomeContainerBuilder.swift */,
+				FD32F579283DCB7E0019C6CA /* HomeContainerInteractor.swift */,
+				FD32F57A283DCB7E0019C6CA /* HomeContainerRouter.swift */,
+			);
+			path = Container;
+			sourceTree = "<group>";
+		};
+		FD43F4FF283D7CCC007E23BA /* DataTracking */ = {
+			isa = PBXGroup;
+			children = (
+				FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */,
+				FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */,
+			);
+			path = DataTracking;
 			sourceTree = "<group>";
 		};
 		FD793742282D4EAC009B091C /* CoreDataModel */ = {
@@ -478,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				FD92D07528294FC1008CE6DA /* UIImage+HealthSpot.swift */,
+				FD32F57E283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,14 +588,6 @@
 				FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */,
 			);
 			path = RIB;
-			sourceTree = "<group>";
-		};
-		FDB78DC9283ADE0300117DCA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FDB78DD0283ADE0300117DCA /* CaBHealthActivity.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FDE9FD682831453400EE6FE0 /* CoreDataModel */ = {
@@ -564,6 +644,7 @@
 			);
 			dependencies = (
 				FD16F053283BFC4E009DFDC0 /* PBXTargetDependency */,
+				FD32F51A283D8D3C0019C6CA /* PBXTargetDependency */,
 			);
 			name = HealthSpot;
 			productName = HealthSpot;
@@ -584,7 +665,7 @@
 			);
 			name = HealthSpotCompanion;
 			productName = HealthSpotCompanion;
-			productReference = FD16F036283BFC4A009DFDC0 /* HealthSpotCompanion.app */;
+			productReference = FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		FD16F040283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension */ = {
@@ -650,10 +731,6 @@
 					ProjectRef = 31932CB2278309DB00BCBDAA /* CaBFoundation.xcodeproj */;
 				},
 				{
-					ProductGroup = FDB78DC9283ADE0300117DCA /* Products */;
-					ProjectRef = FDB78DC8283ADE0300117DCA /* CaBHealthActivity.xcodeproj */;
-				},
-				{
 					ProductGroup = FDED135D283712AD0038C892 /* Products */;
 					ProjectRef = 31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */;
 				},
@@ -697,13 +774,6 @@
 			remoteRef = 31932CAD278308E100BCBDAA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		FDB78DD0283ADE0300117DCA /* CaBHealthActivity.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CaBHealthActivity.framework;
-			remoteRef = FDB78DCF283ADE0300117DCA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -732,10 +802,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3104C330278B288C006AF28B /* HomeScreenCell.xib in Resources */,
+				FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */,
+				FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */,
 				31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */,
 				31932C972782FEE100BCBDAA /* Assets.xcassets in Resources */,
 				31932C952782FEDE00BCBDAA /* Main.storyboard in Resources */,
+				FD32F591283DE6D70019C6CA /* HealthActivityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,29 +835,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD32F589283DDB4F0019C6CA /* HomeBuilder.swift in Sources */,
 				FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */,
 				FD7F7C6C282472460055D2F3 /* MainBuilder.swift in Sources */,
-				3104C32F278B288C006AF28B /* HomeScreenCell.swift in Sources */,
-				3104C333278C587C006AF28B /* HomeScreenCellViewModel.swift in Sources */,
 				FD7F7C6A282472370055D2F3 /* MainInteractor.swift in Sources */,
+				FD32F56B283DB2870019C6CA /* LifeActivityView.swift in Sources */,
+				FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */,
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
-				319852B5279045010007890C /* HomeScreenCellViewModelFactory.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
 				FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
+				FD32F57F283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift in Sources */,
+				FD32F57D283DCB7E0019C6CA /* HomeContainerRouter.swift in Sources */,
 				FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */,
+				FD32F57B283DCB7E0019C6CA /* HomeContainerBuilder.swift in Sources */,
+				FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
 				FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
+				FD32F566283DA0F40019C6CA /* HeartRateActivityView.swift in Sources */,
+				FD32F581283DCEF80019C6CA /* HomeView.swift in Sources */,
 				FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */,
+				FD43F502283D7CCC007E23BA /* HealthDataTracking.swift in Sources */,
+				FD32F57C283DCB7E0019C6CA /* HomeContainerInteractor.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
-				3104C336278C8556006AF28B /* HomeViewLegacy.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
+				FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */,
 				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
 				FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
 				FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */,
+				FD32F588283DDB4F0019C6CA /* HomePresenter.swift in Sources */,
+				FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */,
+				FD32F56E283DB5840019C6CA /* CalloriesActivityView.swift in Sources */,
+				FD32F572283DBB040019C6CA /* HealthActivityTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,6 +898,10 @@
 			isa = PBXTargetDependency;
 			target = FD16F035283BFC4A009DFDC0 /* HealthSpotCompanion */;
 			targetProxy = FD16F052283BFC4E009DFDC0 /* PBXContainerItemProxy */;
+		};
+		FD32F51A283D8D3C0019C6CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = FD32F519283D8D3C0019C6CA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -972,7 +1060,11 @@
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthSpot/Resources/Plists/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Health Spot";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera for scanning bar code";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Using HealthKit data for workout session";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1003,7 +1095,11 @@
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HealthSpot/Resources/Plists/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Health Spot";
 				INFOPLIST_KEY_NSCameraUsageDescription = "We need to access your camera for scanning bar code";
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Using HealthKit data for workout session";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -1034,12 +1130,11 @@
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HealthSpotCompanion_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = HealthSpotCompanion;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.crunch.bugs.club.HealthSpot;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.HealthSpot.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Health Spot Companion";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1060,12 +1155,11 @@
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				IBSC_MODULE = HealthSpotCompanion_WatchKit_Extension;
-				INFOPLIST_KEY_CFBundleDisplayName = HealthSpotCompanion;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.crunch.bugs.club.HealthSpot;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.HealthSpot.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Health Spot Companion";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1079,15 +1173,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HealthSpotCompanion WatchKit Extension/HealthSpotCompanion WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HealthSpotCompanion WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HealthSpotCompanion WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HealthSpotCompanion_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Using HealthKit data for workout session";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = HealthSpotCompanion_WatchKit_Extension.ExtensionDelegate;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1109,15 +1207,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_ENTITLEMENTS = "HealthSpotCompanion WatchKit Extension/HealthSpotCompanion WatchKit Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F5RU76NTBA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "HealthSpotCompanion WatchKit Extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "HealthSpotCompanion WatchKit Extension";
-				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = HealthSpotCompanion_WatchKit_Extension.ComplicationController;
+				INFOPLIST_KEY_NSHealthClinicalHealthRecordsShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Using HealthKit data for workout session";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Using HealthKit data for workout session";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = HealthSpotCompanion_WatchKit_Extension.ExtensionDelegate;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

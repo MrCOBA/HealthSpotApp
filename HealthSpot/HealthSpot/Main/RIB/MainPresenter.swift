@@ -55,7 +55,7 @@ extension MainPresenterImpl: MainViewEventsHandler {
         case .home:
             interactor?.showHomeScreen()
 
-        case .medicineController:
+        case .medicineChecker:
             interactor?.showMedicineControllerScreen()
 
         case .foodController:

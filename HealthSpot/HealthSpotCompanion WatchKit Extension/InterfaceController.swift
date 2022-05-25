@@ -1,26 +1,75 @@
-//
-//  InterfaceController.swift
-//  HealthSpotCompanion WatchKit Extension
-//
-//  Created by Oparin on 23.05.2022.
-//
-
 import WatchKit
-import Foundation
+import HealthKit
 
+final class InterfaceController: WKInterfaceController {
 
-class InterfaceController: WKInterfaceController {
+    // MARK: - Private Properties
+
+    private var dataTracking: CompanionHealthDataTracking?
+    private var connection: CompanionWatchKitConnection?
+
+    @IBOutlet private weak var userNameLabel: WKInterfaceLabel!
+    @IBOutlet private weak var stepCountsLabel: WKInterfaceLabel!
+    @IBOutlet private weak var heartRateLabel: WKInterfaceLabel!
+
+    // MARK: - Internal Methods
 
     override func awake(withContext context: Any?) {
-        // Configure interface objects here.
+        configure()
+
+        dataTracking?.authorizeHealthKit()
+        dataTracking?.delegate = self
+        connection?.startSession()
     }
-    
+
     override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+
+        dataTracking?.fetchStepCountsStatisticsData()
     }
     
     override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
+
+    // MARK: - Private Methods
+
+    private func configure() {
+        dataTracking = CompanionHealthDataTrackingImpl()
+        connection = CompanionWatchKitConnectionImpl()
+    }
+
+    @IBAction private func startButtonTapped() {
+        dataTracking?.start()
+    }
+
+    @IBAction private func stopButtonTapped() {
+        dataTracking?.stop()
+    }
+
+}
+
+// MARK: - Protocol CompanionHealthDataTrackingDelegate
+
+extension InterfaceController: CompanionHealthDataTrackingDelegate {
+
+    func didReceiveHealthKitHeartRate(_ heartRate: Double) {
+        heartRateLabel.setText("\(heartRate) BPM")
+        connection?.sendMessage(message: ["heartRate": "\(heartRate)" as AnyObject], replyHandler: nil, errorHandler: nil)
+    }
+
+    func didReceiveHealthKitStepCounts(_ stepCounts: Double) {
+        stepCountsLabel.setText("\(stepCounts) STEPS")
+    }
+
+}
+
+// MARK: - Protocol CompanionWatchKitConnectionDelegate
+
+extension InterfaceController: CompanionWatchKitConnectionDelegate {
+
+    func didReceiveUserName(_ userName: String) {
+        userNameLabel.setText(userName)
     }
 
 }
