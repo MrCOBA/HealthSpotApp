@@ -63,6 +63,7 @@ class HealthActivityTableViewCell: UITableViewCell {
     private let heartRateActivityView = HeartRateActivityView()
     private let lifeActivityView = LifeActivityView()
     private let calloriesActivityView = CalloriesActivityView()
+    private let activitySwitchView = SwitchView()
 
     // MARK: - Internal Methods
 
@@ -85,6 +86,9 @@ class HealthActivityTableViewCell: UITableViewCell {
         activitiesStackView.addArrangedSubview(makeSeparatorView())
 
         configureCalloriesActivityView()
+        activitiesStackView.addArrangedSubview(makeSeparatorView())
+
+        activitiesStackView.addArrangedSubview(activitySwitchView)
     }
 
     private func configureHeartRateActivityView() {

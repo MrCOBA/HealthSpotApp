@@ -50,6 +50,10 @@
 		FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */; };
 		FD43F504283D81F2007E23BA /* CaBMedicineChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; };
 		FD43F505283D81F2007E23BA /* CaBMedicineChecker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FD442C81283EAF1C001A454B /* SwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442C80283EAF1C001A454B /* SwitchView.swift */; };
+		FD442C83283EAF67001A454B /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD442C82283EAF67001A454B /* SwitchView.xib */; };
+		FD442CCE283EC52C001A454B /* HealthActivityStatisticsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */; };
+		FD442CD0283EC9DE001A454B /* UserDefaults+HealthSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCF283EC9DE001A454B /* UserDefaults+HealthSpot.swift */; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
@@ -228,6 +232,10 @@
 		FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthDataTracking.swift; sourceTree = "<group>"; };
 		FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitConnection.swift; sourceTree = "<group>"; };
 		FD43F507283D82E7007E23BA /* HealthSpotCompanion WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthSpotCompanion WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		FD442C80283EAF1C001A454B /* SwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchView.swift; sourceTree = "<group>"; };
+		FD442C82283EAF67001A454B /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
+		FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsStorage.swift; sourceTree = "<group>"; };
+		FD442CCF283EC9DE001A454B /* UserDefaults+HealthSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+HealthSpot.swift"; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -347,10 +355,11 @@
 		31932CA22782FF2600BCBDAA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */,
-				31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */,
+				FD442CCC283EC509001A454B /* Storage */,
 				FDE9FD682831453400EE6FE0 /* CoreDataModel */,
 				FD92D06F28294FAB008CE6DA /* Extensions */,
+				31932C8D2782FEDE00BCBDAA /* AppDelegate.swift */,
+				31932C8F2782FEDE00BCBDAA /* SceneDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -453,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				FD32F56F283DBA9A0019C6CA /* TableViewCell */,
+				FD442C79283EAEDC001A454B /* SwitchView */,
 				FD32F56C283DB4720019C6CA /* CalloriesActivity */,
 				FD32F569283DB26B0019C6CA /* LifeActivity */,
 				FD32F560283D99DE0019C6CA /* HeartRateActivity */,
@@ -526,6 +536,23 @@
 			path = DataTracking;
 			sourceTree = "<group>";
 		};
+		FD442C79283EAEDC001A454B /* SwitchView */ = {
+			isa = PBXGroup;
+			children = (
+				FD442C80283EAF1C001A454B /* SwitchView.swift */,
+				FD442C82283EAF67001A454B /* SwitchView.xib */,
+			);
+			path = SwitchView;
+			sourceTree = "<group>";
+		};
+		FD442CCC283EC509001A454B /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		FD793742282D4EAC009B091C /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -566,6 +593,7 @@
 			children = (
 				FD92D07528294FC1008CE6DA /* UIImage+HealthSpot.swift */,
 				FD32F57E283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift */,
+				FD442CCF283EC9DE001A454B /* UserDefaults+HealthSpot.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -804,6 +832,7 @@
 			files = (
 				FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */,
 				FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */,
+				FD442C83283EAF67001A454B /* SwitchView.xib in Resources */,
 				31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */,
 				31932C972782FEE100BCBDAA /* Assets.xcassets in Resources */,
 				31932C952782FEDE00BCBDAA /* Main.storyboard in Resources */,
@@ -843,6 +872,7 @@
 				FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */,
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
+				FD442C81283EAF1C001A454B /* SwitchView.swift in Sources */,
 				FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
 				FD32F57F283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift in Sources */,
 				FD32F57D283DCB7E0019C6CA /* HomeContainerRouter.swift in Sources */,
@@ -851,6 +881,7 @@
 				FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
 				FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */,
+				FD442CCE283EC52C001A454B /* HealthActivityStatisticsStorage.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
 				FD32F566283DA0F40019C6CA /* HeartRateActivityView.swift in Sources */,
 				FD32F581283DCEF80019C6CA /* HomeView.swift in Sources */,
@@ -863,6 +894,7 @@
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
 				FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */,
 				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
+				FD442CD0283EC9DE001A454B /* UserDefaults+HealthSpot.swift in Sources */,
 				FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
 				FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */,
