@@ -11,7 +11,7 @@ class CalloriesActivityView: BaseActivityView {
         let goalCallories: Double
 
         static var empty: Self {
-            return .init(currentCalloriesBurnt: -1.0, goalCallories: -1.0)
+            return .init(currentCalloriesBurnt: 0.0, goalCallories: 0.0)
         }
 
     }

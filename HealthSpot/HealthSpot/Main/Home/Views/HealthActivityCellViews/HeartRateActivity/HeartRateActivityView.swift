@@ -17,7 +17,7 @@ final class HeartRateActivityView: BaseActivityView {
         let state: State
 
         static var empty: Self {
-            return .init(heartRate: -1.0, state: .normal)
+            return .init(heartRate: 0.0, state: .normal)
         }
 
     }

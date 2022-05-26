@@ -11,7 +11,7 @@ final class LifeActivityView: BaseActivityView {
         let goalStepsCount: Double
 
         static var empty: Self {
-            return .init(currentStepsCount: -1.0, goalStepsCount: -1.0)
+            return .init(currentStepsCount: 0.0, goalStepsCount: 0.0)
         }
 
     }

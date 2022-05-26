@@ -13,6 +13,16 @@ protocol MedicineListViewEventsHandler: AnyObject {
 
 final class MedicineListView: UIViewController {
 
+    // MARK: - Private Types
+
+    private enum Constants {
+
+        static var cornerRadius: CGFloat {
+            return 8.0
+        }
+
+    }
+
     // MARK: - Internal Properties
 
     weak var eventsHandler: MedicineListViewEventsHandler?
@@ -33,7 +43,7 @@ final class MedicineListView: UIViewController {
 
     // MARK: - Private Properties
 
-    @IBOutlet private weak var calendarPickerView: CalendarPickerView!
+    @IBOutlet private weak var calendarPickerView: CalendarView!
     @IBOutlet private weak var medicineItemsListTableView: UITableView!
 
     override func viewDidLoad() {
@@ -52,8 +62,8 @@ final class MedicineListView: UIViewController {
         navigationItem.title = "Medicine Checker"
         medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
                                             forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
+        calendarPickerView.layer.cornerRadius = Constants.cornerRadius
         configureRightButton()
-
         updateTableView()
     }
 

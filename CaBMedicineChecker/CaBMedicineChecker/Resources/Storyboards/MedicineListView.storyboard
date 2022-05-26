@@ -28,42 +28,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5o-iZ-yg0" customClass="CalendarPickerView" customModule="CaBMedicineChecker" customModuleProvider="target">
-                                <rect key="frame" x="8" y="96" width="398" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="bgP-nM-Ztb"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="6EE-qF-1GT">
-                                <rect key="frame" x="0.0" y="296" width="414" height="566"/>
+                                <rect key="frame" x="0.0" y="341" width="414" height="521"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="Ow6-lb-8b9"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="utM-mT-sd7"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KnY-29-e4m" customClass="CalendarView" customModule="CaBMedicineChecker" customModuleProvider="target">
+                                <rect key="frame" x="16" y="96" width="382" height="229"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="229" placeholder="YES" id="VFa-W3-YJ2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="BackgroundPrimary_Default"/>
                         <constraints>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="600-bV-M2x"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="l5o-iZ-yg0" secondAttribute="trailing" constant="8" id="PcH-E3-ajd"/>
+                            <constraint firstItem="KnY-29-e4m" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="2Xb-Mn-ArC"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="QWI-1g-Lz9"/>
-                            <constraint firstItem="6EE-qF-1GT" firstAttribute="top" secondItem="l5o-iZ-yg0" secondAttribute="bottom" id="RcL-oZ-KEG"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="ZNn-uB-gbQ"/>
-                            <constraint firstItem="l5o-iZ-yg0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ePg-pG-lGw"/>
+                            <constraint firstItem="6EE-qF-1GT" firstAttribute="top" secondItem="KnY-29-e4m" secondAttribute="bottom" constant="16" id="clL-ar-IoW"/>
                             <constraint firstItem="6EE-qF-1GT" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="iMv-00-qAS"/>
+                            <constraint firstItem="KnY-29-e4m" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="ngT-po-oCq"/>
+                            <constraint firstItem="KnY-29-e4m" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="qW9-9g-Vte"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="calendarPickerView" destination="l5o-iZ-yg0" id="MyT-1F-AwW"/>
+                        <outlet property="calendarPickerView" destination="KnY-29-e4m" id="uZM-fw-O3h"/>
                         <outlet property="medicineItemsListTableView" destination="6EE-qF-1GT" id="kKx-Ki-Vpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="75"/>
+            <point key="canvasLocation" x="-462.31884057971018" y="75"/>
         </scene>
         <!--Medicine Item Info View-->
         <scene sceneID="10h-TE-0gD">
