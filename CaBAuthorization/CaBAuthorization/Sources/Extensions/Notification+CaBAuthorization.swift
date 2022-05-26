@@ -3,9 +3,21 @@ extension Notification.Name {
 
     // MARK: Authorization
 
-    enum Authorization {
+    public enum Authorization {
 
-        static func signIn(result: Notification.Name.Result) -> Notification.Name {
+        public static var firebaseSignInSuccess: Notification.Name {
+            return .init(rawValue: "SignIn_FailedWithError_<FirebaseError>")
+        }
+
+        public static var firebaseSignInError: Notification.Name {
+            return .init(rawValue: "SignIn_FailedWithError_<FirebaseError>")
+        }
+
+        public static var firebaseSignUpError: Notification.Name {
+            return .init(rawValue: "SignUp_FailedWithError_<FirebaseError>")
+        }
+
+        public static func signIn(result: Notification.Name.Result) -> Notification.Name {
             switch result {
                 case .success:
                     return .init(rawValue: "SignIn_SuccessfullyCompleted")
@@ -15,7 +27,7 @@ extension Notification.Name {
             }
         }
 
-        static func signUp(result: Notification.Name.Result) -> Notification.Name {
+        public static func signUp(result: Notification.Name.Result) -> Notification.Name {
             switch result {
                 case .success:
                     return .init(rawValue: "SignUp_SuccessfullyCompleted")

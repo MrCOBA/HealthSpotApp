@@ -54,6 +54,10 @@
 		FD442C83283EAF67001A454B /* SwitchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD442C82283EAF67001A454B /* SwitchView.xib */; };
 		FD442CCE283EC52C001A454B /* HealthActivityStatisticsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */; };
 		FD442CD0283EC9DE001A454B /* UserDefaults+HealthSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCF283EC9DE001A454B /* UserDefaults+HealthSpot.swift */; };
+		FD442CD4283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CD3283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift */; };
+		FD442CD6283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */; };
+		FD442CD8283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */; };
+		FD442D21283F0BB0001A454B /* SuiteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442D20283F0BB0001A454B /* SuiteProvider.swift */; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
@@ -236,6 +240,10 @@
 		FD442C82283EAF67001A454B /* SwitchView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchView.xib; sourceTree = "<group>"; };
 		FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsStorage.swift; sourceTree = "<group>"; };
 		FD442CCF283EC9DE001A454B /* UserDefaults+HealthSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+HealthSpot.swift"; sourceTree = "<group>"; };
+		FD442CD3283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsTrackerRouter.swift; sourceTree = "<group>"; };
+		FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsTrackerInteractor.swift; sourceTree = "<group>"; };
+		FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsTrackerBuilder.swift; sourceTree = "<group>"; };
+		FD442D20283F0BB0001A454B /* SuiteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiteProvider.swift; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -343,7 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				FDB78DD6283AF88A00117DCA /* HealthSpot.entitlements */,
-				FD43F4FF283D7CCC007E23BA /* DataTracking */,
+				FD442CD1283EDA95001A454B /* HealthActivityStatisticsTracker */,
 				FDA3C19A28212D48008CDDDF /* Root */,
 				3104C327278B27ED006AF28B /* Main */,
 				31932CA22782FF2600BCBDAA /* Sources */,
@@ -548,9 +556,37 @@
 		FD442CCC283EC509001A454B /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				FD442D1F283F0B70001A454B /* SuiteProvider */,
 				FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		FD442CD1283EDA95001A454B /* HealthActivityStatisticsTracker */ = {
+			isa = PBXGroup;
+			children = (
+				FD442CD2283EDB61001A454B /* RIB */,
+				FD43F4FF283D7CCC007E23BA /* DataTracking */,
+			);
+			path = HealthActivityStatisticsTracker;
+			sourceTree = "<group>";
+		};
+		FD442CD2283EDB61001A454B /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FD442CD3283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift */,
+				FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */,
+				FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */,
+			);
+			path = RIB;
+			sourceTree = "<group>";
+		};
+		FD442D1F283F0B70001A454B /* SuiteProvider */ = {
+			isa = PBXGroup;
+			children = (
+				FD442D20283F0BB0001A454B /* SuiteProvider.swift */,
+			);
+			path = SuiteProvider;
 			sourceTree = "<group>";
 		};
 		FD793742282D4EAC009B091C /* CoreDataModel */ = {
@@ -581,13 +617,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		FD7F7C6D2824C40A0055D2F3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		FD92D06F28294FAB008CE6DA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,7 +639,6 @@
 		FDA3C19B28212D56008CDDDF /* RIB */ = {
 			isa = PBXGroup;
 			children = (
-				FD7F7C6D2824C40A0055D2F3 /* View */,
 				FDA3C19C28212D75008CDDDF /* HealthSpotRootRouter.swift */,
 				FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */,
 				FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */,
@@ -871,12 +899,15 @@
 				FD32F56B283DB2870019C6CA /* LifeActivityView.swift in Sources */,
 				FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */,
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
+				FD442CD6283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
 				FD442C81283EAF1C001A454B /* SwitchView.swift in Sources */,
 				FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
+				FD442CD4283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift in Sources */,
 				FD32F57F283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift in Sources */,
 				FD32F57D283DCB7E0019C6CA /* HomeContainerRouter.swift in Sources */,
 				FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */,
+				FD442CD8283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift in Sources */,
 				FD32F57B283DCB7E0019C6CA /* HomeContainerBuilder.swift in Sources */,
 				FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
@@ -890,6 +921,7 @@
 				FD32F57C283DCB7E0019C6CA /* HomeContainerInteractor.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
+				FD442D21283F0BB0001A454B /* SuiteProvider.swift in Sources */,
 				FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
 				FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */,

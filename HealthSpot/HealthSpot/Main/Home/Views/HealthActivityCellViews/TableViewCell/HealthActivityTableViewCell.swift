@@ -1,7 +1,13 @@
 import UIKit
 import CaBUIKit
 
-class HealthActivityTableViewCell: UITableViewCell {
+protocol HealthActivityTableViewCellDelegate: AnyObject {
+
+    func didSwitchChangeValue(to value: Bool)
+
+}
+
+final class HealthActivityTableViewCell: UITableViewCell {
 
     // MARK: - Internal Types
 
@@ -55,6 +61,8 @@ class HealthActivityTableViewCell: UITableViewCell {
         }
     }
 
+    weak var delegate: HealthActivityTableViewCellDelegate?
+
     // MARK: - Private Properties
 
     @IBOutlet private weak var containerView: UIView!
@@ -70,8 +78,12 @@ class HealthActivityTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        activitySwitchView.delegate = self
+
         configure()
     }
+
+    // MARK: - Private Methods
 
     private func configure() {
         containerView.layer.cornerRadius = Constants.cornerRadius
@@ -114,6 +126,14 @@ class HealthActivityTableViewCell: UITableViewCell {
         view.backgroundColor = .transparentGray20Alpha
         view.heightAnchor.constraint(equalToConstant: Constants.separatorViewHeight).isActive = true
         return view
+    }
+
+}
+
+extension HealthActivityTableViewCell: SwitchViewDelegate {
+
+    func didChangeValue(to value: Bool) {
+        delegate?.didSwitchChangeValue(to: value)
     }
 
 }

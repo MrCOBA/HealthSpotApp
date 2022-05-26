@@ -18,8 +18,9 @@ final class HomeBuilder: Builder {
         let view = HomeView.makeView()
 
         let presenter = HomePresenterImpl(view: view)
+        view.eventsHandler = presenter
         
-        let interactor = HomeInteractorImpl(rootServices: factory,
+        let interactor = HomeInteractorImpl(statisticsStorage: factory.statisticsStorage,
                                             presenter: presenter)
 
         presenter.interactor = interactor

@@ -106,20 +106,17 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
 
     // MARK: - Private Properties
 
-    private let suite: UserDefaults
     private let observers = ObserversCollection<Observer>()
 
     // MARK: - Init
 
-    init(suite: UserDefaults) {
-        self.suite = suite
-
-        _heartRate = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.heartRate, defaultValue: 0)
-        _stepsCount = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.stepsCount, defaultValue: 0)
-        _burntCallories = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.burntCallories, defaultValue: 0)
-        _heartRateNorm = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.heartRateNorm, defaultValue: 0)
-        _stepsGoal = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.stepsGoal, defaultValue: 0)
-        _calloriesGoal = ObservableUserDefaultsStored(underlyingDefaults: suite, key: Key.calloriesGoal, defaultValue: 0)
+    init(userDefults: UserDefaults = .standard) {
+        _heartRate = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.heartRate, defaultValue: 0)
+        _stepsCount = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsCount, defaultValue: 0)
+        _burntCallories = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.burntCallories, defaultValue: 0)
+        _heartRateNorm = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.heartRateNorm, defaultValue: 0)
+        _stepsGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsGoal, defaultValue: 0)
+        _calloriesGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.calloriesGoal, defaultValue: 0)
 
         setupObserving()
     }

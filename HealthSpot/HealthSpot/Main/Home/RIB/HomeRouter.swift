@@ -3,7 +3,9 @@ import CaBFoundation
 import UIKit
 
 protocol HomeRouter: ViewableRouter {
-    
+
+    func attachStatisticsRouter()
+
 }
 
 final class HomeRouterImpl: BaseRouter, HomeRouter {
@@ -14,12 +16,21 @@ final class HomeRouterImpl: BaseRouter, HomeRouter {
     private let rootServices: RootServices
     private var currentChild: ViewableRouter?
 
+    private var statisticsRouter: Router?
+
     init(rootServices: RootServices, view: HomeView, interactor: HomeInteractor) {
         self.interactor = interactor
         self.rootServices = rootServices
         self.view = view
 
         super.init(interactor: interactor)
+    }
+
+    func attachStatisticsRouter() {
+        let router = HealthActivityStatisticsTrackerBuilder(factory: rootServices).build()
+
+        router.start()
+        statisticsRouter = router
     }
 
     private func attachChildWithPush(_ child: ViewableRouter) {

@@ -4,7 +4,7 @@ import CaBFoundation
 
 protocol SwitchViewDelegate: AnyObject {
 
-    func didChangeValue(_ value: Bool)
+    func didChangeValue(to value: Bool)
 
 }
 
@@ -63,7 +63,7 @@ final class SwitchView: XibView {
             return
         }
 
-        delegate?.didChangeValue(activitySwitch.isOn)
+        delegate?.didChangeValue(to: activitySwitch.isOn)
     }
 
 }

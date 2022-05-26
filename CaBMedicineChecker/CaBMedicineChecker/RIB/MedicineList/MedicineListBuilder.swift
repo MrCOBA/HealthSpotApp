@@ -20,8 +20,7 @@ final class MedicineListBuilder: Builder {
         let presenter = MedicineListPresenterImpl(view: view)
         view.eventsHandler = presenter
         
-        let interactor = MedicineListInteractorImpl(rootServices: factory,
-                                                    coreDataAssistant: factory.coreDataAssistant,
+        let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
                                                     presenter: presenter,
                                                     firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController)
 

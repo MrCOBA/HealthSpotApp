@@ -2,6 +2,12 @@ import UIKit
 import CaBUIKit
 import CaBFoundation
 
+protocol HomeEventsHandler: AnyObject {
+
+    func didSwitchChangeValue(to value: Bool)
+
+}
+
 // MARK: - Cell Identifier
 
 fileprivate enum HomeCellIdentifier: CaseIterable {
@@ -62,6 +68,8 @@ final class HomeView: UITableViewController {
         }
     }
 
+    weak var eventsHandler: HomeEventsHandler?
+
     // MARK: - Internal Methods
 
     override func viewDidLoad() {
@@ -90,6 +98,7 @@ final class HomeView: UITableViewController {
                 return UITableViewCell()
             }
 
+            cell.delegate = self
             cell.colorScheme = colorScheme
             cell.context = dataSource.activityContext
             cell.backgroundColor = .clear
@@ -103,7 +112,40 @@ final class HomeView: UITableViewController {
     private func configure() {
         view.backgroundColor = colorScheme.backgroundPrimaryColor
         navigationItem.title = "Health Spot Center"
-        tableView.reloadData()
+
+        reloadDataByCell()
+    }
+
+    private func reloadDataByCell() {
+        HomeCellIdentifier.allCases.forEach { id in
+            switch id {
+            case .healthActivity:
+                guard let cell = tableView.cellForRow(at: id.rawValue) as? HealthActivityTableViewCell else {
+                    return
+                }
+
+                cell.context = dataSource.activityContext
+            }
+        }
+    }
+
+    private func checkIfEventsHandlerSet() {
+        guard eventsHandler != nil else {
+            logError(message: "EventsHandler expected to be set")
+            return
+        }
+    }
+
+}
+
+// MARK: - Protocol HealthActivityTableViewCellDelegate
+
+extension HomeView: HealthActivityTableViewCellDelegate {
+
+    func didSwitchChangeValue(to value: Bool) {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didSwitchChangeValue(to: value)
     }
 
 }

@@ -15,6 +15,9 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
     var rootSettingsStorage: RootSettingsStorage { get }
     var localNotificationsAssistant: LocalNotificationAssistant { get }
     var firebaseServices: FirebaseServicesProvider { get }
+    var statisticsStorage: HealthActivityStatisticsStorage { get }
+    var dataTracking: HealthDataTracking { get }
+    var watchKitConnection: WatchKitConnection { get }
 
     // MARK: AuthorizationRootServices
 
@@ -25,31 +28,30 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
 
     var medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage { get }
     var firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController { get }
-
-    var dataTracking: HealthDataTracking { get }
-    var watchKitConnection: WatchKitConnection { get }
     
 }
 
 final class RootServicesImpl: RootServices {
 
     private var context: NSManagedObjectContext?
+    private let suiteProvider = UserDefaultsSuiteProvider()
+
     let coreDataAssistant: CoreDataAssistant
 
     let rootSettingsStorage: RootSettingsStorage
     let localNotificationsAssistant: LocalNotificationAssistant
 
-    var colorScheme: CaBColorScheme
+    let colorScheme: CaBColorScheme
     let firebaseServices: FirebaseServicesProvider
+    let statisticsStorage: HealthActivityStatisticsStorage
+    let dataTracking: HealthDataTracking
+    let watchKitConnection: WatchKitConnection
 
     let authorizationManager: AuthorizationManager
     let credentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     let medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage
     let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
-
-    let dataTracking: HealthDataTracking
-    let watchKitConnection: WatchKitConnection
 
     init() {
         colorScheme = .default
@@ -59,7 +61,8 @@ final class RootServicesImpl: RootServices {
         }
         coreDataAssistant = CoreDataAssistantImpl(context: context)
 
-        rootSettingsStorage = RootSettingsStorageImpl()
+        rootSettingsStorage = RootSettingsStorageImpl(userDefaults: suiteProvider.suite(type: RootSettingsStorage.self) ?? .standard)
+        
         localNotificationsAssistant = LocalNotificationAssistantImpl(storage: rootSettingsStorage)
 
         firebaseServices = FirebaseServicesProviderImpl(coreDataAssistant: coreDataAssistant)
@@ -72,8 +75,10 @@ final class RootServicesImpl: RootServices {
                                                         coreDataAssistant: coreDataAssistant,
                                                         temporaryCredentialsStorage: credentialsStorage)
 
-        dataTracking = HealthDataTrackingImpl(localNotificationsAssistant: localNotificationsAssistant)
-        watchKitConnection = WatchKitConnectionImpl(localNotificationsAssistant: localNotificationsAssistant)
+        statisticsStorage = HealthActivityStatisticsStorageImpl(userDefults: suiteProvider.suite(type: HealthActivityStatisticsStorage.self) ?? .standard)
+
+        dataTracking = HealthDataTrackingImpl(statisticsStorage: statisticsStorage)
+        watchKitConnection = WatchKitConnectionImpl(statisticsStorage: statisticsStorage)
         watchKitConnection.startSession()
     }
 

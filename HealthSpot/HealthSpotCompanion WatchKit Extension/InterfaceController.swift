@@ -60,6 +60,7 @@ extension InterfaceController: CompanionHealthDataTrackingDelegate {
 
     func didReceiveHealthKitStepCounts(_ stepCounts: Double) {
         stepCountsLabel.setText("\(stepCounts) STEPS")
+        connection?.sendMessage(message: ["stepsCount": "\(stepCounts)" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
 }
