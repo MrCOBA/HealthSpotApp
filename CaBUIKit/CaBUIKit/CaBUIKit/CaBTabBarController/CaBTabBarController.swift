@@ -149,12 +149,12 @@ open class CaBTabBarController: UITabBarController {
 extension CaBTabBarController: UITabBarControllerDelegate {
 
     public func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let selectedCotainer = itemContainers.first(where: { $0.container === viewController }) else {
+        guard let selectedContainer = itemContainers.first(where: { $0.container === viewController }) else {
             logError(message: "Unexpected container was selected")
             return
         }
 
-        itemDelegate?.didSelectItem(selectedCotainer.item)
+        itemDelegate?.didSelectItem(selectedContainer.item)
     }
 
 }

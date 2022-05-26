@@ -14,6 +14,9 @@
 		31FB81AA2686151000500FE1 /* Bundle+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */; };
 		FD048E61283C43EA00881AEA /* LocalNotificationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */; };
 		FD048E69283C4AEB00881AEA /* RootSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */; };
+		FD32F5DE283E233F0019C6CA /* ObservableUserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F5DD283E233F0019C6CA /* ObservableUserDefaultsStored.swift */; };
+		FD32F5E0283E23AC0019C6CA /* NSObjectPropertyObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F5DF283E23AC0019C6CA /* NSObjectPropertyObserver.swift */; };
+		FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCA283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift */; };
 		FD79374C282D519B009B091C /* UIImageView+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD79374B282D519B009B091C /* UIImageView+CaBFoundation.swift */; };
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */; };
@@ -39,6 +42,9 @@
 		31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationAssistant.swift; sourceTree = "<group>"; };
 		FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingsStorage.swift; sourceTree = "<group>"; };
+		FD32F5DD283E233F0019C6CA /* ObservableUserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableUserDefaultsStored.swift; sourceTree = "<group>"; };
+		FD32F5DF283E23AC0019C6CA /* NSObjectPropertyObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectPropertyObserver.swift; sourceTree = "<group>"; };
+		FD442CCA283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePropertyOnChangeHandlerProvider.swift; sourceTree = "<group>"; };
 		FD79374B282D519B009B091C /* UIImageView+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBFoundation.swift"; sourceTree = "<group>"; };
@@ -120,7 +126,7 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF0C46283ABA80006B82B3 /* Observable */,
+				FDFF0C46283ABA80006B82B3 /* Observing */,
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
@@ -149,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */,
+				FD32F5DD283E233F0019C6CA /* ObservableUserDefaultsStored.swift */,
 			);
 			path = PropertyWrappers;
 			sourceTree = "<group>";
@@ -173,12 +180,14 @@
 			path = EntityWrappers;
 			sourceTree = "<group>";
 		};
-		FDFF0C46283ABA80006B82B3 /* Observable */ = {
+		FDFF0C46283ABA80006B82B3 /* Observing */ = {
 			isa = PBXGroup;
 			children = (
 				FDFF0C47283ABA94006B82B3 /* Observable.swift */,
+				FD442CCA283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift */,
+				FD32F5DF283E23AC0019C6CA /* NSObjectPropertyObserver.swift */,
 			);
-			path = Observable;
+			path = Observing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +279,7 @@
 				31FB81AA2686151000500FE1 /* Bundle+CaBFoundation.swift in Sources */,
 				FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */,
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
+				FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */,
 				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
 				FDFF0C4B283ABAF4006B82B3 /* Locking+CaBFoundation.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
@@ -278,10 +288,12 @@
 				FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift in Sources */,
 				FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */,
+				FD32F5E0283E23AC0019C6CA /* NSObjectPropertyObserver.swift in Sources */,
 				FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
 				FD79374C282D519B009B091C /* UIImageView+CaBFoundation.swift in Sources */,
 				FDE3B93A283586E400DC7192 /* Date+CaBFoundation.swift in Sources */,
+				FD32F5DE283E233F0019C6CA /* ObservableUserDefaultsStored.swift in Sources */,
 				FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

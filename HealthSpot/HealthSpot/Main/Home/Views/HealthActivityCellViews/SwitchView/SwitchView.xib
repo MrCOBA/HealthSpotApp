@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SwitchView" customModule="HealthSpot" customModuleProvider="target">
+            <connections>
+                <outlet property="activitySwitch" destination="WXK-7b-0AT" id="76b-C9-ffP"/>
+                <outlet property="mainView" destination="iN0-l3-epB" id="owe-2P-ubn"/>
+                <outlet property="switchTitleLabel" destination="RCv-89-IMT" id="XMd-xn-ut5"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXK-7b-0AT" customClass="CaBSwitch" customModule="CaBUIKit">
+                    <rect key="frame" x="243" y="16" width="51" height="31"/>
+                    <connections>
+                        <action selector="didChangeValue:" destination="-1" eventType="valueChanged" id="QNV-fv-FUx"/>
+                    </connections>
+                </switch>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SwitchTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCv-89-IMT">
+                    <rect key="frame" x="16" y="23" width="83" height="17"/>
+                    <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="15"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="WXK-7b-0AT" secondAttribute="trailing" constant="28" id="0Ly-Uy-Fd6"/>
+                <constraint firstItem="WXK-7b-0AT" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="2Ga-vC-dHj"/>
+                <constraint firstItem="RCv-89-IMT" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="7Tf-lU-LAl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="WXK-7b-0AT" secondAttribute="bottom" constant="16" id="H55-99-lln"/>
+                <constraint firstItem="RCv-89-IMT" firstAttribute="centerY" secondItem="WXK-7b-0AT" secondAttribute="centerY" id="XHC-YX-i4Q"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24.375" y="42.25352112676056"/>
+        </view>
+    </objects>
+</document>

@@ -8,7 +8,7 @@ final class MainBuilder: Builder {
         self.factory = factory
     }
 
-    func build() -> ViewableRouter {
+    func build(with root: MainView.Item) -> ViewableRouter {
         let view = MainView()
 
         let interactor = MainInteractorImpl()
@@ -17,7 +17,7 @@ final class MainBuilder: Builder {
         view.eventsHandler = presenter
         interactor.presenter = presenter
 
-        let router = MainRouterImpl(rootServices: factory, view: view, interactor: interactor)
+        let router = MainRouterImpl(root, rootServices: factory, view: view, interactor: interactor)
         interactor.router = router
 
         return router

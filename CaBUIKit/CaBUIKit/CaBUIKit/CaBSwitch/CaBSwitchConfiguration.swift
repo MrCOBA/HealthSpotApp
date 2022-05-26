@@ -8,8 +8,8 @@ public final class CaBSwitchConfiguration: CaBUIConfiguration {
     public enum Default {
 
         public static func general(with colorScheme: CaBColorScheme) -> CaBSwitchConfiguration {
-            return CaBSwitchConfiguration(backgroundColor: .transparentGray50Alpha,
-                                          tintColor: colorScheme.attributesTertiaryColor,
+            return CaBSwitchConfiguration(backgroundColor: colorScheme.errorColor,
+                                          tintColor: .transparentGray50Alpha,
                                           externalColors: [colorScheme.successColor])
         }
 

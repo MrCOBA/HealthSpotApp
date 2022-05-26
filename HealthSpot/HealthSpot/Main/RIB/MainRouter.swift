@@ -8,10 +8,7 @@ import CaBMedicineChecker
 
 protocol MainRouter: ViewableRouter {
 
-    func attachHomeRouter()
-    func attachMedicineControllerRouter()
-    func attachFoodControllerRouter()
-    func attachSettingsRouter()
+    func attachItem(_ item: MainView.Item)
 
 }
 
@@ -27,6 +24,8 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     // MARK: - Private Properties
 
+    private let root: MainView.Item
+
     private let interactor: MainInteractor
 
     private let rootServices: RootServices
@@ -39,7 +38,8 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     // MARK: - Init
 
-    init(rootServices: RootServices, view: CaBTabBarController, interactor: MainInteractor) {
+    init(_ root: MainView.Item, rootServices: RootServices, view: CaBTabBarController, interactor: MainInteractor) {
+        self.root = root
         self.rootServices = rootServices
         self.containerViewController = view
         self.interactor = interactor
@@ -49,14 +49,46 @@ final class MainRouterImpl: BaseRouter, MainRouter {
 
     // MARK: - Internal Methods
 
-    func attachHomeRouter() {
+    override func start() {
+        super.start()
+
+        attachItem(root)
+    }
+
+    func attachItem(_ item: MainView.Item) {
+        switch item {
+        case .home:
+            attachHomeRouter()
+
+        case .medicineChecker:
+            attachMedicineCheckerRouter()
+
+        case .foodController:
+            attachFoodControllerRouter()
+
+        case .settings:
+            attachSettingsRouter()
+
+        default:
+            logError(message: "Unknown item recieved with identifier: <\(item.rawValue)>")
+        }
+    }
+
+    // MARK: - Private Methods
+    
+    private func attachHomeRouter() {
         guard homeRouter == nil else {
             return
         }
-        // TODO: Implement screen attaching
+
+        let router = HomeContainerBuilder(factory: rootServices, listener: interactor).build()
+        router.start()
+
+        homeRouter = router
+        showItemRouter(.home, router: router)
     }
 
-    func attachMedicineControllerRouter() {
+    private func attachMedicineCheckerRouter() {
         guard medicineControllerRouter == nil else {
             return
         }
@@ -65,24 +97,22 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         router.start()
 
         medicineControllerRouter = router
-        showItemRouter(.medicineController, router: router)
+        showItemRouter(.medicineChecker, router: router)
     }
 
-    func attachFoodControllerRouter() {
+    private func attachFoodControllerRouter() {
         guard foodControllerRouter == nil else {
             return
         }
         // TODO: Implement screen attaching
     }
 
-    func attachSettingsRouter() {
+    private func attachSettingsRouter() {
         guard settingsRouter == nil else {
             return
         }
         // TODO: Implement screen attaching
     }
-
-    // MARK: - Private Methods
 
     private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {
         guard let router = router else {

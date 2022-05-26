@@ -5,12 +5,10 @@ import CaBMedicineChecker
 // MARK: - Protocol
 
 protocol MainInteractor: Interactor,
-                         MedicineCheckerContainerListener {
+                         MedicineCheckerContainerListener,
+                         HomeContainerListener {
 
-    func showHomeScreen()
-    func showMedicineControllerScreen()
-    func showFoodControllerScreen()
-    func showSettingsScreen()
+    func showItem(_ item: MainView.Item)
 
 }
 
@@ -35,29 +33,14 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
             logError(message: "Presenter expected to be set")
             return
         }
-        presenter?.updateView(with: [.home, .medicineController, .foodController, .settings])
+        presenter?.updateView(with: [.home, .medicineChecker, .foodController, .settings])
     }
 
     // MARK: Protocol MainInteractor
 
-    func showHomeScreen() {
+    func showItem(_ item: MainView.Item) {
         checkIfRouterSet()
-        router?.attachHomeRouter()
-    }
-
-    func showMedicineControllerScreen() {
-        checkIfRouterSet()
-        router?.attachMedicineControllerRouter()
-    }
-
-    func showFoodControllerScreen() {
-        checkIfRouterSet()
-        router?.attachFoodControllerRouter()
-    }
-
-    func showSettingsScreen() {
-        checkIfRouterSet()
-        router?.attachSettingsRouter()
+        router?.attachItem(item)
     }
 
     // MARK: - Private Methods
@@ -72,5 +55,9 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 }
 
 extension MainInteractorImpl: MedicineCheckerContainerListener {
+    
+}
+
+extension MainInteractorImpl: HomeContainerListener {
     
 }

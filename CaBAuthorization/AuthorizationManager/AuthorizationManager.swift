@@ -5,6 +5,7 @@ import CaBFirebaseKit
 
 public protocol AuthorizationManager: AnyObject {
 
+    func signIn(email: String, password: String)
     func signIn()
     func signUp()
 
@@ -62,6 +63,10 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
         authorizationController.signIn(email: email, password: password)
     }
 
+    public func signIn(email: String, password: String) {
+        authorizationController.signIn(email: email, password: password)
+    }
+
     public func signUp() {
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
@@ -111,7 +116,8 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
     private func postErrorNotification(_ error: Error) {
         NotificationCenter.default.post(name: .Authorization.signUp(result: .failure(error: error)),
-                                        object: nil)
+                                        object: nil,
+                                        userInfo: ["error": error])
     }
 
 }
@@ -124,11 +130,14 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
         guard let _ = error else {
             temporaryCredentialsStorage.id = id ?? ""
             NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
-                                            object: nil)
+                                            object: nil,
+                                            userInfo: ["id": id])
             return
         }
 
-        // TODO: Add error handling
+        NotificationCenter.default.post(name: .Authorization.firebaseSignInError,
+                                        object: nil,
+                                        userInfo: ["error": error])
     }
 
     public func didSignUp(id: String?, with error: Swift.Error?) {
@@ -139,7 +148,9 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
             return
         }
 
-        // TODO: Add error handling
+        NotificationCenter.default.post(name: .Authorization.firebaseSignUpError,
+                                        object: nil,
+                                        userInfo: ["error": error])
     }
 
 }
@@ -148,11 +159,11 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
 
 extension Notification.Name.Error {
 
-    static var notAllFieldsAreFilledIn: Self {
+    public static var notAllFieldsAreFilledIn: Self {
         return .init(rawValue: "notAllFieldsAreFilledIn")
     }
 
-    static var passwordsDoNotMatch: Self {
+    public static var passwordsDoNotMatch: Self {
         return .init(rawValue: "passwordsDoNotMatch")
     }
 

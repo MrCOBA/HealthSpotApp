@@ -19,7 +19,8 @@ final class HealthSpotRootBuilder: Builder {
     func build() -> ViewableRouter {
         let view = BaseContainerViewController()
 
-        let interactor = HealthSpotRootInteractorImpl()
+        let interactor = HealthSpotRootInteractorImpl(authorizationManager: rootServices.authorizationManager,
+                                                      coreDataAssistant: rootServices.coreDataAssistant)
         let router = HealthSpotRootRouterImpl(rootServices: rootServices, view: view, interactor: interactor)
         interactor.router = router
 

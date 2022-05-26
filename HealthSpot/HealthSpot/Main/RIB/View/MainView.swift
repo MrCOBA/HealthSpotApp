@@ -67,15 +67,15 @@ extension MainView: CaBTabBarControllerDelegate {
 extension MainView.Item {
 
     fileprivate static var allCases: [CaBTabBarController.Item] {
-        return [.home, .medicineController, .foodController, .settings]
+        return [.home, .medicineChecker, .foodController, .settings]
     }
 
     static var home: Self {
         return .init(rawValue: "home")
     }
 
-    static var medicineController: Self {
-        return .init(rawValue: "medicineController")
+    static var medicineChecker: Self {
+        return .init(rawValue: "medicineChecker")
     }
 
     static var foodController: Self {
@@ -97,7 +97,7 @@ extension MainView {
         case .home:
             return "Center"
 
-        case .medicineController:
+        case .medicineChecker:
             return "Medicine"
 
         case .foodController:
@@ -121,7 +121,7 @@ extension UIImage {
         case .home:
             return .Main.homeIcon(isSelectedState)
 
-        case .medicineController:
+        case .medicineChecker:
             return .Main.medicineIcon(isSelectedState)
 
         case .foodController:

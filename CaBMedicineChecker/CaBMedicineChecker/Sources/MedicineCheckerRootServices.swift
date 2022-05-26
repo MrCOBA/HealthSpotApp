@@ -8,5 +8,6 @@ public protocol MedicineCheckerRootServices: AnyObject {
     var coreDataAssistant: CoreDataAssistant { get }
     var medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage { get }
     var firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController { get }
+    var localNotificationsAssistant: LocalNotificationAssistant { get }
 
 }

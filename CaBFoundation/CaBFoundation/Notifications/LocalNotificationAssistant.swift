@@ -19,6 +19,16 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         let body: String
         let category: String
         let userInfo: [String: Any]
+
+        public init(title: String,
+                    body: String,
+                    category: String,
+                    userInfo: [String: Any]) {
+            self.title = title
+            self.body = body
+            self.category = category
+            self.userInfo = userInfo
+        }
     }
 
     // MARK: - Private Properties

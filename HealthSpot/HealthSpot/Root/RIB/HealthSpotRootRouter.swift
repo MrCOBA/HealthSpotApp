@@ -34,12 +34,6 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
         super.init(interactor: interactor)
     }
 
-    override func start() {
-        super.start()
-
-        attachRoot()
-    }
-
     func attachAuthorizationFlow() {
         guard authorizationContainerRouter == nil else {
             logError(message: "Authorization flow router already attached")
@@ -57,17 +51,12 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
             return
         }
 
-        let router = MainBuilder(factory: rootServices).build()
+        let router = MainBuilder(factory: rootServices).build(with: .home)
         attachChildWithEmbed(router)
         mainContainerRouter = router
     }
 
     // MARK: - Private Methods
-
-    private func attachRoot() {
-        // TODO: Implement another possible roots
-        attachAuthorizationFlow()
-    }
 
     private func attachChildWithEmbed(_ child: ViewableRouter) {
         if rootChild != nil {
