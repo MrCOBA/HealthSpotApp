@@ -8,6 +8,9 @@ protocol HealthDataTracking: AnyObject {
 
     func startObserveStepsCountSamples()
     func stopObserveStepsCountSamples()
+
+    func startObserveActiveBurntEnergySamples()
+    func stopObserveActiveBurnedEnergySamples()
     
     func authorizeHealthKit()
 }
@@ -17,8 +20,10 @@ final class HealthDataTrackingImpl: HealthDataTracking {
     // MARK: - Private Properties
 
     private let healthStore: HKHealthStore
+
     private var heartRateObserverQuery: HKObserverQuery!
     private var stepsCountObserverQuery: HKObserverQuery!
+    private var activeBurnedEnergyObserverQuery: HKObserverQuery!
 
     private let statisticsStorage: HealthActivityStatisticsStorage
 
@@ -84,7 +89,6 @@ final class HealthDataTrackingImpl: HealthDataTracking {
                 DispatchQueue.main.async { [weak self] in
                     let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
                     let heartRate = sample.quantity.doubleValue(for: heartRateUnit)
-                    logInfo(message: "Heart Rate Sample: \(heartRate)")
 
                     self?.statisticsStorage.heartRate = heartRate
                 }
@@ -127,7 +131,6 @@ final class HealthDataTrackingImpl: HealthDataTracking {
                 guard let stepsCount = stepsCount else {
                     return
                 }
-                logInfo(message: "Step Count Sample: \(stepsCount)")
 
                 self.statisticsStorage.stepsCount = stepsCount
             }
@@ -150,6 +153,46 @@ final class HealthDataTrackingImpl: HealthDataTracking {
         }
     }
 
+    func startObserveActiveBurntEnergySamples() {
+        guard let activeBurnedEnergySampleType = HKObjectType.quantityType(forIdentifier: .activeEnergyBurned) else {
+            return
+        }
+
+        if let activeBurnedEnergyObserverQuery = activeBurnedEnergyObserverQuery {
+            healthStore.stop(activeBurnedEnergyObserverQuery)
+        }
+
+        stepsCountObserverQuery = HKObserverQuery(sampleType: activeBurnedEnergySampleType, predicate: nil) { [unowned self] (_, _, error) in
+            if let error = error {
+                logWarning(message: "Error was obtained: <\(error.localizedDescription)>")
+                return
+            }
+
+            self.fetchStepCountsStatisticsData { (activeBurnedEnergy) in
+                guard let activeBurnedEnergy = activeBurnedEnergy else {
+                    return
+                }
+
+                self.statisticsStorage.burnedCallories = activeBurnedEnergy
+            }
+        }
+
+        healthStore.execute(activeBurnedEnergyObserverQuery)
+        healthStore.enableBackgroundDelivery(for: activeBurnedEnergySampleType, frequency: .hourly) { (success, error) in
+            if success {
+                logInfo(message: "Success enable backgorund delivery <\(success)>")
+            }
+            if let error = error {
+                logWarning(message: "Error was obtained: <\(error.localizedDescription)>")
+            }
+        }
+    }
+
+    func stopObserveActiveBurnedEnergySamples() {
+        if let activeBurnedEnergyObserverQuery = activeBurnedEnergyObserverQuery {
+            healthStore.stop(activeBurnedEnergyObserverQuery)
+        }
+    }
 
     // MARK: - Private Methods
 
@@ -191,7 +234,7 @@ final class HealthDataTrackingImpl: HealthDataTracking {
             quantityType: stepsQuantityType,
             quantitySamplePredicate: predicate,
             options: .cumulativeSum
-        ) { _, result, _ in
+        ) { (_, result, _) in
             guard let result = result, let sum = result.sumQuantity() else {
                 completionHandler(0.0)
                 return
@@ -202,5 +245,30 @@ final class HealthDataTrackingImpl: HealthDataTracking {
         healthStore.execute(query)
     }
 
+    private func fetchActiveBurnedEnergyStatisticsData(completionHandler: @escaping (_ stepsCount: Double?) -> Void) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(
+            withStart: startOfDay,
+            end: now,
+            options: .strictStartDate
+        )
+
+        let query = HKStatisticsQuery(
+            quantityType: stepsQuantityType,
+            quantitySamplePredicate: predicate,
+            options: .cumulativeSum
+        ) { (_, result, _) in
+            guard let result = result, let sum = result.sumQuantity() else {
+                completionHandler(0.0)
+                return
+            }
+            completionHandler(sum.doubleValue(for: HKUnit.kilocalorie()))
+        }
+
+        healthStore.execute(query)
+    }
 
 }

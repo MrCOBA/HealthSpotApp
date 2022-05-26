@@ -12,8 +12,8 @@ extension UserDefaults.Key {
             return "HealthActivityStatisticsStepsCountKey"
         }
 
-        static var burntCallories: String {
-            return "HealthActivityStatisticsBurntCalloriesKey"
+        static var burnedCallories: String {
+            return "HealthActivityStatisticsBurnedCalloriesKey"
         }
 
         static var heartRateNorm: String {
@@ -26,6 +26,10 @@ extension UserDefaults.Key {
 
         static var calloriesGoal: String {
             return "HealthActivityStatisticsCalloriesGoalKey"
+        }
+
+        static var isTrackingEnabled: String {
+            return "HealthActivityStatisticsIsTrackingEnabledKey"
         }
         
     }

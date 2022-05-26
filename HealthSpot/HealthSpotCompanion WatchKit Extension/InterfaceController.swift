@@ -3,14 +3,34 @@ import HealthKit
 
 final class InterfaceController: WKInterfaceController {
 
+    // MARK: - Internal Types
+
+    enum ButtonState {
+        case start
+        case stop
+    }
+
     // MARK: - Private Properties
+
+    private var currentState: ButtonState = .start {
+        didSet {
+            switch currentState {
+            case .start:
+                actionButton.setTitle("Start")
+
+            case .stop:
+                actionButton.setTitle("Stop")
+            }
+        }
+    }
 
     private var dataTracking: CompanionHealthDataTracking?
     private var connection: CompanionWatchKitConnection?
 
-    @IBOutlet private weak var userNameLabel: WKInterfaceLabel!
+    @IBOutlet private weak var actionButton: WKInterfaceButton!
     @IBOutlet private weak var stepCountsLabel: WKInterfaceLabel!
     @IBOutlet private weak var heartRateLabel: WKInterfaceLabel!
+    @IBOutlet private weak var calloriesCountLabel: WKInterfaceLabel!
 
     // MARK: - Internal Methods
 
@@ -25,7 +45,8 @@ final class InterfaceController: WKInterfaceController {
     override func willActivate() {
         super.willActivate()
 
-        dataTracking?.fetchStepCountsStatisticsData()
+        dataTracking?.fetchCountableStatisticsData(.stepCount)
+        dataTracking?.fetchCountableStatisticsData(.activeEnergyBurned)
     }
     
     override func didDeactivate() {
@@ -39,12 +60,17 @@ final class InterfaceController: WKInterfaceController {
         connection = CompanionWatchKitConnectionImpl()
     }
 
-    @IBAction private func startButtonTapped() {
-        dataTracking?.start()
-    }
+    @IBAction private func tapActionButton() {
+        switch currentState {
+        case .start:
+            dataTracking?.start()
+            currentState = .stop
 
-    @IBAction private func stopButtonTapped() {
-        dataTracking?.stop()
+        case .stop:
+            dataTracking?.start()
+            currentState = .start
+        }
+        dataTracking?.start()
     }
 
 }
@@ -54,23 +80,18 @@ final class InterfaceController: WKInterfaceController {
 extension InterfaceController: CompanionHealthDataTrackingDelegate {
 
     func didReceiveHealthKitHeartRate(_ heartRate: Double) {
-        heartRateLabel.setText("\(heartRate) BPM")
-        connection?.sendMessage(message: ["heartRate": "\(heartRate)" as AnyObject], replyHandler: nil, errorHandler: nil)
+        heartRateLabel.setText("\(Int(heartRate)) BPM")
+        connection?.sendMessage(message: ["heartRate": "\(Int(heartRate))" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
     func didReceiveHealthKitStepCounts(_ stepCounts: Double) {
-        stepCountsLabel.setText("\(stepCounts) STEPS")
-        connection?.sendMessage(message: ["stepsCount": "\(stepCounts)" as AnyObject], replyHandler: nil, errorHandler: nil)
+        stepCountsLabel.setText("\(Int(stepCounts)) STEPS")
+        connection?.sendMessage(message: ["stepsCount": "\(Int(stepCounts))" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
-}
-
-// MARK: - Protocol CompanionWatchKitConnectionDelegate
-
-extension InterfaceController: CompanionWatchKitConnectionDelegate {
-
-    func didReceiveUserName(_ userName: String) {
-        userNameLabel.setText(userName)
+    func didReceiveHealthKitBurntEnergy(_ burntEnergy: Double) {
+        calloriesCountLabel.setText("\(Int(burntEnergy)) KCAL")
+        connection?.sendMessage(message: ["burntEnergy": "\(Int(burntEnergy))" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
 }

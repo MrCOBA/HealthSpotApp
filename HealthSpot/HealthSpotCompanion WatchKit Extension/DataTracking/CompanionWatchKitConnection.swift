@@ -2,10 +2,6 @@ import WatchConnectivity
 
 // MARK: - Protocols
 
-protocol CompanionWatchKitConnectionDelegate: AnyObject {
-    func didReceiveUserName(_ userName: String)
-}
-
 protocol CompanionWatchKitConnection: AnyObject {
     func startSession()
     func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)?)
@@ -14,10 +10,6 @@ protocol CompanionWatchKitConnection: AnyObject {
 // MARK: - Implementation
 
 class CompanionWatchKitConnectionImpl: NSObject, CompanionWatchKitConnection {
-
-    // MARK: - Internal Properties
-
-    weak var delegate: CompanionWatchKitConnectionDelegate?
 
     // MARK: - Private Properties
 
@@ -51,37 +43,15 @@ class CompanionWatchKitConnectionImpl: NSObject, CompanionWatchKitConnection {
     // MARK: - Internal Methods
 
     func startSession() {
-        session?.delegate = self
         session?.activate()
     }
 
     func sendMessage(message: [String : AnyObject],
                      replyHandler: (([String : AnyObject]) -> Void)? = nil,
-                     errorHandler: ((NSError) -> Void)? = nil)
-    {
-        validReachableSession?.sendMessage(message, replyHandler: { (result) in
-            print(result)
-        }, errorHandler: { (error) in
-            print(error)
-        })
-    }
-
-}
-
-// MARK: - Protocol WCSessionDelegate
-
-extension CompanionWatchKitConnectionImpl: WCSessionDelegate {
-    
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
-        /* Do Nothing */
-    }
-
-    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        guard let userName = message.values.first as? String else {
-            return
-        }
-
-        delegate?.didReceiveUserName(userName)
+                     errorHandler: ((NSError) -> Void)? = nil) {
+        validReachableSession?.sendMessage(message,
+                                           replyHandler: { (result) in NSLog("\(result)") },
+                                           errorHandler: { (error) in NSLog("\(error)") })
     }
 
 }

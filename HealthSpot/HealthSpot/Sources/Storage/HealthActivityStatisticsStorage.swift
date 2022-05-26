@@ -11,7 +11,7 @@ public protocol HealthActivityStatisticsStorageObserver: AnyObject {
                  didUpdateStepsCountTo newValue: Double)
 
     func storage(_ storage: HealthActivityStatisticsStorage,
-                 didUpdateBurntCalloriesTo newValue: Double)
+                 didUpdateBurnedCalloriesTo newValue: Double)
 
     func storage(_ storage: HealthActivityStatisticsStorage,
                  didUpdateHeartRateNormTo newValue: Double)
@@ -37,7 +37,7 @@ public extension HealthActivityStatisticsStorageObserver {
     }
 
     func storage(_ storage: HealthActivityStatisticsStorage,
-                 didUpdateBurntCalloriesTo newValue: Double) {
+                 didUpdateBurnedCalloriesTo newValue: Double) {
         /* Do Nothing */
     }
 
@@ -64,11 +64,13 @@ public protocol HealthActivityStatisticsStorage: AnyObject {
 
     var heartRate: Double { get set }
     var stepsCount: Double { get set }
-    var burntCallories: Double { get set }
+    var burnedCallories: Double { get set }
 
     var heartRateNorm: Double { get set }
     var stepsGoal: Double { get set }
     var calloriesGoal: Double { get set }
+
+    var isTrackingEnabled: Bool { get set }
 
     func add(observer: Observer)
     func remove(observer: Observer)
@@ -92,7 +94,7 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
     var stepsCount: Double
 
     @ObservableUserDefaultsStored
-    var burntCallories: Double
+    var burnedCallories: Double
 
     @ObservableUserDefaultsStored
     var heartRateNorm: Double
@@ -103,6 +105,8 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
     @ObservableUserDefaultsStored
     var calloriesGoal: Double
 
+    @UserDefaultsStored
+    var isTrackingEnabled: Bool
 
     // MARK: - Private Properties
 
@@ -113,10 +117,11 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
     init(userDefults: UserDefaults = .standard) {
         _heartRate = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.heartRate, defaultValue: 0)
         _stepsCount = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsCount, defaultValue: 0)
-        _burntCallories = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.burntCallories, defaultValue: 0)
+        _burnedCallories = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.burnedCallories, defaultValue: 0)
         _heartRateNorm = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.heartRateNorm, defaultValue: 0)
         _stepsGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsGoal, defaultValue: 0)
         _calloriesGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.calloriesGoal, defaultValue: 0)
+        _isTrackingEnabled = UserDefaultsStored(underlyingDefaults: userDefults, key: Key.isTrackingEnabled, defaultValue: false)
 
         setupObserving()
     }
@@ -142,8 +147,8 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
             observer.storage(this, didUpdateStepsCountTo: newValue)
         })
 
-        _burntCallories.observe(onChange: notify(observers) { this, observer, _, newValue in
-            observer.storage(this, didUpdateBurntCalloriesTo: newValue)
+        _burnedCallories.observe(onChange: notify(observers) { this, observer, _, newValue in
+            observer.storage(this, didUpdateBurnedCalloriesTo: newValue)
         })
 
         _heartRateNorm.observe(onChange: notify(observers) { this, observer, _, newValue in

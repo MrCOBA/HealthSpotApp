@@ -6,6 +6,7 @@ import HealthKit
 protocol CompanionHealthDataTrackingDelegate: AnyObject {
     func didReceiveHealthKitHeartRate(_ heartRate: Double)
     func didReceiveHealthKitStepCounts(_ stepCounts: Double)
+    func didReceiveHealthKitBurntEnergy(_ burntEnergy: Double)
 }
 
 protocol CompanionHealthDataTracking: AnyObject {
@@ -16,7 +17,8 @@ protocol CompanionHealthDataTracking: AnyObject {
     func start()
     func stop()
 
-    func fetchStepCountsStatisticsData()
+    func fetchCountableStatisticsData(_ identifier: HKQuantityTypeIdentifier)
+    func fetchHeartRateStatisticsData(_ statistics: HKStatistics)
 }
 
 // MARK: - Implementation
@@ -27,11 +29,13 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
 
     weak var delegate: CompanionHealthDataTrackingDelegate?
 
-    let healthStore: HKHealthStore
-    let configuration: HKWorkoutConfiguration
+    // MARK: - Private Properties
 
-    var session: HKWorkoutSession!
-    var builder: HKLiveWorkoutBuilder!
+    private let healthStore: HKHealthStore
+    private let configuration: HKWorkoutConfiguration
+
+    private var session: HKWorkoutSession!
+    private var builder: HKLiveWorkoutBuilder!
 
     // MARK: - Init
 
@@ -48,12 +52,14 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
             let infoToRead = Set([
                 HKSampleType.quantityType(forIdentifier: .stepCount)!,
                 HKSampleType.quantityType(forIdentifier: .heartRate)!,
+                HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
                 HKSampleType.workoutType()
                 ])
 
             let infoToShare = Set([
                 HKSampleType.quantityType(forIdentifier: .stepCount)!,
                 HKSampleType.quantityType(forIdentifier: .heartRate)!,
+                HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
                 HKSampleType.workoutType()
                 ])
 
@@ -62,11 +68,11 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
                     NSLog("Authorization healthkit success")
                 }
                 else if let error = error {
-                    NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
+                    NSLog("Error was obtained: <\(error.localizedDescription)>")
                 }
             }
         } else {
-            print("HealthKit not avaiable")
+            NSLog("HealthKit not avaiable")
         }
     }
 
@@ -75,10 +81,10 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
         session.startActivity(with: Date())
         builder.beginCollection(withStart: Date()) { (success, error) in
             if success {
-                NSLog("$@", "Success data tracking initialization <\(success)>")
+                NSLog("Success data tracking initialization <\(success)>")
             }
             if let error = error {
-                NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
+                NSLog("Error was obtained: <\(error.localizedDescription)>")
             }
         }
     }
@@ -88,43 +94,65 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
         session.end()
         builder.endCollection(withEnd: Date()) { (success, error) in
             if success {
-                NSLog("$@", "Success data tracking deinitialization <\(success)>")
+                NSLog("Success data tracking deinitialization <\(success)>")
             }
             if let error = error {
-                NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
+                NSLog("Error was obtained: <\(error.localizedDescription)>")
             }
         }
     }
 
-    func fetchStepCountsStatisticsData() {
-        guard let stepCounts = HKQuantityType.quantityType(forIdentifier: .stepCount) else {
-            return
-        }
-        let startOfDay = Calendar.current.startOfDay(for: Date())
-        let predicate = HKQuery.predicateForSamples(withStart: startOfDay, end: Date(), options: .strictStartDate)
+    func fetchCountableStatisticsData(_ identifier: HKQuantityTypeIdentifier) {
+        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: identifier)!
 
-        let query = HKStatisticsQuery(quantityType: stepCounts,
-                                      quantitySamplePredicate: predicate,
-                                      options: .cumulativeSum) { [weak self] (_, result, error) in
-            guard let this = self else {
+        let now = Date()
+        let startOfDay = Calendar.current.startOfDay(for: now)
+        let predicate = HKQuery.predicateForSamples(
+            withStart: startOfDay,
+            end: now,
+            options: .strictStartDate
+        )
+
+        let query = HKStatisticsQuery(
+            quantityType: stepsQuantityType,
+            quantitySamplePredicate: predicate,
+            options: .cumulativeSum
+        ) { [weak self] (_, result, _) in
+            guard let result = result, let sum = result.sumQuantity() else {
+                switch identifier {
+                case .stepCount:
+                    self?.delegate?.didReceiveHealthKitStepCounts(0.0)
+
+                case .activeEnergyBurned:
+                    self?.delegate?.didReceiveHealthKitBurntEnergy(0.0)
+
+                default:
+                    return
+                }
+
                 return
             }
 
-            var resultCount = 0.0
-            guard let result = result else {
-                NSLog("Failed to fetch steps rate <1>")
+            switch identifier {
+            case .stepCount:
+                self?.delegate?.didReceiveHealthKitStepCounts(sum.doubleValue(for: HKUnit.count()))
+
+            case .activeEnergyBurned:
+                self?.delegate?.didReceiveHealthKitBurntEnergy(sum.doubleValue(for: HKUnit.kilocalorie()))
+
+            default:
                 return
             }
-
-            if let sum = result.sumQuantity() {
-                resultCount = sum.doubleValue(for: HKUnit.count())
-                this.delegate?.didReceiveHealthKitStepCounts(resultCount)
-            }
-            else {
-                NSLog("Failed to fetch steps rate <2>")
-            }
         }
+
         healthStore.execute(query)
+    }
+
+    func fetchHeartRateStatisticsData(_ statistics: HKStatistics) {
+        let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
+        let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
+        let roundedValue = Double( round( 1 * value! ) / 1 )
+        delegate?.didReceiveHealthKitHeartRate(roundedValue)
     }
 
     // MARK: - Private Methods
@@ -137,13 +165,11 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
             builder = session?.associatedWorkoutBuilder()
         }
         catch {
-            NSLog("%@", "Error was obtained: <\(error.localizedDescription)>")
+            NSLog("Error was obtained: <\(error.localizedDescription)>")
             return
         }
 
-        session.delegate = self
         builder.delegate = self
-
         builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
     }
 
@@ -153,18 +179,14 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
             fetchHeartRateStatisticsData(statistics)
 
         case HKQuantityType.quantityType(forIdentifier: .stepCount):
-            fetchStepCountsStatisticsData()
+            fetchCountableStatisticsData(.stepCount)
+
+        case HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned):
+            fetchCountableStatisticsData(.activeEnergyBurned)
 
         default:
             return
         }
-    }
-
-    private func fetchHeartRateStatisticsData(_ statistics: HKStatistics) {
-        let heartRateUnit = HKUnit.count().unitDivided(by: HKUnit.minute())
-        let value = statistics.mostRecentQuantity()?.doubleValue(for: heartRateUnit)
-        let roundedValue = Double( round( 1 * value! ) / 1 )
-        delegate?.didReceiveHealthKitHeartRate(roundedValue)
     }
 
 }
@@ -174,7 +196,7 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
 extension CompanionHealthDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
 
     func workoutBuilder(_ workoutBuilder: HKLiveWorkoutBuilder, didCollectDataOf collectedTypes: Set<HKSampleType>) {
-        NSLog("%@", "Start data receiving: <\(Date())>")
+        NSLog("Start data receiving: <\(Date())>")
         for type in collectedTypes {
             guard let quantityType = type as? HKQuantityType else {
                 return
@@ -187,18 +209,6 @@ extension CompanionHealthDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
     }
 
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
-        /* Do Nothing */
-    }
-
-}
-
-extension CompanionHealthDataTrackingImpl: HKWorkoutSessionDelegate {
-
-    func workoutSession(_ workoutSession: HKWorkoutSession, didChangeTo toState: HKWorkoutSessionState, from fromState: HKWorkoutSessionState, date: Date) {
-        /* Do Nothing */
-    }
-
-    func workoutSession(_ workoutSession: HKWorkoutSession, didFailWithError error: Error) {
         /* Do Nothing */
     }
 

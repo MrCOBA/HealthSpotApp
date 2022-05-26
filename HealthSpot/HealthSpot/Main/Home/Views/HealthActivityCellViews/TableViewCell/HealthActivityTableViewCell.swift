@@ -16,9 +16,13 @@ final class HealthActivityTableViewCell: UITableViewCell {
         let heartRateViewModel: HeartRateActivityView.ViewModel
         let lifeViewModel: LifeActivityView.ViewModel
         let calloriesViewModel: CalloriesActivityView.ViewModel
+        let switchViewModel: SwitchView.ViewModel
 
         static var empty: Self {
-            return .init(heartRateViewModel: .empty, lifeViewModel: .empty, calloriesViewModel: .empty)
+            return .init(heartRateViewModel: .empty,
+                         lifeViewModel: .empty,
+                         calloriesViewModel: .empty,
+                         switchViewModel: .empty)
         }
 
     }
@@ -100,7 +104,7 @@ final class HealthActivityTableViewCell: UITableViewCell {
         configureCalloriesActivityView()
         activitiesStackView.addArrangedSubview(makeSeparatorView())
 
-        activitiesStackView.addArrangedSubview(activitySwitchView)
+        configureActivitySwitchView()
     }
 
     private func configureHeartRateActivityView() {
@@ -118,6 +122,12 @@ final class HealthActivityTableViewCell: UITableViewCell {
     private func configureCalloriesActivityView() {
         activitiesStackView.addArrangedSubview(calloriesActivityView)
         calloriesActivityView.viewModel = context.calloriesViewModel
+        calloriesActivityView.colorScheme = colorScheme
+    }
+
+    private func configureActivitySwitchView() {
+        activitiesStackView.addArrangedSubview(activitySwitchView)
+        activitySwitchView.viewModel = context.switchViewModel
         calloriesActivityView.colorScheme = colorScheme
     }
 

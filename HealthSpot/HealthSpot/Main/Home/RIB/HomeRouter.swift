@@ -5,6 +5,7 @@ import UIKit
 protocol HomeRouter: ViewableRouter {
 
     func attachStatisticsRouter()
+    func detachStatisticsRouter()
 
 }
 
@@ -31,6 +32,16 @@ final class HomeRouterImpl: BaseRouter, HomeRouter {
 
         router.start()
         statisticsRouter = router
+    }
+
+    func detachStatisticsRouter() {
+        guard let statisticsRouter = statisticsRouter else {
+            logWarning(message: "There is no same child to detach")
+            return
+        }
+
+        statisticsRouter.stop()
+        self.statisticsRouter = nil
     }
 
     private func attachChildWithPush(_ child: ViewableRouter) {

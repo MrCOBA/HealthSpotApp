@@ -61,6 +61,10 @@ class WatchKitConnectionImpl: NSObject, WatchKitConnection {
         session?.activate()
     }
 
+    func stopSession() {
+        session?.delegate = nil
+    }
+
     func sendMessage(message: [String : AnyObject],
                      replyHandler: (([String : AnyObject]) -> Void)? = nil,
                      errorHandler: ((NSError) -> Void)? = nil) {

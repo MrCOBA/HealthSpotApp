@@ -27,6 +27,10 @@ final class HomeInteractorImpl: BaseInteractor, HomeInteractor {
         super.start()
 
         statisticsStorage.add(observer: self)
+
+        if statisticsStorage.isTrackingEnabled {
+            startStatisticsTracking()
+        }
     }
 
     override func stop() {
@@ -36,11 +40,15 @@ final class HomeInteractorImpl: BaseInteractor, HomeInteractor {
     func startStatisticsTracking() {
         checkIfRouterSet()
 
+        statisticsStorage.isTrackingEnabled = true
         router?.attachStatisticsRouter()
     }
 
     func stopStatisticsTracking() {
-        
+        checkIfRouterSet()
+
+        statisticsStorage.isTrackingEnabled = false
+        router?.detachStatisticsRouter()
     }
 
     private func updateView() {
@@ -68,7 +76,7 @@ extension HomeInteractorImpl: HealthActivityStatisticsStorageObserver {
     }
 
     func storage(_ storage: HealthActivityStatisticsStorage,
-                 didUpdateBurntCalloriesTo newValue: Double) {
+                 didUpdateBurnedCalloriesTo newValue: Double) {
         presenter?.updateView(from: statisticsStorage)
     }
 
