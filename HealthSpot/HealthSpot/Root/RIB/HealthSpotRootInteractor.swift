@@ -62,7 +62,7 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
         switch notification.name {
         case .Authorization.signIn(result: .success):
             guard user?.id == notification.userInfo?["id"] as? String else {
-                coreDataAssistant.removeData(User.self, predicate: nil, sortDescriptor: nil)
+                coreDataAssistant.removeData("User", predicate: nil, sortDescriptor: nil)
                 checkIfRouterSet()
                 router?.attachAuthorizationFlow()
                 return

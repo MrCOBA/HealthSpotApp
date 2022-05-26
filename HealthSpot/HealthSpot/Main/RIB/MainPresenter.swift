@@ -51,22 +51,7 @@ extension MainPresenterImpl: MainViewEventsHandler {
     func didSelectTab(with child: MainView.Item) {
         checkIfInteractorSet()
 
-        switch child {
-        case .home:
-            interactor?.showHomeScreen()
-
-        case .medicineChecker:
-            interactor?.showMedicineControllerScreen()
-
-        case .foodController:
-            interactor?.showFoodControllerScreen()
-
-        case .settings:
-            interactor?.showSettingsScreen()
-
-        default:
-            logError(message: "Unknown item recieved with identifier: <\(child.rawValue)>")
-        }
+        interactor?.showItem(child)
     }
 
 }

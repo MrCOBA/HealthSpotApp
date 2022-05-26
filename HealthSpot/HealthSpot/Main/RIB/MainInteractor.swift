@@ -8,10 +8,7 @@ protocol MainInteractor: Interactor,
                          MedicineCheckerContainerListener,
                          HomeContainerListener {
 
-    func showHomeScreen()
-    func showMedicineControllerScreen()
-    func showFoodControllerScreen()
-    func showSettingsScreen()
+    func showItem(_ item: MainView.Item)
 
 }
 
@@ -41,24 +38,9 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
     // MARK: Protocol MainInteractor
 
-    func showHomeScreen() {
+    func showItem(_ item: MainView.Item) {
         checkIfRouterSet()
-        router?.attachHomeRouter()
-    }
-
-    func showMedicineControllerScreen() {
-        checkIfRouterSet()
-        router?.attachMedicineControllerRouter()
-    }
-
-    func showFoodControllerScreen() {
-        checkIfRouterSet()
-        router?.attachFoodControllerRouter()
-    }
-
-    func showSettingsScreen() {
-        checkIfRouterSet()
-        router?.attachSettingsRouter()
+        router?.attachItem(item)
     }
 
     // MARK: - Private Methods
