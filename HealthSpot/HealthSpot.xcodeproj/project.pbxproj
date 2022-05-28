@@ -46,6 +46,14 @@
 		FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD32F58A283DE2E50019C6CA /* HomeView.storyboard */; };
 		FD32F591283DE6D70019C6CA /* HealthActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD32F58F283DE6D70019C6CA /* HealthActivityTableViewCell.xib */; };
 		FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD32F5DB283E0BAD0019C6CA /* BaseActivityView.xib */; };
+		FD3BE64A284278D300C31D89 /* MedicineItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE642284278D300C31D89 /* MedicineItem+CoreDataClass.swift */; };
+		FD3BE64B284278D300C31D89 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE643284278D300C31D89 /* MedicineItem+CoreDataProperties.swift */; };
+		FD3BE64C284278D300C31D89 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE644284278D300C31D89 /* User+CoreDataClass.swift */; };
+		FD3BE64D284278D300C31D89 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE645284278D300C31D89 /* User+CoreDataProperties.swift */; };
+		FD3BE64E284278D300C31D89 /* HeartRateItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE646284278D300C31D89 /* HeartRateItem+CoreDataClass.swift */; };
+		FD3BE64F284278D300C31D89 /* HeartRateItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE647284278D300C31D89 /* HeartRateItem+CoreDataProperties.swift */; };
+		FD3BE650284278D300C31D89 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE648284278D300C31D89 /* MedicineItemPeriod+CoreDataClass.swift */; };
+		FD3BE651284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE649284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift */; };
 		FD43F502283D7CCC007E23BA /* HealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */; };
 		FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */; };
 		FD43F504283D81F2007E23BA /* CaBMedicineChecker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDED1361283712AD0038C892 /* CaBMedicineChecker.framework */; platformFilter = ios; };
@@ -69,13 +77,11 @@
 		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
 		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
 		FDB78DD8283AF88B00117DCA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
+		FDC9DD4828415E3500AB149F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */; };
+		FDC9DD4928415E3500AB149F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */; };
+		FDC9DD4D284161C100AB149F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */; };
+		FDC9DD4E284161C100AB149F /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */; };
 		FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5D2831202600EE6FE0 /* RootServices.swift */; };
-		FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */; };
-		FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */; };
-		FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */; };
-		FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */; };
-		FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */; };
-		FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */; };
 		FDEF1107283D842D00C7852E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
 		FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; };
 		FDFF0AF02838D782006B82B3 /* CaBFirebaseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -233,6 +239,14 @@
 		FD32F58A283DE2E50019C6CA /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		FD32F58F283DE6D70019C6CA /* HealthActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HealthActivityTableViewCell.xib; sourceTree = "<group>"; };
 		FD32F5DB283E0BAD0019C6CA /* BaseActivityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseActivityView.xib; sourceTree = "<group>"; };
+		FD3BE642284278D300C31D89 /* MedicineItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD3BE643284278D300C31D89 /* MedicineItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FD3BE644284278D300C31D89 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD3BE645284278D300C31D89 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FD3BE646284278D300C31D89 /* HeartRateItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD3BE647284278D300C31D89 /* HeartRateItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HeartRateItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FD3BE648284278D300C31D89 /* MedicineItemPeriod+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FD3BE649284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FD43F500283D7CCC007E23BA /* HealthDataTracking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthDataTracking.swift; sourceTree = "<group>"; };
 		FD43F501283D7CCC007E23BA /* WatchKitConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchKitConnection.swift; sourceTree = "<group>"; };
 		FD43F507283D82E7007E23BA /* HealthSpotCompanion WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "HealthSpotCompanion WatchKit Extension.entitlements"; sourceTree = "<group>"; };
@@ -256,13 +270,11 @@
 		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
 		FDB78DD6283AF88A00117DCA /* HealthSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthSpot.entitlements; sourceTree = "<group>"; };
 		FDB78DD7283AF88B00117DCA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
 		FDE9FD5D2831202600EE6FE0 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
-		FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MedicineItemPeriod+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FDFF0AE92838D773006B82B3 /* CaBFirebaseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBFirebaseKit.xcodeproj; path = ../CaBFirebaseKit/CaBFirebaseKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -354,6 +366,7 @@
 				FD442CD1283EDA95001A454B /* HealthActivityStatisticsTracker */,
 				FDA3C19A28212D48008CDDDF /* Root */,
 				3104C327278B27ED006AF28B /* Main */,
+				FDC9DD3E28415DE100AB149F /* Settings */,
 				31932CA22782FF2600BCBDAA /* Sources */,
 				31932CA32782FF8900BCBDAA /* Resources */,
 			);
@@ -646,15 +659,44 @@
 			path = RIB;
 			sourceTree = "<group>";
 		};
+		FDC9DD3E28415DE100AB149F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DD4A2841617F00AB149F /* Views */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FDC9DD4528415E0A00AB149F /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */,
+				FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */,
+			);
+			path = SettingsCell;
+			sourceTree = "<group>";
+		};
+		FDC9DD4A2841617F00AB149F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DD4528415E0A00AB149F /* SettingsCell */,
+				FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */,
+				FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		FDE9FD682831453400EE6FE0 /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FDE9FD75283146FB00EE6FE0 /* User+CoreDataClass.swift */,
-				FDE9FD76283146FB00EE6FE0 /* User+CoreDataProperties.swift */,
-				FDE9FD77283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift */,
-				FDE9FD78283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift */,
-				FDE9FD79283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift */,
-				FDE9FD7A283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift */,
+				FD3BE642284278D300C31D89 /* MedicineItem+CoreDataClass.swift */,
+				FD3BE643284278D300C31D89 /* MedicineItem+CoreDataProperties.swift */,
+				FD3BE644284278D300C31D89 /* User+CoreDataClass.swift */,
+				FD3BE645284278D300C31D89 /* User+CoreDataProperties.swift */,
+				FD3BE646284278D300C31D89 /* HeartRateItem+CoreDataClass.swift */,
+				FD3BE647284278D300C31D89 /* HeartRateItem+CoreDataProperties.swift */,
+				FD3BE648284278D300C31D89 /* MedicineItemPeriod+CoreDataClass.swift */,
+				FD3BE649284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -858,12 +900,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDC9DD4E284161C100AB149F /* SettingsTableViewController.xib in Resources */,
 				FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */,
 				FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */,
 				FD442C83283EAF67001A454B /* SwitchView.xib in Resources */,
 				31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */,
 				31932C972782FEE100BCBDAA /* Assets.xcassets in Resources */,
 				31932C952782FEDE00BCBDAA /* Main.storyboard in Resources */,
+				FDC9DD4928415E3500AB149F /* SettingsTableViewCell.xib in Resources */,
 				FD32F591283DE6D70019C6CA /* HealthActivityTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -895,14 +939,15 @@
 				FD32F589283DDB4F0019C6CA /* HomeBuilder.swift in Sources */,
 				FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */,
 				FD7F7C6C282472460055D2F3 /* MainBuilder.swift in Sources */,
+				FD3BE64F284278D300C31D89 /* HeartRateItem+CoreDataProperties.swift in Sources */,
 				FD7F7C6A282472370055D2F3 /* MainInteractor.swift in Sources */,
 				FD32F56B283DB2870019C6CA /* LifeActivityView.swift in Sources */,
+				FD3BE650284278D300C31D89 /* MedicineItemPeriod+CoreDataClass.swift in Sources */,
 				FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */,
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
 				FD442CD6283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
 				FD442C81283EAF1C001A454B /* SwitchView.swift in Sources */,
-				FDE9FD80283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
 				FD442CD4283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift in Sources */,
 				FD32F57F283DCDE40019C6CA /* UIStoryboard+HealthSpot.swift in Sources */,
 				FD32F57D283DCB7E0019C6CA /* HomeContainerRouter.swift in Sources */,
@@ -911,26 +956,29 @@
 				FD32F57B283DCB7E0019C6CA /* HomeContainerBuilder.swift in Sources */,
 				FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
-				FDE9FD7C283146FB00EE6FE0 /* User+CoreDataProperties.swift in Sources */,
 				FD442CCE283EC52C001A454B /* HealthActivityStatisticsStorage.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
 				FD32F566283DA0F40019C6CA /* HeartRateActivityView.swift in Sources */,
 				FD32F581283DCEF80019C6CA /* HomeView.swift in Sources */,
-				FDE9FD7D283146FB00EE6FE0 /* MedicineItem+CoreDataClass.swift in Sources */,
 				FD43F502283D7CCC007E23BA /* HealthDataTracking.swift in Sources */,
 				FD32F57C283DCB7E0019C6CA /* HomeContainerInteractor.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				FD442D21283F0BB0001A454B /* SuiteProvider.swift in Sources */,
-				FDE9FD7B283146FB00EE6FE0 /* User+CoreDataClass.swift in Sources */,
+				FD3BE64E284278D300C31D89 /* HeartRateItem+CoreDataClass.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
+				FD3BE651284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
+				FD3BE64C284278D300C31D89 /* User+CoreDataClass.swift in Sources */,
 				FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */,
+				FD3BE64A284278D300C31D89 /* MedicineItem+CoreDataClass.swift in Sources */,
 				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
 				FD442CD0283EC9DE001A454B /* UserDefaults+HealthSpot.swift in Sources */,
-				FDE9FD7E283146FB00EE6FE0 /* MedicineItem+CoreDataProperties.swift in Sources */,
+				FD3BE64B284278D300C31D89 /* MedicineItem+CoreDataProperties.swift in Sources */,
+				FDC9DD4D284161C100AB149F /* SettingsTableViewController.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
-				FDE9FD7F283146FB00EE6FE0 /* MedicineItemPeriod+CoreDataClass.swift in Sources */,
 				FD32F588283DDB4F0019C6CA /* HomePresenter.swift in Sources */,
+				FDC9DD4828415E3500AB149F /* SettingsTableViewCell.swift in Sources */,
+				FD3BE64D284278D300C31D89 /* User+CoreDataProperties.swift in Sources */,
 				FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */,
 				FD32F56E283DB5840019C6CA /* CalloriesActivityView.swift in Sources */,
 				FD32F572283DBB040019C6CA /* HealthActivityTableViewCell.swift in Sources */,

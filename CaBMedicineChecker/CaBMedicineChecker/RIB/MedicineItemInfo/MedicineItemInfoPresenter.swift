@@ -26,10 +26,12 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
 
     private func makeViewModel(rawData medicineItemWrapper: MedicineItemEntityWrapper, _ periodsWrappers: [MedicineItemPeriodEntityWrapper]) -> MedicineItemViewModel {
         let periods: [PeriodModel] = periodsWrappers.map {
-            return .init(startDate: $0.startDate,
+            return .init(id: $0.id,
+                         startDate: $0.startDate,
                          endDate: $0.endDate,
                          frequency: PeriodModel.Frequency(rawValue: $0.frequency),
-                         hint: $0.notificationHint)
+                         hint: $0.notificationHint,
+                         actionType: .add)
         }
 
         return .init(id: medicineItemWrapper.id,
@@ -51,6 +53,16 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
 }
 
 extension MedicineItemInfoPresenterImpl: MedicineItemInfoViewEventsHandler {
+
+    func didTapPeriodCell(with id: String) {
+        interactor?.showItemPeriodScreen(with: .edit(id: id))
+    }
+
+    func didTapAddPeriodButton() {
+        checkIfInteractorSet()
+
+        interactor?.showItemPeriodScreen(with: .add)
+    }
 
     func didFinish() {
         checkIfInteractorSet()

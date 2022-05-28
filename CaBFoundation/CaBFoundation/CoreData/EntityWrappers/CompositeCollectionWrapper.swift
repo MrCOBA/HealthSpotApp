@@ -1,7 +1,7 @@
 
 public protocol EntityWrapper: AnyObject {}
 
-public class CompositeWrapper<A: EntityWrapper, B: EntityWrapper> {
+public class CompositeCollectionWrapper<A: EntityWrapper, B: EntityWrapper> {
 
     public let first: A
     public let second: [B]

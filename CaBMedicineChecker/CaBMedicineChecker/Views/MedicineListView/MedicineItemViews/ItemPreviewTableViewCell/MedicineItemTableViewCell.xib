@@ -9,11 +9,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Comfortaa-Bold.ttf">
-            <string>Comfortaa-Bold</string>
-        </array>
-        <array key="Comfortaa-Light.ttf">
-            <string>Comfortaa-Light</string>
+        <array key="Comfortaa-Regular.ttf">
+            <string>Comfortaa-Regular</string>
         </array>
     </customFonts>
     <objects>
@@ -49,15 +46,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemBarcde" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OEC-hZ-8SE">
-                                <rect key="frame" x="92" y="39.5" width="188" height="13.5"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MedicineItemReceptionTime" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjT-lV-8dr">
-                                <rect key="frame" x="12" y="92" width="268" height="16"/>
-                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                                <rect key="frame" x="12" y="92" width="204" height="16"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Regular" family="Comfortaa" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -70,22 +61,18 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" constant="8" id="3WQ-yM-gkM"/>
                             <constraint firstItem="WjT-lV-8dr" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="leading" id="3vp-4F-UMe"/>
-                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="leading" id="3xI-uH-hBA"/>
                             <constraint firstItem="wci-Rv-Brb" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="top" id="5Nv-4F-THO"/>
-                            <constraint firstItem="WjT-lV-8dr" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OEC-hZ-8SE" secondAttribute="bottom" constant="8" id="5v4-pw-rbQ"/>
                             <constraint firstItem="cot-aU-HNv" firstAttribute="centerY" secondItem="qwR-tg-qAa" secondAttribute="centerY" id="8qb-qA-EbZ"/>
                             <constraint firstItem="cot-aU-HNv" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="top" id="Bf6-4O-wHm"/>
                             <constraint firstItem="oa1-yu-nQh" firstAttribute="leading" secondItem="wci-Rv-Brb" secondAttribute="trailing" constant="8" id="Fg4-kW-ob5"/>
-                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="top" secondItem="wci-Rv-Brb" secondAttribute="bottom" constant="8" id="H35-zm-fbp"/>
                             <constraint firstAttribute="bottom" secondItem="WjT-lV-8dr" secondAttribute="bottom" constant="8" id="I5Z-eY-oHj"/>
+                            <constraint firstItem="wci-Rv-Brb" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="cot-aU-HNv" secondAttribute="bottom" id="NDs-fF-4aE"/>
                             <constraint firstItem="cot-aU-HNv" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="leading" id="QUS-c9-2qb"/>
                             <constraint firstItem="wci-Rv-Brb" firstAttribute="leading" secondItem="qwR-tg-qAa" secondAttribute="trailing" constant="8" id="Qbm-jU-92d"/>
                             <constraint firstItem="cot-aU-HNv" firstAttribute="centerX" secondItem="qwR-tg-qAa" secondAttribute="centerX" id="Thx-Ct-oPd"/>
                             <constraint firstItem="WjT-lV-8dr" firstAttribute="top" secondItem="qwR-tg-qAa" secondAttribute="bottom" constant="8" id="UDo-k1-G9o"/>
                             <constraint firstItem="qwR-tg-qAa" firstAttribute="leading" secondItem="3FF-5n-1oX" secondAttribute="leading" constant="12" id="VLZ-35-z2K"/>
-                            <constraint firstItem="OEC-hZ-8SE" firstAttribute="trailing" secondItem="oa1-yu-nQh" secondAttribute="trailing" id="WCb-2Y-Jrm"/>
                             <constraint firstItem="oa1-yu-nQh" firstAttribute="top" secondItem="wci-Rv-Brb" secondAttribute="top" id="ilW-IF-q7X"/>
-                            <constraint firstItem="WjT-lV-8dr" firstAttribute="trailing" secondItem="OEC-hZ-8SE" secondAttribute="trailing" id="nEJ-jS-Tpk"/>
                             <constraint firstItem="qwR-tg-qAa" firstAttribute="top" secondItem="3FF-5n-1oX" secondAttribute="top" constant="12" id="whz-qW-a7Z"/>
                         </constraints>
                     </view>
@@ -99,7 +86,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="barcodeLabel" destination="OEC-hZ-8SE" id="6Tx-ad-zte"/>
                 <outlet property="containerView" destination="3FF-5n-1oX" id="wfj-WH-TR1"/>
                 <outlet property="imageLoadingIndicator" destination="cot-aU-HNv" id="jAV-AU-QPl"/>
                 <outlet property="itemIconImageView" destination="qwR-tg-qAa" id="adW-BK-ZDL"/>

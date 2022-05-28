@@ -19,7 +19,7 @@ final class MedicineItemTableViewCell: UITableViewCell {
             }
 
             static var barcodeLabelFont: UIFont {
-                return CaBFont.Comfortaa.light(size: 12.0)
+                return CaBFont.Comfortaa.regular(size: 12.0)
             }
 
             static var nextEventDateLabelFont: UIFont {
@@ -66,7 +66,6 @@ final class MedicineItemTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var containerView: UIView!
     @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var barcodeLabel: UILabel!
     @IBOutlet private weak var itemIconImageView: UIImageView!
     @IBOutlet private weak var imageLoadingIndicator: UIActivityIndicatorView!
     @IBOutlet private weak var nextEventDateLabel: UILabel!
@@ -92,7 +91,6 @@ final class MedicineItemTableViewCell: UITableViewCell {
 
         configureIconImageView(with: cellModel)
         configureItemNameLabel(with: cellModel)
-        configureItemBarcodeLabel(with: cellModel)
         configureNextEventDateLabel(with: cellModel)
     }
 
@@ -110,13 +108,6 @@ final class MedicineItemTableViewCell: UITableViewCell {
                                                 textColor: colorScheme.highlightPrimaryColor,
                                                 font: Constants.Fonts.nameLabelFont)
         nameLabel.attributedText = attributedName
-    }
-
-    private func configureItemBarcodeLabel(with cellModel: CellModel) {
-        let attributedBarcode = NSAttributedString(text: cellModel.barcode,
-                                                   textColor: colorScheme.highlightPrimaryColor,
-                                                   font: Constants.Fonts.barcodeLabelFont)
-        barcodeLabel.attributedText = attributedBarcode
     }
 
     private func configureNextEventDateLabel(with cellModel: CellModel) {

@@ -21,13 +21,19 @@
 		FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */; };
 		FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */; };
 		FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */; };
+		FDC9DCF22841314400AB149F /* AdaptivePresentationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCEA2841314400AB149F /* AdaptivePresentationDelegateProxy.swift */; };
+		FDC9DCF32841314400AB149F /* DismissablePresentationControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCEC2841314400AB149F /* DismissablePresentationControllerConfigurator.swift */; };
+		FDC9DCF42841314400AB149F /* AdaptivePresentationControllerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCED2841314400AB149F /* AdaptivePresentationControllerConfigurator.swift */; };
+		FDC9DCF52841314400AB149F /* UIViewController+Parent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCEF2841314400AB149F /* UIViewController+Parent.swift */; };
+		FDC9DCF62841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCF02841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift */; };
+		FDC9DCF72841314400AB149F /* AdaptivePresentationDelegateProxyImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DCF12841314400AB149F /* AdaptivePresentationDelegateProxyImpl.swift */; };
 		FDE3B93A283586E400DC7192 /* Date+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3B939283586E400DC7192 /* Date+CaBFoundation.swift */; };
 		FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */; };
 		FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */; };
 		FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5B2830112100EE6FE0 /* Helpers.swift */; };
 		FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */; };
 		FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift */; };
-		FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */; };
+		FDFF0B1D28391482006B82B3 /* CompositeCollectionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1C28391482006B82B3 /* CompositeCollectionWrapper.swift */; };
 		FDFF0C48283ABA94006B82B3 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C47283ABA94006B82B3 /* Observable.swift */; };
 		FDFF0C4B283ABAF4006B82B3 /* Locking+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0C4A283ABAF4006B82B3 /* Locking+CaBFoundation.swift */; };
 /* End PBXBuildFile section */
@@ -49,13 +55,19 @@
 		FDA3C12C28201E32008CDDDF /* UserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStored.swift; sourceTree = "<group>"; };
 		FDA3C13328202173008CDDDF /* UserDefaults+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemPeriodEntityWrapper.swift; sourceTree = "<group>"; };
+		FDC9DCEA2841314400AB149F /* AdaptivePresentationDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptivePresentationDelegateProxy.swift; sourceTree = "<group>"; };
+		FDC9DCEC2841314400AB149F /* DismissablePresentationControllerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissablePresentationControllerConfigurator.swift; sourceTree = "<group>"; };
+		FDC9DCED2841314400AB149F /* AdaptivePresentationControllerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptivePresentationControllerConfigurator.swift; sourceTree = "<group>"; };
+		FDC9DCEF2841314400AB149F /* UIViewController+Parent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Parent.swift"; sourceTree = "<group>"; };
+		FDC9DCF02841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIPresentationController+AdaptivePresentationDelegateProxy.swift"; sourceTree = "<group>"; };
+		FDC9DCF12841314400AB149F /* AdaptivePresentationDelegateProxyImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdaptivePresentationDelegateProxyImpl.swift; sourceTree = "<group>"; };
 		FDE3B939283586E400DC7192 /* Date+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityWrapper.swift; sourceTree = "<group>"; };
 		FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemEntityWrapper.swift; sourceTree = "<group>"; };
 		FDE9FD5B2830112100EE6FE0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
 		FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+CaBFoundation.swift"; sourceTree = "<group>"; };
-		FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeWrapper.swift; sourceTree = "<group>"; };
+		FDFF0B1C28391482006B82B3 /* CompositeCollectionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeCollectionWrapper.swift; sourceTree = "<group>"; };
 		FDFF0C47283ABA94006B82B3 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		FDFF0C4A283ABAF4006B82B3 /* Locking+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locking+CaBFoundation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +138,7 @@
 		31FB81A8268614F000500FE1 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FDC9DCE92841314400AB149F /* AdaptivePresentationProxy */,
 				FDFF0C46283ABA80006B82B3 /* Observing */,
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
@@ -160,6 +173,35 @@
 			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
+		FDC9DCE92841314400AB149F /* AdaptivePresentationProxy */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DCEA2841314400AB149F /* AdaptivePresentationDelegateProxy.swift */,
+				FDC9DCF12841314400AB149F /* AdaptivePresentationDelegateProxyImpl.swift */,
+				FDC9DCEB2841314400AB149F /* Configurators */,
+				FDC9DCEE2841314400AB149F /* Extensions */,
+			);
+			path = AdaptivePresentationProxy;
+			sourceTree = "<group>";
+		};
+		FDC9DCEB2841314400AB149F /* Configurators */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DCEC2841314400AB149F /* DismissablePresentationControllerConfigurator.swift */,
+				FDC9DCED2841314400AB149F /* AdaptivePresentationControllerConfigurator.swift */,
+			);
+			path = Configurators;
+			sourceTree = "<group>";
+		};
+		FDC9DCEE2841314400AB149F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDC9DCEF2841314400AB149F /* UIViewController+Parent.swift */,
+				FDC9DCF02841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FDE94B5B2832FDDC00C6536B /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +214,7 @@
 		FDE94B5C2832FDF100C6536B /* EntityWrappers */ = {
 			isa = PBXGroup;
 			children = (
-				FDFF0B1C28391482006B82B3 /* CompositeWrapper.swift */,
+				FDFF0B1C28391482006B82B3 /* CompositeCollectionWrapper.swift */,
 				FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */,
 				FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */,
 				FDA3DC34283413030042706E /* MedicineItemPeriodEntityWrapper.swift */,
@@ -281,14 +323,20 @@
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
 				FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */,
 				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
+				FDC9DCF62841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift in Sources */,
+				FDC9DCF52841314400AB149F /* UIViewController+Parent.swift in Sources */,
 				FDFF0C4B283ABAF4006B82B3 /* Locking+CaBFoundation.swift in Sources */,
+				FDC9DCF72841314400AB149F /* AdaptivePresentationDelegateProxyImpl.swift in Sources */,
 				31A806C827D54DB10021215E /* Logger.swift in Sources */,
 				FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */,
+				FDC9DCF22841314400AB149F /* AdaptivePresentationDelegateProxy.swift in Sources */,
 				FD048E69283C4AEB00881AEA /* RootSettingsStorage.swift in Sources */,
 				FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift in Sources */,
-				FDFF0B1D28391482006B82B3 /* CompositeWrapper.swift in Sources */,
+				FDC9DCF42841314400AB149F /* AdaptivePresentationControllerConfigurator.swift in Sources */,
+				FDFF0B1D28391482006B82B3 /* CompositeCollectionWrapper.swift in Sources */,
 				FDA3C13428202173008CDDDF /* UserDefaults+CaBFoundation.swift in Sources */,
 				FD32F5E0283E23AC0019C6CA /* NSObjectPropertyObserver.swift in Sources */,
+				FDC9DCF32841314400AB149F /* DismissablePresentationControllerConfigurator.swift in Sources */,
 				FDA3DC35283413030042706E /* MedicineItemPeriodEntityWrapper.swift in Sources */,
 				31EB6862280F11510072FD93 /* FileWriter.swift in Sources */,
 				FD79374C282D519B009B091C /* UIImageView+CaBFoundation.swift in Sources */,

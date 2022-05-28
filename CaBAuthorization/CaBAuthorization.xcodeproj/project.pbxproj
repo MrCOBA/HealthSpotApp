@@ -120,6 +120,7 @@
 		3133DD5A27B054B800007428 /* CaBAuthorization */ = {
 			isa = PBXGroup;
 			children = (
+				FDA3C14728202E94008CDDDF /* AuthorizationManager */,
 				3133DD6E27B0552700007428 /* Views */,
 				3133DD6D27B0551E00007428 /* RIB */,
 				3133DD6C27B0550A00007428 /* Sources */,
@@ -134,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				FDE9FD66283123FB00EE6FE0 /* AuthorizationRootServices.swift */,
-				FDA3C14728202E94008CDDDF /* AuthorizationManager */,
 				FDA3C12E28201F7F008CDDDF /* CredentialsStorage */,
 				FDA3C0DB281FCB2C008CDDDF /* Extensions */,
 			);
@@ -242,8 +242,7 @@
 			children = (
 				FDB78DB0283AD73400117DCA /* AuthorizationManager.swift */,
 			);
-			name = AuthorizationManager;
-			path = ../../AuthorizationManager;
+			path = AuthorizationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

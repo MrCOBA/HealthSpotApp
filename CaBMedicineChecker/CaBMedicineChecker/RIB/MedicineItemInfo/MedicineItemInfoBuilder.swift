@@ -22,13 +22,16 @@ final class MedicineItemInfoBuilder: Builder {
         let presenter = MedicineItemInfoPresenterImpl(view: view)
         view.eventsHandler = presenter
         
-        let interactor = MedicineItemInfoInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
+        let interactor = MedicineItemInfoInteractorImpl(firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController,
+                                                        itemPeriodTemporaryStorage: factory.medicineItemPeriodStorage,
+                                                        coreDataAssistant: factory.coreDataAssistant,
                                                         presenter: presenter,
                                                         entityId: id,
                                                         listener: listener)
         presenter.interactor = interactor
 
         let router = MedicineItemInfoRouterImpl(rootServices: factory, view: view, interactor: interactor)
+        interactor.router = router
 
         return router
     }

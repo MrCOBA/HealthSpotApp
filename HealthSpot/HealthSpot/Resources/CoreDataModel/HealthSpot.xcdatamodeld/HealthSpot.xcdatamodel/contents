@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="HeartRateItem" representedClassName=".HeartRateItem" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="heartRate" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="heartRateItems" inverseEntity="User"/>
+    </entity>
     <entity name="MedicineItem" representedClassName=".MedicineItem" syncable="YES">
         <attribute name="activeComponent" optional="YES" attributeType="String"/>
         <attribute name="barcode" attributeType="String"/>
@@ -23,11 +28,13 @@
         <attribute name="email" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="password" attributeType="String"/>
+        <relationship name="heartRateItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeartRateItem" inverseName="user" inverseEntity="HeartRateItem"/>
         <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
     </entity>
     <elements>
+        <element name="HeartRateItem" positionX="-1178.233337402344" positionY="158.1251831054688" width="128" height="88"/>
         <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="164"/>
-        <element name="MedicineItemPeriod" positionX="-850.9652099609375" positionY="-35.4676513671875" width="128" height="119"/>
-        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="89"/>
+        <element name="MedicineItemPeriod" positionX="-951.94140625" positionY="8.083831787109375" width="128" height="119"/>
+        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="104"/>
     </elements>
 </model>

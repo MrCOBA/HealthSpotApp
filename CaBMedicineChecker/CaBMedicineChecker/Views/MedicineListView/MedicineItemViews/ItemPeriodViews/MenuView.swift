@@ -4,11 +4,11 @@ import CaBUIKit
 
 protocol ItemPeriodMenuViewDelegate: AnyObject {
 
-    func didSelectAction(for action: MenuAction)
+    func didSelectItem(_ item: MenuItem)
 
 }
 
-struct MenuAction: RawRepresentable, Equatable, Hashable, Comparable {
+struct MenuItem: RawRepresentable, Equatable, Hashable, Comparable {
 
     // MARK: - Public Types
 
@@ -30,7 +30,7 @@ struct MenuAction: RawRepresentable, Equatable, Hashable, Comparable {
 
     // MARK: Protocol Comparable
 
-    public static func <(lhs: MenuAction, rhs: MenuAction) -> Bool {
+    public static func <(lhs: MenuItem, rhs: MenuItem) -> Bool {
         return lhs.rawValue < rhs.rawValue
     }
 
@@ -53,6 +53,10 @@ final class ItemPeriodMenuView: UIView {
             return CaBFont.Comfortaa.medium(size: 17.0)
         }
 
+        static var itemFont: UIFont {
+            return CaBFont.Comfortaa.bold(size: 20.0)
+        }
+
     }
 
     weak var delegate: ItemPeriodMenuViewDelegate?
@@ -61,89 +65,123 @@ final class ItemPeriodMenuView: UIView {
     private var id: ID?
 
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var menuButton: UIButton!
+    @IBOutlet private weak var pickerView: UIPickerView!
 
     func configure(for id: ID, with colorScheme: CaBColorScheme) {
         self.id = id
         self.colorScheme = colorScheme
 
-        menuButton.setTitleColor(colorScheme.attributesTertiaryColor, for: .normal)
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
         backgroundColor = .white
         layer.cornerRadius = Constants.cornerRadius
 
-        let menu: UIMenu
         let attributedTitle: NSAttributedString
         switch id {
         case .repeatMenu:
-            let children: [UIAction] = makeSelectActions(for: MenuAction.repeatCases)
-            menu = .init(title: "Repeat", options: .displayInline, children: children)
-            attributedTitle = .init(string: "Repeat:",
-                                    attributes: [
-                                        .foregroundColor: colorScheme.highlightPrimaryColor,
-                                        .font: Constants.font
-                                    ])
+            attributedTitle = .init(text: "Repeat:",
+                                    textColor: colorScheme.highlightPrimaryColor,
+                                    font: Constants.font)
 
         case .endDateMenu:
-            let children: [UIAction] = makeSelectActions(for: MenuAction.endDateCases)
-            menu = .init(title: "End date", options: .displayInline, children: children)
-            attributedTitle = .init(string: "End date:",
-                                    attributes: [
-                                        .foregroundColor: colorScheme.highlightPrimaryColor,
-                                        .font: Constants.font
-                                    ])
+            attributedTitle = .init(text: "End date:",
+                                    textColor: colorScheme.highlightPrimaryColor,
+                                    font: Constants.font)
         }
 
         titleLabel.attributedText = attributedTitle
-        menuButton.menu = menu
-
-        if #available(iOS 15.0, *) {
-            menuButton.changesSelectionAsPrimaryAction = true
-        } else {
-            menuButton.showsMenuAsPrimaryAction = true
-        }
     }
 
-    func setItem(to menuAction: MenuAction) {
-        let currentActions: [MenuAction]
+    func setItem(to menuItem: MenuItem) {
+        let currentActions: [MenuItem]
         switch id {
         case .repeatMenu:
-            currentActions = MenuAction.repeatCases
+            currentActions = MenuItem.repeatCases
 
         case .endDateMenu:
-            currentActions = MenuAction.endDateCases
+            currentActions = MenuItem.endDateCases
 
         case .none:
             logError(message: "ID expected to be set")
             return
         }
 
-        guard let index = currentActions.firstIndex(of: menuAction) else {
-            logError(message: "Unknown action provided: \(menuAction)")
-            return
-        }
-
-        let updatedChildren = makeSelectActions(for: rearrange(array: currentActions, fromIndex: index, toIndex: 0))
-        menuButton.menu?.replacingChildren(updatedChildren)
-    }
-
-    private func makeSelectActions(for menuActions: [MenuAction]) -> [UIAction] {
-        return menuActions.map { makeSelectAction(for: $0) }
-    }
-
-    private func makeSelectAction(for menuAction: MenuAction) -> UIAction {
-        return UIAction(title: menuAction.title, image: menuAction.image) { [weak self] _ in
-            if #available(iOS 15.0, *) {
-                /* Do Nothing */
-            } else {
-                self?.menuButton.setTitle(menuAction.title, for: .normal)
-            }
-            self?.delegate?.didSelectAction(for: menuAction)
-        }
+        let index = currentActions.firstIndex(of: menuItem) ?? 0
+        pickerView.selectRow(index, inComponent: 0, animated: false)
     }
 
 }
 
-extension MenuAction {
+extension ItemPeriodMenuView: UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let currentItems: [MenuItem]
+        switch id {
+        case .repeatMenu:
+            currentItems = MenuItem.repeatCases
+
+        case .endDateMenu:
+            currentItems = MenuItem.endDateCases
+
+        case .none:
+            logError(message: "ID expected to be set")
+            return
+        }
+
+        delegate?.didSelectItem(currentItems[row])
+    }
+
+}
+
+extension ItemPeriodMenuView: UIPickerViewDataSource {
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch id {
+        case .repeatMenu:
+            return MenuItem.repeatCases.count
+
+        case .endDateMenu:
+            return MenuItem.endDateCases.count
+
+        default:
+            logError(message: "ID expected to be set")
+            return 0
+        }
+    }
+
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel()
+
+        let title: String
+        switch id {
+        case .repeatMenu:
+            title = MenuItem.repeatCases[row].title
+
+        case .endDateMenu:
+            title = MenuItem.endDateCases[row].title
+
+        default:
+            logError(message: "ID expected to be set")
+            title = ""
+        }
+
+        let attributedTitle = NSAttributedString(text: title,
+                                                 textColor: colorScheme.highlightPrimaryColor,
+                                                 font: Constants.itemFont)
+        label.textAlignment = .center
+        label.attributedText = attributedTitle
+
+        return label
+    }
+
+}
+
+extension MenuItem {
 
     fileprivate var title: String {
         switch self {
@@ -205,7 +243,7 @@ extension MenuAction {
 
 // MARK: - Repeat Menu Cases
 
-extension MenuAction {
+extension MenuItem {
 
     static var repeatCases: [Self] {
         return [noRepeat, daily, weekly, monthly, yearly]
@@ -235,7 +273,7 @@ extension MenuAction {
 
 // MARK: - End Date Menu Cases
 
-extension MenuAction {
+extension MenuItem {
 
     static var endDateCases: [Self] {
         return [noEndDate, concreteEndDate]

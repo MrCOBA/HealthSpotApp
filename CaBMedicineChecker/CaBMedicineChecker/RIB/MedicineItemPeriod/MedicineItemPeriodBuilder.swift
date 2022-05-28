@@ -16,11 +16,15 @@ final class MedicineItemPeriodBuilder: Builder {
 
     // MARK: - Internal Methods
 
-    func build() -> ViewableRouter {
+    func build(with actionType: MedicineItemPeriodActionType) -> ViewableRouter {
         let view = MedicineItemPeriodView.makeView()
 
         let presenter = MedicineItemPeriodPresenterImpl(view: view, storage: factory.medicineItemPeriodStorage)
-        let interactor = MedicineItemPeriodInteractorImpl(storage: factory.medicineItemPeriodStorage,
+        view.eventsHandler = presenter
+
+        let interactor = MedicineItemPeriodInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
+                                                          actionType: actionType,
+                                                          storage: factory.medicineItemPeriodStorage,
                                                           presenter: presenter,
                                                           listener: listener)
 

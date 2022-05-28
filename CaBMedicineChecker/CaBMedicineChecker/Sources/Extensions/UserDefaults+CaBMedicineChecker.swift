@@ -4,6 +4,10 @@ extension UserDefaults.Key {
 
     enum MedicineChecker {
 
+        static var id: String {
+            return "MedicineCheckerTemporaryId"
+        }
+
         static var startDate: String {
             return "MedicineCheckerTemporaryStartDate"
         }

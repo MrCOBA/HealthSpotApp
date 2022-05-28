@@ -6,9 +6,9 @@ import CaBFoundation
 
 protocol MedicineItemPeriodViewEventsHandler: AnyObject {
 
-    func didTapAddPeriodButton()
+    func didTapPeriodActionButton(_ action: MedicineItemPeriodActionType)
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date)
-    func didSelectAction(for action: MenuAction)
+    func didSelectItem(_ item: MenuItem)
     func didEndEditingText(for id: Int, with text: String?)
     func didFinishEditing()
 
@@ -37,6 +37,7 @@ final class MedicineItemPeriodView: UIViewController {
     }
 
     var colorScheme: CaBColorScheme = .default
+
     weak var eventsHandler: MedicineItemPeriodViewEventsHandler?
 
     // MARK: - Private Properties
@@ -51,6 +52,7 @@ final class MedicineItemPeriodView: UIViewController {
     private var hintInputView: InputView!
 
     @IBOutlet private weak var addPeriodButton: CaBButton!
+    @IBOutlet private weak var deletePeriodButton: CaBButton!
 
     // MARK: - Internal Methods
 
@@ -61,25 +63,16 @@ final class MedicineItemPeriodView: UIViewController {
         configure()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        if isMovingFromParent {
-            checkIfEventsHandlerSet()
-
-            eventsHandler?.didFinishEditing()
-        }
-    }
-
     // MARK: - Private Methods
 
     private func configureHintView() {
-        hintInputView = InputView(frame: .zero,
+        hintInputView = InputView(frame: hintInputContainerView.frame,
                                   id: 0,
                                   configuration: .Default.general(placeholderText: "helpfull text for notification...", with: colorScheme),
                                   colorScheme: colorScheme)
         hintInputContainerView.addSubview(hintInputView)
 
+        hintInputView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             hintInputView.leadingAnchor.constraint(equalTo: hintInputContainerView.leadingAnchor),
             hintInputView.trailingAnchor.constraint(equalTo: hintInputContainerView.trailingAnchor),
@@ -96,7 +89,9 @@ final class MedicineItemPeriodView: UIViewController {
         configureDatePickerViews()
         configureMenuViews()
         configureHintInput()
+        configureBackButton()
         configureAddPeriodButton()
+        configureDeletePeriodButton()
     }
 
     private func configureDatePickerViews() {
@@ -133,8 +128,28 @@ final class MedicineItemPeriodView: UIViewController {
         hintInputView.textField?.text = viewModel.hint
     }
 
+    private func configureBackButton() {
+        let backBarButton = UIBarButtonItem(title: "Back",
+                                            style: .plain,
+                                            target: self,
+                                            action: #selector(backButtonPressed))
+        let attrs = [
+            NSAttributedString.Key.font: CaBFont.Comfortaa.bold(size: 16),
+            NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
+        ]
+        backBarButton.setTitleTextAttributes(attrs, for: .normal)
+        navigationItem.leftBarButtonItem = backBarButton
+    }
+
     private func configureAddPeriodButton() {
         addPeriodButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .tertiary, with: colorScheme))
+        addPeriodButton.setTitle("Apply", for: .normal)
+    }
+
+    private func configureDeletePeriodButton() {
+        deletePeriodButton.isHidden = (viewModel.actionType == .add)
+        deletePeriodButton.apply(configuration: CaBButtonConfiguration.Service.noticeButton(with: colorScheme, icon: nil))
+        deletePeriodButton.setTitle("Delete", for: .normal)
     }
 
     private func checkIfEventsHandlerSet() {
@@ -143,10 +158,23 @@ final class MedicineItemPeriodView: UIViewController {
         }
     }
 
-    @IBAction private func tapAddPeriodButton() {
+    @objc
+    private func backButtonPressed() {
         checkIfEventsHandlerSet()
 
-        eventsHandler?.didTapAddPeriodButton()
+        eventsHandler?.didFinishEditing()
+    }
+
+    @IBAction private func tapEditPeriodActionButton() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didTapPeriodActionButton(viewModel.actionType)
+    }
+
+    @IBAction private func tapDeletePeriodActionButton() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didTapPeriodActionButton(.delete(id: viewModel.id))
     }
 
 }
@@ -167,10 +195,10 @@ extension MedicineItemPeriodView: ItemPeriodDatePickerViewDelegate {
 
 extension MedicineItemPeriodView: ItemPeriodMenuViewDelegate {
 
-    func didSelectAction(for action: MenuAction) {
+    func didSelectItem(_ item: MenuItem) {
         checkIfEventsHandlerSet()
 
-        eventsHandler?.didSelectAction(for: action)
+        eventsHandler?.didSelectItem(item)
     }
 
 }
@@ -191,13 +219,13 @@ extension MedicineItemPeriodView: InputViewDelegate {
 
 extension MedicineItemViewModel.Period {
 
-    fileprivate var toRepeatMenuAction: MenuAction {
-        let action = MenuAction.repeatCases.first(where: { $0.rawValue == frequency?.rawValue }) ?? .noRepeat
+    fileprivate var toRepeatMenuAction: MenuItem {
+        let action = MenuItem.repeatCases.first(where: { $0.rawValue == frequency?.rawValue }) ?? .noRepeat
         return action
     }
 
-    fileprivate var toEndDateMenuAction: MenuAction {
-        let action: MenuAction = (endDate == nil) ? .noEndDate : .concreteEndDate
+    fileprivate var toEndDateMenuAction: MenuItem {
+        let action: MenuItem = (endDate == nil) ? .noEndDate : .concreteEndDate
         return action
     }
 

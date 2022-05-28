@@ -3,7 +3,7 @@ import CaBFoundation
 
 protocol MedicineListPresenter: AnyObject {
 
-    func updateView(rawData medicineItems: [CompositeWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>])
+    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>])
 
 }
 
@@ -18,19 +18,21 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
         self.view = view
     }
 
-    func updateView(rawData medicineItems: [CompositeWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) {
+    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) {
         let cellModels = makeViewModels(rawData: medicineItems)
 
         view?.cellModels = cellModels
     }
 
-    private func makeViewModels(rawData medicineItems: [CompositeWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) -> [MedicineItemViewModel] {
+    private func makeViewModels(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) -> [MedicineItemViewModel] {
         let cellModels: [MedicineItemViewModel] = medicineItems.map { medicineItem in
             let periods: [PeriodModel] = medicineItem.second.map {
-                return .init(startDate: $0.startDate,
+                return .init(id: $0.id,
+                             startDate: $0.startDate,
                              endDate: $0.endDate,
                              frequency: PeriodModel.Frequency(rawValue: $0.frequency),
-                             hint: $0.notificationHint)
+                             hint: $0.notificationHint,
+                             actionType: .add)
             }
 
             return .init(id: medicineItem.first.id,

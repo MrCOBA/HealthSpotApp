@@ -10,7 +10,7 @@ protocol HomeInteractor: Interactor {
 
 final class HomeInteractorImpl: BaseInteractor, HomeInteractor {
 
-    typealias MedicineItemCompositeWrapper = CompositeWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>
+    typealias MedicineItemCompositeWrapper = CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>
 
     weak var router: HomeRouter?
     var presenter: HomePresenter?

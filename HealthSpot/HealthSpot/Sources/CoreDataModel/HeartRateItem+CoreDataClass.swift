@@ -1,5 +1,5 @@
 //
-//  MedicineItem+CoreDataClass.swift
+//  HeartRateItem+CoreDataClass.swift
 //  HealthSpot
 //
 //  Created by Oparin on 28.05.2022.
@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 
-public class MedicineItem: NSManagedObject {
+public class HeartRateItem: NSManagedObject {
 
 }

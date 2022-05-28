@@ -4,8 +4,8 @@ import CaBRiblets
 
 protocol MedicineItemInfoRouter: ViewableRouter {
 
-    func attachItemPeriodView()
-    func detachItemPeriodView(isPopNeeded: Bool)
+    func attachItemPeriodRouter(with actionType: MedicineItemPeriodActionType)
+    func detachItemPeriodRouter(isPopNeeded: Bool)
 
 }
 
@@ -25,13 +25,13 @@ final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
         super.init(interactor: interactor)
     }
 
-    func attachItemPeriodView() {
-        let router = MedicineItemPeriodBuilder(factory: rootServices, listener: interactor).build()
+    func attachItemPeriodRouter(with actionType: MedicineItemPeriodActionType) {
+        let router = MedicineItemPeriodBuilder(factory: rootServices, listener: interactor).build(with: actionType)
 
         attachChildWithPush(router)
     }
 
-    func detachItemPeriodView(isPopNeeded: Bool) {
+    func detachItemPeriodRouter(isPopNeeded: Bool) {
         detachChildWithPop(isPopNeeded: isPopNeeded)
     }
 

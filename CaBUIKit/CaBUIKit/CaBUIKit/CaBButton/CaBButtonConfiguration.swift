@@ -18,7 +18,7 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
         enum ServiceButton {
 
             static var cornerRadius: CGFloat {
-                return 24
+                return 8
             }
 
         }
@@ -75,8 +75,8 @@ public final class CaBButtonConfiguration: CaBUIConfiguration {
         }
 
         public static func noticeButton(with colorScheme: CaBColorScheme, icon: UIImage? = nil) -> CaBButtonConfiguration {
-            return CaBButtonConfiguration(textColor: colorScheme.attributesPrimaryColor,
-                                          borderColor: colorScheme.attributesPrimaryColor,
+            return CaBButtonConfiguration(textColor: colorScheme.errorColor,
+                                          borderColor: colorScheme.errorColor,
                                           borderWidth: Constant.borderWidth,
                                           cornerRadius: Constant.ServiceButton.cornerRadius,
                                           font: CaBFont.Comfortaa.medium(size: Constant.fontSize),

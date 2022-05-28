@@ -4,7 +4,7 @@ import CaBFoundation
 
 protocol MedicineItemPeriodPresenter: AnyObject {
 
-    func updateView()
+    func updateView(for actionType: MedicineItemPeriodActionType)
 
 }
 
@@ -30,17 +30,19 @@ final class MedicineItemPeriodPresenterImpl: MedicineItemPeriodPresenter {
 
     // MARK: - Internal Methods
 
-    func updateView() {
-        view?.viewModel = makeViewModel()
+    func updateView(for actionType: MedicineItemPeriodActionType) {
+        view?.viewModel = makeViewModel(for: actionType)
     }
 
     // MARK: - Private Methods
 
-    private func makeViewModel() -> MedicineItemViewModel.Period {
-        return .init(startDate: storage.startDate,
+    private func makeViewModel(for actionType: MedicineItemPeriodActionType) -> MedicineItemViewModel.Period {
+        return .init(id: storage.id,
+                     startDate: storage.startDate,
                      endDate: storage.endDate,
                      frequency: .init(rawValue: storage.frequency ?? ""),
-                     hint: storage.notificationHint)
+                     hint: storage.notificationHint,
+                     actionType: actionType)
     }
 
     private func checkIfInteractorSet() {
@@ -55,7 +57,7 @@ final class MedicineItemPeriodPresenterImpl: MedicineItemPeriodPresenter {
 
 extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
 
-    func didTapAddPeriodButton() {
+    func didTapPeriodActionButton(_ action: MedicineItemPeriodActionType) {
         checkIfInteractorSet()
 
         interactor?.updatePeriod()
@@ -73,10 +75,10 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
         }
     }
 
-    func didSelectAction(for action: MenuAction) {
+    func didSelectItem(_ item: MenuItem) {
         checkIfInteractorSet()
 
-        switch action {
+        switch item {
         case .noEndDate:
             interactor?.updateStorage(.endDate, with: nil)
 
@@ -87,13 +89,13 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
              .weekly,
              .monthly,
              .yearly:
-            interactor?.updateStorage(.frequency, with: action.rawValue)
+            interactor?.updateStorage(.frequency, with: item.rawValue)
 
         case .noRepeat:
             interactor?.updateStorage(.frequency, with: nil)
 
         default:
-            logError(message: "Unknown action provided: <\(action.rawValue)>")
+            logError(message: "Unknown action provided: <\(item.rawValue)>")
         }
     }
 

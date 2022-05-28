@@ -1,5 +1,14 @@
+//
+//  User+CoreDataProperties.swift
+//  HealthSpot
+//
+//  Created by Oparin on 28.05.2022.
+//
+//
+
 import Foundation
 import CoreData
+
 
 extension User {
 
@@ -7,34 +16,33 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var id: String
-    @NSManaged public var email: String
-    @NSManaged public var password: String
+    @NSManaged public var email: String?
+    @NSManaged public var id: String?
+    @NSManaged public var password: String?
+    @NSManaged public var heartRateItems: NSSet?
     @NSManaged public var medicineItems: NSSet?
 
 }
 
-// MARK: Generated accessors for medicineItems
-
+// MARK: Generated accessors for heartRateItems
 extension User {
 
-    @objc(insertObject:inMedicineItemsAtIndex:)
-    @NSManaged public func insertIntoMedicineItems(_ value: MedicineItem, at idx: Int)
+    @objc(addHeartRateItemsObject:)
+    @NSManaged public func addToHeartRateItems(_ value: HeartRateItem)
 
-    @objc(removeObjectFromMedicineItemsAtIndex:)
-    @NSManaged public func removeFromMedicineItems(at idx: Int)
+    @objc(removeHeartRateItemsObject:)
+    @NSManaged public func removeFromHeartRateItems(_ value: HeartRateItem)
 
-    @objc(insertMedicineItems:atIndexes:)
-    @NSManaged public func insertIntoMedicineItems(_ values: [MedicineItem], at indexes: NSIndexSet)
+    @objc(addHeartRateItems:)
+    @NSManaged public func addToHeartRateItems(_ values: NSSet)
 
-    @objc(removeMedicineItemsAtIndexes:)
-    @NSManaged public func removeFromMedicineItems(at indexes: NSIndexSet)
+    @objc(removeHeartRateItems:)
+    @NSManaged public func removeFromHeartRateItems(_ values: NSSet)
 
-    @objc(replaceObjectInMedicineItemsAtIndex:withObject:)
-    @NSManaged public func replaceMedicineItems(at idx: Int, with value: MedicineItem)
+}
 
-    @objc(replaceMedicineItemsAtIndexes:withMedicineItems:)
-    @NSManaged public func replaceMedicineItems(at indexes: NSIndexSet, with values: [MedicineItem])
+// MARK: Generated accessors for medicineItems
+extension User {
 
     @objc(addMedicineItemsObject:)
     @NSManaged public func addToMedicineItems(_ value: MedicineItem)
@@ -43,10 +51,10 @@ extension User {
     @NSManaged public func removeFromMedicineItems(_ value: MedicineItem)
 
     @objc(addMedicineItems:)
-    @NSManaged public func addToMedicineItems(_ values: NSOrderedSet)
+    @NSManaged public func addToMedicineItems(_ values: NSSet)
 
     @objc(removeMedicineItems:)
-    @NSManaged public func removeFromMedicineItems(_ values: NSOrderedSet)
+    @NSManaged public func removeFromMedicineItems(_ values: NSSet)
 
 }
 

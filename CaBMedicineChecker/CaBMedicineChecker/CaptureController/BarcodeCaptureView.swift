@@ -9,9 +9,10 @@ protocol BarcodeCaptureEventsHandler: AnyObject {
 
 }
 
-final class BarcodeCaptureView: UIViewController {
+final class BarcodeCaptureView: UIViewController, DismissablePresentationControllerConfigurator {
 
     weak var eventsHandler: BarcodeCaptureEventsHandler?
+    var adaptivePresentationProxy: AdaptivePresentationDelegateProxy?
 
     @IBOutlet private weak var messageLabel: UILabel!
 
@@ -68,6 +69,8 @@ final class BarcodeCaptureView: UIViewController {
             view.addSubview(qrCodeFrameView)
             view.bringSubviewToFront(qrCodeFrameView)
         }
+
+        configurePresentationController()
     }
 
     // MARK: - Helper methods
@@ -112,6 +115,15 @@ extension BarcodeCaptureView: AVCaptureMetadataOutputObjectsDelegate {
 
 }
 
+extension BarcodeCaptureView: PresentationControllerDismissHandlerDelegate {
+
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        checkIfEventsHandlerSet()
+        eventsHandler?.didCaptureCancel()
+    }
+
+}
+
 extension BarcodeCaptureView {
 
     static func makeView() -> BarcodeCaptureView {
@@ -119,3 +131,4 @@ extension BarcodeCaptureView {
     }
 
 }
+

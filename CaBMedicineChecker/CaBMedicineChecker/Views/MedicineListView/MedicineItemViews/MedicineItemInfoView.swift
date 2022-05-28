@@ -4,6 +4,8 @@ import CaBFoundation
 
 protocol MedicineItemInfoViewEventsHandler: AnyObject {
 
+    func didTapPeriodCell(with id: String)
+    func didTapAddPeriodButton()
     func didFinish()
     
 }
@@ -99,6 +101,7 @@ final class MedicineItemInfoView: UIViewController {
         configureTitleLabel(with: viewModel)
         configureGetMoreButton(with: viewModel)
         configureBackButton()
+        configureRightButton()
     }
 
     private func configureBackButton() {
@@ -133,8 +136,18 @@ final class MedicineItemInfoView: UIViewController {
     private func configureGetMoreButton(with viewModel: MedicineItemViewModel) {
         getMoreButton.setTitle("Get more...", for: .normal)
         getMoreButton.apply(configuration: CaBButtonConfiguration.Default.button(of: .secondary, with: colorScheme))
+    }
 
-        // TODO: Add Browser opening
+    private func configureRightButton() {
+        let rightBarButton = UIBarButtonItem(image: .MedicineChecker.dailyIcon,
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(rightButtonPressed))
+        let attrs = [
+            NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
+        ]
+        rightBarButton.setTitleTextAttributes(attrs, for: .normal)
+        navigationItem.rightBarButtonItem = rightBarButton
     }
 
     private func checkIfEventsHandlerSet() {
@@ -142,6 +155,19 @@ final class MedicineItemInfoView: UIViewController {
             logError(message: "EventsHandler expected to be set")
             return
         }
+    }
+
+    @IBAction private func openLink(_ sender: Any) {
+        if let url = viewModel.marketUrl, UIApplication.shared.canOpenURL(url) {
+            UIApplication.shared.open(url)
+        }
+    }
+
+    @objc
+    private func rightButtonPressed() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didTapAddPeriodButton()
     }
 
     @objc
@@ -175,6 +201,18 @@ extension MedicineItemInfoView: UITableViewDataSource {
         cell.configure(with: infoSource.title, source: infoSource.source)
         
         return cell
+    }
+
+}
+
+// MARK: - Protocol UICollectionViewDelegate
+
+extension MedicineItemInfoView: UICollectionViewDelegate {
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didTapPeriodCell(with: viewModel.periods[indexPath.item].id)
     }
 
 }

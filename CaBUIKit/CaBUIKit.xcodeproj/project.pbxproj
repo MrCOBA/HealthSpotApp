@@ -46,9 +46,12 @@
 		31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */; };
 		31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */; };
 		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
+		FD1F248728418D2E003F8556 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1F248628418D2E003F8556 /* MenuView.swift */; };
 		FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */; };
 		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
 		FD32F5DA283E0AB00019C6CA /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F5D9283E0AB00019C6CA /* XibView.swift */; };
+		FD3BE5F228422BFF00C31D89 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BE5F128422BFF00C31D89 /* MenuItem.swift */; };
+		FD3BE5F428422C1000C31D89 /* MenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3BE5F328422C1000C31D89 /* MenuItem.xib */; };
 		FD7F7C5B2823FA4E0055D2F3 /* CaBTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */; };
 		FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */; };
 		FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */; };
@@ -113,9 +116,12 @@
 		31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BadScript-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
+		FD1F248628418D2E003F8556 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD32F5D9283E0AB00019C6CA /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
+		FD3BE5F128422BFF00C31D89 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		FD3BE5F328422C1000C31D89 /* MenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItem.xib; sourceTree = "<group>"; };
 		FD7F7C5A2823FA4E0055D2F3 /* CaBTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBTabBarController.swift; sourceTree = "<group>"; };
 		FD7F7C6F2824CA590055D2F3 /* CaBContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBContainerViewController.swift; sourceTree = "<group>"; };
 		FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
@@ -289,6 +295,7 @@
 		31A453D02786461100290D97 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD1F248528418D04003F8556 /* MenuView */,
 				FD32F5D8283E0AA20019C6CA /* XibView */,
 				315DBAE428030BC400DCA5E4 /* InputView */,
 				31A453C82786458800290D97 /* FeatureInfoView */,
@@ -437,12 +444,30 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		FD1F248528418D04003F8556 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BE5F528422C1600C31D89 /* MenuItem */,
+				FD1F248628418D2E003F8556 /* MenuView.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
 		FD32F5D8283E0AA20019C6CA /* XibView */ = {
 			isa = PBXGroup;
 			children = (
 				FD32F5D9283E0AB00019C6CA /* XibView.swift */,
 			);
 			path = XibView;
+			sourceTree = "<group>";
+		};
+		FD3BE5F528422C1600C31D89 /* MenuItem */ = {
+			isa = PBXGroup;
+			children = (
+				FD3BE5F128422BFF00C31D89 /* MenuItem.swift */,
+				FD3BE5F328422C1000C31D89 /* MenuItem.xib */,
+			);
+			path = MenuItem;
 			sourceTree = "<group>";
 		};
 		FD7F7C592823F8CB0055D2F3 /* CaBTabBarController */ = {
@@ -532,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31FB8189268609E600500FE1 /* Comfortaa-Light.ttf in Resources */,
+				FD3BE5F428422C1000C31D89 /* MenuItem.xib in Resources */,
 				31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */,
 				31FB8187268609E600500FE1 /* Comfortaa-Medium.ttf in Resources */,
 				31BF832727A5C9540095184C /* NavigationContainer.storyboard in Resources */,
@@ -559,12 +585,14 @@
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
 				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
 				FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */,
+				FD1F248728418D2E003F8556 /* MenuView.swift in Sources */,
 				FD32F5DA283E0AB00019C6CA /* XibView.swift in Sources */,
 				310539CC26F6915400502C2D /* CaBSwitchConfiguration.swift in Sources */,
 				3191929026F5321A0090C262 /* SelectableButton.swift in Sources */,
 				31E630C2279C6AFB00F9B095 /* CaBTextField.swift in Sources */,
 				31EF64EB26F3E00D008629D2 /* ColdRowanColorScheme.swift in Sources */,
 				31CE0E4227358E4E0027DC06 /* CaBSliderView.swift in Sources */,
+				FD3BE5F228422BFF00C31D89 /* MenuItem.swift in Sources */,
 				FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */,
 				315DBAEF280340E600DCA5E4 /* UINavigationController+CaBUIKit.swift in Sources */,
 				31FB81C22686240100500FE1 /* CaBFont.swift in Sources */,

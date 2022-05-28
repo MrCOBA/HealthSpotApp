@@ -109,10 +109,10 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
         var nextEventDateString = (cellModel.startDate > Date()) ? dateFormatter.string(from: cellModel.startDate) : "-"
         if let frequency = cellModel.frequency {
             guard let nextEventDate = cellModel.startDate.nextEventDate(cellModel.endDate, frequency: frequency) else {
-                nextEventDateString = "-"
+                nextEventDateString = "Next: -"
                 return
             }
-            nextEventDateString = dateFormatter.string(from: nextEventDate)
+            nextEventDateString = "Next: " + dateFormatter.string(from: nextEventDate)
         }
 
         let attributedString = NSAttributedString(string: nextEventDateString,
@@ -124,9 +124,9 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
     private func configureLastEventDateLabel(with cellModel: CellModel) {
         dateFormatter.dateFormat = Constants.DateFormat.small
 
-        var endDateString = "-"
+        var endDateString = "Last: -"
         if let endDate = cellModel.endDate {
-            endDateString = dateFormatter.string(from: endDate)
+            endDateString = "Last: " + dateFormatter.string(from: endDate)
         }
 
         let attributedString = NSAttributedString(string: endDateString,

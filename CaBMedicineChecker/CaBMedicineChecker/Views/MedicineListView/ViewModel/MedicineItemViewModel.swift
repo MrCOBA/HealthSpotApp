@@ -7,16 +7,20 @@ struct MedicineItemViewModel: Equatable {
 
         typealias Frequency = Date.Frequency
 
+        let id: String
         let startDate: Date
         let endDate: Date?
         let frequency: Frequency?
         let hint: String?
+        let actionType: MedicineItemPeriodActionType
 
         static var empty: Self {
-            return .init(startDate: Date(),
+            return .init(id: "",
+                         startDate: Date(),
                          endDate: nil,
                          frequency: nil,
-                         hint: "")
+                         hint: "",
+                         actionType: .add)
         }
         
     }

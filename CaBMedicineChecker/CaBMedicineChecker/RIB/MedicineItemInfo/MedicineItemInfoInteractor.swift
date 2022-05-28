@@ -1,6 +1,7 @@
 import CoreData
 import CaBRiblets
 import CaBFoundation
+import CaBFirebaseKit
 
 protocol MedicineItemInfoListener: AnyObject {
 
@@ -11,6 +12,7 @@ protocol MedicineItemInfoListener: AnyObject {
 protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 
     func didFinish()
+    func showItemPeriodScreen(with actionType: MedicineItemPeriodActionType)
 
 }
 
@@ -20,16 +22,22 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
     weak var router: MedicineItemInfoRouter?
     var presenter: MedicineItemInfoPresenter?
 
+    private let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
+    private let itemPeriodTemporaryStorage: MedicineItemPeriodTemporaryStorage
     private let coreDataAssistant: CoreDataAssistant
 
     private let entityId: String
     private var medicineItem: MedicineItemEntityWrapper?
     private var periods = [MedicineItemPeriodEntityWrapper]()
 
-    init(coreDataAssistant: CoreDataAssistant,
+    init(firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
+         itemPeriodTemporaryStorage: MedicineItemPeriodTemporaryStorage,
+         coreDataAssistant: CoreDataAssistant,
          presenter: MedicineItemInfoPresenter,
          entityId: String,
          listener: MedicineItemInfoListener?) {
+        self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
+        self.itemPeriodTemporaryStorage = itemPeriodTemporaryStorage
         self.entityId = entityId
         self.presenter = presenter
         self.coreDataAssistant = coreDataAssistant
@@ -39,16 +47,33 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
     override func start() {
         super.start()
 
-        medicineItem = loadEntity(with: entityId)
-        periods = loadPeriods(from: medicineItem?.periods)
+        firebaseFirestoreMedicineCheckerController.addObserver(self)
+        syncStorage()
+    }
 
-        updateView()
+    override func stop() {
+        firebaseFirestoreMedicineCheckerController.removeObserver(self)
+
+        super.stop()
+    }
+
+    func showItemPeriodScreen(with actionType: MedicineItemPeriodActionType) {
+        checkIfRouterSet()
+
+        router?.attachItemPeriodRouter(with: actionType)
     }
 
     func didFinish() {
         checkIfListenerSet()
 
         listener?.closeScreen()
+    }
+
+    private func syncStorage() {
+        medicineItem = loadEntity(with: entityId)
+        periods = loadPeriods(from: medicineItem?.periods)
+
+        updateView()
     }
 
     private func updateView() {
@@ -97,14 +122,57 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
 
 extension MedicineItemInfoInteractorImpl: MedicineItemPeriodListener {
 
-    func savePeriod() {
+    func updatePeriod(with actionType: MedicineItemPeriodActionType) {
+        guard let user = UserEntityWrapper(coreDataAssistant: coreDataAssistant) else {
+            return
+        }
 
+        switch actionType {
+        case .add:
+            firebaseFirestoreMedicineCheckerController.addMedicineItemPeriod(data: itemPeriodTemporaryStorage.json(),
+                                                                             toItem: entityId,
+                                                                             ofUser: user.id)
+        case .edit(let id):
+            firebaseFirestoreMedicineCheckerController.updateMedicineItemPeriod(data: itemPeriodTemporaryStorage.json(),
+                                                                                of: id,
+                                                                                inItem: entityId,
+                                                                                ofUser: user.id)
+        case .delete(let id):
+            firebaseFirestoreMedicineCheckerController.deleteMedicineItemPeriod(with: id,
+                                                                                fromItem: entityId,
+                                                                                ofUser: user.id)
+        }
+
+        closeItemPeriodEditorScreen()
     }
 
-    func cancel() {
+    func closeItemPeriodEditorScreen() {
         checkIfRouterSet()
 
-        router?.detachItemPeriodView(isPopNeeded: false)
+        router?.detachItemPeriodRouter(isPopNeeded: true)
+    }
+
+}
+
+extension MedicineItemInfoInteractorImpl: FirebaseFirestoreMedicineCheckerDelegate {
+
+    func didFinishStorageUpdate(with error: Error?) {
+        guard error == nil else {
+            return
+        }
+        
+        syncStorage()
+    }
+
+    func didFinishUpload(with error: Error?) {
+        guard error == nil else {
+            return
+        }
+
+        guard let user = UserEntityWrapper(coreDataAssistant: coreDataAssistant) else {
+            return
+        }
+        firebaseFirestoreMedicineCheckerController.updateData(for: user.id)
     }
 
 }

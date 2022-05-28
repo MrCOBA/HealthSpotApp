@@ -12,7 +12,7 @@ protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCa
 
 final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
 
-    typealias MedicineItemCompositeWrapper = CompositeWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>
+    typealias MedicineItemCompositeWrapper = CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>
 
     weak var router: MedicineListRouter?
     var presenter: MedicineListPresenter?

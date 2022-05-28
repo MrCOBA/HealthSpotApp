@@ -17,6 +17,9 @@ public protocol FirebaseFirestoreMedicineCheckerController: AnyObject {
 
     func updateData(for userId: String)
     func addMedicineItem(with barcode: String, to userId: String)
+    func addMedicineItemPeriod(data: [String: Any], toItem itemId: String, ofUser userId: String)
+    func updateMedicineItemPeriod(data: [String: Any], of periodId: String, inItem itemId: String, ofUser userId: String)
+    func deleteMedicineItemPeriod(with periodId: String, fromItem itemId: String, ofUser userId: String)
 
     func addObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate)
     func removeObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate)
@@ -55,8 +58,29 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                 await uploadMedicineItem(snapshot.documents.first, barcode: barcode, collectionReference: medicineItemsReference)
             }
             catch {
-                observers.notify{ $0.didFinishUpload(with: error) }
+                observers.notify { $0.didFinishUpload(with: error) }
             }
+        }
+    }
+
+    func addMedicineItemPeriod(data: [String: Any], toItem itemId: String, ofUser userId: String) {
+        let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
+        medicineItemPeriodsReference.addDocument(data: data) { [weak self] error in
+            self?.observers.notify { $0.didFinishUpload(with: error) }
+        }
+    }
+
+    func updateMedicineItemPeriod(data: [String: Any], of periodId: String, inItem itemId: String, ofUser userId: String) {
+        let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
+        medicineItemPeriodsReference.document(periodId).updateData(data) { [weak self] error in
+            self?.observers.notify { $0.didFinishUpload(with: error) }
+        }
+    }
+
+    func deleteMedicineItemPeriod(with periodId: String, fromItem itemId: String, ofUser userId: String) {
+        let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
+        medicineItemPeriodsReference.document(periodId).delete() { [weak self] error in
+            self?.observers.notify { $0.didFinishUpload(with: error) }
         }
     }
 
@@ -70,7 +94,7 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                 await updateStorage()
             }
             catch {
-                observers.notify{ $0.didFinishStorageUpdate(with: error) }
+                observers.notify { $0.didFinishStorageUpdate(with: error) }
             }
         }
     }
@@ -84,6 +108,10 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
     }
 
     // MARK: - Private Methods
+
+    private func getPeriodsCollectionReference(from itemId: String, _ userId: String) -> CollectionReference {
+        return dataBase.collection("users").document(userId).collection("medicaments").document(itemId).collection("periods")
+    }
 
     private func getMedicineItems(from user: DocumentReference) async throws -> [QueryDocumentSnapshot] {
         let medicineItemsSnapshot = try await user.collection("medicaments").getDocuments()
@@ -125,8 +153,11 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
 
                     let periodEntityWrapper = MedicineItemPeriodEntityWrapper(entityObject: periodEntity, coreDataAssistant: coreDataAssistant)
                     periodEntityWrapper.id = period.documentID
-                    periodEntityWrapper.startDate = period["startDate"] as? Date ?? Date()
-                    periodEntityWrapper.endDate = period["endDate"] as? Date
+
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "E, dd.MM.yy HH:mm Z"
+                    periodEntityWrapper.startDate = dateFormatter.date(from: period["startDate"] as? String ?? "") ?? Date()
+                    periodEntityWrapper.endDate = dateFormatter.date(from: period["ednDate"] as? String ?? "")
                     periodEntityWrapper.notificationHint = period["notificationHint"] as? String ?? ""
                     periodEntityWrapper.frequency = period["frequency"] as? String ?? ""
 
@@ -144,7 +175,7 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
 
         coreDataAssistant.saveData()
 
-        observers.notify{ $0.didFinishStorageUpdate(with: nil) }
+        observers.notify { $0.didFinishStorageUpdate(with: nil) }
     }
 
     private func uploadMedicineItem(_ item: QueryDocumentSnapshot?, barcode: String, collectionReference: CollectionReference) async {
@@ -159,9 +190,10 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
         data["barcode"] = barcode
         data["marketUrl"] = item["url"] as? String ?? ""
 
-        collectionReference.addDocument(data: data)
+        collectionReference.addDocument(data: data) { [weak self] error in
+            self?.observers.notify { $0.didFinishUpload(with: error) }
+        }
 
-        observers.notify{ $0.didFinishUpload(with: nil) }
     }
 
 }

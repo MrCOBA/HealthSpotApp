@@ -1,12 +1,20 @@
 import CaBRiblets
 import CaBFoundation
 
+enum MedicineItemPeriodActionType: Equatable {
+
+    case add
+    case edit(id: String)
+    case delete(id: String)
+
+}
+
 // MARK: - Listener
 
 protocol MedicineItemPeriodListener: AnyObject {
 
-    func savePeriod()
-    func cancel()
+    func updatePeriod(with actionType: MedicineItemPeriodActionType)
+    func closeItemPeriodEditorScreen()
 
 }
 
@@ -39,12 +47,20 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
 
     // MARK: - Private Properties
 
+    private let coreDataAssistant: CoreDataAssistant
     private let storage: MedicineItemPeriodTemporaryStorage
     private var presenter: MedicineItemPeriodPresenter?
+    private let actionType: MedicineItemPeriodActionType
 
     // MARK: - Init
 
-    init(storage: MedicineItemPeriodTemporaryStorage, presenter: MedicineItemPeriodPresenter, listener: MedicineItemPeriodListener?) {
+    init(coreDataAssistant: CoreDataAssistant,
+         actionType: MedicineItemPeriodActionType,
+         storage: MedicineItemPeriodTemporaryStorage,
+         presenter: MedicineItemPeriodPresenter,
+         listener: MedicineItemPeriodListener?) {
+        self.coreDataAssistant = coreDataAssistant
+        self.actionType = actionType
         self.storage = storage
         self.presenter = presenter
         self.listener = listener
@@ -55,7 +71,15 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
     override func start() {
         super.start()
 
-        presenter?.updateView()
+        switch actionType {
+        case .add:
+            break
+
+        case .edit(let id), .delete(let id):
+            loadEntity(with: id)
+        }
+
+        presenter?.updateView(for: actionType)
     }
 
     func updateStorage(_ field: MedicineItemPeriodInteractorImpl.UpdateField, with data: Any?) {
@@ -73,23 +97,36 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
             storage.frequency = (data as? String)
         }
 
-        presenter?.updateView()
+        presenter?.updateView(for: actionType)
     }
 
     func updatePeriod() {
         checkIfListenerSet()
 
-        listener?.savePeriod()
+        listener?.updatePeriod(with: actionType)
     }
 
     func cancelUpdatePeriod() {
         checkIfListenerSet()
 
         storage.clear()
-        listener?.cancel()
+        listener?.closeItemPeriodEditorScreen()
     }
 
     // MARK: - Private Methods
+
+    private func loadEntity(with id: String) {
+        if let periodWrapper = MedicineItemPeriodEntityWrapper(id: id, coreDataAssistant: coreDataAssistant) {
+            storage.id = periodWrapper.id
+            storage.startDate = periodWrapper.startDate
+            storage.endDate = periodWrapper.endDate
+            storage.frequency = periodWrapper.frequency
+            storage.notificationHint = periodWrapper.notificationHint
+        }
+        else {
+            storage.clear()
+        }
+    }
 
     private func checkIfListenerSet() {
         if listener == nil {
