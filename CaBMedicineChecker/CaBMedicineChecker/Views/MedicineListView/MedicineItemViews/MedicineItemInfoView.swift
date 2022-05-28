@@ -95,6 +95,7 @@ final class MedicineItemInfoView: UIViewController {
         imageLoadingIndicator.stopAnimating()
 
         collectionViewHeightConstraint.constant = (viewModel.periods.count > 0) ? 100 : 0
+        
         view.backgroundColor = colorScheme.backgroundPrimaryColor
 
         configureIconImageView(with: viewModel)
@@ -102,6 +103,9 @@ final class MedicineItemInfoView: UIViewController {
         configureGetMoreButton(with: viewModel)
         configureBackButton()
         configureRightButton()
+
+        itemPeriodCollectionView.reloadData()
+        itemPeriodCollectionView.layoutIfNeeded()
     }
 
     private func configureBackButton() {

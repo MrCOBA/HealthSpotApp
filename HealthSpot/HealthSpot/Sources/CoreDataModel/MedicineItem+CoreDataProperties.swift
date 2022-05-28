@@ -23,6 +23,7 @@ extension MedicineItem {
     @NSManaged public var marketUrl: String?
     @NSManaged public var name: String?
     @NSManaged public var producer: String?
+    @NSManaged public var placeholderImage: Data?
     @NSManaged public var periods: NSSet?
     @NSManaged public var user: User?
 

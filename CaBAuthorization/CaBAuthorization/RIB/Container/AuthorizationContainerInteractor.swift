@@ -64,6 +64,8 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
         userWrapper.email = credentialsStorage.email
         userWrapper.password = credentialsStorage.password
 
+        credentialsStorage.clear()
+
         coreDataAssistant.saveData()
     }
 

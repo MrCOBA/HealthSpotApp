@@ -12,8 +12,9 @@
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="marketUrl" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="placeholderImage" attributeType="Binary"/>
         <attribute name="producer" attributeType="String"/>
-        <relationship name="periods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineItemPeriod" inverseName="medicineItem" inverseEntity="MedicineItemPeriod"/>
+        <relationship name="periods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineItemPeriod" inverseName="medicineItem" inverseEntity="MedicineItemPeriod"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="medicineItems" inverseEntity="User"/>
     </entity>
     <entity name="MedicineItemPeriod" representedClassName=".MedicineItemPeriod" syncable="YES">
@@ -29,12 +30,12 @@
         <attribute name="id" attributeType="String"/>
         <attribute name="password" attributeType="String"/>
         <relationship name="heartRateItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HeartRateItem" inverseName="user" inverseEntity="HeartRateItem"/>
-        <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
+        <relationship name="medicineItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineItem" inverseName="user" inverseEntity="MedicineItem"/>
     </entity>
     <elements>
-        <element name="HeartRateItem" positionX="-1178.233337402344" positionY="158.1251831054688" width="128" height="88"/>
-        <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="164"/>
-        <element name="MedicineItemPeriod" positionX="-951.94140625" positionY="8.083831787109375" width="128" height="119"/>
-        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="104"/>
+        <element name="HeartRateItem" positionX="-1309.809875488281" positionY="-236.9624023437499" width="128" height="88"/>
+        <element name="MedicineItem" positionX="-1129.708312988281" positionY="-80.61737060546875" width="128" height="193"/>
+        <element name="MedicineItemPeriod" positionX="-872.72900390625" positionY="-114.4198913574219" width="128" height="133"/>
+        <element name="User" positionX="-1390.17333984375" positionY="9.131439208984375" width="128" height="118"/>
     </elements>
 </model>

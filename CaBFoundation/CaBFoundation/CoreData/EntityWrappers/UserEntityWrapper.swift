@@ -37,6 +37,8 @@ public final class UserEntityWrapper: EntityWrapper {
             return coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil) ?? []
         }
         set {
+            let predicate = NSPredicate(format: "user = %@", entityObject)
+            coreDataAssistant.removeData("MedicineItem", predicate: predicate, sortDescriptor: nil)
             let array: [NSManagedObject] = newValue.compactMap { $0 as? NSManagedObject }
             entityObject.setValue(NSSet(array: array), forKey: "medicineItems")
         }

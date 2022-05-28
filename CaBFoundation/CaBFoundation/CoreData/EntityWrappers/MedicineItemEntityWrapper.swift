@@ -73,6 +73,8 @@ public final class MedicineItemEntityWrapper: EntityWrapper {
             return coreDataAssistant.loadData("MedicineItemPeriod", predicate: predicate, sortDescriptor: nil) ?? []
         }
         set {
+            let predicate = NSPredicate(format: "medicineItem = %@", entityObject)
+            coreDataAssistant.removeData("MedicineItemPeriod", predicate: predicate, sortDescriptor: nil)
             let array: [NSManagedObject] = newValue.compactMap { $0 as? NSManagedObject }
             entityObject.setValue(NSSet(array: array), forKey: "periods")
         }

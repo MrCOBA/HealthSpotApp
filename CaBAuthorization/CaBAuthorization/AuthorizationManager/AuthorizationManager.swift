@@ -131,13 +131,13 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
             temporaryCredentialsStorage.id = id ?? ""
             NotificationCenter.default.post(name: .Authorization.signIn(result: .success),
                                             object: nil,
-                                            userInfo: ["id": id])
+                                            userInfo: ["id": id as Any])
             return
         }
 
         NotificationCenter.default.post(name: .Authorization.firebaseSignInError,
                                         object: nil,
-                                        userInfo: ["error": error])
+                                        userInfo: ["error": error as Any])
     }
 
     public func didSignUp(id: String?, with error: Swift.Error?) {
@@ -150,7 +150,7 @@ extension AuthorizationManagerImpl: FirebaseAuthorizationDelegate {
 
         NotificationCenter.default.post(name: .Authorization.firebaseSignUpError,
                                         object: nil,
-                                        userInfo: ["error": error])
+                                        userInfo: ["error": error as Any])
     }
 
 }

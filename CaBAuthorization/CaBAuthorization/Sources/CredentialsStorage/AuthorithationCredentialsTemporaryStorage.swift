@@ -9,6 +9,8 @@ public protocol AuthorithationCredentialsTemporaryStorage: AnyObject {
     var password: String { get set }
     var repeatedPassword: String { get set }
 
+    func clear()
+
 }
 
 // MARK: - Implementation
@@ -44,6 +46,13 @@ public final class AuthorithationCredentialsTemporaryStorageImpl: Authorithation
         self._repeatedPassword = .init(underlyingDefaults: userDefaults,
                                        key: UserDefaults.Key.Authorization.repeatedPassword,
                                        defaultValue: "")
+    }
+
+    public func clear() {
+        id = ""
+        email = ""
+        password = ""
+        repeatedPassword = ""
     }
     
 }

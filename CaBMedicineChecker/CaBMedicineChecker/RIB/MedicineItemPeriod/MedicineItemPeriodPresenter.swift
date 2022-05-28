@@ -60,7 +60,7 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
     func didTapPeriodActionButton(_ action: MedicineItemPeriodActionType) {
         checkIfInteractorSet()
 
-        interactor?.updatePeriod()
+        interactor?.updatePeriod(with: action)
     }
 
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date) {

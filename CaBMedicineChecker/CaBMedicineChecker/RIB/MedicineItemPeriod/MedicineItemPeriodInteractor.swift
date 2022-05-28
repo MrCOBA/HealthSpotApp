@@ -23,7 +23,7 @@ protocol MedicineItemPeriodListener: AnyObject {
 protocol MedicineItemPeriodInteractor: Interactor {
 
     func updateStorage(_ field: MedicineItemPeriodInteractorImpl.UpdateField, with data: Any?)
-    func updatePeriod()
+    func updatePeriod(with actionType: MedicineItemPeriodActionType)
     func cancelUpdatePeriod()
 
 }
@@ -100,7 +100,7 @@ final class MedicineItemPeriodInteractorImpl: BaseInteractor, MedicineItemPeriod
         presenter?.updateView(for: actionType)
     }
 
-    func updatePeriod() {
+    func updatePeriod(with actionType: MedicineItemPeriodActionType) {
         checkIfListenerSet()
 
         listener?.updatePeriod(with: actionType)

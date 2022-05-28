@@ -46,14 +46,14 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
     }
     
     private func tryToSignIn() {
-        guard let _ = user else {
+        guard let user = user else {
             checkIfRouterSet()
             router?.attachAuthorizationFlow()
             return
         }
 
         subscribeForNotifications()
-        authorizationManager.signIn()
+        authorizationManager.signIn(email: user.email ?? "", password: user.password ?? "")
     }
 
     @objc
