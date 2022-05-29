@@ -143,7 +143,7 @@ final class MedicineItemInfoView: UIViewController {
     }
 
     private func configureRightButton() {
-        let rightBarButton = UIBarButtonItem(image: .MedicineChecker.dailyIcon,
+        let rightBarButton = UIBarButtonItem(image: UIImage(systemName: "plus"),
                                              style: .plain,
                                              target: self,
                                              action: #selector(rightButtonPressed))

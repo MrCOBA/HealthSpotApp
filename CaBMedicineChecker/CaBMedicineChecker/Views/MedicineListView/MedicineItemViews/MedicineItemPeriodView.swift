@@ -9,7 +9,7 @@ protocol MedicineItemPeriodViewEventsHandler: AnyObject {
     func didTapPeriodActionButton(_ action: MedicineItemPeriodActionType)
     func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date)
     func didSelectItem(_ item: MenuItem)
-    func didEndEditingText(for id: Int, with text: String?)
+    func didEndEditingText(with text: String?)
     func didFinishEditing()
 
 }
@@ -80,7 +80,7 @@ final class MedicineItemPeriodView: UIViewController {
             hintInputView.bottomAnchor.constraint(equalTo: hintInputContainerView.bottomAnchor)
         ])
 
-        hintInputView.delegate = self
+        hintInputView.textField?.delegate = self
     }
 
     private func configure() {
@@ -179,6 +179,27 @@ final class MedicineItemPeriodView: UIViewController {
 
 }
 
+// MARK: - Protocol UITextFieldDelegate
+
+extension MedicineItemPeriodView: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        endDateMenuView.isHidden = true
+    }
+
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        endDateMenuView.isHidden = false
+
+        eventsHandler?.didEndEditingText(with: textField.text)
+    }
+
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return false
+    }
+
+}
+
 // MARK: - Protocol ItemPeriodDatePickerViewDelegate
 
 extension MedicineItemPeriodView: ItemPeriodDatePickerViewDelegate {
@@ -199,18 +220,6 @@ extension MedicineItemPeriodView: ItemPeriodMenuViewDelegate {
         checkIfEventsHandlerSet()
 
         eventsHandler?.didSelectItem(item)
-    }
-
-}
-
-// MARK: - InputViewDelegate
-
-extension MedicineItemPeriodView: InputViewDelegate {
-
-    func didEndEditingText(for id: Int, with text: String?) {
-        checkIfEventsHandlerSet()
-
-        eventsHandler?.didEndEditingText(for: id, with: text)
     }
 
 }

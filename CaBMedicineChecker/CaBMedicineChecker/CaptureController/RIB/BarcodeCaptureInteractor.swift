@@ -92,7 +92,6 @@ extension BarcodeCaptureInteractor: FirebaseFirestoreMedicineCheckerDelegate {
         router?.attachAlert(with: error) { [weak self] _ in
             self?.didCaptureCancel()
         }
-
     }
 
     func didFinishUpload(with error: Error?) {

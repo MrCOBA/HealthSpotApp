@@ -164,6 +164,7 @@ extension MedicineItemInfoInteractorImpl: MedicineItemPeriodListener {
 
     func closeItemPeriodEditorScreen() {
         checkIfRouterSet()
+        itemPeriodTemporaryStorage.clear()
 
         router?.detachItemPeriodRouter()
     }

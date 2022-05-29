@@ -34,8 +34,8 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
     private let healthStore: HKHealthStore
     private let configuration: HKWorkoutConfiguration
 
-    private var session: HKWorkoutSession!
-    private var builder: HKLiveWorkoutBuilder!
+    private var session: HKWorkoutSession?
+    private var builder: HKLiveWorkoutBuilder?
 
     // MARK: - Init
 
@@ -78,8 +78,8 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
 
     func start() {
         configure()
-        session.startActivity(with: Date())
-        builder.beginCollection(withStart: Date()) { (success, error) in
+        session?.startActivity(with: Date())
+        builder?.beginCollection(withStart: Date()) { (success, error) in
             if success {
                 NSLog("Success data tracking initialization <\(success)>")
             }
@@ -90,9 +90,9 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
     }
 
     func stop() {
-        session.stopActivity(with: Date())
-        session.end()
-        builder.endCollection(withEnd: Date()) { (success, error) in
+        session?.stopActivity(with: Date())
+        session?.end()
+        builder?.endCollection(withEnd: Date()) { (success, error) in
             if success {
                 NSLog("Success data tracking deinitialization <\(success)>")
             }
@@ -169,8 +169,8 @@ final class CompanionHealthDataTrackingImpl: NSObject, CompanionHealthDataTracki
             return
         }
 
-        builder.delegate = self
-        builder.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
+        builder?.delegate = self
+        builder?.dataSource = HKLiveWorkoutDataSource(healthStore: healthStore, workoutConfiguration: configuration)
     }
 
     private func handleSendStatisticsData(_ statistics: HKStatistics) {

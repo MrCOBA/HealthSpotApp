@@ -160,11 +160,20 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
 
     private func configureInputTextField(for state: AuthorizationViewModel.InputTextFieldState, with id: Int) -> InputView? {
         if case .shown(let placeholder, let icon) = state {
-            return .init(frame: .zero,
-                         id: id,
-                         configuration: .Default.general(placeholderText: placeholder, with: colorScheme),
-                         icon: icon,
-                         colorScheme: colorScheme)
+            let view: InputView = .init(frame: .zero,
+                                        id: id,
+                                        configuration: .Default.general(placeholderText: placeholder, with: colorScheme),
+                                        icon: icon,
+                                        colorScheme: colorScheme)
+            if id == 0 {
+                view.textField?.keyboardType = .emailAddress
+                view.textField?.autocorrectionType = .no
+            }
+            else {
+                view.textField?.isSecureTextEntry = true
+            }
+
+            return view
         }
         return nil
     }

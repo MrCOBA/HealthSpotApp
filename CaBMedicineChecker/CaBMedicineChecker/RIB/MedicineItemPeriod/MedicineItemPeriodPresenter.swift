@@ -99,7 +99,7 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
         }
     }
 
-    func didEndEditingText(for id: Int, with text: String?) {
+    func didEndEditingText(with text: String?) {
         checkIfInteractorSet()
 
         interactor?.updateStorage(.notificationHint, with: text)
