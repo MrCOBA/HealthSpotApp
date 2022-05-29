@@ -57,7 +57,8 @@ final class HeartRateActivityView: BaseActivityView {
     }
 
     private func configureHeartRateLabel(with viewModel: ViewModel) {
-        let attributedHeartRate = NSAttributedString(text: "\(viewModel.heartRate) BPM",
+        let roundValue = NSString(format: "%.2f", viewModel.heartRate)
+        let attributedHeartRate = NSAttributedString(text: "\(roundValue) BPM",
                                                      textColor: colorScheme.highlightPrimaryColor,
                                                      font: Constants.Fonts.generalLabelFont)
 

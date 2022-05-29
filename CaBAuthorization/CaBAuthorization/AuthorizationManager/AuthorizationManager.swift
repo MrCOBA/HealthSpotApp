@@ -21,15 +21,18 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
 
     // MARK: - Private Properties
 
+    private let networkMonitor: NetworkMonitor
     private let authorizationController: FirebaseAuthorizationController
     private let coreDataAssistant: CoreDataAssistant
     private let temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage
 
     // MARK: - Init
 
-    public init(authorizationController: FirebaseAuthorizationController,
+    public init(networkMonitor: NetworkMonitor,
+                authorizationController: FirebaseAuthorizationController,
                 coreDataAssistant: CoreDataAssistant,
                 temporaryCredentialsStorage: AuthorithationCredentialsTemporaryStorage) {
+        self.networkMonitor = networkMonitor
         self.coreDataAssistant = coreDataAssistant
         self.temporaryCredentialsStorage = temporaryCredentialsStorage
         self.authorizationController = authorizationController
@@ -40,6 +43,11 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
     // MARK: - Public Methods
 
     public func signIn() {
+        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
+            postErrorNotification(.noInternetConnection)
+            return
+        }
+
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
 
@@ -64,10 +72,20 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
     }
 
     public func signIn(email: String, password: String) {
+        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
+            postErrorNotification(.noInternetConnection)
+            return
+        }
+
         authorizationController.signIn(email: email, password: password)
     }
 
     public func signUp() {
+        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
+            postErrorNotification(.noInternetConnection)
+            return
+        }
+
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
         let repeatedPassword = temporaryCredentialsStorage.repeatedPassword

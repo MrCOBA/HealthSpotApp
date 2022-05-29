@@ -88,6 +88,18 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
         }
     }
 
+    private func configureBackButton(with model: AuthorizationViewModel) {
+        if case .shown(let title) = model.backButtonState {
+            backButton.isHidden = false
+            backButton.setTitle(title, for: .normal)
+            backButton.apply(configuration: CaBButtonConfiguration.Service.generalButton(with: colorScheme, icon: .Autorization.back))
+            backButton.imageView?.tintColor = colorScheme.highlightPrimaryColor
+            return
+        }
+
+        backButton.isHidden = true
+    }
+
     private func checkIfEventsHandlerSet() {
         guard viewModel.eventsHandler != nil else {
             logError(message: "EventsHandler expected to be set")

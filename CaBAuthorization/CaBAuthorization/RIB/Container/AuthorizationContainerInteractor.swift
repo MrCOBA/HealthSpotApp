@@ -50,7 +50,21 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
             NotificationCenter.default.addObserver(self, selector: #selector(successAuthHandling(notification:)), name: notification, object: nil)
         }
 
-        // TODO: Add erros handling
+        // MARK: Auth Failure
+        let errorNotifications: [Notification.Name] = [
+            .Authorization.firebaseSignInError,
+            .Authorization.firebaseSignUpError,
+            .Authorization.signIn(result: .failure(error: .incorrectFormat)),
+            .Authorization.signIn(result: .failure(error: .notAllFieldsAreFilledIn)),
+            .Authorization.signUp(result: .failure(error: .incorrectFormat)),
+            .Authorization.signUp(result: .failure(error: .notAllFieldsAreFilledIn)),
+            .Authorization.signUp(result: .failure(error: .passwordsDoNotMatch)),
+            .Authorization.signUp(result: .failure(error: .noInternetConnection)),
+            .Authorization.signIn(result: .failure(error: .noInternetConnection))]
+
+        errorNotifications.forEach { notification in
+            NotificationCenter.default.addObserver(self, selector: #selector(errorAuthHandling(notification:)), name: notification, object: nil)
+        }
     }
 
     private func saveCredentials() {
@@ -85,6 +99,38 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
         case .Authorization.signUp(result: .success):
             checkIfRouterSet()
             router?.attachScreen(for: .infoSuccess)
+
+        default:
+            logError(message: "Unknown notification recieved: <\(notification.name)>")
+        }
+    }
+
+    @objc
+    private func errorAuthHandling(notification: Notification) {
+        switch notification.name {
+        case .Authorization.firebaseSignInError,
+             .Authorization.firebaseSignUpError:
+            checkIfRouterSet()
+            router?.attachScreen(for: .infoFailure)
+
+        case .Authorization.signIn(result: .failure(error: .incorrectFormat)),
+             .Authorization.signUp(result: .failure(error: .incorrectFormat)):
+            checkIfRouterSet()
+            router?.attachAlert(of: .incorrectFormat)
+
+        case .Authorization.signIn(result: .failure(error: .notAllFieldsAreFilledIn)),
+             .Authorization.signUp(result: .failure(error: .notAllFieldsAreFilledIn)):
+            checkIfRouterSet()
+            router?.attachAlert(of: .notAllFieldsAreFilledIn)
+
+        case .Authorization.signUp(result: .failure(error: .passwordsDoNotMatch)):
+            checkIfRouterSet()
+            router?.attachAlert(of: .passwordsDoNotMatch)
+
+        case .Authorization.signUp(result: .failure(error: .noInternetConnection)),
+             .Authorization.signIn(result: .failure(error: .noInternetConnection)):
+            checkIfRouterSet()
+            router?.attachAlert(of: .noInternetConnection)
 
         default:
             logError(message: "Unknown notification recieved: <\(notification.name)>")

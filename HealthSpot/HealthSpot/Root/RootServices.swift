@@ -11,6 +11,7 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
     // MARK: RootServices
 
     var colorScheme: CaBColorScheme { get }
+    var networkMonitor: NetworkMonitor { get }
     var coreDataAssistant: CoreDataAssistant { get }
     var rootSettingsStorage: RootSettingsStorage { get }
     var localNotificationsAssistant: LocalNotificationAssistant { get }
@@ -38,6 +39,8 @@ final class RootServicesImpl: RootServices {
     private var context: NSManagedObjectContext?
     private let suiteProvider = UserDefaultsSuiteProvider()
 
+    let networkMonitor: NetworkMonitor
+
     let coreDataAssistant: CoreDataAssistant
 
     let rootSettingsStorage: RootSettingsStorage
@@ -63,6 +66,7 @@ final class RootServicesImpl: RootServices {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             context = appDelegate.persistentContainer.viewContext
         }
+        networkMonitor = NetworkMonitorImpl()
         coreDataAssistant = CoreDataAssistantImpl(context: context)
 
         rootSettingsStorage = RootSettingsStorageImpl(userDefaults: suiteProvider.suite(type: RootSettingsStorage.self) ?? .standard)
@@ -80,7 +84,8 @@ final class RootServicesImpl: RootServices {
 
         credentialsStorage = AuthorithationCredentialsTemporaryStorageImpl()
 
-        authorizationManager = AuthorizationManagerImpl(authorizationController: firebaseServices.authorizationController,
+        authorizationManager = AuthorizationManagerImpl(networkMonitor: networkMonitor,
+                                                        authorizationController: firebaseServices.authorizationController,
                                                         coreDataAssistant: coreDataAssistant,
                                                         temporaryCredentialsStorage: credentialsStorage)
 
@@ -89,7 +94,13 @@ final class RootServicesImpl: RootServices {
 
         dataTracking = HealthDataTrackingImpl(statisticsStorage: statisticsStorage)
         watchKitConnection = WatchKitConnectionImpl(statisticsStorage: statisticsStorage)
+
         watchKitConnection.startSession()
+        networkMonitor.startMonitoring()
+    }
+
+    deinit {
+        networkMonitor.stopMonitoring()
     }
 
 }

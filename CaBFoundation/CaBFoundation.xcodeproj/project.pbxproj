@@ -14,6 +14,7 @@
 		31FB81AA2686151000500FE1 /* Bundle+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */; };
 		FD048E61283C43EA00881AEA /* LocalNotificationAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */; };
 		FD048E69283C4AEB00881AEA /* RootSettingsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */; };
+		FD0CC9C92843DBD0008FCB2B /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9C82843DBD0008FCB2B /* NetworkMonitor.swift */; };
 		FD32F5DE283E233F0019C6CA /* ObservableUserDefaultsStored.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F5DD283E233F0019C6CA /* ObservableUserDefaultsStored.swift */; };
 		FD32F5E0283E23AC0019C6CA /* NSObjectPropertyObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD32F5DF283E23AC0019C6CA /* NSObjectPropertyObserver.swift */; };
 		FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CCA283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift */; };
@@ -49,6 +50,7 @@
 		31FB81A92686151000500FE1 /* Bundle+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FD048E60283C43EA00881AEA /* LocalNotificationAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationAssistant.swift; sourceTree = "<group>"; };
 		FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSettingsStorage.swift; sourceTree = "<group>"; };
+		FD0CC9C82843DBD0008FCB2B /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		FD32F5DD283E233F0019C6CA /* ObservableUserDefaultsStored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableUserDefaultsStored.swift; sourceTree = "<group>"; };
 		FD32F5DF283E23AC0019C6CA /* NSObjectPropertyObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectPropertyObserver.swift; sourceTree = "<group>"; };
 		FD442CCA283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePropertyOnChangeHandlerProvider.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		31FB819F268614E900500FE1 /* CaBFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				FD0CC9C72843DBB2008FCB2B /* Network */,
 				FD5E24DA2843A2B500BF9F32 /* CachedStorage */,
 				FD048E67283C4ABB00881AEA /* RootStorage */,
 				FD048E5F283C43BF00881AEA /* Notifications */,
@@ -165,6 +168,14 @@
 				FD048E68283C4AEB00881AEA /* RootSettingsStorage.swift */,
 			);
 			path = RootStorage;
+			sourceTree = "<group>";
+		};
+		FD0CC9C72843DBB2008FCB2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CC9C82843DBD0008FCB2B /* NetworkMonitor.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		FD5E24DA2843A2B500BF9F32 /* CachedStorage */ = {
@@ -333,6 +344,7 @@
 				FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */,
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
 				FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */,
+				FD0CC9C92843DBD0008FCB2B /* NetworkMonitor.swift in Sources */,
 				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
 				FDC9DCF62841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift in Sources */,
 				FDC9DCF52841314400AB149F /* UIViewController+Parent.swift in Sources */,

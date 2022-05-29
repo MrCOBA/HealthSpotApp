@@ -20,6 +20,7 @@ extension Notification.Name {
         // MARK: Cases
 
         public static let incorrectFormat = Error(rawValue: "incorrectFormat")
+        public static let noInternetConnection = Error(rawValue: "noInternetConnection")
 
         public init(rawValue: String) {
             self.rawValue = rawValue

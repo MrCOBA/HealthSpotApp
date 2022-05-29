@@ -51,7 +51,8 @@ class CalloriesActivityView: BaseActivityView {
     }
 
     private func configureCalloriesBurntLabel(with viewModel: ViewModel) {
-        let attributedCalloriesBurnt = NSAttributedString(text: "\(viewModel.currentCalloriesBurnt) kcal",
+        let roundValue = NSString(format: "%.2f", viewModel.currentCalloriesBurnt)
+        let attributedCalloriesBurnt = NSAttributedString(text: "\(roundValue) kcal",
                                                           textColor: colorScheme.highlightPrimaryColor,
                                                           font: Constants.Fonts.generalLabelFont)
 
@@ -59,7 +60,8 @@ class CalloriesActivityView: BaseActivityView {
     }
 
     private func configureGoalLabel(with viewModel: ViewModel) {
-        let attributedGoal = NSAttributedString(text: "Goal: \(viewModel.currentCalloriesBurnt) kcal / \(viewModel.goalCallories) kcal",
+        let roundValue = NSString(format: "%.1f", viewModel.currentCalloriesBurnt)
+        let attributedGoal = NSAttributedString(text: "Goal: \(roundValue) kcal / \(viewModel.goalCallories) kcal",
                                                 textColor: colorScheme.attributesTertiaryColor,
                                                 font: Constants.Fonts.stateLabelFont)
 

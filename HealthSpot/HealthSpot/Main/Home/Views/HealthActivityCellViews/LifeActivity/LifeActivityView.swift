@@ -51,7 +51,8 @@ final class LifeActivityView: BaseActivityView {
     }
 
     private func configureStepsCountLabel(with viewModel: ViewModel) {
-        let attributedStepsCount = NSAttributedString(text: "\(viewModel.currentStepsCount) steps",
+        let roundValue = NSString(format: "%.2f", viewModel.currentStepsCount)
+        let attributedStepsCount = NSAttributedString(text: "\(roundValue) steps",
                                                       textColor: colorScheme.highlightPrimaryColor,
                                                       font: Constants.Fonts.generalLabelFont)
 

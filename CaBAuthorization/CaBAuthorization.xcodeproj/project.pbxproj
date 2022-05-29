@@ -22,6 +22,7 @@
 		31F1DB5627D7C8FD002581FD /* AuthorizationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */; };
 		31F1DB5827D7CCCE002581FD /* AuthorizationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */; };
 		31F1DB5A27D7CEE4002581FD /* AuthorizationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F1DB5927D7CEE4002581FD /* AuthorizationPresenter.swift */; };
+		FD0CC9C52843D107008FCB2B /* AuthorizationAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9C42843D107008FCB2B /* AuthorizationAlertFactory.swift */; };
 		FD7F7C5D28246F2D0055D2F3 /* Notification+CaBAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C5C28246F2D0055D2F3 /* Notification+CaBAuthorization.swift */; };
 		FD9B8806281428AC0081A1AB /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B8805281428AC0081A1AB /* AuthorizationView.swift */; };
 		FDA3C0D9281FC957008CDDDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA3C0D8281FC957008CDDDF /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		31F1DB5527D7C8FD002581FD /* AuthorizationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationInteractor.swift; sourceTree = "<group>"; };
 		31F1DB5727D7CCCE002581FD /* AuthorizationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationBuilder.swift; sourceTree = "<group>"; };
 		31F1DB5927D7CEE4002581FD /* AuthorizationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationPresenter.swift; sourceTree = "<group>"; };
+		FD0CC9C42843D107008FCB2B /* AuthorizationAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationAlertFactory.swift; sourceTree = "<group>"; };
 		FD7F7C5C28246F2D0055D2F3 /* Notification+CaBAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+CaBAuthorization.swift"; sourceTree = "<group>"; };
 		FD9B8805281428AC0081A1AB /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
 		FDA3C0D8281FC957008CDDDF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,11 +205,20 @@
 		315DBAE728031CEA00DCA5E4 /* Container */ = {
 			isa = PBXGroup;
 			children = (
+				FD0CC9C62843D10D008FCB2B /* AlertFactory */,
 				315DBAE828031D6900DCA5E4 /* AuthorizationContainerRouter.swift */,
 				315DBAEA28031D7A00DCA5E4 /* AuthorizationContainerInteractor.swift */,
 				315DBAEC28031D9500DCA5E4 /* AuthorizationContainerBuilder.swift */,
 			);
 			path = Container;
+			sourceTree = "<group>";
+		};
+		FD0CC9C62843D10D008FCB2B /* AlertFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CC9C42843D107008FCB2B /* AuthorizationAlertFactory.swift */,
+			);
+			path = AlertFactory;
 			sourceTree = "<group>";
 		};
 		FDA3C0DA281FC965008CDDDF /* Storyboards */ = {
@@ -332,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F1DB5A27D7CEE4002581FD /* AuthorizationPresenter.swift in Sources */,
+				FD0CC9C52843D107008FCB2B /* AuthorizationAlertFactory.swift in Sources */,
 				3133DD7827B0593100007428 /* AuthorizationViewModel.swift in Sources */,
 				315DBAE928031D6900DCA5E4 /* AuthorizationContainerRouter.swift in Sources */,
 				FDA3C13028201FBB008CDDDF /* AuthorithationCredentialsTemporaryStorage.swift in Sources */,

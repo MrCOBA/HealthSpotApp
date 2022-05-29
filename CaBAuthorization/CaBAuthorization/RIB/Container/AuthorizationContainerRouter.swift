@@ -10,6 +10,7 @@ public enum AuthorizationResult {
 
 public protocol AuthorizationContainerRouter: ViewableRouter {
     func attachScreen(for mode: AuthorizationViewModel.Mode)
+    func attachAlert(of type: AuthorizationAlertFactory.AlertType)
 }
 
 final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainerRouter {
@@ -22,6 +23,8 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     // MARK: - Private Properties
 
+    private let alertFactory: AuthorizationAlertFactory
+
     private let rootServices: AuthorizationRootServices
     private var containerViewController: CaBNavigationController
     private let interactor: AuthorizationContainerInteractor
@@ -33,6 +36,8 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
         self.rootServices = rootServices
         self.containerViewController = view
         self.interactor = interactor
+
+        alertFactory = AuthorizationAlertFactory()
 
         super.init(interactor: interactor)
     }
@@ -47,6 +52,12 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     public func attachScreen(for mode: AuthorizationViewModel.Mode) {
         attachChildWithEmbed(makeAuthorizationRouter(with: mode))
+    }
+
+    public func attachAlert(of type: AuthorizationAlertFactory.AlertType) {
+        let alert = alertFactory.makeAlert(of: type)
+
+        view.present(alert, animated: true)
     }
 
     // MARK: - Private Methods

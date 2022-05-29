@@ -11,15 +11,15 @@
             <objects>
                 <controller title="HealthSpot" animationDuration="1" spacing="6" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Health_Spot_Companion" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" verticalAlignment="center" text="Heart Rate:" textAlignment="center" id="Fn8-ar-RfA">
+                        <label width="1" alignment="left" verticalAlignment="center" text="0 BPM" textAlignment="center" id="Fn8-ar-RfA">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" verticalAlignment="center" text="Step Counts:" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
+                        <label width="1" alignment="left" verticalAlignment="center" text="0 STEPS" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" verticalAlignment="center" text="Burnt energy:" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
+                        <label width="1" alignment="left" verticalAlignment="center" text="0 KCAL" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
