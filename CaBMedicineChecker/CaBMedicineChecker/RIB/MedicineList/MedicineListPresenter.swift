@@ -3,7 +3,7 @@ import CaBFoundation
 
 protocol MedicineListPresenter: AnyObject {
 
-    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>])
+    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>], filteredBy date: Date?)
 
 }
 
@@ -18,8 +18,15 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
         self.view = view
     }
 
-    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) {
-        let cellModels = makeViewModels(rawData: medicineItems)
+    func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>], filteredBy date: Date?) {
+        let cellModels: [MedicineItemViewModel]
+
+        if let date = date {
+            cellModels = makeViewModels(rawData: medicineItems, filteredBy: date)
+        }
+        else {
+            cellModels = makeViewModels(rawData: medicineItems)
+        }
 
         view?.cellModels = cellModels
     }
@@ -48,6 +55,24 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
         return cellModels
     }
 
+    private func makeViewModels(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>],
+                                filteredBy date: Date) -> [MedicineItemViewModel] {
+        let cellModels = makeViewModels(rawData: medicineItems)
+
+        var filteredModels = [MedicineItemViewModel]()
+        for cellModel in cellModels {
+            let rawEvents = Date.getRawEvents(from: cellModel)
+
+            if rawEvents.reduce(false, {
+                current, next in current || Date.isEventPossible(expectedDate: date, rawEvent: next)
+            }) {
+                filteredModels.append(cellModel)
+            }
+        }
+
+        return filteredModels
+    }
+
     private func checkIfInteractorSet() {
         if interactor == nil {
             logError(message: "Interactor expected to be set")
@@ -57,6 +82,12 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
 }
 
 extension MedicineListPresenterImpl: MedicineListViewEventsHandler {
+
+    func didFilterBy(date: Date?) {
+        checkIfInteractorSet()
+
+        interactor?.updateDisplyingMedicineItems(filteredBy: date)
+    }
 
     func didTapScanButton() {
         checkIfInteractorSet()

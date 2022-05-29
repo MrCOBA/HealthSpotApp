@@ -7,6 +7,7 @@ protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCa
 
     func showMedicineItemInfoScreen(with id: String)
     func showBarcodeScannerScreen()
+    func updateDisplyingMedicineItems(filteredBy date: Date?)
 
 }
 
@@ -57,6 +58,10 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
         router?.attachBarcodeCaptureRouter()
     }
 
+    func updateDisplyingMedicineItems(filteredBy date: Date?) {
+        presenter?.updateView(rawData: medicineItems, filteredBy: date)
+    }
+
     private func syncStorage() {
         user = UserEntityWrapper(coreDataAssistant: coreDataAssistant)
         medicineItems = loadMedicineItems(from: user?.medicineItems)
@@ -65,7 +70,7 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
     }
 
     private func updateView() {
-        presenter?.updateView(rawData: medicineItems)
+        presenter?.updateView(rawData: medicineItems, filteredBy: Date())
     }
 
     private func loadMedicineItems(from rawData: NSMutableArray?) -> [MedicineItemCompositeWrapper] {

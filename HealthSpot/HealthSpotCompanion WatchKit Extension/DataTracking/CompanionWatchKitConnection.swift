@@ -43,6 +43,7 @@ class CompanionWatchKitConnectionImpl: NSObject, CompanionWatchKitConnection {
     // MARK: - Internal Methods
 
     func startSession() {
+        session?.delegate = self
         session?.activate()
     }
 
@@ -52,6 +53,14 @@ class CompanionWatchKitConnectionImpl: NSObject, CompanionWatchKitConnection {
         validReachableSession?.sendMessage(message,
                                            replyHandler: { (result) in NSLog("\(result)") },
                                            errorHandler: { (error) in NSLog("\(error)") })
+    }
+
+}
+
+extension CompanionWatchKitConnectionImpl: WCSessionDelegate {
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        /* Do Nothin */
     }
 
 }

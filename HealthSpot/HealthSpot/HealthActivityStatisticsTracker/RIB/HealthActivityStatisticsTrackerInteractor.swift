@@ -28,12 +28,14 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         dataTrackingAssistant.authorizeHealthKit()
         dataTrackingAssistant.startObserveHeartRateSamples()
         dataTrackingAssistant.startObserveStepsCountSamples()
+        dataTrackingAssistant.startObserveActiveBurntEnergySamples()
     }
 
     override func stop() {
         statisticsStorage.remove(observer: self)
         dataTrackingAssistant.stopObserveHeartRateSamples()
         dataTrackingAssistant.stopObserveStepsCountSamples()
+        dataTrackingAssistant.stopObserveActiveBurnedEnergySamples()
         
         super.stop()
     }

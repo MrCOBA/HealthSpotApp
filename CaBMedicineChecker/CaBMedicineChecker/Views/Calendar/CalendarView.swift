@@ -4,7 +4,7 @@ import CaBFoundation
 
 protocol CalendarViewDelegate: AnyObject {
 
-    func selectedDateChanged(to: Date)
+    func selectedDateChanged(to date: Date)
 
 }
 
@@ -76,6 +76,7 @@ final class CalendarView: XibView {
 
     private(set) var selectedDate = Date() {
         didSet {
+            delegate?.selectedDateChanged(to: selectedDate)
             mode = .small
             collectionViewHeightConstraint.constant = Constants.Calendar.height(numberOfWeaks: 1.0)
             baseDate = selectedDate
@@ -280,7 +281,6 @@ extension CalendarView: UICollectionViewDelegateFlowLayout {
         let day = days[indexPath.row]
 
         selectedDate = day.date
-        delegate?.selectedDateChanged(to: selectedDate)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

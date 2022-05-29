@@ -7,7 +7,7 @@ extension Date {
         case monthly
         case yearly
 
-        var calendarComponent: Calendar.Component {
+        public var calendarComponent: Calendar.Component {
             switch self {
             case .daily:
                 return .day
@@ -30,23 +30,35 @@ extension Date {
 
         let difDateComponents = calendar.dateComponents(dateComponents, from: self, to: Date())
 
-        let nextEventDate: Date
+        var nextEventDate: Date
         switch frequency {
         case .daily:
-            let components = DateComponents(day: (difDateComponents.day ?? 0) + 1)
+            let components = DateComponents(day: (difDateComponents.day ?? 0))
             nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
+            if nextEventDate <= self {
+                nextEventDate = calendar.date(byAdding:  DateComponents(day: 1), to: self) ?? Date()
+            }
 
         case .weekly:
-            let components = DateComponents(weekOfYear: (difDateComponents.weekOfYear ?? 0) + 1)
+            let components = DateComponents(weekOfYear: (difDateComponents.weekOfYear ?? 0))
             nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
+            if nextEventDate <= self {
+                nextEventDate = calendar.date(byAdding:  DateComponents(weekOfYear: 1), to: self) ?? Date()
+            }
 
         case .monthly:
-            let components = DateComponents(month: (difDateComponents.month ?? 0) + 1)
+            let components = DateComponents(month: (difDateComponents.month ?? 0))
             nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
+            if nextEventDate <= self {
+                nextEventDate = calendar.date(byAdding:  DateComponents(month: 1), to: self) ?? Date()
+            }
 
         case .yearly:
-            let components = DateComponents(year: (difDateComponents.year ?? 0) + 1)
+            let components = DateComponents(year: (difDateComponents.year ?? 0))
             nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
+            if nextEventDate <= self {
+                nextEventDate = calendar.date(byAdding:  DateComponents(year: 1), to: self) ?? Date()
+            }
         }
 
         var resultDate: Date?
@@ -68,13 +80,7 @@ extension Date {
         return (eventDates.count > 0) ? eventDates.sorted(by: { $0 < $1 }).first : nil
     }
 
-}
-
-// MARK: - Helper
-
-extension Date {
-
-    private func distance(from date: Date, only component: Calendar.Component, calendar: Calendar = .current) -> Int {
+    public func distance(from date: Date, only component: Calendar.Component, calendar: Calendar = .current) -> Int {
         let days1 = calendar.component(component, from: self)
         let days2 = calendar.component(component, from: date)
         return days1 - days2

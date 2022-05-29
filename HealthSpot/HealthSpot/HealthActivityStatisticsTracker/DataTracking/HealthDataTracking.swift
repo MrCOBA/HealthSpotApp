@@ -162,13 +162,13 @@ final class HealthDataTrackingImpl: HealthDataTracking {
             healthStore.stop(activeBurnedEnergyObserverQuery)
         }
 
-        stepsCountObserverQuery = HKObserverQuery(sampleType: activeBurnedEnergySampleType, predicate: nil) { [unowned self] (_, _, error) in
+        activeBurnedEnergyObserverQuery = HKObserverQuery(sampleType: activeBurnedEnergySampleType, predicate: nil) { [unowned self] (_, _, error) in
             if let error = error {
                 logWarning(message: "Error was obtained: <\(error.localizedDescription)>")
                 return
             }
 
-            self.fetchStepCountsStatisticsData { (activeBurnedEnergy) in
+            self.fetchActiveBurnedEnergyStatisticsData { (activeBurnedEnergy) in
                 guard let activeBurnedEnergy = activeBurnedEnergy else {
                     return
                 }
@@ -246,7 +246,7 @@ final class HealthDataTrackingImpl: HealthDataTracking {
     }
 
     private func fetchActiveBurnedEnergyStatisticsData(completionHandler: @escaping (_ stepsCount: Double?) -> Void) {
-        let stepsQuantityType = HKQuantityType.quantityType(forIdentifier: .stepCount)!
+        let burnedEnergyQuantityType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!
 
         let now = Date()
         let startOfDay = Calendar.current.startOfDay(for: now)
@@ -257,7 +257,7 @@ final class HealthDataTrackingImpl: HealthDataTracking {
         )
 
         let query = HKStatisticsQuery(
-            quantityType: stepsQuantityType,
+            quantityType: burnedEnergyQuantityType,
             quantitySamplePredicate: predicate,
             options: .cumulativeSum
         ) { (_, result, _) in

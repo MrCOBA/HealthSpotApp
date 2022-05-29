@@ -10,6 +10,7 @@
 		31A453A02785AF9400290D97 /* CaBMedicineChecker.docc in Sources */ = {isa = PBXBuildFile; fileRef = 31A4539F2785AF9400290D97 /* CaBMedicineChecker.docc */; };
 		31A453A12785AF9400290D97 /* CaBMedicineChecker.h in Headers */ = {isa = PBXBuildFile; fileRef = 31A4539E2785AF9400290D97 /* CaBMedicineChecker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		31A453B42785B0B900290D97 /* BarcodeCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */; };
+		FD5E24CC2843550000BF9F32 /* Date+CaBMedicineChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E24CB2843550000BF9F32 /* Date+CaBMedicineChecker.swift */; };
 		FD62DE5D2819F9D7004A1B75 /* BarcodeCaptureView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */; };
 		FD7936DD282BBAE9009B091C /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */; };
 		FD7936E0282BBE39009B091C /* CalendarModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7936DF282BBE39009B091C /* CalendarModels.swift */; };
@@ -83,6 +84,7 @@
 		31A4539E2785AF9400290D97 /* CaBMedicineChecker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CaBMedicineChecker.h; sourceTree = "<group>"; };
 		31A4539F2785AF9400290D97 /* CaBMedicineChecker.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = CaBMedicineChecker.docc; sourceTree = "<group>"; };
 		31A453B32785B0B900290D97 /* BarcodeCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeCaptureView.swift; sourceTree = "<group>"; };
+		FD5E24CB2843550000BF9F32 /* Date+CaBMedicineChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CaBMedicineChecker.swift"; sourceTree = "<group>"; };
 		FD62DE5C2819F9D7004A1B75 /* BarcodeCaptureView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BarcodeCaptureView.storyboard; sourceTree = "<group>"; };
 		FD62DEF3281ABCA2004A1B75 /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD7936DC282BBAE9009B091C /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				FD793701282C6888009B091C /* UIImage+CaBMedicineChecker.swift */,
 				FDE9FD53282FF0AE00EE6FE0 /* UIStoryboard+CaBMedicineChecker.swift */,
 				FDE9FD59282FF79500EE6FE0 /* UserDefaults+CaBMedicineChecker.swift */,
+				FD5E24CB2843550000BF9F32 /* Date+CaBMedicineChecker.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				FDFF0BF7283A8286006B82B3 /* BarcodeCaptureInteractor.swift in Sources */,
 				31A453A02785AF9400290D97 /* CaBMedicineChecker.docc in Sources */,
 				FDE9FD50282FEDC600EE6FE0 /* MedicineItemPeriodBuilder.swift in Sources */,
+				FD5E24CC2843550000BF9F32 /* Date+CaBMedicineChecker.swift in Sources */,
 				FDA0C0802835197D00280F72 /* PeriodCollectionViewCell.swift in Sources */,
 				FDE9FD52282FEE2F00EE6FE0 /* MedicineItemPeriodPresenter.swift in Sources */,
 				31A453B42785B0B900290D97 /* BarcodeCaptureView.swift in Sources */,

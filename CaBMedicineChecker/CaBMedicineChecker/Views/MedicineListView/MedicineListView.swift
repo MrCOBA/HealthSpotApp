@@ -6,6 +6,7 @@ import CaBFoundation
 
 protocol MedicineListViewEventsHandler: AnyObject {
 
+    func didFilterBy(date: Date?)
     func didSelectRow(with id: String)
     func didTapScanButton()
 
@@ -60,6 +61,7 @@ final class MedicineListView: UIViewController {
 
     private func configure() {
         navigationItem.title = "Medicine Checker"
+        calendarPickerView.delegate = self
         medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
                                             forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
         calendarPickerView.layer.cornerRadius = Constants.cornerRadius
@@ -133,6 +135,18 @@ extension MedicineListView: UITableViewDelegate {
         checkIfEventsHandlerSet()
 
         eventsHandler?.didSelectRow(with: cellModels[indexPath.row].id)
+    }
+
+}
+
+// MARK: - Protocol CalendarViewDelegate
+
+extension MedicineListView: CalendarViewDelegate {
+
+    func selectedDateChanged(to date: Date) {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didFilterBy(date: date)
     }
 
 }

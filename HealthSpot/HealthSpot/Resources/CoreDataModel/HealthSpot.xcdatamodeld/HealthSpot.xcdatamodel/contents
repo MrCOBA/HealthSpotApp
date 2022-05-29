@@ -12,7 +12,7 @@
         <attribute name="imageUrl" optional="YES" attributeType="String"/>
         <attribute name="marketUrl" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="placeholderImage" attributeType="Binary"/>
+        <attribute name="placeholderImage" optional="YES" attributeType="Binary"/>
         <attribute name="producer" attributeType="String"/>
         <relationship name="periods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MedicineItemPeriod" inverseName="medicineItem" inverseEntity="MedicineItemPeriod"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="medicineItems" inverseEntity="User"/>
