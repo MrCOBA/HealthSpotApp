@@ -5,11 +5,13 @@ final class MedicineListBuilder: Builder {
     // MARK: - Private Properties
 
     private let factory: MedicineCheckerRootServices
+    private weak var listener: MedicineListListener?
 
     // MARK: - Init
 
-    init(factory: MedicineCheckerRootServices) {
+    init(factory: MedicineCheckerRootServices, listener: MedicineListListener?) {
         self.factory = factory
+        self.listener = listener
     }
 
     // MARK: - Internal Methods
@@ -22,7 +24,8 @@ final class MedicineListBuilder: Builder {
         
         let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
                                                     presenter: presenter,
-                                                    firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController)
+                                                    firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController,
+                                                    listener: listener)
 
         presenter.interactor = interactor
 

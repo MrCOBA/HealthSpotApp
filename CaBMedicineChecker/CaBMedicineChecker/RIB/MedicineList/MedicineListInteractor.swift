@@ -3,6 +3,14 @@ import CaBRiblets
 import CaBFoundation
 import CaBFirebaseKit
 
+// MARK: - Protocols
+
+protocol MedicineListListener: AnyObject {
+
+    func didObtainError(_ error: Error)
+
+}
+
 protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCaptureListener {
 
     func showMedicineItemInfoScreen(with id: String)
@@ -11,25 +19,40 @@ protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCa
 
 }
 
+// MARK: - Implementation
+
 final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
 
+    // MARK: - Internal Types
+
     typealias MedicineItemCompositeWrapper = CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>
+
+    // MARK: - Internal Properties
 
     weak var router: MedicineListRouter?
     var presenter: MedicineListPresenter?
 
+    // MARK: - Private Properties
+
+    private weak var listener: MedicineListListener?
     private let coreDataAssistant: CoreDataAssistant
     private let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
     private var user: UserEntityWrapper?
     private var medicineItems = [MedicineItemCompositeWrapper]()
 
+    // MARK: - Init
+
     init(coreDataAssistant: CoreDataAssistant,
          presenter: MedicineListPresenter,
-         firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController) {
+         firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
+         listener: MedicineListListener?) {
         self.coreDataAssistant = coreDataAssistant
         self.presenter = presenter
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
+        self.listener = listener
     }
+
+    // MARK: - Internal Methods
 
     override func start() {
         super.start()
@@ -61,6 +84,8 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
     func updateDisplyingMedicineItems(filteredBy date: Date?) {
         presenter?.updateView(rawData: medicineItems, filteredBy: date)
     }
+
+    // MARK: - Private Methods
 
     private func syncStorage() {
         user = UserEntityWrapper(coreDataAssistant: coreDataAssistant)
@@ -116,6 +141,12 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
         }
     }
 
+    private func checkIfListenerSet() {
+        if listener == nil {
+            logError(message: "Listener expected to be set")
+        }
+    }
+
 }
 
 // MARK: - Protocol FirebaseFirestoreMedicineCheckerDelegate
@@ -124,6 +155,9 @@ extension MedicineListInteractorImpl: FirebaseFirestoreMedicineCheckerDelegate {
 
     func didFinishUpload(with error: Error?) {
         guard error == nil else {
+            checkIfListenerSet()
+
+            listener?.didObtainError(error!)
             return
         }
 
@@ -132,6 +166,9 @@ extension MedicineListInteractorImpl: FirebaseFirestoreMedicineCheckerDelegate {
 
     func didFinishStorageUpdate(with error: Error?) {
         guard error == nil else {
+            checkIfListenerSet()
+            
+            listener?.didObtainError(error!)
             return
         }
 
@@ -147,17 +184,19 @@ extension MedicineListInteractorImpl: MedicineItemInfoListener {
     func closeScreen() {
         checkIfRouterSet()
 
-        router?.detachItemInfoRouter(isPopNeeded: true)
+        router?.detachItemInfoRouter()
     }
 
 }
+
+// MARK: - Protocol BarcodeCaptureListener
 
 extension MedicineListInteractorImpl: BarcodeCaptureListener {
 
     func cancel() {
         checkIfRouterSet()
 
-        router?.detachBarcodeCaptureRouter(isDismissNeeded: true)
+        router?.detachBarcodeCaptureRouter()
     }
 
 }

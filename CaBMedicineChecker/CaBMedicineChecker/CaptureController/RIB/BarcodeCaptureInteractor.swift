@@ -11,6 +11,7 @@ protocol BarcodeCaptureListener: AnyObject {
 final class BarcodeCaptureInteractor: BaseInteractor {
 
     weak var listener: BarcodeCaptureListener?
+    weak var router: BarcodeCaptureRouter?
 
     private let coreDataAssistant: CoreDataAssistant
     private let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
@@ -42,13 +43,22 @@ final class BarcodeCaptureInteractor: BaseInteractor {
         }
     }
 
+    private func checkIfRouterSet() {
+        if router == nil {
+            logError(message: "Router expected to be set")
+        }
+    }
+
     private func addMedicineItem(with barcode: String) {
         user = UserEntityWrapper(coreDataAssistant: coreDataAssistant)
 
         let predicate = NSPredicate(format: "barcode = %@", barcode)
         if coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil)?.count ?? 0 != 0 {
-            // TODO: Show alert
-            didCaptureCancel()
+            checkIfRouterSet()
+
+            router?.attachAlert(with: FirebaseFirestoreMedicineCheckerError.itemAlreadyExists) { [weak self] _ in
+                self?.didCaptureCancel()
+            }
             return 
         }
 
@@ -74,7 +84,15 @@ extension BarcodeCaptureInteractor: BarcodeCaptureEventsHandler {
 extension BarcodeCaptureInteractor: FirebaseFirestoreMedicineCheckerDelegate {
 
     func didFinishStorageUpdate(with error: Error?) {
-        /* Do Nothing */
+        checkIfRouterSet()
+        guard let error = error else {
+            return
+        }
+
+        router?.attachAlert(with: error) { [weak self] _ in
+            self?.didCaptureCancel()
+        }
+
     }
 
     func didFinishUpload(with error: Error?) {

@@ -93,7 +93,7 @@ final class MainRouterImpl: BaseRouter, MainRouter {
             return
         }
 
-        let router = MedicineCheckerContainerBuilder(factory: rootServices, listener: interactor).build()
+        let router = MedicineCheckerContainerBuilder(factory: rootServices).build()
         router.start()
 
         medicineControllerRouter = router

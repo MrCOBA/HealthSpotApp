@@ -3,6 +3,8 @@ import CaBRiblets
 import CaBFoundation
 import CaBFirebaseKit
 
+// MARK: - Protocols
+
 protocol MedicineItemInfoListener: AnyObject {
 
     func closeScreen()
@@ -16,11 +18,17 @@ protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 
 }
 
+// MARK: - Implementation
+
 final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInteractor {
+
+    // MARK: - Internal Properties
 
     weak var listener: MedicineItemInfoListener?
     weak var router: MedicineItemInfoRouter?
     var presenter: MedicineItemInfoPresenter?
+
+    // MARK: - Private Properties
 
     private let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
     private let itemPeriodTemporaryStorage: MedicineItemPeriodTemporaryStorage
@@ -29,6 +37,8 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
     private let entityId: String
     private var medicineItem: MedicineItemEntityWrapper?
     private var periods = [MedicineItemPeriodEntityWrapper]()
+
+    // MARK: - Init
 
     init(firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
          itemPeriodTemporaryStorage: MedicineItemPeriodTemporaryStorage,
@@ -43,6 +53,8 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
         self.coreDataAssistant = coreDataAssistant
         self.listener = listener
     }
+
+    // MARK: - Internal Methods
 
     override func start() {
         super.start()
@@ -68,6 +80,8 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
 
         listener?.closeScreen()
     }
+
+    // MARK: - Private Methods
 
     private func syncStorage() {
         medicineItem = loadEntity(with: entityId)
@@ -120,6 +134,8 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
 
 }
 
+// MARK: - Protocol MedicineItemPeriodListener
+
 extension MedicineItemInfoInteractorImpl: MedicineItemPeriodListener {
 
     func updatePeriod(with actionType: MedicineItemPeriodActionType) {
@@ -149,10 +165,12 @@ extension MedicineItemInfoInteractorImpl: MedicineItemPeriodListener {
     func closeItemPeriodEditorScreen() {
         checkIfRouterSet()
 
-        router?.detachItemPeriodRouter(isPopNeeded: true)
+        router?.detachItemPeriodRouter()
     }
 
 }
+
+// MARK: - Protocol FirebaseFirestoreMedicineCheckerDelegate
 
 extension MedicineItemInfoInteractorImpl: FirebaseFirestoreMedicineCheckerDelegate {
 
@@ -172,6 +190,7 @@ extension MedicineItemInfoInteractorImpl: FirebaseFirestoreMedicineCheckerDelega
         guard let user = UserEntityWrapper(coreDataAssistant: coreDataAssistant) else {
             return
         }
+        
         firebaseFirestoreMedicineCheckerController.updateData(for: user.id)
     }
 

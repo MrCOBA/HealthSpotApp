@@ -43,11 +43,6 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
     // MARK: - Public Methods
 
     public func signIn() {
-        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
-            postErrorNotification(.noInternetConnection)
-            return
-        }
-
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
 
@@ -72,20 +67,10 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
     }
 
     public func signIn(email: String, password: String) {
-        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
-            postErrorNotification(.noInternetConnection)
-            return
-        }
-
         authorizationController.signIn(email: email, password: password)
     }
 
     public func signUp() {
-        guard networkMonitor.isReachable || networkMonitor.isReachableOnCellular else {
-            postErrorNotification(.noInternetConnection)
-            return
-        }
-
         let email = temporaryCredentialsStorage.email
         let password = temporaryCredentialsStorage.password
         let repeatedPassword = temporaryCredentialsStorage.repeatedPassword

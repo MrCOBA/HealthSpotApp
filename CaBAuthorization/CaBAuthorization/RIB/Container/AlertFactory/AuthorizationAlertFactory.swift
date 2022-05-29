@@ -2,7 +2,7 @@ import UIKit
 
 public final class AuthorizationAlertFactory {
 
-    // MARK: - Internal Types
+    // MARK: - Public Types
 
     public enum AlertType {
         case passwordsDoNotMatch
@@ -11,7 +11,7 @@ public final class AuthorizationAlertFactory {
         case noInternetConnection
     }
 
-    // MARK: - Internal Methods
+    // MARK: - Public Methods
 
     public func makeAlert(of type: AlertType) -> UIAlertController {
         let alert = UIAlertController(title: type.title, message: type.message, preferredStyle: .alert)

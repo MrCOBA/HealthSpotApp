@@ -7,14 +7,12 @@ public final class MedicineCheckerContainerBuilder: Builder {
 
     // MARK: - Private Properties
 
-    private weak var listener: MedicineCheckerContainerListener?
     private let factory: MedicineCheckerRootServices
 
     // MARK: -  Init
 
-    public init(factory: MedicineCheckerRootServices, listener: MedicineCheckerContainerListener?) {
+    public init(factory: MedicineCheckerRootServices) {
         self.factory = factory
-        self.listener = listener
     }
 
     // MARK: - Public Methods
@@ -24,7 +22,7 @@ public final class MedicineCheckerContainerBuilder: Builder {
         view.isNavigationBarHidden = false
         view.colorScheme = factory.colorScheme
 
-        let interactor = MedicineCheckerContainerInteractor(listener: listener)
+        let interactor = MedicineCheckerContainerInteractorImpl()
 
         let router = MedicineCheckerContainerRouterImpl(rootServices: factory, view: view, interactor: interactor)
         interactor.router = router

@@ -2,20 +2,30 @@ import UIKit
 import CaBFoundation
 import CaBRiblets
 
+// MARK: - Protocol
+
 protocol MedicineItemInfoRouter: ViewableRouter {
 
     func attachItemPeriodRouter(with actionType: MedicineItemPeriodActionType)
-    func detachItemPeriodRouter(isPopNeeded: Bool)
+    func detachItemPeriodRouter()
 
 }
 
+// MARK: - Implementation
+
 final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
 
+    // MARK: - Internal Properties
+
     var view: UIViewController
+
+    // MARK: - Private Properties
 
     private let interactor: MedicineItemInfoInteractor
     private let rootServices: MedicineCheckerRootServices
     private var currentChild: ViewableRouter?
+
+    // MARK: - Init
 
     init(rootServices: MedicineCheckerRootServices, view: MedicineItemInfoView, interactor: MedicineItemInfoInteractor) {
         self.interactor = interactor
@@ -25,15 +35,19 @@ final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
         super.init(interactor: interactor)
     }
 
+    // MARK: - Internal Methods
+
     func attachItemPeriodRouter(with actionType: MedicineItemPeriodActionType) {
         let router = MedicineItemPeriodBuilder(factory: rootServices, listener: interactor).build(with: actionType)
 
         attachChildWithPush(router)
     }
 
-    func detachItemPeriodRouter(isPopNeeded: Bool) {
-        detachChildWithPop(isPopNeeded: isPopNeeded)
+    func detachItemPeriodRouter() {
+        detachChildWithPop()
     }
+
+    // MARK: - Privta Methods
 
     private func attachChildWithPush(_ child: ViewableRouter) {
         guard currentChild == nil else {
@@ -46,16 +60,14 @@ final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
         currentChild = child
     }
 
-    private func detachChildWithPop(isPopNeeded: Bool) {
+    private func detachChildWithPop() {
         guard let currentChild = currentChild else {
             logWarning(message: "There is no same child to detach")
             return
         }
 
         detachChild(currentChild)
-        if isPopNeeded {
-            view.navigationController?.popViewController(animated: true)
-        }
+        view.navigationController?.popViewController(animated: true)
         self.currentChild = nil
     }
 

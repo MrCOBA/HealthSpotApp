@@ -55,16 +55,14 @@ final class HomeRouterImpl: BaseRouter, HomeRouter {
         currentChild = child
     }
 
-    private func detachChildWithPop(isPopNeeded: Bool) {
+    private func detachChildWithPop() {
         guard let currentChild = currentChild else {
             logWarning(message: "There is no same child to detach")
             return
         }
 
         detachChild(currentChild)
-        if isPopNeeded {
-            view.navigationController?.popViewController(animated: true)
-        }
+        view.navigationController?.popViewController(animated: true)
         self.currentChild = nil
     }
 
@@ -79,16 +77,14 @@ final class HomeRouterImpl: BaseRouter, HomeRouter {
         currentChild = child
     }
 
-    private func detachChildWithDismiss(isDismissNeeded: Bool) {
+    private func detachChildWithDismiss() {
         guard let currentChild = currentChild else {
             logWarning(message: "There is no same child to detach")
             return
         }
 
         detachChild(currentChild)
-        if isDismissNeeded {
-            view.tabBarController?.dismiss(animated: true)
-        }
+        view.tabBarController?.dismiss(animated: true)
         self.currentChild = nil
     }
     

@@ -5,7 +5,6 @@ import CaBMedicineChecker
 // MARK: - Protocol
 
 protocol MainInteractor: Interactor,
-                         MedicineCheckerContainerListener,
                          HomeContainerListener {
 
     func showItem(_ item: MainView.Item)
@@ -50,10 +49,4 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
 
 }
 
-extension MainInteractorImpl: MedicineCheckerContainerListener {
-    
-}
-
-extension MainInteractorImpl: HomeContainerListener {
-    
-}
+extension MainInteractorImpl: HomeContainerListener { }

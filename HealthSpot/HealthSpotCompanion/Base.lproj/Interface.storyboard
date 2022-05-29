@@ -4,28 +4,30 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
         <!--HealthSpot-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller title="HealthSpot" animationDuration="1" spacing="6" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Health_Spot_Companion" customModuleProvider="target">
+                <controller title="HealthSpot" animationDuration="1" spacing="6" fullScreen="YES" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Health_Spot_Companion" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" verticalAlignment="center" text="0 BPM" textAlignment="center" id="Fn8-ar-RfA">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageView width="65" height="65" alignment="center" image="main-icon" id="pQ8-XP-jr0"/>
+                        <label width="1" alignment="center" verticalAlignment="center" text="0 BPM" textAlignment="center" id="Fn8-ar-RfA">
+                            <color key="textColor" name="Error_Default"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" verticalAlignment="center" text="0 STEPS" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label width="1" alignment="center" verticalAlignment="center" text="0 STEPS" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
+                            <color key="textColor" name="Warning_Default"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" verticalAlignment="center" text="0 KCAL" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <label width="1" alignment="center" verticalAlignment="center" text="0 KCAL" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
+                            <color key="textColor" name="Info_Default"/>
                             <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <edgeInsets key="margins" left="4" right="4" top="3" bottom="0.0"/>
+                    <edgeInsets key="margins" left="4" right="4" top="0.0" bottom="6"/>
                     <connections>
                         <outlet property="calloriesCountLabel" destination="jUP-JM-juM" id="9mC-aC-0hb"/>
                         <outlet property="heartRateLabel" destination="Fn8-ar-RfA" id="yhZ-Oi-MBO"/>
@@ -67,4 +69,16 @@
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="main-icon" width="512" height="512"/>
+        <namedColor name="Error_Default">
+            <color red="0.97254901960784312" green="0.49803921568627452" blue="0.396078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Info_Default">
+            <color red="0.49803921568627452" green="0.72156862745098038" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Warning_Default">
+            <color red="0.94901960784313721" green="0.76470588235294112" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

@@ -11,8 +11,12 @@ protocol BarcodeCaptureEventsHandler: AnyObject {
 
 final class BarcodeCaptureView: UIViewController, DismissablePresentationControllerConfigurator {
 
+    // MARK: - Internal Properties
+
     weak var eventsHandler: BarcodeCaptureEventsHandler?
     var adaptivePresentationProxy: AdaptivePresentationDelegateProxy?
+
+    // MARK: - Private Properties
 
     @IBOutlet private weak var messageLabel: UILabel!
 
@@ -33,9 +37,23 @@ final class BarcodeCaptureView: UIViewController, DismissablePresentationControl
                                       AVMetadataObject.ObjectType.interleaved2of5,
                                       AVMetadataObject.ObjectType.qr]
 
+    // MARK: - Internal Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureCaptureSession()
+        configurePreviewLaayer()
+
+        captureSession.startRunning()
+
+        configureViews()
+        configurePresentationController()
+    }
+
+    // MARK: - Private Methods
+
+    private func configureCaptureSession() {
         guard let captureDevice = AVCaptureDevice.default(for: AVMediaType.video) else {
             logError(message: "Failed to get the camera device")
             return
@@ -52,14 +70,16 @@ final class BarcodeCaptureView: UIViewController, DismissablePresentationControl
             logError(message: "Error occurred during video capture: <\(error.localizedDescription)>")
             return
         }
+    }
 
+    private func configurePreviewLaayer() {
         videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         videoPreviewLayer?.videoGravity = AVLayerVideoGravity.resizeAspectFill
         videoPreviewLayer?.frame = view.layer.bounds
         view.layer.addSublayer(videoPreviewLayer!)
+    }
 
-        captureSession.startRunning()
-
+    private func configureViews() {
         view.bringSubviewToFront(messageLabel)
         qrCodeFrameView = UIView()
 
@@ -69,11 +89,7 @@ final class BarcodeCaptureView: UIViewController, DismissablePresentationControl
             view.addSubview(qrCodeFrameView)
             view.bringSubviewToFront(qrCodeFrameView)
         }
-
-        configurePresentationController()
     }
-
-    // MARK: - Helper methods
 
     private func updatePreviewLayer(layer: AVCaptureConnection, orientation: AVCaptureVideoOrientation) {
         layer.videoOrientation = orientation
@@ -88,10 +104,12 @@ final class BarcodeCaptureView: UIViewController, DismissablePresentationControl
 
 }
 
+// MARK: - Protocol AVCaptureMetadataOutputObjectsDelegate
+
 extension BarcodeCaptureView: AVCaptureMetadataOutputObjectsDelegate {
 
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        if metadataObjects.count == 0 {
+        if metadataObjects.isEmpty {
             qrCodeFrameView?.frame = CGRect.zero
             messageLabel.text = "No QR code is detected"
             return
@@ -115,6 +133,8 @@ extension BarcodeCaptureView: AVCaptureMetadataOutputObjectsDelegate {
 
 }
 
+// MARK: - Protocol PresentationControllerDismissHandlerDelegate
+
 extension BarcodeCaptureView: PresentationControllerDismissHandlerDelegate {
 
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
@@ -123,6 +143,8 @@ extension BarcodeCaptureView: PresentationControllerDismissHandlerDelegate {
     }
 
 }
+
+// MARK: - View Factory
 
 extension BarcodeCaptureView {
 

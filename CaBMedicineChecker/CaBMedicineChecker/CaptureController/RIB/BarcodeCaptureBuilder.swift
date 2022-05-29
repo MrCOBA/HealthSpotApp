@@ -18,7 +18,8 @@ final class BarcodeCaptureBuilder: Builder {
                                                   listener: listener)
 
         view.eventsHandler = interactor
-        let router = BarcodeCaptureRouter(view: view, interactor: interactor)
+        let router = BarcodeCaptureRouterImpl(view: view, interactor: interactor)
+        interactor.router = router
 
         return router
     }

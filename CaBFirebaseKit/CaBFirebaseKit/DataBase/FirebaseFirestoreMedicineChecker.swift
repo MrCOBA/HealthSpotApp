@@ -2,6 +2,18 @@ import FirebaseFirestore
 import CaBFoundation
 import CoreData
 
+// MARK: - Error
+
+public enum FirebaseFirestoreMedicineCheckerError: Error {
+    case noItemFound
+    case itemAlreadyExists
+    case failedToAddMedicineItemPeriod
+    case failedToDeleteMedicineItemPeriod
+    case failedToUpdateMedicineItemPeriod
+    case failedToAddMedicineItem
+    case failedToUpdateData
+}
+
 // MARK: - Protocols
 
 public protocol FirebaseFirestoreMedicineCheckerDelegate: AnyObject {
@@ -29,6 +41,10 @@ public protocol FirebaseFirestoreMedicineCheckerController: AnyObject {
 // MARK: - Implementation
 
 final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMedicineCheckerController, Observable {
+
+    // MARK: - Private Types
+
+    private typealias Error = FirebaseFirestoreMedicineCheckerError
 
     // MARK: - Internal Properties
 
@@ -58,7 +74,8 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                 await uploadMedicineItem(snapshot.documents.first, barcode: barcode, collectionReference: medicineItemsReference)
             }
             catch {
-                observers.notify { $0.didFinishUpload(with: error) }
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                observers.notify { $0.didFinishUpload(with: Error.failedToAddMedicineItem) }
             }
         }
     }
@@ -66,21 +83,36 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
     func addMedicineItemPeriod(data: [String: Any], toItem itemId: String, ofUser userId: String) {
         let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
         medicineItemPeriodsReference.addDocument(data: data) { [weak self] error in
-            self?.observers.notify { $0.didFinishUpload(with: error) }
+            if let error = error {
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                self?.observers.notify { $0.didFinishUpload(with: Error.failedToAddMedicineItemPeriod) }
+                return
+            }
+            self?.observers.notify { $0.didFinishUpload(with: nil) }
         }
     }
 
     func updateMedicineItemPeriod(data: [String: Any], of periodId: String, inItem itemId: String, ofUser userId: String) {
         let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
         medicineItemPeriodsReference.document(periodId).updateData(data) { [weak self] error in
-            self?.observers.notify { $0.didFinishUpload(with: error) }
+            if let error = error {
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                self?.observers.notify { $0.didFinishUpload(with: Error.failedToUpdateMedicineItemPeriod) }
+                return
+            }
+            self?.observers.notify { $0.didFinishUpload(with: nil) }
         }
     }
 
     func deleteMedicineItemPeriod(with periodId: String, fromItem itemId: String, ofUser userId: String) {
         let medicineItemPeriodsReference = getPeriodsCollectionReference(from: itemId, userId)
         medicineItemPeriodsReference.document(periodId).delete() { [weak self] error in
-            self?.observers.notify { $0.didFinishUpload(with: error) }
+            if let error = error {
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                self?.observers.notify { $0.didFinishUpload(with: Error.failedToDeleteMedicineItemPeriod) }
+                return
+            }
+            self?.observers.notify { $0.didFinishUpload(with: nil) }
         }
     }
 
@@ -94,7 +126,8 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                 await updateStorage()
             }
             catch {
-                observers.notify { $0.didFinishStorageUpdate(with: error) }
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                observers.notify { $0.didFinishStorageUpdate(with: Error.failedToUpdateData) }
             }
         }
     }
@@ -181,6 +214,7 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
 
     private func uploadMedicineItem(_ item: QueryDocumentSnapshot?, barcode: String, collectionReference: CollectionReference) async {
         guard let item = item else {
+            observers.notify { $0.didFinishStorageUpdate(with: Error.noItemFound) }
             return
         }
         var data = [String: Any]()
@@ -192,9 +226,16 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
         data["marketUrl"] = item["url"] as? String ?? ""
 
         collectionReference.addDocument(data: data) { [weak self] error in
-            self?.observers.notify { $0.didFinishUpload(with: error) }
+            if let error = error {
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                self?.observers.notify { $0.didFinishUpload(with: Error.failedToAddMedicineItem) }
+                return
+            }
+
+            self?.observers.notify { $0.didFinishUpload(with: nil) }
         }
 
     }
 
 }
+
