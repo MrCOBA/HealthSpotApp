@@ -10,6 +10,14 @@ extension UserDefaults {
             }
 
         }
+
+        enum Cache {
+
+            static var cachedBuffer: String {
+                return "HealthSpotCachedBufferKey"
+            }
+
+        }
         
     }
     

@@ -1,5 +1,6 @@
 import CaBRiblets
 import CaBFoundation
+import UIKit
 
 protocol MedicineListPresenter: AnyObject {
 
@@ -14,8 +15,11 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
     weak var view: MedicineListView?
     weak var interactor: MedicineListInteractor?
 
-    init(view: MedicineListView) {
+    private let cachedStorage: CachedStorage
+
+    init(view: MedicineListView, cachedStorage: CachedStorage) {
         self.view = view
+        self.cachedStorage = cachedStorage
     }
 
     func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>], filteredBy date: Date?) {
@@ -42,14 +46,25 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
                              actionType: .add)
             }
 
-            return .init(id: medicineItem.first.id,
-                         barcode: medicineItem.first.barcode,
-                         marketUrl: URL(string: medicineItem.first.marketUrlString),
-                         name: medicineItem.first.name,
-                         imageUrl: URL(string: medicineItem.first.imageUrlString),
-                         producer: medicineItem.first.producer,
-                         activeComponent: medicineItem.first.activeComponent,
-                         periods: periods)
+            var cellModel: MedicineItemViewModel = .init(id: medicineItem.first.id,
+                                                         barcode: medicineItem.first.barcode,
+                                                         marketUrl: URL(string: medicineItem.first.marketUrlString),
+                                                         name: medicineItem.first.name,
+                                                         imageUrl: URL(string: medicineItem.first.imageUrlString),
+                                                         producer: medicineItem.first.producer,
+                                                         activeComponent: medicineItem.first.activeComponent,
+                                                         periods: periods)
+
+            if let icon = cachedStorage.cache[cellModel.placeholderIconKey] as? Int {
+                cellModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: icon)
+            }
+            else {
+                let randomIcon = Int.random(in: 0..<20)
+                cachedStorage.cache[cellModel.placeholderIconKey] = randomIcon
+                cellModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: randomIcon)
+            }
+
+            return cellModel
         }
 
         return cellModels

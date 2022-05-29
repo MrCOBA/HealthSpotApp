@@ -45,7 +45,6 @@ extension Date {
                                                        to: rawEpectedDate).year ?? 0
         }
 
-
         let possibleEventDate = Calendar.current.date(byAdding: rawEvent.frequency.calendarComponent, value: distance, to: rawEvent.rawDate)
 
         return (rawEpectedDate == possibleEventDate)

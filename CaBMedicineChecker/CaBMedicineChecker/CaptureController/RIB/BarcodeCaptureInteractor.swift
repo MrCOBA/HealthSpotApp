@@ -44,6 +44,14 @@ final class BarcodeCaptureInteractor: BaseInteractor {
 
     private func addMedicineItem(with barcode: String) {
         user = UserEntityWrapper(coreDataAssistant: coreDataAssistant)
+
+        let predicate = NSPredicate(format: "barcode = %@", barcode)
+        if coreDataAssistant.loadData("MedicineItem", predicate: predicate, sortDescriptor: nil)?.count ?? 0 != 0 {
+            // TODO: Show alert
+            didCaptureCancel()
+            return 
+        }
+
         firebaseFirestoreMedicineCheckerController.addMedicineItem(with: barcode, to: user?.id ?? "")
     }
 

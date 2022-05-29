@@ -2,7 +2,16 @@ import WatchConnectivity
 
 // MARK: - Protocols
 
+protocol CompanionWatchKitConnectionDelegate: AnyObject {
+
+    func didReceiveCommand(_ isOn: Bool)
+
+}
+
 protocol CompanionWatchKitConnection: AnyObject {
+
+    var delegate: CompanionWatchKitConnectionDelegate? { get set }
+
     func startSession()
     func sendMessage(message: [String : AnyObject], replyHandler: (([String : AnyObject]) -> Void)?, errorHandler: ((NSError) -> Void)?)
 }
@@ -11,10 +20,13 @@ protocol CompanionWatchKitConnection: AnyObject {
 
 class CompanionWatchKitConnectionImpl: NSObject, CompanionWatchKitConnection {
 
+    // MARK: - Internal Properties
+
+    weak var delegate: CompanionWatchKitConnectionDelegate?
+
     // MARK: - Private Properties
 
     private let session: WCSession?
-
     private var validSession: WCSession? {
 #if os(iOS)
         if let session = session, session.isPaired, session.isWatchAppInstalled {
@@ -61,6 +73,14 @@ extension CompanionWatchKitConnectionImpl: WCSessionDelegate {
 
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         /* Do Nothin */
+    }
+
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+        guard let isOn = message.values.first as? Bool else {
+            return
+        }
+
+        delegate?.didReceiveCommand(isOn)
     }
 
 }

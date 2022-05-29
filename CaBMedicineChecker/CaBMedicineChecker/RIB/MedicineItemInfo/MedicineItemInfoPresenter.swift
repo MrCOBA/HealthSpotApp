@@ -14,8 +14,11 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
     weak var interactor: MedicineItemInfoInteractor?
     weak var view: MedicineItemInfoView?
 
-    init(view: MedicineItemInfoView) {
+    private let cachedStorage: CachedStorage
+
+    init(view: MedicineItemInfoView, cachedStorage: CachedStorage) {
         self.view = view
+        self.cachedStorage = cachedStorage
     }
 
     func updateView(rawData medicineItem: MedicineItemEntityWrapper, _ periods: [MedicineItemPeriodEntityWrapper]) {
@@ -34,14 +37,25 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
                          actionType: .add)
         }
 
-        return .init(id: medicineItemWrapper.id,
-                     barcode: medicineItemWrapper.barcode,
-                     marketUrl: URL(string: medicineItemWrapper.marketUrlString),
-                     name: medicineItemWrapper.name,
-                     imageUrl: URL(string: medicineItemWrapper.imageUrlString),
-                     producer: medicineItemWrapper.producer,
-                     activeComponent: medicineItemWrapper.activeComponent,
-                     periods: periods)
+        var viewModel = MedicineItemViewModel(id: medicineItemWrapper.id,
+                                              barcode: medicineItemWrapper.barcode,
+                                              marketUrl: URL(string: medicineItemWrapper.marketUrlString),
+                                              name: medicineItemWrapper.name,
+                                              imageUrl: URL(string: medicineItemWrapper.imageUrlString),
+                                              producer: medicineItemWrapper.producer,
+                                              activeComponent: medicineItemWrapper.activeComponent,
+                                              periods: periods)
+
+        if let icon = cachedStorage.cache[viewModel.placeholderIconKey] as? Int {
+            viewModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: icon)
+        }
+        else {
+            let randomIcon = Int.random(in: 0..<20)
+            cachedStorage.cache[viewModel.placeholderIconKey] = randomIcon
+            viewModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: randomIcon)
+        }
+
+        return viewModel
     }
 
     private func checkIfInteractorSet() {

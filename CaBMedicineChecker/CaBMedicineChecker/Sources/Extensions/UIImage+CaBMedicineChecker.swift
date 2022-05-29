@@ -4,8 +4,8 @@ extension UIImage {
 
     enum MedicineChecker {
 
-        public static var placeholderIcon: UIImage {
-            return UIImage(named: "medicine-\(Int.random(in: 0..<20))",
+        public static func placeholderIcon(id: Int) -> UIImage {
+            return UIImage(named: "medicine-\(id)",
                            in: .medicineChecker,
                            compatibleWith: nil) ?? UIImage()
         }

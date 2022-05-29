@@ -4,43 +4,29 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="20006"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Comfortaa-Bold.ttf">
-            <string>Comfortaa-Bold</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--HealthSpot-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller title="HealthSpot" animationDuration="1" spacing="6" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Health_Spot_Companion" customModuleProvider="target">
                     <items>
-                        <label width="1" alignment="left" text="Heart Rate:" id="Fn8-ar-RfA">
+                        <label width="1" alignment="left" verticalAlignment="center" text="Heart Rate:" textAlignment="center" id="Fn8-ar-RfA">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                            <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" text="Step Counts:" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
+                        <label width="1" alignment="left" verticalAlignment="center" text="Step Counts:" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vUu-PL-H5p">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                            <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <label width="1" alignment="left" text="Burnt energy:" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
+                        <label width="1" alignment="left" verticalAlignment="center" text="Burnt energy:" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="jUP-JM-juM">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="font" name="Comfortaa-Bold" family="Comfortaa" pointSize="14"/>
+                            <fontDescription key="font" type="boldSystem" pointSize="20"/>
                         </label>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Start" id="veM-jI-laN">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <color key="backgroundColor" name="Gray_Transparent_20"/>
-                            <connections>
-                                <action selector="tapActionButton" destination="AgC-eL-Hgc" id="MJf-rZ-cvu"/>
-                            </connections>
-                        </button>
                     </items>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <edgeInsets key="margins" left="4" right="4" top="3" bottom="0.0"/>
                     <connections>
-                        <outlet property="actionButton" destination="veM-jI-laN" id="YVx-WA-1yY"/>
                         <outlet property="calloriesCountLabel" destination="jUP-JM-juM" id="9mC-aC-0hb"/>
                         <outlet property="heartRateLabel" destination="Fn8-ar-RfA" id="yhZ-Oi-MBO"/>
                         <outlet property="stepCountsLabel" destination="vUu-PL-H5p" id="E7W-Mt-4qg"/>
@@ -81,9 +67,4 @@
             <point key="canvasLocation" x="468" y="345"/>
         </scene>
     </scenes>
-    <resources>
-        <namedColor name="Gray_Transparent_20">
-            <color red="0.5" green="0.5" blue="0.5" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

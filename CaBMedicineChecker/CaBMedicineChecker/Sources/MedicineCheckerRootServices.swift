@@ -9,5 +9,6 @@ public protocol MedicineCheckerRootServices: AnyObject {
     var medicineItemPeriodStorage: MedicineItemPeriodTemporaryStorage { get }
     var firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController { get }
     var localNotificationsAssistant: LocalNotificationAssistant { get }
+    var cachedStorage: CachedStorage { get }
 
 }

@@ -17,7 +17,7 @@ final class MedicineListBuilder: Builder {
     func build() -> ViewableRouter {
         let view = MedicineListView.makeView()
 
-        let presenter = MedicineListPresenterImpl(view: view)
+        let presenter = MedicineListPresenterImpl(view: view, cachedStorage: factory.cachedStorage)
         view.eventsHandler = presenter
         
         let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant,

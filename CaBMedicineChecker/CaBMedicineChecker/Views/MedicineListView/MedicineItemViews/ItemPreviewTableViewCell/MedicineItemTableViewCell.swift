@@ -98,7 +98,7 @@ final class MedicineItemTableViewCell: UITableViewCell {
         itemIconImageView.layer.cornerRadius = Constants.cornerRadius
 
         imageLoadingIndicator.startAnimating()
-        itemIconImageView.imageFromServerURL(cellModel.imageUrl, placeholder: .MedicineChecker.placeholderIcon) { [weak self] in
+        itemIconImageView.imageFromServerURL(cellModel.imageUrl, placeholder: cellModel.placeholderIcon) { [weak self] in
             self?.imageLoadingIndicator.stopAnimating()
         }
     }

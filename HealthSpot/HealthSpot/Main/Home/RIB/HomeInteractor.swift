@@ -31,6 +31,8 @@ final class HomeInteractorImpl: BaseInteractor, HomeInteractor {
         if statisticsStorage.isTrackingEnabled {
             startStatisticsTracking()
         }
+
+        updateView()
     }
 
     override func stop() {

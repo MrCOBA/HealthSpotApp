@@ -94,20 +94,17 @@ extension WatchKitConnectionImpl: WCSessionDelegate {
     }
 
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
-        guard let heartRate = message["heartRate"] as? Double else {
-            return
+        if let heartRate = message["heartRate"] as? String {
+            statisticsStorage.heartRate = Double(heartRate) ?? 0.0
         }
-        statisticsStorage.heartRate = heartRate
 
-        guard let stepsCount = message["stepsCount"] as? Double else {
-            return
+        if let stepsCount = message["stepsCount"] as? String {
+            statisticsStorage.stepsCount = Double(stepsCount) ?? 0.0
         }
-        statisticsStorage.stepsCount = stepsCount
 
-        guard let burnedActiveEnergy = message["burnedActiveEnergy"] as? Double else {
-            return
+        if let burnedActiveEnergy = message["burnedActiveEnergy"] as? String {
+            statisticsStorage.burnedCallories = Double(burnedActiveEnergy) ?? 0.0
         }
-        statisticsStorage.burnedCallories = burnedActiveEnergy
     }
 
 }

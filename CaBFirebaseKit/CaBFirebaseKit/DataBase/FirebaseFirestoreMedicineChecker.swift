@@ -145,6 +145,7 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
             itemEntityWrapper.barcode = item["barcode"] as? String ?? ""
             itemEntityWrapper.marketUrlString = item["marketUrl"] as? String ?? ""
 
+
             if let periods = medicineItemPeriods[item.documentID] {
                 let periodEntities: [NSManagedObject] = periods.compactMap { period in
                     guard let periodEntity = coreDataAssistant.createEntity("MedicineItemPeriod") else {

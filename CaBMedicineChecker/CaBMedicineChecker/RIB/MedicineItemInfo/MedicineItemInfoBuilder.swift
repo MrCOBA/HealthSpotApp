@@ -19,7 +19,7 @@ final class MedicineItemInfoBuilder: Builder {
     func build(with id: String) -> ViewableRouter {
         let view = MedicineItemInfoView.makeView()
 
-        let presenter = MedicineItemInfoPresenterImpl(view: view)
+        let presenter = MedicineItemInfoPresenterImpl(view: view, cachedStorage: factory.cachedStorage)
         view.eventsHandler = presenter
         
         let interactor = MedicineItemInfoInteractorImpl(firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController,

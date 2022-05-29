@@ -35,6 +35,11 @@ struct MedicineItemViewModel: Equatable {
     let activeComponent: String
     let periods: [Period]
 
+    var placeholderIcon: UIImage?
+    var placeholderIconKey: String {
+        return "MedicineItemPlaceholderIcon_\(id)"
+    }
+
     static var empty: Self {
         return .init(id: "",
                      barcode: "",
@@ -43,7 +48,8 @@ struct MedicineItemViewModel: Equatable {
                      imageUrl: nil,
                      producer: "",
                      activeComponent: "",
-                     periods: [])
+                     periods: [],
+                     placeholderIcon: nil)
     }
 
 }

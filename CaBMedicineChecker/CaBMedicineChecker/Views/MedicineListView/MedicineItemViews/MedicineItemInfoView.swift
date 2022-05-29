@@ -125,7 +125,7 @@ final class MedicineItemInfoView: UIViewController {
         itemIconImageView.layer.cornerRadius = Constants.imageViewCornerRadius
 
         imageLoadingIndicator.startAnimating()
-        itemIconImageView.imageFromServerURL(viewModel.imageUrl, placeholder: .MedicineChecker.placeholderIcon) { [weak self] in
+        itemIconImageView.imageFromServerURL(viewModel.imageUrl, placeholder: viewModel.placeholderIcon) { [weak self] in
             self?.imageLoadingIndicator.stopAnimating()
         }
     }

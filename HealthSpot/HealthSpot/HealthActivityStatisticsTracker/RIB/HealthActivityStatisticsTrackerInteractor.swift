@@ -29,6 +29,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         dataTrackingAssistant.startObserveHeartRateSamples()
         dataTrackingAssistant.startObserveStepsCountSamples()
         dataTrackingAssistant.startObserveActiveBurntEnergySamples()
+
+        watchKitConnection.sendMessage(message: ["command" : true as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
     override func stop() {
@@ -36,6 +38,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         dataTrackingAssistant.stopObserveHeartRateSamples()
         dataTrackingAssistant.stopObserveStepsCountSamples()
         dataTrackingAssistant.stopObserveActiveBurnedEnergySamples()
+
+        watchKitConnection.sendMessage(message: ["command" : false as AnyObject], replyHandler: nil, errorHandler: nil)
         
         super.stop()
     }
@@ -45,6 +49,7 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDelegate {
 
     func didFinishedActivateSession() {
+
     }
 
 }

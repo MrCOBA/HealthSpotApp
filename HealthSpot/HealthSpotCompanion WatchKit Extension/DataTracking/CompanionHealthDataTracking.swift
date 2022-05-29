@@ -9,7 +9,7 @@ protocol CompanionHealthDataTrackingDelegate: AnyObject {
     func didReceiveHealthKitBurntEnergy(_ burntEnergy: Double)
 }
 
-protocol CompanionHealthDataTracking: AnyObject {
+protocol CompanionHealthDataTracking: CompanionWatchKitConnectionDelegate {
 
     var delegate: CompanionHealthDataTrackingDelegate? { get set }
 
@@ -210,6 +210,14 @@ extension CompanionHealthDataTrackingImpl: HKLiveWorkoutBuilderDelegate {
 
     func workoutBuilderDidCollectEvent(_ workoutBuilder: HKLiveWorkoutBuilder) {
         /* Do Nothing */
+    }
+
+}
+
+extension CompanionHealthDataTrackingImpl: CompanionWatchKitConnectionDelegate {
+
+    func didReceiveCommand(_ isOn: Bool) {
+        isOn ? start() : stop()
     }
 
 }

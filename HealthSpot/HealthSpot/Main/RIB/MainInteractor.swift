@@ -29,11 +29,7 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
     override func start() {
         super.start()
 
-        guard presenter != nil else {
-            logError(message: "Presenter expected to be set")
-            return
-        }
-        presenter?.updateView(with: [.home, .medicineChecker, .foodController, .settings])
+        presenter?.updateView(with: [.home, .medicineChecker])
     }
 
     // MARK: Protocol MainInteractor
