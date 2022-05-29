@@ -21,11 +21,34 @@ extension Date {
             return false
         }
         
-        let distance = rawEvent.rawDate.distance(from: rawEpectedDate, only: rawEvent.frequency.calendarComponent)
+        let distance: Int
 
-        let newEvent = Calendar.current.date(byAdding: rawEvent.frequency.calendarComponent, value: distance, to: rawEpectedDate)
+        switch rawEvent.frequency {
+        case.daily:
+            distance = Calendar.current.dateComponents([rawEvent.frequency.calendarComponent],
+                                                       from: rawEvent.rawDate,
+                                                       to: rawEpectedDate).day ?? 0
 
-        return (newEvent == rawEvent.rawDate)
+        case .weekly:
+            distance = Calendar.current.dateComponents([rawEvent.frequency.calendarComponent],
+                                                       from: rawEvent.rawDate,
+                                                       to: rawEpectedDate).weekOfYear ?? 0
+
+        case .monthly:
+            distance = Calendar.current.dateComponents([rawEvent.frequency.calendarComponent],
+                                                       from: rawEvent.rawDate,
+                                                       to: rawEpectedDate).month ?? 0
+
+        case .yearly:
+            distance = Calendar.current.dateComponents([rawEvent.frequency.calendarComponent],
+                                                       from: rawEvent.rawDate,
+                                                       to: rawEpectedDate).year ?? 0
+        }
+
+
+        let possibleEventDate = Calendar.current.date(byAdding: rawEvent.frequency.calendarComponent, value: distance, to: rawEvent.rawDate)
+
+        return (rawEpectedDate == possibleEventDate)
     }
 
 }

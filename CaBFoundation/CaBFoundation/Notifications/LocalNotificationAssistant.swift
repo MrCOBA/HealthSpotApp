@@ -4,7 +4,10 @@ import UserNotifications
 
 public protocol LocalNotificationAssistant: AnyObject {
 
-    func push(notificationContent: LocalNotificationAssistantImpl.Content)
+    func push(notificationContent: LocalNotificationAssistantImpl.Content, with customTrigger: UNNotificationTrigger?)
+    func scheduleNotification(notificationContent: LocalNotificationAssistantImpl.Content, frequency: Date.Frequency?, from startDate: Date)
+    func removePendingNotification(with identifier: String)
+    func removeAllPendingNotifications()
 
 }
 
@@ -15,15 +18,18 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
     // MARK: - Public Types
 
     public struct Content {
+        let identifier: String
         let title: String
         let body: String
         let category: String
         let userInfo: [String: Any]
 
-        public init(title: String,
+        public init(identifier: String,
+                    title: String,
                     body: String,
                     category: String,
                     userInfo: [String: Any]) {
+            self.identifier = identifier
             self.title = title
             self.body = body
             self.category = category
@@ -34,11 +40,13 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
     // MARK: - Private Properties
 
     private let storage: RootSettingsStorage
+    private let notificationCenter: UNUserNotificationCenter
 
     // MARK: - Init
 
     public init(storage: RootSettingsStorage) {
         self.storage = storage
+        self.notificationCenter = UNUserNotificationCenter.current()
 
         if !storage.isNotificationPermissionsRequested {
             requestPermission()
@@ -48,9 +56,7 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
 
     // MARK: - Public Methods
 
-    public func push(notificationContent: Content) {
-        let center = UNUserNotificationCenter.current()
-
+    public func push(notificationContent: Content, with customTrigger: UNNotificationTrigger? = nil) {
         let content = UNMutableNotificationContent()
         content.title = notificationContent.title
         content.body = notificationContent.body
@@ -62,10 +68,32 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         var dateComponents = DateComponents()
         dateComponents.hour = 10
         dateComponents.minute = 30
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
 
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        center.add(request)
+
+        let trigger = (customTrigger == nil) ? UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false) : customTrigger
+
+        let request = UNNotificationRequest(identifier: notificationContent.identifier, content: content, trigger: trigger)
+        notificationCenter.add(request)
+    }
+
+    public func scheduleNotification(notificationContent: Content, frequency: Date.Frequency?, from startDate: Date) {
+        let components: Set<Calendar.Component> = (frequency == nil)
+        ? Set([.day, .hour, .minute])
+        : Set(frequency!.triggerDateComponents)
+
+        let triggerFrequency = Calendar.current.dateComponents(components, from: startDate)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerFrequency, repeats: (frequency != nil))
+
+        push(notificationContent: notificationContent, with: trigger)
+    }
+
+    public func removePendingNotification(with identifier: String) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+    }
+
+    public func removeAllPendingNotifications() {
+        notificationCenter.removeAllPendingNotificationRequests()
     }
 
     // MARK: - Private Methods
@@ -81,6 +109,26 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
             }
 
             self?.storage.isNotificationPermissionsRequested = true
+        }
+    }
+
+}
+
+extension Date.Frequency {
+
+    var triggerDateComponents: [Calendar.Component] {
+        switch self {
+        case .daily:
+            return [.minute, .hour]
+
+        case .weekly:
+            return Self.daily.triggerDateComponents + [.weekday]
+
+        case .monthly:
+            return Self.daily.triggerDateComponents + [.day]
+
+        case .yearly:
+            return Self.monthly.triggerDateComponents + [.month]
         }
     }
 

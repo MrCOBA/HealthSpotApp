@@ -66,6 +66,7 @@
 		FD442CD6283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */; };
 		FD442CD8283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */; };
 		FD442D21283F0BB0001A454B /* SuiteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD442D20283F0BB0001A454B /* SuiteProvider.swift */; };
+		FD5E24D52843815600BF9F32 /* LocalNotificationsScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5E24D42843815600BF9F32 /* LocalNotificationsScheduler.swift */; };
 		FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD793748282D4EC5009B091C /* HealthSpot.xcdatamodeld */; };
 		FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7DCB9D282AA1890068434E /* MainPresenter.swift */; };
 		FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD7F7C65282471C00055D2F3 /* MainView.swift */; };
@@ -258,6 +259,7 @@
 		FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsTrackerInteractor.swift; sourceTree = "<group>"; };
 		FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityStatisticsTrackerBuilder.swift; sourceTree = "<group>"; };
 		FD442D20283F0BB0001A454B /* SuiteProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuiteProvider.swift; sourceTree = "<group>"; };
+		FD5E24D42843815600BF9F32 /* LocalNotificationsScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationsScheduler.swift; sourceTree = "<group>"; };
 		FD793749282D4EC5009B091C /* HealthSpot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthSpot.xcdatamodel; sourceTree = "<group>"; };
 		FD7DCB9D282AA1890068434E /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		FD7F7C65282471C00055D2F3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		31932CA22782FF2600BCBDAA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				FD5E24CD284380D500BF9F32 /* Notifications */,
 				FD442CCC283EC509001A454B /* Storage */,
 				FDE9FD682831453400EE6FE0 /* CoreDataModel */,
 				FD92D06F28294FAB008CE6DA /* Extensions */,
@@ -600,6 +603,14 @@
 				FD442D20283F0BB0001A454B /* SuiteProvider.swift */,
 			);
 			path = SuiteProvider;
+			sourceTree = "<group>";
+		};
+		FD5E24CD284380D500BF9F32 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				FD5E24D42843815600BF9F32 /* LocalNotificationsScheduler.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		FD793742282D4EAC009B091C /* CoreDataModel */ = {
@@ -978,6 +989,7 @@
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
 				FD32F588283DDB4F0019C6CA /* HomePresenter.swift in Sources */,
 				FDC9DD4828415E3500AB149F /* SettingsTableViewCell.swift in Sources */,
+				FD5E24D52843815600BF9F32 /* LocalNotificationsScheduler.swift in Sources */,
 				FD3BE64D284278D300C31D89 /* User+CoreDataProperties.swift in Sources */,
 				FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */,
 				FD32F56E283DB5840019C6CA /* CalloriesActivityView.swift in Sources */,

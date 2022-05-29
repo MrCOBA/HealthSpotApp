@@ -63,8 +63,13 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
         for cellModel in cellModels {
             let rawEvents = Date.getRawEvents(from: cellModel)
 
+            if rawEvents.isEmpty {
+                filteredModels.append(cellModel)
+                continue
+            }
+            
             if rawEvents.reduce(false, {
-                current, next in current || Date.isEventPossible(expectedDate: date, rawEvent: next)
+                value, nextEvent in value || Date.isEventPossible(expectedDate: date, rawEvent: nextEvent)
             }) {
                 filteredModels.append(cellModel)
             }

@@ -108,7 +108,10 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
 
         var nextEventDateString = (cellModel.startDate > Date()) ? dateFormatter.string(from: cellModel.startDate) : "-"
         if let frequency = cellModel.frequency {
-            guard let nextEventDate = cellModel.startDate.nextEventDate(cellModel.endDate, frequency: frequency) else {
+            guard let nextEventDate = Date().nextEventDate(startDate: cellModel.startDate,
+                                                           endDate: cellModel.endDate,
+                                                           frequency: frequency)
+            else {
                 nextEventDateString = "Next: -"
                 return
             }

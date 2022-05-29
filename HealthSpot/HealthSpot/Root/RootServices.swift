@@ -14,6 +14,7 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
     var coreDataAssistant: CoreDataAssistant { get }
     var rootSettingsStorage: RootSettingsStorage { get }
     var localNotificationsAssistant: LocalNotificationAssistant { get }
+    var localNotificationsScheduler: LocalNotificationsScheduler { get }
     var firebaseServices: FirebaseServicesProvider { get }
     var statisticsStorage: HealthActivityStatisticsStorage { get }
     var dataTracking: HealthDataTracking { get }
@@ -40,6 +41,7 @@ final class RootServicesImpl: RootServices {
 
     let rootSettingsStorage: RootSettingsStorage
     let localNotificationsAssistant: LocalNotificationAssistant
+    let localNotificationsScheduler: LocalNotificationsScheduler
 
     let colorScheme: CaBColorScheme
     let firebaseServices: FirebaseServicesProvider
@@ -69,6 +71,11 @@ final class RootServicesImpl: RootServices {
 
         medicineItemPeriodStorage = MedicineItemPeriodTemporaryStorageImpl()
         firebaseFirestoreMedicineCheckerController = firebaseServices.firebaseFirestoreMedicineCheckerController
+
+        localNotificationsScheduler = LocalNotificationsSchedulerImpl(localNotificationsAssistant: localNotificationsAssistant,
+                                                                      firebaseFirestoreMedicineCheckerController: firebaseFirestoreMedicineCheckerController,
+                                                                      coreDataAssistant: coreDataAssistant)
+
         credentialsStorage = AuthorithationCredentialsTemporaryStorageImpl()
 
         authorizationManager = AuthorizationManagerImpl(authorizationController: firebaseServices.authorizationController,

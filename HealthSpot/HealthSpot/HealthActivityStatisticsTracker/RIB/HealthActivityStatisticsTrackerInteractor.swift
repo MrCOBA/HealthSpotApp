@@ -45,7 +45,6 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDelegate {
 
     func didFinishedActivateSession() {
-        watchKitConnection.sendMessage(message: ["username" : "mrcoba" as AnyObject], replyHandler: nil, errorHandler: nil)
     }
 
 }
@@ -53,10 +52,6 @@ extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDeleg
 extension HealthActivityStatisticsTrackerInteractorImpl: HealthActivityStatisticsStorageObserver {
 
     func storage(_ storage: HealthActivityStatisticsStorage, didUpdateHeartRateTo newValue: Double) {
-        localNotificationsAssistant.push(notificationContent: .init(title: "Current heart rate",
-                                                                    body: "Heart Rate = \(newValue)",
-                                                                    category: "alarm",
-                                                                    userInfo: ["customData": "fizzbuzz"]))
     }
     
 }

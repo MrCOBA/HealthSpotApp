@@ -24,52 +24,50 @@ extension Date {
         }
     }
 
-    public func nextEventDate(_ endDate: Date?, frequency: Frequency) -> Date? {
+    public func nextEventDate(startDate: Date, endDate: Date?, frequency: Frequency) -> Date? {
         let calendar = Calendar.current
-        let dateComponents = Set([frequency.calendarComponent])
 
-        let difDateComponents = calendar.dateComponents(dateComponents, from: self, to: Date())
+        let components = calendar.dateComponents(Set(frequency.triggerDateComponents), from: startDate)
 
-        var nextEventDate: Date
+        var nextEventDate: Date?
         switch frequency {
         case .daily:
-            let components = DateComponents(day: (difDateComponents.day ?? 0))
-            nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
-            if nextEventDate <= self {
-                nextEventDate = calendar.date(byAdding:  DateComponents(day: 1), to: self) ?? Date()
-            }
+            nextEventDate = calendar.nextDate(after: self,
+                                              matching: DateComponents(hour: components.hour, minute: components.minute),
+                                              matchingPolicy: .nextTime)
 
         case .weekly:
-            let components = DateComponents(weekOfYear: (difDateComponents.weekOfYear ?? 0))
-            nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
-            if nextEventDate <= self {
-                nextEventDate = calendar.date(byAdding:  DateComponents(weekOfYear: 1), to: self) ?? Date()
-            }
+            nextEventDate = calendar.nextDate(after: self,
+                                              matching: DateComponents(hour: components.hour,
+                                                                       minute: components.minute,
+                                                                       weekday: components.weekday),
+                                              matchingPolicy: .nextTime)
+
 
         case .monthly:
-            let components = DateComponents(month: (difDateComponents.month ?? 0))
-            nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
-            if nextEventDate <= self {
-                nextEventDate = calendar.date(byAdding:  DateComponents(month: 1), to: self) ?? Date()
-            }
+            nextEventDate = calendar.nextDate(after: self,
+                                              matching: DateComponents(day: components.day,
+                                                                       hour: components.hour,
+                                                                       minute: components.minute),
+                                              matchingPolicy: .nextTime)
+
 
         case .yearly:
-            let components = DateComponents(year: (difDateComponents.year ?? 0))
-            nextEventDate = calendar.date(byAdding: components, to: self) ?? Date()
-            if nextEventDate <= self {
-                nextEventDate = calendar.date(byAdding:  DateComponents(year: 1), to: self) ?? Date()
-            }
+            nextEventDate = calendar.nextDate(after: self,
+                                              matching: DateComponents(month: components.month,
+                                                                       day: components.day,
+                                                                       hour: components.hour,
+                                                                       minute: components.minute),
+                                              matchingPolicy: .nextTime)
         }
 
-        var resultDate: Date?
-        if let endDate = endDate {
-            resultDate = endDate > nextEventDate ? nextEventDate : nil
-        }
+        guard let endDate = endDate,
+              let nextEventDate = nextEventDate
         else {
-            resultDate = nextEventDate
+            return nextEventDate
         }
 
-        return resultDate
+        return nextEventDate > endDate ? nil : nextEventDate
     }
 
     public func hasSame(_ component: Calendar.Component, as date: Date) -> Bool {

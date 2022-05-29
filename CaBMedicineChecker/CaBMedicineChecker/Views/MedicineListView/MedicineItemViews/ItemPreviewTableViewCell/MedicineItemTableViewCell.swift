@@ -118,7 +118,7 @@ final class MedicineItemTableViewCell: UITableViewCell {
                 return nil
             }
 
-            return $0.startDate.nextEventDate($0.endDate, frequency: frequency)
+            return Date().nextEventDate(startDate: $0.startDate, endDate: $0.endDate, frequency: frequency)
         })
 
         var closestDateString = "Next event: "
