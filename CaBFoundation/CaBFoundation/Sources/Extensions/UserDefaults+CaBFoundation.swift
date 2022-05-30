@@ -9,6 +9,10 @@ extension UserDefaults {
                 return "HealthSpotNotificationRequestKey"
             }
 
+            static var isOfflineModeOn: String {
+                return "HealthSpotOfflineModeKey"
+            }
+
         }
 
         enum Cache {

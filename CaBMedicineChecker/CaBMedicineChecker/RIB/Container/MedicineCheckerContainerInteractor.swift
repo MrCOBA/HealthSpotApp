@@ -1,9 +1,7 @@
 import CaBRiblets
 import CaBFoundation
 
-protocol MedicineCheckerContainerInteractor: Interactor, MedicineListListener {
-
-}
+protocol MedicineCheckerContainerInteractor: Interactor, MedicineListListener { }
 
 public final class MedicineCheckerContainerInteractorImpl: BaseInteractor, MedicineCheckerContainerInteractor {
 

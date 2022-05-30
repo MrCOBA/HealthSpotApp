@@ -33,8 +33,8 @@ public protocol FirebaseFirestoreMedicineCheckerController: AnyObject {
     func updateMedicineItemPeriod(data: [String: Any], of periodId: String, inItem itemId: String, ofUser userId: String)
     func deleteMedicineItemPeriod(with periodId: String, fromItem itemId: String, ofUser userId: String)
 
-    func addObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate)
-    func removeObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate)
+    func add(observer: FirebaseFirestoreMedicineCheckerDelegate)
+    func remove(observer: FirebaseFirestoreMedicineCheckerDelegate)
 
 }
 
@@ -132,11 +132,11 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
         }
     }
 
-    func addObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate) {
+    func add(observer: FirebaseFirestoreMedicineCheckerDelegate) {
         observers.add(observer)
     }
 
-    func removeObserver(_ observer: FirebaseFirestoreMedicineCheckerDelegate) {
+    func remove(observer: FirebaseFirestoreMedicineCheckerDelegate) {
         observers.remove(observer)
     }
 

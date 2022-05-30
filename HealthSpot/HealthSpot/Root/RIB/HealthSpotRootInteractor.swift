@@ -13,6 +13,7 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
 
     private let authorizationManager: AuthorizationManager
     private let coreDataAssistant: CoreDataAssistant
+    private let rootSettingsStorage: RootSettingsStorage
     private var user: User?
 
     private let notifications: [Notification.Name] = [
@@ -20,9 +21,10 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
         .Authorization.signIn(result: .success)
     ]
 
-    init(authorizationManager: AuthorizationManager, coreDataAssistant: CoreDataAssistant) {
+    init(authorizationManager: AuthorizationManager, coreDataAssistant: CoreDataAssistant, rootSettingsStorage: RootSettingsStorage) {
         self.authorizationManager = authorizationManager
         self.coreDataAssistant = coreDataAssistant
+        self.rootSettingsStorage = rootSettingsStorage
 
         user = coreDataAssistant.loadData("User", predicate: nil, sortDescriptor: nil)?.firstObject as? User
     }
@@ -46,6 +48,12 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
     }
     
     private func tryToSignIn() {
+        guard !rootSettingsStorage.isOfflineModeOn else {
+            checkIfRouterSet()
+            router?.attachMainFlow()
+            return
+        }
+
         guard let user = user else {
             checkIfRouterSet()
             router?.attachAuthorizationFlow()

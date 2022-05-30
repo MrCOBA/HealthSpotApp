@@ -15,6 +15,7 @@ protocol MedicineItemInfoInteractor: Interactor, MedicineItemPeriodListener {
 
     func didFinish()
     func showItemPeriodScreen(with actionType: MedicineItemPeriodActionType)
+    func showOfflineModeAlert()
 
 }
 
@@ -38,6 +39,8 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
     private var medicineItem: MedicineItemEntityWrapper?
     private var periods = [MedicineItemPeriodEntityWrapper]()
 
+    private let rootSettingsStorage: RootSettingsStorage
+
     // MARK: - Init
 
     init(firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
@@ -45,12 +48,14 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
          coreDataAssistant: CoreDataAssistant,
          presenter: MedicineItemInfoPresenter,
          entityId: String,
+         rootSettingsStorage: RootSettingsStorage,
          listener: MedicineItemInfoListener?) {
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
         self.itemPeriodTemporaryStorage = itemPeriodTemporaryStorage
         self.entityId = entityId
         self.presenter = presenter
         self.coreDataAssistant = coreDataAssistant
+        self.rootSettingsStorage = rootSettingsStorage
         self.listener = listener
     }
 
@@ -59,12 +64,15 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
     override func start() {
         super.start()
 
-        firebaseFirestoreMedicineCheckerController.addObserver(self)
+        firebaseFirestoreMedicineCheckerController.add(observer: self)
+        rootSettingsStorage.add(observer: self)
+
         syncStorage()
     }
 
     override func stop() {
-        firebaseFirestoreMedicineCheckerController.removeObserver(self)
+        firebaseFirestoreMedicineCheckerController.remove(observer: self)
+        rootSettingsStorage.remove(observer: self)
 
         super.stop()
     }
@@ -73,6 +81,12 @@ final class MedicineItemInfoInteractorImpl: BaseInteractor, MedicineItemInfoInte
         checkIfRouterSet()
 
         router?.attachItemPeriodRouter(with: actionType)
+    }
+
+    func showOfflineModeAlert() {
+        checkIfRouterSet()
+
+        router?.attachOfflineModeAlert()
     }
 
     func didFinish() {
@@ -193,6 +207,24 @@ extension MedicineItemInfoInteractorImpl: FirebaseFirestoreMedicineCheckerDelega
         }
         
         firebaseFirestoreMedicineCheckerController.updateData(for: user.id)
+    }
+
+}
+
+// MARK: - Protocol RootSettingsStorageObserver
+
+extension MedicineItemInfoInteractorImpl: RootSettingsStorageObserver {
+
+    func storage(_ storage: RootSettingsStorage, didUpdateOfflineModeTo newValue: Bool) {
+        updateView()
+
+        if newValue {
+            guard let user = UserEntityWrapper(coreDataAssistant: coreDataAssistant) else {
+                return
+            }
+            
+            firebaseFirestoreMedicineCheckerController.updateData(for: user.id)
+        }
     }
 
 }

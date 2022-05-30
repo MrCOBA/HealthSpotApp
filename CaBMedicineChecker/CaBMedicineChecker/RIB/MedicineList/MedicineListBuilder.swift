@@ -19,12 +19,13 @@ final class MedicineListBuilder: Builder {
     func build() -> ViewableRouter {
         let view = MedicineListView.makeView()
 
-        let presenter = MedicineListPresenterImpl(view: view, cachedStorage: factory.cachedStorage)
+        let presenter = MedicineListPresenterImpl(view: view, cachedStorage: factory.cachedStorage, rootSettingsStorage: factory.rootSettingsStorage)
         view.eventsHandler = presenter
         
         let interactor = MedicineListInteractorImpl(coreDataAssistant: factory.coreDataAssistant,
                                                     presenter: presenter,
                                                     firebaseFirestoreMedicineCheckerController: factory.firebaseFirestoreMedicineCheckerController,
+                                                    rootSettingsStorage: factory.rootSettingsStorage,
                                                     listener: listener)
 
         presenter.interactor = interactor

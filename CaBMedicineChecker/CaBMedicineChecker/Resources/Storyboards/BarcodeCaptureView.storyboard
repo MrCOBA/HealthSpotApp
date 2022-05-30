@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy5-jK-rOK">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dy5-jK-rOK">
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
-                                <color key="backgroundColor" name="Gray_Transparent_20"/>
+                                <color key="backgroundColor" name="BackgroundPrimary_Default"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bHG-ib-00j"/>
                                 </constraints>
@@ -45,8 +45,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Gray_Transparent_20">
-            <color red="0.5" green="0.5" blue="0.5" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="BackgroundPrimary_Default">
+            <color red="0.98039215686274506" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="HighlightPrimary_Default">
             <color red="0.20784313725490197" green="0.21568627450980393" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

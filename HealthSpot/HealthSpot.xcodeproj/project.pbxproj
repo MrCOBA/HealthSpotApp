@@ -20,6 +20,14 @@
 		31932CB02783098200BCBDAA /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 31932CAE278308E100BCBDAA /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FD048E10283C34EC00881AEA /* CompanionHealthDataTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */; };
 		FD048E6B283C542200881AEA /* CompanionWatchKitConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD048E6A283C542200881AEA /* CompanionWatchKitConnection.swift */; };
+		FD0CC9D4284424F8008FCB2B /* SettingsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0CC9D3284424F8008FCB2B /* SettingsView.storyboard */; };
+		FD0CC9D62844260A008FCB2B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9D52844260A008FCB2B /* SettingsView.swift */; };
+		FD0CC9DC28443FD1008FCB2B /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9D828443FD1008FCB2B /* SettingsBuilder.swift */; };
+		FD0CC9DD28443FD1008FCB2B /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9D928443FD1008FCB2B /* SettingsRouter.swift */; };
+		FD0CC9DE28443FD1008FCB2B /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9DA28443FD1008FCB2B /* SettingsPresenter.swift */; };
+		FD0CC9DF28443FD1008FCB2B /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9DB28443FD1008FCB2B /* SettingsInteractor.swift */; };
+		FD0CC9E32844A4CD008FCB2B /* StepperSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9E12844A4CD008FCB2B /* StepperSettingsTableViewCell.swift */; };
+		FD0CC9E42844A4CD008FCB2B /* StepperSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD0CC9E22844A4CD008FCB2B /* StepperSettingsTableViewCell.xib */; };
 		FD16F03A283BFC4B009DFDC0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD16F038283BFC4B009DFDC0 /* Interface.storyboard */; };
 		FD16F03C283BFC4C009DFDC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */; };
 		FD16F042283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD16F041283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -78,10 +86,8 @@
 		FDA3C19F28212D8C008CDDDF /* HealthSpotRootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C19E28212D8C008CDDDF /* HealthSpotRootInteractor.swift */; };
 		FDA3C1A128212D9E008CDDDF /* HealthSpotRootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */; };
 		FDB78DD8283AF88B00117DCA /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
-		FDC9DD4828415E3500AB149F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */; };
-		FDC9DD4928415E3500AB149F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */; };
-		FDC9DD4D284161C100AB149F /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */; };
-		FDC9DD4E284161C100AB149F /* SettingsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */; };
+		FDC9DD4828415E3500AB149F /* SwitchSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC9DD4628415E3500AB149F /* SwitchSettingsTableViewCell.swift */; };
+		FDC9DD4928415E3500AB149F /* SwitchSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC9DD4728415E3500AB149F /* SwitchSettingsTableViewCell.xib */; };
 		FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5D2831202600EE6FE0 /* RootServices.swift */; };
 		FDEF1107283D842D00C7852E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDB78DD7283AF88B00117DCA /* HealthKit.framework */; };
 		FDFF0AEF2838D782006B82B3 /* CaBFirebaseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0AEE2838D773006B82B3 /* CaBFirebaseKit.framework */; };
@@ -212,6 +218,14 @@
 		31A453A72785AFBD00290D97 /* CaBMedicineChecker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBMedicineChecker.xcodeproj; path = ../CaBMedicineChecker/CaBMedicineChecker.xcodeproj; sourceTree = "<group>"; };
 		FD048E0F283C34EC00881AEA /* CompanionHealthDataTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionHealthDataTracking.swift; sourceTree = "<group>"; };
 		FD048E6A283C542200881AEA /* CompanionWatchKitConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionWatchKitConnection.swift; sourceTree = "<group>"; };
+		FD0CC9D3284424F8008FCB2B /* SettingsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsView.storyboard; sourceTree = "<group>"; };
+		FD0CC9D52844260A008FCB2B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FD0CC9D828443FD1008FCB2B /* SettingsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		FD0CC9D928443FD1008FCB2B /* SettingsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		FD0CC9DA28443FD1008FCB2B /* SettingsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		FD0CC9DB28443FD1008FCB2B /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		FD0CC9E12844A4CD008FCB2B /* StepperSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		FD0CC9E22844A4CD008FCB2B /* StepperSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Spot Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD16F039283BFC4B009DFDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -272,10 +286,8 @@
 		FDA3C1A028212D9E008CDDDF /* HealthSpotRootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSpotRootBuilder.swift; sourceTree = "<group>"; };
 		FDB78DD6283AF88A00117DCA /* HealthSpot.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthSpot.entitlements; sourceTree = "<group>"; };
 		FDB78DD7283AF88B00117DCA /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
-		FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
-		FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
-		FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewController.xib; sourceTree = "<group>"; };
+		FDC9DD4628415E3500AB149F /* SwitchSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		FDC9DD4728415E3500AB149F /* SwitchSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		FDE9FD5D2831202600EE6FE0 /* RootServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServices.swift; sourceTree = "<group>"; };
 		FDFF0AE92838D773006B82B3 /* CaBFirebaseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CaBFirebaseKit.xcodeproj; path = ../CaBFirebaseKit/CaBFirebaseKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -405,6 +417,7 @@
 				31932C932782FEDE00BCBDAA /* Main.storyboard */,
 				31932C982782FEE100BCBDAA /* LaunchScreen.storyboard */,
 				FD32F58A283DE2E50019C6CA /* HomeView.storyboard */,
+				FD0CC9D3284424F8008FCB2B /* SettingsView.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -446,6 +459,26 @@
 				FD048E6A283C542200881AEA /* CompanionWatchKitConnection.swift */,
 			);
 			path = DataTracking;
+			sourceTree = "<group>";
+		};
+		FD0CC9D728442BC9008FCB2B /* RIB */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CC9D828443FD1008FCB2B /* SettingsBuilder.swift */,
+				FD0CC9DB28443FD1008FCB2B /* SettingsInteractor.swift */,
+				FD0CC9DA28443FD1008FCB2B /* SettingsPresenter.swift */,
+				FD0CC9D928443FD1008FCB2B /* SettingsRouter.swift */,
+			);
+			path = RIB;
+			sourceTree = "<group>";
+		};
+		FD0CC9E02844A446008FCB2B /* StepperSettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CC9E12844A4CD008FCB2B /* StepperSettingsTableViewCell.swift */,
+				FD0CC9E22844A4CD008FCB2B /* StepperSettingsTableViewCell.xib */,
+			);
+			path = StepperSettingsCell;
 			sourceTree = "<group>";
 		};
 		FD16F037283BFC4B009DFDC0 /* HealthSpotCompanion */ = {
@@ -673,26 +706,27 @@
 		FDC9DD3E28415DE100AB149F /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				FD0CC9D728442BC9008FCB2B /* RIB */,
 				FDC9DD4A2841617F00AB149F /* Views */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		FDC9DD4528415E0A00AB149F /* SettingsCell */ = {
+		FDC9DD4528415E0A00AB149F /* SwitchSettingsCell */ = {
 			isa = PBXGroup;
 			children = (
-				FDC9DD4628415E3500AB149F /* SettingsTableViewCell.swift */,
-				FDC9DD4728415E3500AB149F /* SettingsTableViewCell.xib */,
+				FDC9DD4628415E3500AB149F /* SwitchSettingsTableViewCell.swift */,
+				FDC9DD4728415E3500AB149F /* SwitchSettingsTableViewCell.xib */,
 			);
-			path = SettingsCell;
+			path = SwitchSettingsCell;
 			sourceTree = "<group>";
 		};
 		FDC9DD4A2841617F00AB149F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FDC9DD4528415E0A00AB149F /* SettingsCell */,
-				FDC9DD4B284161C100AB149F /* SettingsTableViewController.swift */,
-				FDC9DD4C284161C100AB149F /* SettingsTableViewController.xib */,
+				FD0CC9E02844A446008FCB2B /* StepperSettingsCell */,
+				FDC9DD4528415E0A00AB149F /* SwitchSettingsCell */,
+				FD0CC9D52844260A008FCB2B /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -911,15 +945,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDC9DD4E284161C100AB149F /* SettingsTableViewController.xib in Resources */,
 				FD32F5DC283E0BAD0019C6CA /* BaseActivityView.xib in Resources */,
+				FD0CC9D4284424F8008FCB2B /* SettingsView.storyboard in Resources */,
 				FD32F58B283DE2E50019C6CA /* HomeView.storyboard in Resources */,
 				FD442C83283EAF67001A454B /* SwitchView.xib in Resources */,
 				31932C9A2782FEE100BCBDAA /* LaunchScreen.storyboard in Resources */,
 				31932C972782FEE100BCBDAA /* Assets.xcassets in Resources */,
 				31932C952782FEDE00BCBDAA /* Main.storyboard in Resources */,
-				FDC9DD4928415E3500AB149F /* SettingsTableViewCell.xib in Resources */,
+				FDC9DD4928415E3500AB149F /* SwitchSettingsTableViewCell.xib in Resources */,
 				FD32F591283DE6D70019C6CA /* HealthActivityTableViewCell.xib in Resources */,
+				FD0CC9E42844A4CD008FCB2B /* StepperSettingsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -968,27 +1003,32 @@
 				FD32F586283DDB4F0019C6CA /* HomeInteractor.swift in Sources */,
 				FD92D07628294FC1008CE6DA /* UIImage+HealthSpot.swift in Sources */,
 				FD442CCE283EC52C001A454B /* HealthActivityStatisticsStorage.swift in Sources */,
+				FD0CC9DD28443FD1008FCB2B /* SettingsRouter.swift in Sources */,
+				FD0CC9DF28443FD1008FCB2B /* SettingsInteractor.swift in Sources */,
+				FD0CC9DC28443FD1008FCB2B /* SettingsBuilder.swift in Sources */,
 				FD7DCB9E282AA1890068434E /* MainPresenter.swift in Sources */,
 				FD32F566283DA0F40019C6CA /* HeartRateActivityView.swift in Sources */,
 				FD32F581283DCEF80019C6CA /* HomeView.swift in Sources */,
 				FD43F502283D7CCC007E23BA /* HealthDataTracking.swift in Sources */,
 				FD32F57C283DCB7E0019C6CA /* HomeContainerInteractor.swift in Sources */,
 				FD79374A282D4EC5009B091C /* HealthSpot.xcdatamodeld in Sources */,
+				FD0CC9D62844260A008FCB2B /* SettingsView.swift in Sources */,
 				FDA3C19D28212D75008CDDDF /* HealthSpotRootRouter.swift in Sources */,
 				FD442D21283F0BB0001A454B /* SuiteProvider.swift in Sources */,
 				FD3BE64E284278D300C31D89 /* HeartRateItem+CoreDataClass.swift in Sources */,
 				31932C902782FEDE00BCBDAA /* SceneDelegate.swift in Sources */,
+				FD0CC9DE28443FD1008FCB2B /* SettingsPresenter.swift in Sources */,
 				FD3BE651284278D300C31D89 /* MedicineItemPeriod+CoreDataProperties.swift in Sources */,
 				FD3BE6542842937200C31D89 /* MedicineItem+CoreDataClass.swift in Sources */,
 				FD3BE64C284278D300C31D89 /* User+CoreDataClass.swift in Sources */,
+				FD0CC9E32844A4CD008FCB2B /* StepperSettingsTableViewCell.swift in Sources */,
 				FD3BE6552842937200C31D89 /* MedicineItem+CoreDataProperties.swift in Sources */,
 				FD32F587283DDB4F0019C6CA /* HomeRouter.swift in Sources */,
 				FDE9FD5E2831202600EE6FE0 /* RootServices.swift in Sources */,
 				FD442CD0283EC9DE001A454B /* UserDefaults+HealthSpot.swift in Sources */,
-				FDC9DD4D284161C100AB149F /* SettingsTableViewController.swift in Sources */,
 				FD7F7C682824722D0055D2F3 /* MainRouter.swift in Sources */,
 				FD32F588283DDB4F0019C6CA /* HomePresenter.swift in Sources */,
-				FDC9DD4828415E3500AB149F /* SettingsTableViewCell.swift in Sources */,
+				FDC9DD4828415E3500AB149F /* SwitchSettingsTableViewCell.swift in Sources */,
 				FD5E24D52843815600BF9F32 /* LocalNotificationsScheduler.swift in Sources */,
 				FD3BE64D284278D300C31D89 /* User+CoreDataProperties.swift in Sources */,
 				FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */,

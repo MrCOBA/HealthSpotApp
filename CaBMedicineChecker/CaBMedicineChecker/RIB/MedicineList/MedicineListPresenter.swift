@@ -16,10 +16,12 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
     weak var interactor: MedicineListInteractor?
 
     private let cachedStorage: CachedStorage
+    private let rootSettingsStorage: RootSettingsStorage
 
-    init(view: MedicineListView, cachedStorage: CachedStorage) {
+    init(view: MedicineListView, cachedStorage: CachedStorage, rootSettingsStorage: RootSettingsStorage) {
         self.view = view
         self.cachedStorage = cachedStorage
+        self.rootSettingsStorage = rootSettingsStorage
     }
 
     func updateView(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>], filteredBy date: Date?) {
@@ -32,7 +34,7 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
             cellModels = makeViewModels(rawData: medicineItems)
         }
 
-        view?.cellModels = cellModels
+        view?.dataSource = (cellModels, rootSettingsStorage.isOfflineModeOn)
     }
 
     private func makeViewModels(rawData medicineItems: [CompositeCollectionWrapper<MedicineItemEntityWrapper, MedicineItemPeriodEntityWrapper>]) -> [MedicineItemViewModel] {
@@ -53,7 +55,8 @@ final class MedicineListPresenterImpl: MedicineListPresenter {
                                                          imageUrl: URL(string: medicineItem.first.imageUrlString),
                                                          producer: medicineItem.first.producer,
                                                          activeComponent: medicineItem.first.activeComponent,
-                                                         periods: periods)
+                                                         periods: periods,
+                                                         isOfflineModeEnabled: rootSettingsStorage.isOfflineModeOn)
 
             if let icon = cachedStorage.cache[cellModel.placeholderIconKey] as? Int {
                 cellModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: icon)

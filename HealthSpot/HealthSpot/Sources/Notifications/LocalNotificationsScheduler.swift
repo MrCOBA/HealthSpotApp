@@ -32,11 +32,11 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
         self.coreDataAssistant = coreDataAssistant
 
-        firebaseFirestoreMedicineCheckerController.addObserver(self)
+        firebaseFirestoreMedicineCheckerController.add(observer: self)
     }
 
     deinit {
-        firebaseFirestoreMedicineCheckerController.removeObserver(self)
+        firebaseFirestoreMedicineCheckerController.remove(observer: self)
     }
 
     // MARK: - Internal Methods

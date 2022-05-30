@@ -46,6 +46,7 @@
 		31FB81BE26861B1600500FE1 /* BadScript-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */; };
 		31FB81C026861B3700500FE1 /* DotGothic16-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */; };
 		31FB81C22686240100500FE1 /* CaBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FB81C12686240100500FE1 /* CaBFont.swift */; };
+		FD0CC9E62844EC44008FCB2B /* UILabel+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9E52844EC44008FCB2B /* UILabel+CaBUIKit.swift */; };
 		FD1F248728418D2E003F8556 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1F248628418D2E003F8556 /* MenuView.swift */; };
 		FD26CEFB28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */; };
 		FD26CEFD28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */; };
@@ -116,6 +117,7 @@
 		31FB81BD26861B1600500FE1 /* BadScript-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BadScript-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81BF26861B3700500FE1 /* DotGothic16-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DotGothic16-Regular.ttf"; sourceTree = "<group>"; };
 		31FB81C12686240100500FE1 /* CaBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaBFont.swift; sourceTree = "<group>"; };
+		FD0CC9E52844EC44008FCB2B /* UILabel+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD1F248628418D2E003F8556 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+CaBUIKit.swift"; sourceTree = "<group>"; };
 		FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+CaBUIKit.swift"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				FD26CEFA28215EEB00AFB8F6 /* UITabBarController+CaBUIKit.swift */,
 				FDA3C196282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift */,
 				FD26CEFC28215F2700AFB8F6 /* UIStackView+CaBUIKit.swift */,
+				FD0CC9E52844EC44008FCB2B /* UILabel+CaBUIKit.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				FDA3C197282046FB008CDDDF /* UIStoryboard+IdentifiableStoryboard.swift in Sources */,
 				310833ED26B8443D00EC8532 /* ColorScheme.swift in Sources */,
 				315DBAE22802EA9E00DCA5E4 /* DefaultColorScheme.swift in Sources */,
+				FD0CC9E62844EC44008FCB2B /* UILabel+CaBUIKit.swift in Sources */,
 				FD7F7C702824CA590055D2F3 /* CaBContainerViewController.swift in Sources */,
 				FD1F248728418D2E003F8556 /* MenuView.swift in Sources */,
 				FD32F5DA283E0AB00019C6CA /* XibView.swift in Sources */,

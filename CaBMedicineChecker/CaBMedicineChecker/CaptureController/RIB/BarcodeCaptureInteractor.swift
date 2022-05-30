@@ -28,11 +28,11 @@ final class BarcodeCaptureInteractor: BaseInteractor {
     override func start() {
         super.start()
 
-        firebaseFirestoreMedicineCheckerController.addObserver(self)
+        firebaseFirestoreMedicineCheckerController.add(observer: self)
     }
 
     override func stop() {
-        firebaseFirestoreMedicineCheckerController.removeObserver(self)
+        firebaseFirestoreMedicineCheckerController.remove(observer: self)
 
         super.stop()
     }

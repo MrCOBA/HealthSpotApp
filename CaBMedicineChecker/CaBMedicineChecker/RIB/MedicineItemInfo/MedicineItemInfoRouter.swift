@@ -6,6 +6,8 @@ import CaBRiblets
 
 protocol MedicineItemInfoRouter: ViewableRouter {
 
+    func attachOfflineModeAlert()
+
     func attachItemPeriodRouter(with actionType: MedicineItemPeriodActionType)
     func detachItemPeriodRouter()
 
@@ -45,6 +47,15 @@ final class MedicineItemInfoRouterImpl: BaseRouter, MedicineItemInfoRouter {
 
     func detachItemPeriodRouter() {
         detachChildWithPop()
+    }
+
+    func attachOfflineModeAlert() {
+        let alert = UIAlertController(title: "Offline mode enabled!",
+                                      message: "Turn off offline mode to interact with periods!",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        view.present(alert, animated: true)
     }
 
     // MARK: - Privta Methods

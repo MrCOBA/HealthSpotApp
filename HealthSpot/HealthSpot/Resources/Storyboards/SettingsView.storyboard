@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings View-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="SettingsView" id="Y6W-OH-hqX" customClass="SettingsView" customModule="HealthSpot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBp-US-a4v" customClass="CaBButton" customModule="CaBUIKit">
+                                <rect key="frame" x="24" y="788" width="366" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="3QH-FB-prd"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="ExitButton"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="x25-UY-nuB">
+                                <rect key="frame" x="0.0" y="68" width="414" height="712"/>
+                                <color key="backgroundColor" name="BackgroundPrimary_Default"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="KcT-Sw-nKw"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="tWf-29-Ls1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="BackgroundPrimary_Default"/>
+                        <constraints>
+                            <constraint firstItem="gBp-US-a4v" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Gpq-3w-rRk"/>
+                            <constraint firstItem="x25-UY-nuB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="LkT-GY-6bD"/>
+                            <constraint firstItem="x25-UY-nuB" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="NMm-wA-G7M"/>
+                            <constraint firstItem="gBp-US-a4v" firstAttribute="top" secondItem="x25-UY-nuB" secondAttribute="bottom" constant="8" symbolic="YES" id="Ulm-tt-aEq"/>
+                            <constraint firstItem="x25-UY-nuB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="aRu-qR-Ay9"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gBp-US-a4v" secondAttribute="bottom" constant="32" id="jDZ-0d-mxK"/>
+                            <constraint firstItem="gBp-US-a4v" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="24" id="qN5-yl-HPP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="exitButton" destination="gBp-US-a4v" id="vuH-VP-2oB"/>
+                        <outlet property="settingsTableView" destination="x25-UY-nuB" id="4VS-VD-vBD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.623188405797109" y="110.49107142857143"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="gBp-US-a4v">
+            <size key="intrinsicContentSize" width="71" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="BackgroundPrimary_Default">
+            <color red="0.98039215686274506" green="0.95686274509803926" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

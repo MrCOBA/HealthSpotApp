@@ -40,6 +40,8 @@ struct MedicineItemViewModel: Equatable {
         return "MedicineItemPlaceholderIcon_\(id)"
     }
 
+    var isOfflineModeEnabled: Bool
+
     static var empty: Self {
         return .init(id: "",
                      barcode: "",
@@ -49,7 +51,8 @@ struct MedicineItemViewModel: Equatable {
                      producer: "",
                      activeComponent: "",
                      periods: [],
-                     placeholderIcon: nil)
+                     placeholderIcon: nil,
+                     isOfflineModeEnabled: false)
     }
 
 }

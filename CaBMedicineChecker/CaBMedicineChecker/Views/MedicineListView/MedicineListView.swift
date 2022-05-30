@@ -27,17 +27,17 @@ final class MedicineListView: UIViewController {
     // MARK: - Internal Properties
 
     weak var eventsHandler: MedicineListViewEventsHandler?
-    
+
     var colorScheme: CaBColorScheme = .default {
         didSet {
             configure()
         }
     }
 
-    var cellModels: [MedicineItemViewModel] = [] {
+    var dataSource: (source: [MedicineItemViewModel], isOfflineModeEnabled: Bool) = ([], false) {
         didSet {
-            if oldValue != cellModels && isViewLoaded {
-                updateTableView()
+            if oldValue != dataSource && isViewLoaded {
+                configure()
             }
         }
     }
@@ -50,6 +50,10 @@ final class MedicineListView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        calendarPickerView.delegate = self
+        medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
+                                            forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
+
         configure()
     }
 
@@ -61,9 +65,6 @@ final class MedicineListView: UIViewController {
 
     private func configure() {
         navigationItem.title = "Medicine Checker"
-        calendarPickerView.delegate = self
-        medicineItemsListTableView.register(MedicineItemTableViewCell.nib,
-                                            forCellReuseIdentifier: MedicineItemTableViewCell.cellIdentifier)
         calendarPickerView.layer.cornerRadius = Constants.cornerRadius
         configureRightButton()
         updateTableView()
@@ -78,7 +79,7 @@ final class MedicineListView: UIViewController {
             NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
         ]
         rightBarButton.setTitleTextAttributes(attrs, for: .normal)
-        navigationItem.rightBarButtonItem = rightBarButton
+        navigationItem.rightBarButtonItem = dataSource.isOfflineModeEnabled ? nil : rightBarButton
     }
 
     private func updateTableView() {
@@ -106,7 +107,7 @@ final class MedicineListView: UIViewController {
 extension MedicineListView: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellModels.count
+        return dataSource.source.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -120,7 +121,7 @@ extension MedicineListView: UITableViewDataSource {
         cell.backgroundColor = .clear
 
         cell.colorScheme = colorScheme
-        cell.cellModel = cellModels[indexPath.row]
+        cell.cellModel = dataSource.source[indexPath.row]
 
         return cell
     }
@@ -134,7 +135,7 @@ extension MedicineListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         checkIfEventsHandlerSet()
 
-        eventsHandler?.didSelectRow(with: cellModels[indexPath.row].id)
+        eventsHandler?.didSelectRow(with: dataSource.source[indexPath.row].id)
     }
 
 }

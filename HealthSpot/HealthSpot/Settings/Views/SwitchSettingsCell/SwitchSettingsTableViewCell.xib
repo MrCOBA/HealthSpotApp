@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Comfortaa-Bold.ttf">
+            <string>Comfortaa-Bold</string>
+        </array>
+        <array key="Comfortaa-Light.ttf">
+            <string>Comfortaa-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SwitchSettingsTableViewCell" rowHeight="114" id="KGk-i7-Jjw" customClass="SwitchSettingsTableViewCell" customModule="HealthSpot" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NQx-Fk-s5D">
+                        <rect key="frame" x="24" y="12" width="272" height="90"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gC3-TQ-F7N" customClass="CaBSwitch" customModule="CaBUIKit">
+                                <rect key="frame" x="211" y="15" width="51" height="31"/>
+                                <connections>
+                                    <action selector="settingValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="siA-aM-enk"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLw-cL-0ja">
+                                <rect key="frame" x="12" y="12" width="47.5" height="36.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Bold" family="Comfortaa" pointSize="16"/>
+                                <color key="textColor" name="HighlightPrimary_Default"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYG-OO-eby">
+                                <rect key="frame" x="12" y="64.5" width="248" height="13.5"/>
+                                <fontDescription key="fontDescription" name="Comfortaa-Light" family="Comfortaa" pointSize="12"/>
+                                <color key="textColor" name="HighlightPrimary_Default"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gC3-TQ-F7N" firstAttribute="top" relation="greaterThanOrEqual" secondItem="NQx-Fk-s5D" secondAttribute="top" constant="12" id="01t-rQ-6sq"/>
+                            <constraint firstAttribute="trailing" secondItem="gYG-OO-eby" secondAttribute="trailing" constant="12" id="101-bB-bq9"/>
+                            <constraint firstItem="gLw-cL-0ja" firstAttribute="leading" secondItem="NQx-Fk-s5D" secondAttribute="leading" constant="12" id="JTg-sp-k85"/>
+                            <constraint firstItem="gYG-OO-eby" firstAttribute="top" secondItem="gLw-cL-0ja" secondAttribute="bottom" constant="16" id="L1a-kA-lV2"/>
+                            <constraint firstItem="gYG-OO-eby" firstAttribute="leading" secondItem="gLw-cL-0ja" secondAttribute="leading" id="X66-Vh-YiK"/>
+                            <constraint firstItem="gLw-cL-0ja" firstAttribute="top" secondItem="NQx-Fk-s5D" secondAttribute="top" constant="12" id="aQz-w0-7sT"/>
+                            <constraint firstItem="gC3-TQ-F7N" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gLw-cL-0ja" secondAttribute="trailing" constant="12" id="agK-HD-BNx"/>
+                            <constraint firstAttribute="bottom" secondItem="gYG-OO-eby" secondAttribute="bottom" constant="12" id="dVE-5b-IsM"/>
+                            <constraint firstItem="gLw-cL-0ja" firstAttribute="centerY" secondItem="gC3-TQ-F7N" secondAttribute="centerY" id="hWB-nc-9sy"/>
+                            <constraint firstAttribute="trailing" secondItem="gC3-TQ-F7N" secondAttribute="trailing" constant="12" id="wDU-Op-bC5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="NQx-Fk-s5D" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="2da-4C-Bli"/>
+                    <constraint firstItem="NQx-Fk-s5D" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="bcq-we-jJa"/>
+                    <constraint firstItem="NQx-Fk-s5D" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="dMh-x2-Wq3"/>
+                    <constraint firstItem="NQx-Fk-s5D" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="pcJ-DF-ACS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="NQx-Fk-s5D" id="SX1-Jb-ldd"/>
+                <outlet property="settingSubtitleLabel" destination="gYG-OO-eby" id="CVf-hN-o1T"/>
+                <outlet property="settingSwitch" destination="gC3-TQ-F7N" id="7i6-rE-7pG"/>
+                <outlet property="settingTitleLabel" destination="gLw-cL-0ja" id="HzW-gA-jac"/>
+            </connections>
+            <point key="canvasLocation" x="167" y="39"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="HighlightPrimary_Default">
+            <color red="0.20784313725490197" green="0.21568627450980393" blue="0.22352941176470589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

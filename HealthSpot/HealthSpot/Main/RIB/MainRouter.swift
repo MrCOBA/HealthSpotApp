@@ -111,7 +111,12 @@ final class MainRouterImpl: BaseRouter, MainRouter {
         guard settingsRouter == nil else {
             return
         }
-        // TODO: Implement screen attaching
+
+        let router = SettingsBuilder(factory: rootServices).build()
+        router.start()
+
+        settingsRouter = router
+        showItemRouter(.settings, router: router)
     }
 
     private func showItemRouter(_ item: MainView.Item, router: ViewableRouter?) {

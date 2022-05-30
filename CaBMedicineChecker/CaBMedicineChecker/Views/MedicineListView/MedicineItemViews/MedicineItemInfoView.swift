@@ -4,6 +4,7 @@ import CaBFoundation
 
 protocol MedicineItemInfoViewEventsHandler: AnyObject {
 
+    func didTapLockedPeriodCell()
     func didTapPeriodCell(with id: String)
     func didTapAddPeriodButton()
     func didFinish()
@@ -151,7 +152,7 @@ final class MedicineItemInfoView: UIViewController {
             NSAttributedString.Key.foregroundColor: colorScheme.highlightPrimaryColor
         ]
         rightBarButton.setTitleTextAttributes(attrs, for: .normal)
-        navigationItem.rightBarButtonItem = rightBarButton
+        navigationItem.rightBarButtonItem = viewModel.isOfflineModeEnabled ? nil : rightBarButton
     }
 
     private func checkIfEventsHandlerSet() {
@@ -216,7 +217,9 @@ extension MedicineItemInfoView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         checkIfEventsHandlerSet()
 
-        eventsHandler?.didTapPeriodCell(with: viewModel.periods[indexPath.item].id)
+        viewModel.isOfflineModeEnabled
+        ? eventsHandler?.didTapLockedPeriodCell()
+        : eventsHandler?.didTapPeriodCell(with: viewModel.periods[indexPath.item].id)
     }
 
 }

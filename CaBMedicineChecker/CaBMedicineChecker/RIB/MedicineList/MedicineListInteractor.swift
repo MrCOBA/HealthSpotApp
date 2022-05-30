@@ -40,15 +40,19 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
     private var user: UserEntityWrapper?
     private var medicineItems = [MedicineItemCompositeWrapper]()
 
+    private let rootSettingsStorage: RootSettingsStorage
+
     // MARK: - Init
 
     init(coreDataAssistant: CoreDataAssistant,
          presenter: MedicineListPresenter,
          firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
+         rootSettingsStorage: RootSettingsStorage,
          listener: MedicineListListener?) {
         self.coreDataAssistant = coreDataAssistant
         self.presenter = presenter
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
+        self.rootSettingsStorage = rootSettingsStorage
         self.listener = listener
     }
 
@@ -57,14 +61,19 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
     override func start() {
         super.start()
 
-        firebaseFirestoreMedicineCheckerController.addObserver(self)
+        firebaseFirestoreMedicineCheckerController.add(observer: self)
+        rootSettingsStorage.add(observer: self)
 
         syncStorage()
-        firebaseFirestoreMedicineCheckerController.updateData(for: user?.id ?? "")
+
+        if !rootSettingsStorage.isOfflineModeOn {
+            firebaseFirestoreMedicineCheckerController.updateData(for: user?.id ?? "")
+        }
     }
 
     override func stop() {
-        firebaseFirestoreMedicineCheckerController.removeObserver(self)
+        firebaseFirestoreMedicineCheckerController.remove(observer: self)
+        rootSettingsStorage.remove(observer: self)
 
         super.stop()
     }
@@ -197,6 +206,20 @@ extension MedicineListInteractorImpl: BarcodeCaptureListener {
         checkIfRouterSet()
 
         router?.detachBarcodeCaptureRouter()
+    }
+
+}
+
+// MARK: - Protocol RootSettingsStorageObserver
+
+extension MedicineListInteractorImpl: RootSettingsStorageObserver {
+
+    func storage(_ storage: RootSettingsStorage, didUpdateOfflineModeTo newValue: Bool) {
+        updateView()
+
+        if newValue {
+            firebaseFirestoreMedicineCheckerController.updateData(for: user?.id ?? "")
+        }
     }
 
 }

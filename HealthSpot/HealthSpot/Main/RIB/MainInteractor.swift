@@ -28,7 +28,7 @@ final class MainInteractorImpl: BaseInteractor, MainInteractor {
     override func start() {
         super.start()
 
-        presenter?.updateView(with: [.home, .medicineChecker])
+        presenter?.updateView(with: [.home, .medicineChecker, .settings])
     }
 
     // MARK: Protocol MainInteractor

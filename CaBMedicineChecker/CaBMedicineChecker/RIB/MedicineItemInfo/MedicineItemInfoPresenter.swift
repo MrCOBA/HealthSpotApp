@@ -15,10 +15,12 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
     weak var view: MedicineItemInfoView?
 
     private let cachedStorage: CachedStorage
+    private let rootSettingsStorage: RootSettingsStorage
 
-    init(view: MedicineItemInfoView, cachedStorage: CachedStorage) {
+    init(view: MedicineItemInfoView, cachedStorage: CachedStorage, rootSettingsStorage: RootSettingsStorage) {
         self.view = view
         self.cachedStorage = cachedStorage
+        self.rootSettingsStorage = rootSettingsStorage
     }
 
     func updateView(rawData medicineItem: MedicineItemEntityWrapper, _ periods: [MedicineItemPeriodEntityWrapper]) {
@@ -44,7 +46,8 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
                                               imageUrl: URL(string: medicineItemWrapper.imageUrlString),
                                               producer: medicineItemWrapper.producer,
                                               activeComponent: medicineItemWrapper.activeComponent,
-                                              periods: periods)
+                                              periods: periods,
+                                              isOfflineModeEnabled: rootSettingsStorage.isOfflineModeOn)
 
         if let icon = cachedStorage.cache[viewModel.placeholderIconKey] as? Int {
             viewModel.placeholderIcon = .MedicineChecker.placeholderIcon(id: icon)
@@ -67,6 +70,10 @@ final class MedicineItemInfoPresenterImpl: MedicineItemInfoPresenter {
 }
 
 extension MedicineItemInfoPresenterImpl: MedicineItemInfoViewEventsHandler {
+
+    func didTapLockedPeriodCell() {
+        interactor?.showOfflineModeAlert()
+    }
 
     func didTapPeriodCell(with id: String) {
         interactor?.showItemPeriodScreen(with: .edit(id: id))
