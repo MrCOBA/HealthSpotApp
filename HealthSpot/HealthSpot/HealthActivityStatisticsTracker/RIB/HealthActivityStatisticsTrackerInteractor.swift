@@ -80,36 +80,44 @@ extension HealthActivityStatisticsTrackerInteractorImpl: HealthActivityStatistic
     func storage(_ storage: HealthActivityStatisticsStorage, didUpdateStepsCountTo newValue: Double) {
         if !achievementsStorage.currentDate.compare(with: Date()) {
             achievementsStorage.resetStorage()
+            achievementsStorage.currentDate = Date()
         }
 
         if !achievementsStorage.isStartStepsAchievementReceived {
             pushStepsCountAchievement(.startGoal)
+            achievementsStorage.isStartStepsAchievementReceived = true
         }
 
-        if ((storage.stepsGoal / newValue) <= 2) && !achievementsStorage.isHalfStepsAchievementReceived {
+        if ((storage.stepsGoal / newValue) <= 2.0) && !achievementsStorage.isHalfStepsAchievementReceived {
             pushStepsCountAchievement(.halfGoal)
+            achievementsStorage.isHalfStepsAchievementReceived = true
         }
 
-        if ((storage.stepsGoal / newValue) <= 1) && !achievementsStorage.isFullStepsAchievementReceived {
+        if ((storage.stepsGoal / newValue) <= 1.0) && !achievementsStorage.isFullStepsAchievementReceived {
             pushStepsCountAchievement(.fullGoal)
+            achievementsStorage.isFullStepsAchievementReceived = true
         }
     }
 
     func storage(_ storage: HealthActivityStatisticsStorage, didUpdateBurnedCalloriesTo newValue: Double) {
         if !achievementsStorage.currentDate.compare(with: Date()) {
             achievementsStorage.resetStorage()
+            achievementsStorage.currentDate = Date()
         }
 
         if !achievementsStorage.isStartCalloriesAchievementReceived {
             pushBurnedEnergyAchievement(.startGoal)
+            achievementsStorage.isStartCalloriesAchievementReceived = true
         }
 
-        if ((storage.calloriesGoal / newValue) <= 2) && !achievementsStorage.isHalfCalloriesAchievementReceived {
+        if ((storage.calloriesGoal / newValue) <= 2.0) && !achievementsStorage.isHalfCalloriesAchievementReceived {
             pushBurnedEnergyAchievement(.halfGoal)
+            achievementsStorage.isHalfCalloriesAchievementReceived = true
         }
 
-        if ((storage.calloriesGoal / newValue) <= 1) && !achievementsStorage.isFullCalloriesAchievementReceived {
+        if ((storage.calloriesGoal / newValue) <= 1.0) && !achievementsStorage.isFullCalloriesAchievementReceived {
             pushBurnedEnergyAchievement(.fullGoal)
+            achievementsStorage.isFullCalloriesAchievementReceived = true
         }
     }
 

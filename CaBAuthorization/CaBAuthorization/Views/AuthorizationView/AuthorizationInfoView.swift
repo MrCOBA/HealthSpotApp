@@ -53,6 +53,7 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
             configureTextModel(with: model)
             configureImageView(with: model)
             configureMainActionButton(with: model)
+            configureBackButton(with: model)
 
         case .signIn,
              .signUp:
