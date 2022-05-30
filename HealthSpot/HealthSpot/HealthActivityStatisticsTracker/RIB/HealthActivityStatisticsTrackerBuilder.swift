@@ -12,6 +12,7 @@ final class HealthActivityStatisticsTrackerBuilder: Builder {
         let interactor = HealthActivityStatisticsTrackerInteractorImpl(connection: factory.watchKitConnection,
                                                                        dataTracking: factory.dataTracking,
                                                                        statisticsStorage: factory.statisticsStorage,
+                                                                       achievementsStorage: factory.achievementsStorage,
                                                                        localNotificationsAssistant: factory.localNotificationsAssistant)
 
         let router = HealthActivityStatisticsTrackerRouter(interactor: interactor)

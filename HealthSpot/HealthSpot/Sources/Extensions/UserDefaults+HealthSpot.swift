@@ -34,4 +34,36 @@ extension UserDefaults.Key {
         
     }
 
+    enum HealthActivityAchievements {
+
+        static var currentDate: String {
+            return "HealthActivityAchievementsCurrentDateKey"
+        }
+
+        static var isStartStepsAchievementReceived: String {
+            return "HealthActivityStatisticsStartStepsKey"
+        }
+
+        static var isHalfStepsAchievementReceived: String {
+            return "HealthActivityAchievementsHalfStepsKey"
+        }
+
+        static var isFullStepsAchievementReceived: String {
+            return "HealthActivityAchievementsFinalStepsKey"
+        }
+
+        static var isStartCalloriesAchievementReceived: String {
+            return "HealthActivityAchievementsStartCalloriesKey"
+        }
+
+        static var isHalfCalloriesAchievementReceived: String {
+            return "HealthActivityAchievementsHalfCalloriesKey"
+        }
+
+        static var isFullCalloriesAchievementReceived: String {
+            return "HealthActivityAchievementsFinalCalloriesKey"
+        }
+
+    }
+
 }

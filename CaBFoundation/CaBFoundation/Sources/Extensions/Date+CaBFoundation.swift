@@ -70,6 +70,13 @@ extension Date {
         return nextEventDate > endDate ? nil : nextEventDate
     }
 
+    public func compare(with date: Date) -> Bool {
+        let rawDate1 = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: self)!
+        let rawDate2 = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: date)!
+
+        return (rawDate1 == rawDate2)
+    }
+
     public func hasSame(_ component: Calendar.Component, as date: Date) -> Bool {
         distance(from: date, only: component) == 0
     }

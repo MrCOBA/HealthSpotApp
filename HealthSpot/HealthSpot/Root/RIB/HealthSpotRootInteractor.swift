@@ -33,6 +33,14 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
         super.start()
 
         tryToSignIn()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(exitFromAccount), name: .exitFromAccount, object: nil)
+    }
+
+    override func stop() {
+        NotificationCenter.default.removeObserver(self, name: .exitFromAccount, object: nil)
+
+        super.stop()
     }
 
     private func subscribeForNotifications() {
@@ -85,6 +93,12 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
         default:
             logError(message: "Unknown notification recieved: <\(notification.name)>")
         }
+    }
+
+    @objc
+    private func exitFromAccount() {
+        coreDataAssistant.removeData("User", predicate: nil, sortDescriptor: nil)
+        router?.attachAuthorizationFlow()
     }
 
     private func checkIfRouterSet() {

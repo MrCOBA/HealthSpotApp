@@ -28,6 +28,8 @@
 		FD0CC9DF28443FD1008FCB2B /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9DB28443FD1008FCB2B /* SettingsInteractor.swift */; };
 		FD0CC9E32844A4CD008FCB2B /* StepperSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CC9E12844A4CD008FCB2B /* StepperSettingsTableViewCell.swift */; };
 		FD0CC9E42844A4CD008FCB2B /* StepperSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD0CC9E22844A4CD008FCB2B /* StepperSettingsTableViewCell.xib */; };
+		FD0CCA2E284537B1008FCB2B /* HealthActivityAchievementsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CCA2D284537B1008FCB2B /* HealthActivityAchievementsStorage.swift */; };
+		FD0CCA31284542C1008FCB2B /* HealthActivityAchievementsNotificationsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0CCA30284542C1008FCB2B /* HealthActivityAchievementsNotificationsFactory.swift */; };
 		FD16F03A283BFC4B009DFDC0 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD16F038283BFC4B009DFDC0 /* Interface.storyboard */; };
 		FD16F03C283BFC4C009DFDC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */; };
 		FD16F042283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FD16F041283BFC4C009DFDC0 /* HealthSpotCompanion WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -226,6 +228,8 @@
 		FD0CC9DB28443FD1008FCB2B /* SettingsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		FD0CC9E12844A4CD008FCB2B /* StepperSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		FD0CC9E22844A4CD008FCB2B /* StepperSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StepperSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		FD0CCA2D284537B1008FCB2B /* HealthActivityAchievementsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityAchievementsStorage.swift; sourceTree = "<group>"; };
+		FD0CCA30284542C1008FCB2B /* HealthActivityAchievementsNotificationsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthActivityAchievementsNotificationsFactory.swift; sourceTree = "<group>"; };
 		FD16F036283BFC4A009DFDC0 /* Health Spot Companion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health Spot Companion.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD16F039283BFC4B009DFDC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FD16F03B283BFC4C009DFDC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -481,6 +485,14 @@
 			path = StepperSettingsCell;
 			sourceTree = "<group>";
 		};
+		FD0CCA2F2845425B008FCB2B /* NotificationsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				FD0CCA30284542C1008FCB2B /* HealthActivityAchievementsNotificationsFactory.swift */,
+			);
+			path = NotificationsFactory;
+			sourceTree = "<group>";
+		};
 		FD16F037283BFC4B009DFDC0 /* HealthSpotCompanion */ = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +619,7 @@
 			children = (
 				FD442D1F283F0B70001A454B /* SuiteProvider */,
 				FD442CCD283EC52C001A454B /* HealthActivityStatisticsStorage.swift */,
+				FD0CCA2D284537B1008FCB2B /* HealthActivityAchievementsStorage.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -623,6 +636,7 @@
 		FD442CD2283EDB61001A454B /* RIB */ = {
 			isa = PBXGroup;
 			children = (
+				FD0CCA2F2845425B008FCB2B /* NotificationsFactory */,
 				FD442CD3283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift */,
 				FD442CD5283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift */,
 				FD442CD7283EDB9F001A454B /* HealthActivityStatisticsTrackerBuilder.swift */,
@@ -992,6 +1006,7 @@
 				FD43F503283D7CCC007E23BA /* WatchKitConnection.swift in Sources */,
 				FD7F7C66282471C00055D2F3 /* MainView.swift in Sources */,
 				FD442CD6283EDB85001A454B /* HealthActivityStatisticsTrackerInteractor.swift in Sources */,
+				FD0CCA31284542C1008FCB2B /* HealthActivityAchievementsNotificationsFactory.swift in Sources */,
 				31932C8E2782FEDE00BCBDAA /* AppDelegate.swift in Sources */,
 				FD442C81283EAF1C001A454B /* SwitchView.swift in Sources */,
 				FD442CD4283EDB77001A454B /* HealthActivityStatisticsTrackerRouter.swift in Sources */,
@@ -1032,6 +1047,7 @@
 				FD5E24D52843815600BF9F32 /* LocalNotificationsScheduler.swift in Sources */,
 				FD3BE64D284278D300C31D89 /* User+CoreDataProperties.swift in Sources */,
 				FD32F568283DB0480019C6CA /* BaseActivityView.swift in Sources */,
+				FD0CCA2E284537B1008FCB2B /* HealthActivityAchievementsStorage.swift in Sources */,
 				FD32F56E283DB5840019C6CA /* CalloriesActivityView.swift in Sources */,
 				FD32F572283DBB040019C6CA /* HealthActivityTableViewCell.swift in Sources */,
 			);

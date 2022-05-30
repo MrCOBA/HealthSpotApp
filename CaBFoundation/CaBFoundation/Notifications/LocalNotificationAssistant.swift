@@ -102,7 +102,6 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         dateComponents.hour = 10
         dateComponents.minute = 30
 
-
         let trigger = (customTrigger == nil) ? UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false) : customTrigger
 
         let request = UNNotificationRequest(identifier: notificationContent.identifier, content: content, trigger: trigger)
@@ -135,10 +134,8 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] (granted, error) in
             if granted {
                 logInfo(message: "Notification permissions granted")
-                self?.storage.isNotificationEnabled = true
             } else {
                 logInfo(message: "Notification permissions not granted")
-                self?.storage.isNotificationEnabled = false
             }
 
             self?.storage.isNotificationPermissionsRequested = true

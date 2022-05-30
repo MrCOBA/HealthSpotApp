@@ -56,6 +56,7 @@ final class SettingsInteractorImpl: BaseInteractor, SettingsInteractor {
     }
 
     func exitAccount() {
+        NotificationCenter.default.post(.init(name: .exitFromAccount))
     }
 
     func changeSetting(for id: String, to newValue: Any) {

@@ -41,6 +41,8 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
                                                selector: #selector(handleNotificationsAuthorizationSettings),
                                                name: UIApplication.didBecomeActiveNotification,
                                                object: nil)
+
+        requestNotificationsAuthorizationStatus()
     }
 
     deinit {
@@ -86,28 +88,31 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
 
     @objc
     private func handleNotificationsAuthorizationSettings() {
+        requestNotificationsAuthorizationStatus()
+    }
+
+    private func requestNotificationsAuthorizationStatus() {
         localNotificationsAssistant.notificationCenter.getNotificationSettings { [weak self] settings in
-            switch settings.authorizationStatus {
-            case .authorized,
-                 .ephemeral,
-                 .provisional:
-                self?.storage.isNotificationEnabled = true
-
-            case .notDetermined,
-                 .denied:
-                self?.storage.isNotificationEnabled = false
-
-            @unknown default:
-                logError(message: "Unknown notification authorization status: \(settings.authorizationStatus)")
-            }
-
-            if !(self?.storage.isNotificationEnabled ?? true) {
-                self?.localNotificationsAssistant.removeAllPendingNotifications()
-            }
-            else {
-                self?.reSchedule()
-            }
+            self?.updateNotificationsAvailability(when: settings.authorizationStatus)
         }
+    }
+
+    private func updateNotificationsAvailability(when status: UNAuthorizationStatus) {
+        switch status {
+        case .authorized,
+             .ephemeral,
+             .provisional:
+            storage.isNotificationEnabled = true
+
+        case .notDetermined,
+             .denied:
+            storage.isNotificationEnabled = false
+
+        @unknown default:
+            logError(message: "Unknown notification authorization status: \(status)")
+        }
+
+        storage.isNotificationEnabled ? reSchedule() : localNotificationsAssistant.removeAllPendingNotifications()
     }
 
 }

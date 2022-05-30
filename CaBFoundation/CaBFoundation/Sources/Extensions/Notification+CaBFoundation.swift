@@ -39,4 +39,8 @@ extension Notification.Name {
         case failure(error: Error)
     }
 
+    public static var exitFromAccount: Self {
+        return .init(rawValue: "ExitFromAccountNotification")
+    }
+
 }

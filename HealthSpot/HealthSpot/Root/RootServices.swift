@@ -18,6 +18,7 @@ protocol RootServices: AuthorizationRootServices, MedicineCheckerRootServices {
     var localNotificationsScheduler: LocalNotificationsScheduler { get }
     var firebaseServices: FirebaseServicesProvider { get }
     var statisticsStorage: HealthActivityStatisticsStorage { get }
+    var achievementsStorage: HealthActivityAchievementsStorage { get }
     var cachedStorage: CachedStorage { get }
     var dataTracking: HealthDataTracking { get }
     var watchKitConnection: WatchKitConnection { get }
@@ -50,6 +51,7 @@ final class RootServicesImpl: RootServices {
     let colorScheme: CaBColorScheme
     let firebaseServices: FirebaseServicesProvider
     let statisticsStorage: HealthActivityStatisticsStorage
+    let achievementsStorage: HealthActivityAchievementsStorage
     let cachedStorage: CachedStorage
     let dataTracking: HealthDataTracking
     let watchKitConnection: WatchKitConnection
@@ -91,6 +93,7 @@ final class RootServicesImpl: RootServices {
                                                         temporaryCredentialsStorage: credentialsStorage)
 
         statisticsStorage = HealthActivityStatisticsStorageImpl(userDefults: suiteProvider.suite(type: HealthActivityStatisticsStorage.self) ?? .standard)
+        achievementsStorage = HealthActivityAchievementsStorageImpl(userDefults: suiteProvider.suite(type: HealthActivityAchievementsStorage.self) ?? .standard)
         cachedStorage = CachedStorageImpl(userDefaults: suiteProvider.suite(type: CachedStorage.self) ?? .standard)
 
         dataTracking = HealthDataTrackingImpl(statisticsStorage: statisticsStorage)
