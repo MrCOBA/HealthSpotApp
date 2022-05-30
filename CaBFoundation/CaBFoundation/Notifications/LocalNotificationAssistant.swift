@@ -1,9 +1,13 @@
 import UserNotifications
+import UIKit
 
 // MARK: - Protocol
 
 public protocol LocalNotificationAssistant: AnyObject {
 
+    var notificationCenter: UNUserNotificationCenter { get }
+
+    func changeAvailability(to isNotificationsAvailable: Bool)
     func push(notificationContent: LocalNotificationAssistantImpl.Content, with customTrigger: UNNotificationTrigger?)
     func scheduleNotification(notificationContent: LocalNotificationAssistantImpl.Content, frequency: Date.Frequency?, from startDate: Date)
     func removePendingNotification(with identifier: String)
@@ -37,10 +41,13 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         }
     }
 
+    // MARK: - Public Properties
+
+    public let notificationCenter: UNUserNotificationCenter
+
     // MARK: - Private Properties
 
     private let storage: RootSettingsStorage
-    private let notificationCenter: UNUserNotificationCenter
 
     // MARK: - Init
 
@@ -51,12 +58,38 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
         if !storage.isNotificationPermissionsRequested {
             requestPermission()
         }
-
     }
 
     // MARK: - Public Methods
 
+    public func changeAvailability(to isNotificationsEnabled: Bool) {
+        notificationCenter.getNotificationSettings { [weak self] settings in
+            switch settings.authorizationStatus {
+            case .authorized,
+                 .ephemeral,
+                 .provisional:
+                self?.storage.isNotificationEnabled = isNotificationsEnabled
+
+            case .denied,
+                 .notDetermined:
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    UIApplication.shared.open(url)
+                }
+
+            @unknown default:
+                logError(message: "Unknown notification authorization status: \(settings.authorizationStatus)")
+            }
+        }
+    }
+
     public func push(notificationContent: Content, with customTrigger: UNNotificationTrigger? = nil) {
+        guard storage.isNotificationEnabled else {
+            return
+        }
+
         let content = UNMutableNotificationContent()
         content.title = notificationContent.title
         content.body = notificationContent.body
@@ -99,13 +132,13 @@ public final class LocalNotificationAssistantImpl: LocalNotificationAssistant {
     // MARK: - Private Methods
 
     private func requestPermission() {
-        let center = UNUserNotificationCenter.current()
-
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] (granted, error) in
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { [weak self] (granted, error) in
             if granted {
                 logInfo(message: "Notification permissions granted")
+                self?.storage.isNotificationEnabled = true
             } else {
                 logInfo(message: "Notification permissions not granted")
+                self?.storage.isNotificationEnabled = false
             }
 
             self?.storage.isNotificationPermissionsRequested = true

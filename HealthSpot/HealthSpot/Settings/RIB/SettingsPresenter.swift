@@ -86,7 +86,7 @@ final class SettingsPresenterImpl: SettingsPresenter {
         switch cell {
         case .notificationsAvailability:
             return .init(id: cell.rawValue,
-                         isSettingOn: rootSettingsStorage.isNotificationPermissionsRequested,
+                         isSettingOn: rootSettingsStorage.isNotificationEnabled,
                          title: "Notifications",
                          subtitle: "Enable to receive notifications.")
 

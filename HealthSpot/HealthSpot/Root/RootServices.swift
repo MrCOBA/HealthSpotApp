@@ -78,7 +78,8 @@ final class RootServicesImpl: RootServices {
         medicineItemPeriodStorage = MedicineItemPeriodTemporaryStorageImpl()
         firebaseFirestoreMedicineCheckerController = firebaseServices.firebaseFirestoreMedicineCheckerController
 
-        localNotificationsScheduler = LocalNotificationsSchedulerImpl(localNotificationsAssistant: localNotificationsAssistant,
+        localNotificationsScheduler = LocalNotificationsSchedulerImpl(storage: rootSettingsStorage,
+                                                                      localNotificationsAssistant: localNotificationsAssistant,
                                                                       firebaseFirestoreMedicineCheckerController: firebaseFirestoreMedicineCheckerController,
                                                                       coreDataAssistant: coreDataAssistant)
 

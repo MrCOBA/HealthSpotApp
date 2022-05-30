@@ -24,7 +24,8 @@ final class SettingsBuilder: Builder {
         
         let interactor = SettingsInteractorImpl(presenter: presenter,
                                                 healthActivityStatisticsStorage: factory.statisticsStorage,
-                                                rootSettingsStorage: factory.rootSettingsStorage)
+                                                rootSettingsStorage: factory.rootSettingsStorage,
+                                                localNotificationsAssistant: factory.localNotificationsAssistant)
 
         presenter.interactor = interactor
 

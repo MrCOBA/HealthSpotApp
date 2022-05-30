@@ -3,6 +3,12 @@ import CaBFoundation
 
 final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
+    private enum Achievement {
+        case startGoal
+        case halfGoal
+        case fullGoal
+    }
+
     private let watchKitConnection: WatchKitConnection
     private let dataTrackingAssistant: HealthDataTracking
 
@@ -44,19 +50,34 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         super.stop()
     }
 
+    private func pushStepsCountAchievement(_ achievement: Achievement) {
+
+    }
+
+    private func pushBurnedEnergyAchievement(_ achievement: Achievement) {
+
+    }
+
 }
 
 extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDelegate {
 
-    func didFinishedActivateSession() {
-
-    }
+    func didFinishedActivateSession() { /* Do Nothing */ }
 
 }
 
 extension HealthActivityStatisticsTrackerInteractorImpl: HealthActivityStatisticsStorageObserver {
 
     func storage(_ storage: HealthActivityStatisticsStorage, didUpdateHeartRateTo newValue: Double) {
+        // TODO: Add heart rate analytics
     }
-    
+
+    func storage(_ storage: HealthActivityStatisticsStorage, didUpdateStepsCountTo newValue: Double) {
+        
+    }
+
+    func storage(_ storage: HealthActivityStatisticsStorage, didUpdateBurnedCalloriesTo newValue: Double) {
+
+    }
+
 }

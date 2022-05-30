@@ -6,6 +6,23 @@ public protocol RootSettingsStorageObserver: AnyObject {
     func storage(_ storage: RootSettingsStorage,
                  didUpdateOfflineModeTo newValue: Bool)
 
+    func storage(_ storage: RootSettingsStorage,
+                 didUpdateNotificationAvailablityTo newValue: Bool)
+
+}
+
+public extension RootSettingsStorageObserver {
+
+    func storage(_ storage: RootSettingsStorage,
+                 didUpdateOfflineModeTo newValue: Bool) {
+        /* Do Nothing */
+    }
+
+    func storage(_ storage: RootSettingsStorage,
+                 didUpdateNotificationAvailablityTo newValue: Bool) {
+        /* Do Nothing */
+    }
+
 }
 
 public protocol RootSettingsStorage: AnyObject {
@@ -13,6 +30,7 @@ public protocol RootSettingsStorage: AnyObject {
     typealias Observer = RootSettingsStorageObserver
 
     var isNotificationPermissionsRequested: Bool { get set }
+    var isNotificationEnabled: Bool { get set }
     var isOfflineModeOn: Bool { get set }
 
     func add(observer: Observer)
@@ -30,6 +48,9 @@ public final class RootSettingsStorageImpl: RootSettingsStorage, ObservablePrope
     public var isNotificationPermissionsRequested: Bool
 
     @ObservableUserDefaultsStored
+    public var isNotificationEnabled: Bool
+
+    @ObservableUserDefaultsStored
     public var isOfflineModeOn: Bool
 
     // MARK: - Private Properties
@@ -42,6 +63,9 @@ public final class RootSettingsStorageImpl: RootSettingsStorage, ObservablePrope
         self._isNotificationPermissionsRequested = .init(underlyingDefaults: userDefaults,
                                                          key: UserDefaults.Key.Foundation.isNotificationPermissionsRequested,
                                                          defaultValue: false)
+        self._isNotificationEnabled = .init(underlyingDefaults: userDefaults,
+                                            key: UserDefaults.Key.Foundation.isNotificationEnabled,
+                                            defaultValue: false)
         self._isOfflineModeOn = .init(underlyingDefaults: userDefaults,
                                       key: UserDefaults.Key.Foundation.isOfflineModeOn,
                                       defaultValue: false)
@@ -64,6 +88,9 @@ public final class RootSettingsStorageImpl: RootSettingsStorage, ObservablePrope
     private func setupObserving() {
         _isOfflineModeOn.observe(onChange: notify(observers) { this, observer, _, newValue in
             observer.storage(this, didUpdateOfflineModeTo: newValue)
+        })
+        _isNotificationEnabled.observe(onChange: notify(observers) { this, observer, _, newValue in
+            observer.storage(this, didUpdateNotificationAvailablityTo: newValue)
         })
     }
 

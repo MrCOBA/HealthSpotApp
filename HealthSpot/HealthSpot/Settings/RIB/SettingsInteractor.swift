@@ -23,16 +23,20 @@ final class SettingsInteractorImpl: BaseInteractor, SettingsInteractor {
 
     private let healthActivityStatisticsStorage: HealthActivityStatisticsStorage
     private let rootSettingsStorage: RootSettingsStorage
+    private let localNotificationsAssistant: LocalNotificationAssistant
+
     private let cellIdentifiers = SettingsCellIdentifier.allCases
 
     // MARK: - Init
 
     init(presenter: SettingsPresenter,
          healthActivityStatisticsStorage: HealthActivityStatisticsStorage,
-         rootSettingsStorage: RootSettingsStorage) {
+         rootSettingsStorage: RootSettingsStorage,
+         localNotificationsAssistant: LocalNotificationAssistant) {
         self.presenter = presenter
         self.healthActivityStatisticsStorage = healthActivityStatisticsStorage
         self.rootSettingsStorage = rootSettingsStorage
+        self.localNotificationsAssistant = localNotificationsAssistant
     }
 
     // MARK: - Internal Methods
@@ -40,10 +44,14 @@ final class SettingsInteractorImpl: BaseInteractor, SettingsInteractor {
     override func start() {
         super.start()
 
+        rootSettingsStorage.add(observer: self)
+
         presenter?.updateView(with: cellIdentifiers)
     }
 
     override func stop() {
+        rootSettingsStorage.remove(observer: self)
+
         super.stop()
     }
 
@@ -61,7 +69,7 @@ final class SettingsInteractorImpl: BaseInteractor, SettingsInteractor {
             rootSettingsStorage.isOfflineModeOn = (newValue as? Bool) ?? false
 
         case .notificationsAvailability:
-            rootSettingsStorage.isNotificationPermissionsRequested = (newValue as? Bool) ?? false
+            localNotificationsAssistant.changeAvailability(to: (newValue as? Bool) ?? false)
 
         case .calloriesStatisticsGoal:
             healthActivityStatisticsStorage.calloriesGoal = (newValue as? Double) ?? 0.0
@@ -79,6 +87,16 @@ final class SettingsInteractorImpl: BaseInteractor, SettingsInteractor {
         if router == nil {
             logError(message: "Router expected to be set")
         }
+    }
+
+}
+
+// MARK: - Protocol RootSettingsStorageObserver
+
+extension SettingsInteractorImpl: RootSettingsStorageObserver {
+
+    public func storage(_ storage: RootSettingsStorage, didUpdateNotificationAvailablityTo newValue: Bool) {
+        presenter?.updateView(with: cellIdentifiers)
     }
 
 }

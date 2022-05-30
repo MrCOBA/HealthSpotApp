@@ -9,6 +9,10 @@ extension UserDefaults {
                 return "HealthSpotNotificationRequestKey"
             }
 
+            static var isNotificationEnabled: String {
+                return "HealthSpotNotificationAvailablityKey"
+            }
+
             static var isOfflineModeOn: String {
                 return "HealthSpotOfflineModeKey"
             }

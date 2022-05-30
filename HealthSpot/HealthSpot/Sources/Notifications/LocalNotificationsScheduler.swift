@@ -1,5 +1,6 @@
 import CaBFoundation
 import CaBFirebaseKit
+import UIKit
 
 // MARK: - Protocol
 
@@ -19,24 +20,34 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
 
     // MARK: - Private Properties
 
+    private let storage: RootSettingsStorage
     private let localNotificationsAssistant: LocalNotificationAssistant
     private let firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController
     private let coreDataAssistant: CoreDataAssistant
 
     // MARK: - Init & Deinit
 
-    init(localNotificationsAssistant: LocalNotificationAssistant,
+    init(storage: RootSettingsStorage,
+         localNotificationsAssistant: LocalNotificationAssistant,
          firebaseFirestoreMedicineCheckerController: FirebaseFirestoreMedicineCheckerController,
          coreDataAssistant: CoreDataAssistant) {
+        self.storage = storage
         self.localNotificationsAssistant = localNotificationsAssistant
         self.firebaseFirestoreMedicineCheckerController = firebaseFirestoreMedicineCheckerController
         self.coreDataAssistant = coreDataAssistant
 
         firebaseFirestoreMedicineCheckerController.add(observer: self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleNotificationsAuthorizationSettings),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
     }
 
     deinit {
         firebaseFirestoreMedicineCheckerController.remove(observer: self)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: UIApplication.didBecomeActiveNotification,
+                                                  object: nil)
     }
 
     // MARK: - Internal Methods
@@ -71,6 +82,45 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
                      body: body,
                      category: "alert",
                      userInfo: [:])
+    }
+
+    @objc
+    private func handleNotificationsAuthorizationSettings() {
+        localNotificationsAssistant.notificationCenter.getNotificationSettings { [weak self] settings in
+            switch settings.authorizationStatus {
+            case .authorized,
+                 .ephemeral,
+                 .provisional:
+                self?.storage.isNotificationEnabled = true
+
+            case .notDetermined,
+                 .denied:
+                self?.storage.isNotificationEnabled = false
+
+            @unknown default:
+                logError(message: "Unknown notification authorization status: \(settings.authorizationStatus)")
+            }
+
+            if !(self?.storage.isNotificationEnabled ?? true) {
+                self?.localNotificationsAssistant.removeAllPendingNotifications()
+            }
+            else {
+                self?.reSchedule()
+            }
+        }
+    }
+
+}
+
+// MARK: - Protocol RootSettingsStorageObserver
+
+extension LocalNotificationsSchedulerImpl: RootSettingsStorageObserver {
+
+    func storage(_ storage: RootSettingsStorage,
+                 didUpdateNotificationAvailablityTo newValue: Bool) {
+        newValue
+        ? reSchedule()
+        : localNotificationsAssistant.removeAllPendingNotifications()
     }
 
 }
