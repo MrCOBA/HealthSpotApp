@@ -327,6 +327,7 @@
 			children = (
 				FD7F7C5E282470070055D2F3 /* RIB */,
 				3104C334278C8480006AF28B /* Home */,
+				FDC9DD3E28415DE100AB149F /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -384,7 +385,6 @@
 				FD442CD1283EDA95001A454B /* HealthActivityStatisticsTracker */,
 				FDA3C19A28212D48008CDDDF /* Root */,
 				3104C327278B27ED006AF28B /* Main */,
-				FDC9DD3E28415DE100AB149F /* Settings */,
 				31932CA22782FF2600BCBDAA /* Sources */,
 				31932CA32782FF8900BCBDAA /* Resources */,
 			);
