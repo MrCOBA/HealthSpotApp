@@ -119,8 +119,8 @@ final class HealthActivityStatisticsStorageImpl: HealthActivityStatisticsStorage
         _stepsCount = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsCount, defaultValue: 0)
         _burnedCallories = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.burnedCallories, defaultValue: 0)
         _heartRateNorm = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.heartRateNorm, defaultValue: 0)
-        _stepsGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsGoal, defaultValue: 0)
-        _calloriesGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.calloriesGoal, defaultValue: 0)
+        _stepsGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.stepsGoal, defaultValue: 2000)
+        _calloriesGoal = ObservableUserDefaultsStored(underlyingDefaults: userDefults, key: Key.calloriesGoal, defaultValue: 500)
         _isTrackingEnabled = UserDefaultsStored(underlyingDefaults: userDefults, key: Key.isTrackingEnabled, defaultValue: false)
 
         setupObserving()

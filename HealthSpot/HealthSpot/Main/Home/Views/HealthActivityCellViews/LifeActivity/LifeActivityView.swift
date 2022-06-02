@@ -60,7 +60,8 @@ final class LifeActivityView: BaseActivityView {
     }
 
     private func configureStateLabel(with viewModel: ViewModel) {
-        let attributedState = NSAttributedString(text: "Goal: \(viewModel.currentStepsCount) st / \(viewModel.goalStepsCount) st",
+        let roundValue = NSString(format: "%.1f", viewModel.currentStepsCount)
+        let attributedState = NSAttributedString(text: "Goal: \(roundValue) st / \(viewModel.goalStepsCount) st",
                                                  textColor: colorScheme.attributesTertiaryColor,
                                                  font: Constants.Fonts.stateLabelFont)
 

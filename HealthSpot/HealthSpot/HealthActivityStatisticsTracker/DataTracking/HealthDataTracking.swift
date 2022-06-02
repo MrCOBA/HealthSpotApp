@@ -1,4 +1,5 @@
 import HealthKit
+import UIKit
 import CaBFoundation
 import CaBMedicineChecker
 
@@ -27,6 +28,20 @@ final class HealthDataTrackingImpl: HealthDataTracking {
 
     private let statisticsStorage: HealthActivityStatisticsStorage
 
+    private let infoToRead = Set([
+        HKSampleType.quantityType(forIdentifier: .stepCount)!,
+        HKSampleType.quantityType(forIdentifier: .heartRate)!,
+        HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
+        HKSampleType.workoutType()
+    ])
+
+    private let infoToShare = Set([
+        HKSampleType.quantityType(forIdentifier: .stepCount)!,
+        HKSampleType.quantityType(forIdentifier: .heartRate)!,
+        HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
+        HKSampleType.workoutType()
+    ])
+
     // MARK: - Init
 
     init(statisticsStorage: HealthActivityStatisticsStorage) {
@@ -38,34 +53,44 @@ final class HealthDataTrackingImpl: HealthDataTracking {
     // MARK: - Public Methods
 
     func authorizeHealthKit() {
-        if HKHealthStore.isHealthDataAvailable() {
-            let infoToRead = Set([
-                HKSampleType.quantityType(forIdentifier: .stepCount)!,
-                HKSampleType.quantityType(forIdentifier: .heartRate)!,
-                HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                HKSampleType.workoutType()
-                ])
+        healthStore.getRequestStatusForAuthorization(toShare: infoToShare,
+                                                     read: infoToRead) { [weak self] status, error in
+            guard error == nil else {
+                // TODO: Handle error
+                return
+            }
 
-            let infoToShare = Set([
-                HKSampleType.quantityType(forIdentifier: .stepCount)!,
-                HKSampleType.quantityType(forIdentifier: .heartRate)!,
-                HKSampleType.quantityType(forIdentifier: .activeEnergyBurned)!,
-                HKSampleType.workoutType()
-                ])
+            switch status {
+            case .shouldRequest:
+                if HKHealthStore.isHealthDataAvailable() {
+                    self?.healthStore.requestAuthorization(toShare: self?.infoToShare ?? [], read: self?.infoToRead ?? []) { (success, error) in
+                        if success {
+                            logInfo(message: "Authorization healthkit success")
+                        }
+                        else if let error = error {
+                            logWarning(message: "HealthKit authorization failed with error: <\(error.localizedDescription)>")
+                        }
+                    }
+                }
+                else {
+                    logInfo(message: "HealthKit not avaiable")
+                }
 
-            healthStore.requestAuthorization(toShare: infoToShare, read: infoToRead) { (success, error) in
-                if success {
-                    logInfo(message: "Authorization healthkit success")
+            case .unknown:
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
                 }
-                else if let error = error {
-                    logWarning(message: "HealthKit authorization failed with error: <\(error.localizedDescription)>")
+                DispatchQueue.main.async {
+                    UIApplication.shared.open(url)
                 }
+
+            case .unnecessary:
+                return
+
+            @unknown default:
+                logError(message: "Unknown HealthKit authorization status: \(status)")
             }
         }
-        else {
-            logInfo(message: "HealthKit not avaiable")
-        }
-
     }
 
     func startObserveHeartRateSamples() {
