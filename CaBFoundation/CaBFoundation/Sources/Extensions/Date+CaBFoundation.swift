@@ -77,10 +77,6 @@ extension Date {
         return (rawDate1 == rawDate2)
     }
 
-    public func hasSame(_ component: Calendar.Component, as date: Date) -> Bool {
-        distance(from: date, only: component) == 0
-    }
-
     public static func closestDate(from eventDates: [Date]) -> Date? {
         return (eventDates.count > 0) ? eventDates.sorted(by: { $0 < $1 }).first : nil
     }

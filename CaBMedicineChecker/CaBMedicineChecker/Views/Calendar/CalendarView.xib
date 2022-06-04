@@ -20,6 +20,7 @@
                 <outlet property="monthLabel" destination="7lv-rC-c5R" id="G3S-LF-AOd"/>
                 <outlet property="nextButton" destination="EEA-Xa-AG8" id="4Bw-hU-PTs"/>
                 <outlet property="previousButton" destination="Du3-hj-hh2" id="8NO-ut-gJ4"/>
+                <outlet property="reloadButton" destination="qE2-nz-6OX" id="MWQ-eT-kXu"/>
                 <outlet property="weekDayStackView" destination="Pss-Uu-N0t" id="GNM-sl-cOW"/>
                 <outletCollection property="separatorViews" destination="1kR-Su-Xc8" collectionClass="NSMutableArray" id="Sks-6c-jZM"/>
                 <outletCollection property="separatorViews" destination="0yB-0j-13g" collectionClass="NSMutableArray" id="35c-QL-LDf"/>
@@ -32,10 +33,30 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VY0-V7-Cjf">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="282"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qE2-nz-6OX">
+                            <rect key="frame" x="280" y="21" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="Cnw-2U-NMg"/>
+                                <constraint firstAttribute="width" constant="24" id="MNK-P9-4yd"/>
+                            </constraints>
+                            <color key="tintColor" name="HighlightPrimary_Default"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="reload-icon">
+                                <color key="titleColor" name="HighlightPrimary_Default"/>
+                            </state>
+                            <connections>
+                                <action selector="reloadButtonPressed:" destination="-1" eventType="touchUpInside" id="jod-2E-NWM"/>
+                            </connections>
+                        </button>
+                    </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="qE2-nz-6OX" secondAttribute="trailing" constant="16" id="5QI-hG-7zH"/>
+                    </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lv-rC-c5R">
-                    <rect key="frame" x="16" y="8" width="288" height="50"/>
+                    <rect key="frame" x="16" y="8" width="41.5" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="Kzp-4M-enI"/>
                     </constraints>
@@ -123,13 +144,14 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="VY0-V7-Cjf" secondAttribute="leading" id="8Rx-XL-m4i"/>
                 <constraint firstItem="7lv-rC-c5R" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="8uQ-lv-LkL"/>
                 <constraint firstItem="oou-gW-3xx" firstAttribute="centerX" secondItem="VY0-V7-Cjf" secondAttribute="centerX" id="8uT-oW-wKb"/>
-                <constraint firstItem="7lv-rC-c5R" firstAttribute="centerX" secondItem="VY0-V7-Cjf" secondAttribute="centerX" id="9Wi-DS-Iac"/>
                 <constraint firstItem="0yB-0j-13g" firstAttribute="top" secondItem="oou-gW-3xx" secondAttribute="bottom" id="C3a-Wm-Nm0"/>
                 <constraint firstItem="Pss-Uu-N0t" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="Ibt-Eg-nRf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="VY0-V7-Cjf" secondAttribute="bottom" id="MXn-go-IX3"/>
                 <constraint firstItem="1kR-Su-Xc8" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="N1m-eW-mg4"/>
+                <constraint firstItem="qE2-nz-6OX" firstAttribute="centerY" secondItem="7lv-rC-c5R" secondAttribute="centerY" id="NL6-nr-wcP"/>
                 <constraint firstItem="MpB-0n-KR6" firstAttribute="centerX" secondItem="VY0-V7-Cjf" secondAttribute="centerX" id="O2T-Bk-sE9"/>
                 <constraint firstItem="oou-gW-3xx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="8" id="UFG-TY-hRz"/>
+                <constraint firstItem="qE2-nz-6OX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7lv-rC-c5R" secondAttribute="trailing" constant="16" id="WOe-dM-Dtf"/>
                 <constraint firstItem="0yB-0j-13g" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="YIX-nw-XSf"/>
                 <constraint firstItem="7lv-rC-c5R" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="bRD-Kj-NvL"/>
                 <constraint firstItem="oou-gW-3xx" firstAttribute="top" secondItem="1kR-Su-Xc8" secondAttribute="bottom" id="bVA-wG-wq3"/>
@@ -147,6 +169,7 @@
     </objects>
     <resources>
         <image name="chevron.compact.down" catalog="system" width="128" height="43"/>
+        <image name="reload-icon" width="24" height="24"/>
         <namedColor name="Gray_Transparent_20">
             <color red="0.5" green="0.5" blue="0.5" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

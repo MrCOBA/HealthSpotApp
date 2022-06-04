@@ -104,6 +104,7 @@ final class CalendarView: XibView {
     @IBOutlet private weak var previousButton: UIButton!
     @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private weak var downButton: UIButton!
+    @IBOutlet private weak var reloadButton: UIButton!
 
     @IBOutlet private var separatorViews: [UIView]!
     @IBOutlet private weak var collectionViewHeightConstraint: NSLayoutConstraint!
@@ -220,6 +221,11 @@ final class CalendarView: XibView {
         downButton.tintColor = colorScheme.highlightPrimaryColor
     }
 
+    private func configureReloadButton() {
+        reloadButton.setImage(.MedicineChecker.reloadIcon, for: .normal)
+        reloadButton.tintColor = colorScheme.highlightPrimaryColor
+    }
+
     private func updateCalendar(with value: Int) {
         let newDate: Date
         switch mode {
@@ -233,21 +239,25 @@ final class CalendarView: XibView {
         baseDate = newDate
     }
     
-    @IBAction func previousButtonPressed(_ sender: Any) {
+    @IBAction private func previousButtonPressed(_ sender: Any) {
         updateCalendar(with: -1)
     }
 
-    @IBAction func nextButtonPressed(_ sender: Any) {
+    @IBAction private func nextButtonPressed(_ sender: Any) {
         updateCalendar(with: 1)
     }
     
-    @IBAction func downButtonPressed(_ sender: Any) {
+    @IBAction private func downButtonPressed(_ sender: Any) {
         mode = (mode == .small) ? .large : .small
 
         let numberOfWeeks = (mode == .small) ? 1 : (calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0)
         collectionViewHeightConstraint.constant = Constants.Calendar.height(numberOfWeaks: CGFloat(numberOfWeeks))
         baseDate = selectedDate
         layoutIfNeeded()
+    }
+
+    @IBAction private func reloadButtonPressed(_ sender: Any) {
+        selectedDate = Date()
     }
     
 }
@@ -322,7 +332,7 @@ extension CalendarView {
     fileprivate func generateDaysInWeek(for baseDate: Date) -> [Day] {
         let monthDays = generateDaysInMonth(for: baseDate)
 
-        guard let dayIndex = monthDays.firstIndex(where: { $0.date.hasSame(.day, as: baseDate) }) else {
+        guard let dayIndex = monthDays.firstIndex(where: { $0.date.compare(with: baseDate) }) else {
             logError(message: "Day must be included in the month days")
             return []
         }
