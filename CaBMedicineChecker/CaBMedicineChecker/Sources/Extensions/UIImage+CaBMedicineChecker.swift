@@ -22,6 +22,12 @@ extension UIImage {
                            compatibleWith: nil) ?? UIImage()
         }
 
+        public static var removeIcon: UIImage {
+            return UIImage(named: "remove-icon",
+                           in: .medicineChecker,
+                           compatibleWith: nil) ?? UIImage()
+        }
+
         public static var scanIcon: UIImage {
             return UIImage(named: "scan-icon",
                            in: .medicineChecker,

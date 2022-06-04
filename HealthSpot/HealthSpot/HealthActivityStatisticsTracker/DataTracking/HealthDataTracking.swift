@@ -240,6 +240,9 @@ final class HealthDataTrackingImpl: HealthDataTracking {
                 return
             }
 
+            guard !(results?.isEmpty ?? false) else {
+                return
+            }
             completionHandler(results?[0] as? HKQuantitySample)
         }
 
@@ -254,14 +257,12 @@ final class HealthDataTrackingImpl: HealthDataTracking {
         let predicate = HKQuery.predicateForSamples(
             withStart: startOfDay,
             end: now,
-            options: .strictStartDate
-        )
+            options: .strictStartDate)
 
         let query = HKStatisticsQuery(
             quantityType: stepsQuantityType,
             quantitySamplePredicate: predicate,
-            options: .cumulativeSum
-        ) { (_, result, _) in
+            options: .cumulativeSum) { (_, result, _) in
             guard let result = result, let sum = result.sumQuantity() else {
                 completionHandler(0.0)
                 return
@@ -280,14 +281,12 @@ final class HealthDataTrackingImpl: HealthDataTracking {
         let predicate = HKQuery.predicateForSamples(
             withStart: startOfDay,
             end: now,
-            options: .strictStartDate
-        )
+            options: .strictStartDate)
 
         let query = HKStatisticsQuery(
             quantityType: burnedEnergyQuantityType,
             quantitySamplePredicate: predicate,
-            options: .cumulativeSum
-        ) { (_, result, _) in
+            options: .cumulativeSum) { (_, result, _) in
             guard let result = result, let sum = result.sumQuantity() else {
                 completionHandler(0.0)
                 return

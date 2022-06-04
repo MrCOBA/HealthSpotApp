@@ -4,7 +4,7 @@ import CaBFoundation
 final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
     typealias Achievement = HealthActivityAchievementsNotificationsFactory.Achievement
-    
+
     private let watchKitConnection: WatchKitConnection
     private let dataTrackingAssistant: HealthDataTracking
 
@@ -67,7 +67,11 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
 extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDelegate {
 
-    func didFinishedActivateSession() { /* Do Nothing */ }
+    func didFinishedActivateSession() {
+        if statisticsStorage.isTrackingEnabled {
+            watchKitConnection.sendMessage(message: ["command" : true as AnyObject], replyHandler: nil, errorHandler: nil)
+        }
+    }
 
 }
 

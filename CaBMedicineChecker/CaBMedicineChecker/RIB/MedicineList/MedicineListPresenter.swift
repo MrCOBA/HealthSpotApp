@@ -124,4 +124,10 @@ extension MedicineListPresenterImpl: MedicineListViewEventsHandler {
         interactor?.showMedicineItemInfoScreen(with: id)
     }
 
+    func didRemoveRow(with id: String) {
+        checkIfInteractorSet()
+
+        interactor?.removeMedicineItem(with: id)
+    }
+
 }

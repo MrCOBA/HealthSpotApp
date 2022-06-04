@@ -11,6 +11,7 @@ public enum FirebaseFirestoreMedicineCheckerError: Error {
     case failedToDeleteMedicineItemPeriod
     case failedToUpdateMedicineItemPeriod
     case failedToAddMedicineItem
+    case failedToDeleteMedicineItem
     case failedToUpdateData
 }
 
@@ -29,6 +30,7 @@ public protocol FirebaseFirestoreMedicineCheckerController: AnyObject {
 
     func updateData(for userId: String)
     func addMedicineItem(with barcode: String, to userId: String)
+    func deleteMedicineItem(with itemId: String, fromUser userId: String)
     func addMedicineItemPeriod(data: [String: Any], toItem itemId: String, ofUser userId: String)
     func updateMedicineItemPeriod(data: [String: Any], of periodId: String, inItem itemId: String, ofUser userId: String)
     func deleteMedicineItemPeriod(with periodId: String, fromItem itemId: String, ofUser userId: String)
@@ -77,6 +79,18 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                 logWarning(message: "Error obtained: <\(error.localizedDescription)>")
                 observers.notify { $0.didFinishUpload(with: Error.failedToAddMedicineItem) }
             }
+        }
+    }
+
+    func deleteMedicineItem(with itemId: String, fromUser userId: String) {
+        let medicineItemsReference = dataBase.collection("users").document(userId).collection("medicaments")
+        medicineItemsReference.document(itemId).delete() { [weak self] error in
+            if let error = error {
+                logWarning(message: "Error obtained: <\(error.localizedDescription)>")
+                self?.observers.notify { $0.didFinishUpload(with: Error.failedToDeleteMedicineItem) }
+                return
+            }
+            self?.observers.notify { $0.didFinishUpload(with: nil) }
         }
     }
 

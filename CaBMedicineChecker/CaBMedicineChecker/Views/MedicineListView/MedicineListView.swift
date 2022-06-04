@@ -8,6 +8,7 @@ protocol MedicineListViewEventsHandler: AnyObject {
 
     func didFilterBy(date: Date?)
     func didSelectRow(with id: String)
+    func didRemoveRow(with id: String)
     func didTapScanButton()
 
 }
@@ -136,6 +137,22 @@ extension MedicineListView: UITableViewDelegate {
         checkIfEventsHandlerSet()
 
         eventsHandler?.didSelectRow(with: dataSource.source[indexPath.row].id)
+    }
+
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: nil) { [weak self] (action, view, completionHandler) in
+            guard let this = self else {
+                return
+            }
+
+            this.eventsHandler?.didRemoveRow(with: this.dataSource.source[indexPath.row].id)
+            completionHandler(true)
+        }
+
+        action.backgroundColor = colorScheme.backgroundPrimaryColor
+        action.image = .MedicineChecker.removeIcon
+
+        return .init(actions: [action])
     }
 
 }
