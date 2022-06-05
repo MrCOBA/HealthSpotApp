@@ -69,6 +69,10 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
         }
 
         subscribeForNotifications()
+
+        checkIfRouterSet()
+        router?.attachWaitingRouter()
+        
         authorizationManager.signIn(email: user.email ?? "", password: user.password ?? "")
     }
 
@@ -98,6 +102,7 @@ final class HealthSpotRootInteractorImpl: BaseInteractor, HealthSpotRootInteract
     @objc
     private func exitFromAccount() {
         coreDataAssistant.removeData("User", predicate: nil, sortDescriptor: nil)
+        coreDataAssistant.saveData()
         router?.attachAuthorizationFlow()
     }
 

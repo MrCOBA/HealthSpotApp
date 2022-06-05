@@ -17,6 +17,7 @@ protocol MedicineListInteractor: Interactor, MedicineItemInfoListener, BarcodeCa
     func showBarcodeScannerScreen()
     func updateDisplyingMedicineItems(filteredBy date: Date?)
     func removeMedicineItem(with id: String)
+    func updateContent()
 
 }
 
@@ -97,6 +98,12 @@ final class MedicineListInteractorImpl: BaseInteractor, MedicineListInteractor {
 
     func removeMedicineItem(with id: String) {
         firebaseFirestoreMedicineCheckerController.deleteMedicineItem(with: id, fromUser: user?.id ?? "")
+    }
+
+    func updateContent() {
+        if !rootSettingsStorage.isOfflineModeOn {
+            firebaseFirestoreMedicineCheckerController.updateData(for: user?.id ?? "")
+        }
     }
 
     // MARK: - Private Methods

@@ -24,6 +24,8 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
         }
     }
 
+    weak var eventsHandler: AutorizationEventsHandler?
+
     @IBOutlet private weak var backButton: CaBButton!
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -102,7 +104,7 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
     }
 
     private func checkIfEventsHandlerSet() {
-        guard viewModel.eventsHandler != nil else {
+        guard eventsHandler != nil else {
             logError(message: "EventsHandler expected to be set")
             return
         }
@@ -112,12 +114,12 @@ final class AuthorizationInfoViewImpl: UIViewController, AuthorizationView {
 
     @IBAction private func mainActionButtonTapped() {
         checkIfEventsHandlerSet()
-        viewModel.eventsHandler?.mainActionButtonTap(for: viewModel.mode, with: [:])
+        eventsHandler?.mainActionButtonTap(for: viewModel.mode, with: [:])
     }
 
     @IBAction private func backButtonTapped() {
         checkIfEventsHandlerSet()
-        viewModel.eventsHandler?.backButtonTap()
+        eventsHandler?.backButtonTap()
     }
 
 }

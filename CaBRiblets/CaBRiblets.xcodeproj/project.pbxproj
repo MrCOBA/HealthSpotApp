@@ -12,6 +12,15 @@
 		3133DD4027A9A98400007428 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD3F27A9A98400007428 /* BaseRouter.swift */; };
 		3133DD4227A9AAC000007428 /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD4127A9AAC000007428 /* BaseInteractor.swift */; };
 		3133DD4427A9AC2900007428 /* BaseBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3133DD4327A9AC2900007428 /* BaseBuilder.swift */; };
+		FDF0934B284CE0C900D5CB66 /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0934A284CE0C900D5CB66 /* WaitingView.swift */; };
+		FDF0934E284CE15900D5CB66 /* CaBUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDF0934D284CE15900D5CB66 /* CaBUIKit.framework */; };
+		FDF0934F284CE15900D5CB66 /* CaBUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDF0934D284CE15900D5CB66 /* CaBUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FDF09354284CE3A600D5CB66 /* WaitingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF09353284CE3A600D5CB66 /* WaitingRouter.swift */; };
+		FDF09356284CE3EA00D5CB66 /* WaitingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF09355284CE3EA00D5CB66 /* WaitingInteractor.swift */; };
+		FDF09358284CE3FA00D5CB66 /* WaitingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF09357284CE3FA00D5CB66 /* WaitingBuilder.swift */; };
+		FDF0935A284CE43A00D5CB66 /* WaitingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF09359284CE43A00D5CB66 /* WaitingPresenter.swift */; };
+		FDF0935C284CEB2700D5CB66 /* UIStoryboard+CaBRiblets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF0935B284CEB2700D5CB66 /* UIStoryboard+CaBRiblets.swift */; };
+		FDF0935F284CF0F600D5CB66 /* WaitingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDF0935E284CF0F600D5CB66 /* WaitingView.storyboard */; };
 		FDFF0C67283ACBE6006B82B3 /* CaBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C66283ACBE6006B82B3 /* CaBFoundation.framework */; };
 		FDFF0C68283ACBE6006B82B3 /* CaBFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF0C66283ACBE6006B82B3 /* CaBFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -23,6 +32,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FDF0934F284CE15900D5CB66 /* CaBUIKit.framework in Embed Frameworks */,
 				FDFF0C68283ACBE6006B82B3 /* CaBFoundation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -38,6 +48,14 @@
 		3133DD4127A9AAC000007428 /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
 		3133DD4327A9AC2900007428 /* BaseBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBuilder.swift; sourceTree = "<group>"; };
 		FD9B88942814B24A0081A1AB /* CaBSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF0934A284CE0C900D5CB66 /* WaitingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
+		FDF0934D284CE15900D5CB66 /* CaBUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF09353284CE3A600D5CB66 /* WaitingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingRouter.swift; sourceTree = "<group>"; };
+		FDF09355284CE3EA00D5CB66 /* WaitingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingInteractor.swift; sourceTree = "<group>"; };
+		FDF09357284CE3FA00D5CB66 /* WaitingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingBuilder.swift; sourceTree = "<group>"; };
+		FDF09359284CE43A00D5CB66 /* WaitingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingPresenter.swift; sourceTree = "<group>"; };
+		FDF0935B284CEB2700D5CB66 /* UIStoryboard+CaBRiblets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+CaBRiblets.swift"; sourceTree = "<group>"; };
+		FDF0935E284CF0F600D5CB66 /* WaitingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WaitingView.storyboard; sourceTree = "<group>"; };
 		FDFF0C66283ACBE6006B82B3 /* CaBFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CaBFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF0934E284CE15900D5CB66 /* CaBUIKit.framework in Frameworks */,
 				FDFF0C67283ACBE6006B82B3 /* CaBFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,7 +92,10 @@
 		3133DD1F27A9A8AA00007428 /* CaBRiblets */ = {
 			isa = PBXGroup;
 			children = (
+				FDF09345284CDFE500D5CB66 /* CommonRIBs */,
 				3133DD3E27A9A94F00007428 /* BaseRIB */,
+				FDF09352284CE31C00D5CB66 /* Sources */,
+				FDF09350284CE2D900D5CB66 /* Resources */,
 				3133DD2027A9A8AA00007428 /* CaBRiblets.h */,
 				3133DD2127A9A8AA00007428 /* CaBRiblets.docc */,
 			);
@@ -93,10 +115,71 @@
 		FD9B88932814B24A0081A1AB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDF0934D284CE15900D5CB66 /* CaBUIKit.framework */,
 				FDFF0C66283ACBE6006B82B3 /* CaBFoundation.framework */,
 				FD9B88942814B24A0081A1AB /* CaBSDK.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FDF09345284CDFE500D5CB66 /* CommonRIBs */ = {
+			isa = PBXGroup;
+			children = (
+				FDF09346284CE07D00D5CB66 /* WaitingRIB */,
+			);
+			path = CommonRIBs;
+			sourceTree = "<group>";
+		};
+		FDF09346284CE07D00D5CB66 /* WaitingRIB */ = {
+			isa = PBXGroup;
+			children = (
+				FDF09347284CE09B00D5CB66 /* View */,
+				FDF09353284CE3A600D5CB66 /* WaitingRouter.swift */,
+				FDF09355284CE3EA00D5CB66 /* WaitingInteractor.swift */,
+				FDF09357284CE3FA00D5CB66 /* WaitingBuilder.swift */,
+				FDF09359284CE43A00D5CB66 /* WaitingPresenter.swift */,
+			);
+			path = WaitingRIB;
+			sourceTree = "<group>";
+		};
+		FDF09347284CE09B00D5CB66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0934A284CE0C900D5CB66 /* WaitingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FDF09350284CE2D900D5CB66 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDF09351284CE30900D5CB66 /* WaitingView */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FDF09351284CE30900D5CB66 /* WaitingView */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0935E284CF0F600D5CB66 /* WaitingView.storyboard */,
+			);
+			path = WaitingView;
+			sourceTree = "<group>";
+		};
+		FDF09352284CE31C00D5CB66 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0935D284CEB3200D5CB66 /* Extensions */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FDF0935D284CEB3200D5CB66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FDF0935B284CEB2700D5CB66 /* UIStoryboard+CaBRiblets.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF0935F284CF0F600D5CB66 /* WaitingView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +263,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDF09354284CE3A600D5CB66 /* WaitingRouter.swift in Sources */,
+				FDF0935C284CEB2700D5CB66 /* UIStoryboard+CaBRiblets.swift in Sources */,
+				FDF09358284CE3FA00D5CB66 /* WaitingBuilder.swift in Sources */,
 				3133DD2227A9A8AA00007428 /* CaBRiblets.docc in Sources */,
+				FDF0935A284CE43A00D5CB66 /* WaitingPresenter.swift in Sources */,
 				3133DD4027A9A98400007428 /* BaseRouter.swift in Sources */,
 				3133DD4427A9AC2900007428 /* BaseBuilder.swift in Sources */,
+				FDF09356284CE3EA00D5CB66 /* WaitingInteractor.swift in Sources */,
+				FDF0934B284CE0C900D5CB66 /* WaitingView.swift in Sources */,
 				3133DD4227A9AAC000007428 /* BaseInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,7 +421,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBRiblets";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBRiblets;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -361,7 +451,7 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Crunch-BugsClub.CaBRiblets";
+				PRODUCT_BUNDLE_IDENTIFIER = com.crunch.bugs.club.CaBRiblets;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;

@@ -10,6 +10,7 @@ public enum AuthorizationResult {
 
 public protocol AuthorizationContainerRouter: ViewableRouter {
     func attachScreen(for mode: AuthorizationViewModel.Mode)
+    func attachWaitingScreen()
     func attachAlert(of type: AuthorizationAlertFactory.AlertType)
 }
 
@@ -54,6 +55,10 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
         attachChildWithEmbed(makeAuthorizationRouter(with: mode))
     }
 
+    public func attachWaitingScreen() {
+        attachChildWithEmbed(makeWaitingRouter())
+    }
+
     public func attachAlert(of type: AuthorizationAlertFactory.AlertType) {
         let alert = alertFactory.makeAlert(of: type)
 
@@ -64,6 +69,10 @@ final class AuthorizationContainerRouterImpl: BaseRouter, AuthorizationContainer
 
     private func makeAuthorizationRouter(with mode: AuthorizationViewModel.Mode) -> ViewableRouter {
         return AuthorizationBuilder(factory: rootServices, listener: interactor).build(mode: mode)
+    }
+
+    private func makeWaitingRouter() -> ViewableRouter {
+        return WaitingBuilder().build()
     }
 
     private func attachRoot() {

@@ -22,4 +22,8 @@ public extension Bundle {
         return .init(identifier: "com.crunch.bugs.club.CaBAuthorization")!
     }
 
+    static var riblets: Bundle {
+        return .init(identifier: "com.crunch.bugs.club.CaBRiblets")!
+    }
+
 }

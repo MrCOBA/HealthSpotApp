@@ -143,9 +143,19 @@ public final class AuthorizationContainerInteractor: BaseInteractor {
 
 extension AuthorizationContainerInteractor: AuthorizationListener {
 
+    public func showWaitingScreen() {
+        checkIfRouterSet()
+        router?.attachWaitingScreen()
+    }
+
     public func showSignUpScreen() {
         checkIfRouterSet()
         router?.attachScreen(for: .signUp)
+    }
+
+    public func showSignInScreen() {
+        checkIfRouterSet()
+        router?.attachScreen(for: .signIn)
     }
 
     public func returnBackToSignIn() {

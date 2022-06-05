@@ -5,6 +5,7 @@ import CaBFoundation
 public protocol AuthorizationView: AnyObject {
 
     var viewModel: AuthorizationViewModel { get set }
+    var eventsHandler: AutorizationEventsHandler? { get set }
 
 }
 
@@ -43,6 +44,8 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
             updateView(with: viewModel)
         }
     }
+
+    weak var eventsHandler: AutorizationEventsHandler?
 
     // MARK: - Private Properties
 
@@ -179,7 +182,7 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
     }
 
     private func checkIfEventsHandlerSet() {
-        guard viewModel.eventsHandler != nil else {
+        guard eventsHandler != nil else {
             logError(message: "EventsHandler expected to be set")
             return
         }
@@ -189,17 +192,17 @@ final class AuthorizationViewImpl: UIViewController, AuthorizationView {
 
     @IBAction private func mainActionButtonTapped() {
         checkIfEventsHandlerSet()
-        viewModel.eventsHandler?.mainActionButtonTap(for: viewModel.mode, with: underlyingCredentials)
+        eventsHandler?.mainActionButtonTap(for: viewModel.mode, with: underlyingCredentials)
     }
 
     @IBAction private func additionalActionButtonTapped() {
         checkIfEventsHandlerSet()
-        viewModel.eventsHandler?.additionalActionButtonTap(for: viewModel.mode)
+        eventsHandler?.additionalActionButtonTap(for: viewModel.mode)
     }
 
     @IBAction private func backButtonTapped() {
         checkIfEventsHandlerSet()
-        viewModel.eventsHandler?.backButtonTap()
+        eventsHandler?.backButtonTap()
     }
 
 }

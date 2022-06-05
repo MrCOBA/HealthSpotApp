@@ -32,7 +32,6 @@
 		FDE3B93A283586E400DC7192 /* Date+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE3B939283586E400DC7192 /* Date+CaBFoundation.swift */; };
 		FDE94B5E2832FE2400C6536B /* UserEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */; };
 		FDE94B602833045800C6536B /* MedicineItemEntityWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */; };
-		FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD5B2830112100EE6FE0 /* Helpers.swift */; };
 		FDE9FD842831651B00EE6FE0 /* CoreDataAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */; };
 		FDFF0B122838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift */; };
 		FDFF0B1D28391482006B82B3 /* CompositeCollectionWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFF0B1C28391482006B82B3 /* CompositeCollectionWrapper.swift */; };
@@ -68,7 +67,6 @@
 		FDE3B939283586E400DC7192 /* Date+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDE94B5D2832FE2400C6536B /* UserEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityWrapper.swift; sourceTree = "<group>"; };
 		FDE94B5F2833045800C6536B /* MedicineItemEntityWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineItemEntityWrapper.swift; sourceTree = "<group>"; };
-		FDE9FD5B2830112100EE6FE0 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		FDE9FD832831651B00EE6FE0 /* CoreDataAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAssistant.swift; sourceTree = "<group>"; };
 		FDFF0B112838E86A006B82B3 /* NSAttributedString+CaBFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+CaBFoundation.swift"; sourceTree = "<group>"; };
 		FDFF0B1C28391482006B82B3 /* CompositeCollectionWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeCollectionWrapper.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				31A806C627D54D6F0021215E /* Logger */,
 				FDA3C12B28201E13008CDDDF /* PropertyWrappers */,
 				31E630C8279D743500F9B095 /* Extensions */,
-				FDE9FD5B2830112100EE6FE0 /* Helpers.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				FDA3C12D28201E32008CDDDF /* UserDefaultsStored.swift in Sources */,
 				FD442CCB283EC44D001A454B /* ObservablePropertyOnChangeHandlerProvider.swift in Sources */,
 				FD0CC9C92843DBD0008FCB2B /* NetworkMonitor.swift in Sources */,
-				FDE9FD5C2830112100EE6FE0 /* Helpers.swift in Sources */,
 				FDC9DCF62841314400AB149F /* UIPresentationController+AdaptivePresentationDelegateProxy.swift in Sources */,
 				FDC9DCF52841314400AB149F /* UIViewController+Parent.swift in Sources */,
 				FD5E24DC2843A2B500BF9F32 /* CachedStorage.swift in Sources */,

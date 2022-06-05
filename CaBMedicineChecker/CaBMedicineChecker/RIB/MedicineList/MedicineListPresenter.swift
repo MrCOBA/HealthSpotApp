@@ -130,4 +130,10 @@ extension MedicineListPresenterImpl: MedicineListViewEventsHandler {
         interactor?.removeMedicineItem(with: id)
     }
 
+    func didUpdateContent() {
+        checkIfInteractorSet()
+
+        interactor?.updateContent()
+    }
+
 }

@@ -17,6 +17,10 @@ extension Notification.Name {
             return .init(rawValue: "SignUp_FailedWithError_<FirebaseError>")
         }
 
+        public static var authorizationStarted: Notification.Name {
+            return .init(rawValue: "Authorization_Started")
+        }
+
         public static func signIn(result: Notification.Name.Result) -> Notification.Name {
             switch result {
                 case .success:

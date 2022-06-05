@@ -8,6 +8,7 @@ protocol HealthSpotRootRouter: ViewableRouter {
 
     func attachAuthorizationFlow()
     func attachMainFlow()
+    func attachWaitingRouter()
 
 }
 
@@ -54,6 +55,11 @@ final class HealthSpotRootRouterImpl: BaseRouter, HealthSpotRootRouter {
         let router = MainBuilder(factory: rootServices).build(with: .home)
         attachChildWithEmbed(router)
         mainContainerRouter = router
+    }
+
+    func attachWaitingRouter() {
+        let router = WaitingBuilder().build()
+        attachChildWithEmbed(router)
     }
 
     // MARK: - Private Methods

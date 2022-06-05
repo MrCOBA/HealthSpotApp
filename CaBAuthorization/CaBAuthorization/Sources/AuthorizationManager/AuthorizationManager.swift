@@ -63,10 +63,12 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
+        postAuthorizationStartNotification()
         authorizationController.signIn(email: email, password: password)
     }
 
     public func signIn(email: String, password: String) {
+        postAuthorizationStartNotification()
         authorizationController.signIn(email: email, password: password)
     }
 
@@ -98,6 +100,7 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
             return
         }
 
+        postAuthorizationStartNotification()
         authorizationController.signUp(email: email, password: password)
     }
 
@@ -121,6 +124,12 @@ public final class AuthorizationManagerImpl: AuthorizationManager {
         NotificationCenter.default.post(name: .Authorization.signUp(result: .failure(error: error)),
                                         object: nil,
                                         userInfo: ["error": error])
+    }
+
+    private func postAuthorizationStartNotification() {
+        NotificationCenter.default.post(name: .Authorization.authorizationStarted,
+                                        object: nil,
+                                        userInfo: [:])
     }
 
 }

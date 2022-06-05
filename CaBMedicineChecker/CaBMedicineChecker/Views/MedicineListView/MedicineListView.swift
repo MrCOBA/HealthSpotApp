@@ -9,6 +9,7 @@ protocol MedicineListViewEventsHandler: AnyObject {
     func didFilterBy(date: Date?)
     func didSelectRow(with id: String)
     func didRemoveRow(with id: String)
+    func didUpdateContent()
     func didTapScanButton()
 
 }
@@ -37,6 +38,7 @@ final class MedicineListView: UIViewController {
 
     var dataSource: (source: [MedicineItemViewModel], isOfflineModeEnabled: Bool) = ([], false) {
         didSet {
+            refreshControl.endRefreshing()
             if oldValue != dataSource && isViewLoaded {
                 configure()
             }
@@ -47,6 +49,7 @@ final class MedicineListView: UIViewController {
 
     @IBOutlet private weak var calendarPickerView: CalendarView!
     @IBOutlet private weak var medicineItemsListTableView: UITableView!
+    private let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +71,7 @@ final class MedicineListView: UIViewController {
         navigationItem.title = "Medicine Checker"
         calendarPickerView.layer.cornerRadius = Constants.cornerRadius
         configureRightButton()
+        configureRefreshControl()
         updateTableView()
     }
 
@@ -81,6 +85,11 @@ final class MedicineListView: UIViewController {
         ]
         rightBarButton.setTitleTextAttributes(attrs, for: .normal)
         navigationItem.rightBarButtonItem = dataSource.isOfflineModeEnabled ? nil : rightBarButton
+    }
+
+    private func configureRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(contentUpdateInitialized), for: .valueChanged)
+        medicineItemsListTableView.refreshControl = refreshControl
     }
 
     private func updateTableView() {
@@ -99,6 +108,12 @@ final class MedicineListView: UIViewController {
         checkIfEventsHandlerSet()
 
         eventsHandler?.didTapScanButton()
+    }
+
+    @objc func contentUpdateInitialized() {
+        checkIfEventsHandlerSet()
+
+        eventsHandler?.didUpdateContent()
     }
 
 }

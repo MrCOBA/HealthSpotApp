@@ -5,6 +5,8 @@ import CaBFoundation
 
 public protocol AuthorizationListener: AnyObject {
     func showSignUpScreen()
+    func showSignInScreen()
+    func showWaitingScreen()
     func returnBackToSignIn()
     func completeAuthorization()
 }
@@ -14,6 +16,7 @@ public protocol AuthorizationInteractor: Interactor {
     func signIn(with credentials: [Int: String])
     func signUp(with credentials: [Int: String])
     func showSignUpScreen()
+    func showSignInScreen()
     func returnBack()
     func completeAuthorization()
 
@@ -61,7 +64,14 @@ public final class AuthorizationInteractorImpl: BaseInteractor, AuthorizationInt
     public override func start() {
         super.start()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(authorizationStarted), name: .Authorization.authorizationStarted, object: nil)
         presenter?.update(for: mode)
+    }
+
+    public override func stop() {
+        NotificationCenter.default.removeObserver(self, name: .Authorization.authorizationStarted, object: nil)
+        
+        super.stop()
     }
 
     // MARK: Protocol AuthorizationInteractor
@@ -81,8 +91,17 @@ public final class AuthorizationInteractorImpl: BaseInteractor, AuthorizationInt
     }
 
     public func showSignUpScreen() {
+        temporaryCredentialsStorage.clear()
+        
         checkIfListenerSet()
         listener?.showSignUpScreen()
+    }
+
+    public func showSignInScreen() {
+        temporaryCredentialsStorage.clear()
+
+        checkIfListenerSet()
+        listener?.showSignInScreen()
     }
 
     public func returnBack() {
@@ -119,6 +138,12 @@ public final class AuthorizationInteractorImpl: BaseInteractor, AuthorizationInt
         case .repeatedPassword:
             temporaryCredentialsStorage.repeatedPassword = value
         }
+    }
+
+    @objc
+    private func authorizationStarted() {
+        checkIfListenerSet()
+        listener?.showWaitingScreen()
     }
 
     private func checkIfListenerSet() {

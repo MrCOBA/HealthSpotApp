@@ -18,7 +18,7 @@ public final class AuthorizationBuilder: Builder {
     // MARK: - Public Methods
 
     public func build(mode: AuthorizationViewModel.Mode) -> ViewableRouter {
-        let view: UIViewController
+        let view: AuthorizationView & UIViewController
 
         switch mode {
         case .signIn,
@@ -35,6 +35,7 @@ public final class AuthorizationBuilder: Builder {
                                                      temporaryCredentialsStorage: factory.credentialsStorage,
                                                      listener: listener)
         let presenter = AuthorizationPresenterImpl(view: view, interactor: interactor)
+        view.eventsHandler = presenter
         
         interactor.presenter = presenter
 

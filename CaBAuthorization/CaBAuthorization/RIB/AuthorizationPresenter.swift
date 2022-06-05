@@ -10,21 +10,16 @@ protocol AuthorizationPresenter: AnyObject {
 
 final class AuthorizationPresenterImpl: AuthorizationPresenter {
 
-    weak var view: UIViewController?
+    weak var view: AuthorizationView?
     private weak var interactor: AuthorizationInteractor?
 
-    init(view: UIViewController, interactor: AuthorizationInteractor?) {
+    init(view: AuthorizationView, interactor: AuthorizationInteractor?) {
         self.view = view
         self.interactor = interactor
     }
 
     func update(for mode: AuthorizationViewModel.Mode) {
-        guard let authorizationFlowView = view as? AuthorizationView else {
-            logError(message: "View expected to be type of <AuthorizationView>")
-            return
-        }
-
-        authorizationFlowView.viewModel = makeViewModel(for: mode)
+        view?.viewModel = makeViewModel(for: mode)
     }
 
     private func makeViewModel(for mode: AuthorizationViewModel.Mode) -> AuthorizationViewModel {
@@ -80,8 +75,7 @@ final class AuthorizationPresenterImpl: AuthorizationPresenter {
                      inputTextFieldsStates: inputTextFieldsStates,
                      mainActionButtonTitle: mainActionButtonTitle,
                      additionalActionButtonState: additionalActionButtonState,
-                     backButtonState: backButtonState,
-                     eventsHandler: self)
+                     backButtonState: backButtonState)
     }
 
     private func checkIfInteractorSet() {
@@ -102,9 +96,11 @@ extension AuthorizationPresenterImpl: AutorizationEventsHandler {
         case .signIn:
             interactor?.signIn(with: credentials)
 
-        case .signUp,
-             .infoFailure:
+        case .signUp:
             interactor?.signUp(with: credentials)
+
+        case .infoFailure:
+            interactor?.showSignInScreen()
 
         case .infoSuccess:
             interactor?.completeAuthorization()

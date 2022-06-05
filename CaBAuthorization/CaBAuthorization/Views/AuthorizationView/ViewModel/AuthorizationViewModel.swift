@@ -40,16 +40,13 @@ public struct AuthorizationViewModel: Equatable {
     let additionalActionButtonState: ActionButtonState
     let backButtonState: ActionButtonState
 
-    weak var eventsHandler: AutorizationEventsHandler?
-
     public static var empty: Self {
         return .init(mode: .signIn,
                      textModel: .init(title: nil, subtitle: nil, hint: nil),
                      inputTextFieldsStates: [],
                      mainActionButtonTitle: "",
                      additionalActionButtonState: .hidden,
-                     backButtonState: .hidden,
-                     eventsHandler: nil)
+                     backButtonState: .hidden)
     }
 
     public init(mode: Mode,
@@ -57,15 +54,13 @@ public struct AuthorizationViewModel: Equatable {
                 inputTextFieldsStates: [InputTextFieldState],
                 mainActionButtonTitle: String,
                 additionalActionButtonState: ActionButtonState,
-                backButtonState: ActionButtonState,
-                eventsHandler: AutorizationEventsHandler?) {
+                backButtonState: ActionButtonState) {
         self.mode = mode
         self.textModel = textModel
         self.inputTextFieldsStates = inputTextFieldsStates
         self.mainActionButtonTitle = mainActionButtonTitle
         self.additionalActionButtonState = additionalActionButtonState
         self.backButtonState = backButtonState
-        self.eventsHandler = eventsHandler
     }
 
     public static func == (lhs: AuthorizationViewModel, rhs: AuthorizationViewModel) -> Bool {
@@ -74,7 +69,6 @@ public struct AuthorizationViewModel: Equatable {
         && (lhs.mainActionButtonTitle == rhs.mainActionButtonTitle)
         && (lhs.additionalActionButtonState == rhs.additionalActionButtonState)
         && (lhs.backButtonState == rhs.backButtonState)
-        && (lhs.eventsHandler === rhs.eventsHandler)
     }
 
 }
