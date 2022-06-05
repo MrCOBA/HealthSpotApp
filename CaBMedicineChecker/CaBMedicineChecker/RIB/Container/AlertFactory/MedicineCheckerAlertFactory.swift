@@ -39,6 +39,9 @@ extension MedicineCheckerAlertFactory.AlertType {
         case .failedToUpdateData:
             return "Something going wrong..."
 
+        case .failedToDeleteMedicineItem:
+            return "Failed to delete medicine item..."
+
         default:
             return ""
         }
@@ -60,6 +63,9 @@ extension MedicineCheckerAlertFactory.AlertType {
 
         case .failedToUpdateData:
             return "Unable to update the data, try again later."
+
+        case .failedToDeleteMedicineItem:
+            return "An error occured during medicine item deletion..."
 
         default:
             return ""
