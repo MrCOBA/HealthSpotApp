@@ -1,4 +1,5 @@
 import UIKit
+import CaBFoundation
 
 public final class CaBTextField: UITextField, CaBUIControl {
 
@@ -43,10 +44,9 @@ public final class CaBTextField: UITextField, CaBUIControl {
     // MARK: - Private Methods
 
     private func configurePlaceHolder(with configuration: CaBTextFieldConfiguration) {
-        attributedPlaceholder = NSAttributedString(string: configuration.placeholder.text ?? "",
-                                                   attributes: [.foregroundColor: configuration.placeholder.color ?? UIColor.black,
-                                                                .font: configuration.placeholder.font
-                                                               ])
+        attributedPlaceholder = NSAttributedString(text: configuration.placeholder.text ?? "",
+                                                   textColor: configuration.placeholder.color ?? UIColor.black,
+                                                   font: configuration.placeholder.font)
     }
 
     private func configureColors(with configuration: CaBUIConfiguration) {

@@ -69,11 +69,9 @@ public class FeatureInfoView: UIViewController {
     }
 
     private func configureTitleLabel(with viewModel: FeatureInfoViewModel) {
-        let attributedTitle = NSAttributedString(string: viewModel.name,
-                                                 attributes: [
-                                                    .font : Constant.Fonts.title,
-                                                    .foregroundColor : colorScheme.highlightPrimaryColor
-                                                 ])
+        let attributedTitle = NSAttributedString(text: viewModel.name,
+                                                 textColor: colorScheme.highlightPrimaryColor,
+                                                 font: Constant.Fonts.title)
         titleLabel.attributedText = attributedTitle
     }
 

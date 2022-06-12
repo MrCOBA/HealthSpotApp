@@ -132,9 +132,9 @@ final class MedicineItemInfoView: UIViewController {
     }
 
     private func configureTitleLabel(with viewModel: MedicineItemViewModel) {
-        let attributedTitle = NSAttributedString(string: viewModel.name,
-                                                 attributes: [.foregroundColor: colorScheme.highlightPrimaryColor,
-                                                              .font: Constants.Fonts.titleLabelFont])
+        let attributedTitle = NSAttributedString(text: viewModel.name,
+                                                 textColor: colorScheme.highlightPrimaryColor,
+                                                 font: Constants.Fonts.titleLabelFont)
         itemTitleLabel.attributedText = attributedTitle
     }
 

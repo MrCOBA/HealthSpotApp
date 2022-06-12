@@ -57,16 +57,16 @@ final class MedicineItemInfoTableViewCell: UITableViewCell {
     // MARK: - Private Methods
 
     private func configureTitleLabel(with title: String) {
-        let attributedTitle = NSAttributedString(string: title,
-                                                 attributes: [.foregroundColor: colorScheme.highlightPrimaryColor,
-                                                              .font: Constants.Fonts.titleFont])
+        let attributedTitle = NSAttributedString(text: title,
+                                                 textColor: colorScheme.highlightPrimaryColor,
+                                                 font: Constants.Fonts.titleFont)
         sourceTitleLabel.attributedText = attributedTitle
     }
 
     private func configureInfoLabel(with source: String) {
-        let attributedSource = NSAttributedString(string: source,
-                                                  attributes: [.foregroundColor: colorScheme.highlightPrimaryColor,
-                                                               .font: Constants.Fonts.sourceFont])
+        let attributedSource = NSAttributedString(text: source,
+                                                  textColor: colorScheme.highlightPrimaryColor,
+                                                  font: Constants.Fonts.sourceFont)
         sourceInfoLabel.attributedText = attributedSource
     }
     

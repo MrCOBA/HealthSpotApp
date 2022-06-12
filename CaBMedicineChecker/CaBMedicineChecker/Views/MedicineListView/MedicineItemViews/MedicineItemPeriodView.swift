@@ -119,11 +119,9 @@ final class MedicineItemPeriodView: UIViewController {
     }
 
     private func configureHintInput() {
-        let attributetTitle = NSAttributedString(string: "Notification hint",
-                                                 attributes: [
-                                                    .foregroundColor: colorScheme.attributesTertiaryColor,
-                                                    .font: Constants.font
-                                                 ])
+        let attributetTitle = NSAttributedString(text: "Notification hint",
+                                                 textColor: colorScheme.attributesTertiaryColor,
+                                                 font: Constants.font)
         hintTitleLabel.attributedText = attributetTitle
         hintInputView.textField?.text = viewModel.hint
     }

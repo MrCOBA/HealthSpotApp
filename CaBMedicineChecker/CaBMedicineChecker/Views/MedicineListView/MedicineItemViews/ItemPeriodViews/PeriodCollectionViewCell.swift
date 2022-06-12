@@ -97,9 +97,9 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
         frequencyIconImageView.image = cellModel.frequency?.icon ?? .MedicineChecker.noRepeat
         frequencyIconImageView.tintColor = colorScheme.attributesTertiaryColor
 
-        let attributedTitle = NSAttributedString(string: cellModel.frequency?.title ?? "No Repeat",
-                                                 attributes: [.foregroundColor: colorScheme.attributesTertiaryColor,
-                                                              .font: Constants.Font.titleFont])
+        let attributedTitle = NSAttributedString(text: cellModel.frequency?.title ?? "No Repeat",
+                                                 textColor: colorScheme.attributesTertiaryColor,
+                                                 font: Constants.Font.titleFont)
         frequencyTitleLabel.attributedText = attributedTitle
     }
 
@@ -118,9 +118,9 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
             nextEventDateString = "Next: " + dateFormatter.string(from: nextEventDate)
         }
 
-        let attributedString = NSAttributedString(string: nextEventDateString,
-                                                  attributes: [.foregroundColor: colorScheme.highlightPrimaryColor,
-                                                               .font: Constants.Font.dateFont])
+        let attributedString = NSAttributedString(text: nextEventDateString,
+                                                  textColor: colorScheme.highlightPrimaryColor,
+                                                  font: Constants.Font.dateFont)
         nextEventDateLabel.attributedText = attributedString
     }
 
@@ -132,9 +132,9 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
             endDateString = "Last: " + dateFormatter.string(from: endDate)
         }
 
-        let attributedString = NSAttributedString(string: endDateString,
-                                                  attributes: [.foregroundColor: colorScheme.highlightPrimaryColor,
-                                                               .font: Constants.Font.dateFont])
+        let attributedString = NSAttributedString(text: endDateString,
+                                                  textColor: colorScheme.highlightPrimaryColor,
+                                                  font: Constants.Font.dateFont)
         lastEventDateLabel.attributedText = attributedString
     }
 
