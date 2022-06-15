@@ -205,7 +205,7 @@ final class FirebaseFirestoreMedicineCheckerControllerImpl: FirebaseFirestoreMed
                     let dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "E, dd.MM.yy HH:mm Z"
                     periodEntityWrapper.startDate = dateFormatter.date(from: period["startDate"] as? String ?? "") ?? Date()
-                    periodEntityWrapper.endDate = dateFormatter.date(from: period["ednDate"] as? String ?? "")
+                    periodEntityWrapper.endDate = dateFormatter.date(from: period["endDate"] as? String ?? "")
                     periodEntityWrapper.notificationHint = period["notificationHint"] as? String ?? ""
                     periodEntityWrapper.frequency = period["frequency"] as? String ?? ""
 

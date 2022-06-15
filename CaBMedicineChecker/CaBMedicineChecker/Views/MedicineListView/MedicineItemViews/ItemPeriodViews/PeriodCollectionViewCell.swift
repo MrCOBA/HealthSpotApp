@@ -125,7 +125,7 @@ final class PeriodCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureLastEventDateLabel(with cellModel: CellModel) {
-        dateFormatter.dateFormat = Constants.DateFormat.small
+        dateFormatter.dateFormat = Constants.DateFormat.large
 
         var endDateString = "Last: -"
         if let endDate = cellModel.endDate {

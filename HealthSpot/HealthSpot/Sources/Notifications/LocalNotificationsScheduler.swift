@@ -64,7 +64,15 @@ final class LocalNotificationsSchedulerImpl: LocalNotificationsScheduler {
             let content = createNotificationContentForPeriod(period)
 
             let frequency: Date.Frequency? = .init(rawValue: period.frequency ?? "")
-            localNotificationsAssistant.scheduleNotification(notificationContent: content, frequency: frequency, from: period.startDate ?? Date())
+            
+            guard let endDate = period.endDate else {
+                localNotificationsAssistant.scheduleNotification(notificationContent: content, frequency: frequency, from: period.startDate ?? Date())
+                return
+            }
+            
+            if endDate > Date() {
+                localNotificationsAssistant.scheduleNotification(notificationContent: content, frequency: frequency, from: period.startDate ?? Date())
+            }
         }
     }
 
