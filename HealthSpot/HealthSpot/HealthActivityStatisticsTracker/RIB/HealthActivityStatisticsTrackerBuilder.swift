@@ -2,12 +2,18 @@ import CaBRiblets
 
 final class HealthActivityStatisticsTrackerBuilder: Builder {
 
+    // MARK: - Private Properties
+    
     private let factory: RootServices
 
+    // MARK: - Init
+    
     init(factory: RootServices) {
         self.factory = factory
     }
 
+    // MARK: - Internal Methods
+    
     func build() -> Router {
         let interactor = HealthActivityStatisticsTrackerInteractorImpl(connection: factory.watchKitConnection,
                                                                        dataTracking: factory.dataTracking,

@@ -2,12 +2,16 @@ import CaBFoundation
 
 final class HealthActivityAchievementsNotificationsFactory {
 
+    // MARK: - Internal Types
+    
     enum Achievement: String {
         case startGoal
         case halfGoal
         case fullGoal
     }
 
+    // MARK: - Internal Methods
+    
     func makeStepsNotification(for achievement: Achievement) -> LocalNotificationAssistantImpl.Content {
         let title: String
         let body: String

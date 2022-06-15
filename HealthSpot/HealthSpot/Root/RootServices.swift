@@ -39,6 +39,7 @@ final class RootServicesImpl: RootServices {
 
     private var context: NSManagedObjectContext?
     private let suiteProvider = UserDefaultsSuiteProvider()
+    private var retryHandler: (() -> Void)? = nil
 
     let networkMonitor: NetworkMonitor
 
@@ -98,8 +99,6 @@ final class RootServicesImpl: RootServices {
 
         dataTracking = HealthDataTrackingImpl(statisticsStorage: statisticsStorage)
         watchKitConnection = WatchKitConnectionImpl(statisticsStorage: statisticsStorage)
-
-        watchKitConnection.startSession()
         networkMonitor.startMonitoring()
     }
 

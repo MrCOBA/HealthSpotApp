@@ -3,6 +3,8 @@ import UIKit
 import CaBFoundation
 import CaBMedicineChecker
 
+// MARK: - Protocol
+
 protocol HealthDataTracking: AnyObject {
     func startObserveHeartRateSamples()
     func stopObserveHeartRateSamples()
@@ -15,6 +17,8 @@ protocol HealthDataTracking: AnyObject {
     
     func authorizeHealthKit()
 }
+
+// MARK: - Implementation
 
 final class HealthDataTrackingImpl: HealthDataTracking {
 

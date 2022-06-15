@@ -2,11 +2,13 @@ import CaBFoundation
 import WatchConnectivity
 import CaBMedicineChecker
 
+// MARK: - Protocols
+
 protocol WatchKitConnectionDelegate: AnyObject {
     func didFinishedActivateSession()
 }
 
-protocol WatchKitConnection: AnyObject{
+protocol WatchKitConnection: AnyObject {
 
     var delegate: WatchKitConnectionDelegate? { get set }
 
@@ -18,10 +20,15 @@ protocol WatchKitConnection: AnyObject{
 // MARK: - Implementation
 
 class WatchKitConnectionImpl: NSObject, WatchKitConnection {
+    
+    // MARK: - Interanal Types
+    
+    typealias RetryHandler = (() -> Void)
 
     // MARK: - Internal Properties
 
     weak var delegate: WatchKitConnectionDelegate?
+    private(set) var retryHandler: RetryHandler? = nil
 
     // MARK: - Private Properties
 
@@ -50,15 +57,25 @@ class WatchKitConnectionImpl: NSObject, WatchKitConnection {
 
     init(statisticsStorage: HealthActivityStatisticsStorage) {
         self.statisticsStorage = statisticsStorage
-
         super.init()
+        
+        let retryHandler = {
+            DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + 1.0) { [weak self] in
+                self?.startSession()
+            }
+        }
+        self.retryHandler = retryHandler
     }
 
     // MARK: - Internal Methods
 
     func startSession() {
-        session?.delegate = self
-        session?.activate()
+        guard let session = session else {
+            retryHandler?()
+            return
+        }
+        session.delegate = self
+        session.activate()
     }
 
     func stopSession() {

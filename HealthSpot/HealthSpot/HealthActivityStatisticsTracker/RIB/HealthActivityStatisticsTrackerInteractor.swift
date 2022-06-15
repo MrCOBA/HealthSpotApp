@@ -3,8 +3,12 @@ import CaBFoundation
 
 final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
+    // MARK: - Internal Types
+    
     typealias Achievement = HealthActivityAchievementsNotificationsFactory.Achievement
 
+    // MARK: - Private Properties
+    
     private let watchKitConnection: WatchKitConnection
     private let dataTrackingAssistant: HealthDataTracking
 
@@ -14,6 +18,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
     private let notificationsFactory: HealthActivityAchievementsNotificationsFactory
 
+    // MARK: - Init
+    
     init(connection: WatchKitConnection,
          dataTracking: HealthDataTracking,
          statisticsStorage: HealthActivityStatisticsStorage,
@@ -28,6 +34,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         self.notificationsFactory = HealthActivityAchievementsNotificationsFactory()
     }
 
+    // MARK: - Internal Methods
+    
     override func start() {
         super.start()
 
@@ -53,6 +61,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
         super.stop()
     }
 
+    // MARK: - Private Methods
+    
     private func pushStepsCountAchievement(_ achievement: Achievement) {
         let content = notificationsFactory.makeStepsNotification(for: achievement)
         localNotificationsAssistant.push(notificationContent: content, with: nil)
@@ -65,6 +75,8 @@ final class HealthActivityStatisticsTrackerInteractorImpl: BaseInteractor {
 
 }
 
+// MARK: - Protocol WatchKitConnectionDelegate
+
 extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDelegate {
 
     func didFinishedActivateSession() {
@@ -74,6 +86,8 @@ extension HealthActivityStatisticsTrackerInteractorImpl: WatchKitConnectionDeleg
     }
 
 }
+
+// MARK: - Protocol HealthActivityStatisticsStorageObserver
 
 extension HealthActivityStatisticsTrackerInteractorImpl: HealthActivityStatisticsStorageObserver {
 
