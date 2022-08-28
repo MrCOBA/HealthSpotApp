@@ -20,6 +20,7 @@ final class MedicineItemPeriodBuilder: Builder {
         let view = MedicineItemPeriodView.makeView()
 
         let presenter = MedicineItemPeriodPresenterImpl(view: view, storage: factory.medicineItemPeriodStorage)
+        
         view.eventsHandler = presenter
 
         let interactor = MedicineItemPeriodInteractorImpl(coreDataAssistant: factory.coreDataAssistant,

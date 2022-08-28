@@ -1,6 +1,6 @@
 import UIKit
-import CaBFoundation
 import CaBUIKit
+import CaBFoundation
 
 protocol ItemPeriodMenuViewDelegate: AnyObject {
 
@@ -36,21 +36,21 @@ struct MenuItem: RawRepresentable, Equatable, Hashable, Comparable {
 
 }
 
-final class ItemPeriodMenuView: UIView {
-
+final class ParameterMenuTableViewCell: PeriodParameterContainerViewCell {
+    
+    // MARK: - Internal Types
+    
     enum ID {
         case repeatMenu
         case endDateMenu
     }
 
+    // MARK: - Private Types
+    
     private enum Constants {
 
-        static var cornerRadius: CGFloat {
-            return 8.0
-        }
-
         static var font: UIFont {
-            return CaBFont.Comfortaa.medium(size: 17.0)
+            return CaBFont.Comfortaa.light(size: 12.0)
         }
 
         static var itemFont: UIFont {
@@ -58,34 +58,43 @@ final class ItemPeriodMenuView: UIView {
         }
 
     }
+    
+    // MARK: - Internal Properties
+    
+    static var nib: UINib {
+        return .init(nibName: cellIdentifier, bundle: .medicineChecker)
+    }
+    
+    static var cellIdentifier: String {
+        return "ParameterMenuTableViewCell"
+    }
 
     weak var delegate: ItemPeriodMenuViewDelegate?
     var colorScheme: CaBColorScheme = .default
 
+    // MARK: - Private Properties
+    
     private var id: ID?
-
-    @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var pickerView: UIPickerView!
 
+    // MARK: - Internal Methods
+    
     func configure(for id: ID, with colorScheme: CaBColorScheme) {
         self.id = id
         self.colorScheme = colorScheme
 
         pickerView.delegate = self
         pickerView.dataSource = self
-        
-        backgroundColor = .white
-        layer.cornerRadius = Constants.cornerRadius
 
         let attributedTitle: NSAttributedString
         switch id {
         case .repeatMenu:
-            attributedTitle = .init(text: "Repeat:",
+            attributedTitle = .init(text: "Frequency",
                                     textColor: colorScheme.highlightPrimaryColor,
                                     font: Constants.font)
 
         case .endDateMenu:
-            attributedTitle = .init(text: "End date:",
+            attributedTitle = .init(text: "Format",
                                     textColor: colorScheme.highlightPrimaryColor,
                                     font: Constants.font)
         }
@@ -110,10 +119,12 @@ final class ItemPeriodMenuView: UIView {
         let index = currentActions.firstIndex(of: menuItem) ?? 0
         pickerView.selectRow(index, inComponent: 0, animated: false)
     }
-
+    
 }
 
-extension ItemPeriodMenuView: UIPickerViewDelegate {
+// MARK: - Protocol UIPickerViewDelegate
+
+extension ParameterMenuTableViewCell: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let currentItems: [MenuItem]
@@ -134,7 +145,9 @@ extension ItemPeriodMenuView: UIPickerViewDelegate {
 
 }
 
-extension ItemPeriodMenuView: UIPickerViewDataSource {
+// MARK: - Protocol UIPickerViewDataSource
+
+extension ParameterMenuTableViewCell: UIPickerViewDataSource {
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -180,6 +193,8 @@ extension ItemPeriodMenuView: UIPickerViewDataSource {
     }
 
 }
+
+// MARK: - Helpers
 
 extension MenuItem {
 
@@ -241,7 +256,7 @@ extension MenuItem {
 
 }
 
-// MARK: - Repeat Menu Cases
+// MARK: Repeat Menu Cases
 
 extension MenuItem {
 
@@ -271,7 +286,7 @@ extension MenuItem {
 
 }
 
-// MARK: - End Date Menu Cases
+// MARK: End Date Menu Cases
 
 extension MenuItem {
 
@@ -288,4 +303,3 @@ extension MenuItem {
     }
 
 }
-

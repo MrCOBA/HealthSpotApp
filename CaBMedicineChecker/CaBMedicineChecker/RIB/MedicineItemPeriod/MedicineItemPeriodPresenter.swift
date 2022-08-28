@@ -63,7 +63,7 @@ extension MedicineItemPeriodPresenterImpl: MedicineItemPeriodViewEventsHandler {
         interactor?.updatePeriod(with: action)
     }
 
-    func didChangeDate(for id: ItemPeriodDatePickerView.ID, to date: Date) {
+    func didChangeDate(for id: ParameterDatePickerTableViewCell.ID, to date: Date) {
         checkIfInteractorSet()
 
         switch id {

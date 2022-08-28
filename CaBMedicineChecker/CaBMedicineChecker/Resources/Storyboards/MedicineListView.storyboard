@@ -235,251 +235,159 @@
             </objects>
             <point key="canvasLocation" x="318.84057971014494" y="75"/>
         </scene>
-        <!--Medicine Item Period View-->
-        <scene sceneID="WyR-nu-vOO">
+        <!--Medicine Item Period View Legacy-->
+        <scene sceneID="osp-ts-zZ4">
             <objects>
-                <viewController storyboardIdentifier="MedicineItemPeriodView" id="GaD-S8-Lge" customClass="MedicineItemPeriodView" customModule="CaBMedicineChecker" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pOy-jh-1pn">
+                <viewController storyboardIdentifier="MedicineItemPeriodViewLegacy" id="0Ld-vl-dY8" customClass="MedicineItemPeriodViewLegacy" customModule="CaBMedicineChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x7U-MI-1WS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JCn-qH-sIc">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-6V-SDC">
                                 <rect key="frame" x="24" y="746" width="366" height="92"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkG-nK-5M6" customClass="CaBButton" customModule="CaBUIKit">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p89-P6-UB1" customClass="CaBButton" customModule="CaBUIKit">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="lO2-di-Ou8"/>
+                                            <constraint firstAttribute="height" constant="42" id="JLq-f4-cQA"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="AddPeriod"/>
                                         <connections>
-                                            <action selector="tapEditPeriodActionButton" destination="GaD-S8-Lge" eventType="touchUpInside" id="HXE-LB-3ML"/>
+                                            <action selector="tapEditPeriodActionButton" destination="0Ld-vl-dY8" eventType="touchUpInside" id="pa9-3m-fZF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5x-dF-rTa" customClass="CaBButton" customModule="CaBUIKit">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBl-Tu-l9q" customClass="CaBButton" customModule="CaBUIKit">
                                         <rect key="frame" x="0.0" y="50" width="366" height="42"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="42" id="OWr-VY-gG0"/>
+                                            <constraint firstAttribute="height" constant="42" id="Yfq-eZ-I5Z"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="DeletePeriod"/>
                                         <connections>
-                                            <action selector="tapDeletePeriodActionButton" destination="GaD-S8-Lge" eventType="touchUpInside" id="6ld-sg-5dv"/>
+                                            <action selector="tapDeletePeriodActionButton" destination="0Ld-vl-dY8" eventType="touchUpInside" id="vC3-HP-Caw"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpA-ms-GUK">
-                                <rect key="frame" x="0.0" y="120" width="414" height="618"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x0m-OO-Zm0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="480.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NotificationHint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tON-Iz-SGU">
-                                                <rect key="frame" x="24" y="404" width="366" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" name="AttributesTertiary_Default"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="20B-JU-0XO">
-                                                <rect key="frame" x="24" y="0.0" width="366" height="372"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szM-Bw-RXR" customClass="ItemPeriodDatePickerView" customModule="CaBMedicineChecker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="50"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYH-6e-gMP">
-                                                                <rect key="frame" x="8" y="14.5" width="73" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="HighlightPrimary_Default"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="FZ2-dd-KEI">
-                                                                <rect key="frame" x="89" y="9.5" width="269" height="31"/>
-                                                                <connections>
-                                                                    <action selector="dateChanged:" destination="szM-Bw-RXR" eventType="valueChanged" id="Qpj-Px-Lau"/>
-                                                                </connections>
-                                                            </datePicker>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="FZ2-dd-KEI" firstAttribute="leading" secondItem="hYH-6e-gMP" secondAttribute="trailing" constant="8" id="A1s-yB-4sn"/>
-                                                            <constraint firstItem="hYH-6e-gMP" firstAttribute="leading" secondItem="szM-Bw-RXR" secondAttribute="leading" constant="8" id="IzS-iE-qap"/>
-                                                            <constraint firstItem="FZ2-dd-KEI" firstAttribute="centerY" secondItem="szM-Bw-RXR" secondAttribute="centerY" id="KDI-PA-XMa"/>
-                                                            <constraint firstItem="hYH-6e-gMP" firstAttribute="centerY" secondItem="FZ2-dd-KEI" secondAttribute="centerY" id="UWt-km-koE"/>
-                                                            <constraint firstAttribute="height" constant="50" id="k0p-NO-66W"/>
-                                                            <constraint firstAttribute="trailing" secondItem="FZ2-dd-KEI" secondAttribute="trailing" constant="8" id="pCm-5t-NrP"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="datePicker" destination="FZ2-dd-KEI" id="TPL-Lz-QDa"/>
-                                                            <outlet property="titleLabel" destination="hYH-6e-gMP" id="Q2d-hD-cFo"/>
-                                                        </connections>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgV-4O-SkC" customClass="ItemPeriodMenuView" customModule="CaBMedicineChecker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="74" width="366" height="100"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repeat" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6G-tv-Spk">
-                                                                <rect key="frame" x="8" y="39.5" width="54" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="HighlightPrimary_Default"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6kh-vV-PzF">
-                                                                <rect key="frame" x="166" y="0.0" width="200" height="100"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="200" id="aC5-WW-PyI"/>
-                                                                </constraints>
-                                                            </pickerView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="6kh-vV-PzF" secondAttribute="trailing" id="AHO-1d-q7n"/>
-                                                            <constraint firstItem="x6G-tv-Spk" firstAttribute="leading" secondItem="kgV-4O-SkC" secondAttribute="leading" constant="8" id="I2N-Vf-e6W"/>
-                                                            <constraint firstAttribute="height" constant="100" id="Le2-7K-xN7"/>
-                                                            <constraint firstItem="6kh-vV-PzF" firstAttribute="top" secondItem="kgV-4O-SkC" secondAttribute="top" id="UhG-Q5-xes"/>
-                                                            <constraint firstItem="6kh-vV-PzF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x6G-tv-Spk" secondAttribute="trailing" constant="8" id="csN-bu-Gds"/>
-                                                            <constraint firstItem="x6G-tv-Spk" firstAttribute="centerY" secondItem="6kh-vV-PzF" secondAttribute="centerY" id="mm8-f0-PRE"/>
-                                                            <constraint firstAttribute="bottom" secondItem="6kh-vV-PzF" secondAttribute="bottom" id="wtb-fW-35R"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="pickerView" destination="6kh-vV-PzF" id="LDk-jD-u2D"/>
-                                                            <outlet property="titleLabel" destination="x6G-tv-Spk" id="nvb-bJ-07A"/>
-                                                        </connections>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gug-kz-1W8" customClass="ItemPeriodMenuView" customModule="CaBMedicineChecker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="198" width="366" height="100"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndDate" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E93-MW-i0M">
-                                                                <rect key="frame" x="8" y="39.5" width="65" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="HighlightPrimary_Default"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfF-0l-hhu">
-                                                                <rect key="frame" x="166" y="0.0" width="200" height="100"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="200" id="MH8-rF-yUs"/>
-                                                                </constraints>
-                                                            </pickerView>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="UfF-0l-hhu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="E93-MW-i0M" secondAttribute="trailing" constant="8" id="Bdb-aD-TU3"/>
-                                                            <constraint firstItem="UfF-0l-hhu" firstAttribute="top" secondItem="Gug-kz-1W8" secondAttribute="top" id="C40-JG-qrO"/>
-                                                            <constraint firstItem="E93-MW-i0M" firstAttribute="centerY" secondItem="UfF-0l-hhu" secondAttribute="centerY" id="KLo-i4-lS2"/>
-                                                            <constraint firstAttribute="trailing" secondItem="UfF-0l-hhu" secondAttribute="trailing" id="RCG-5t-hdj"/>
-                                                            <constraint firstAttribute="height" constant="100" id="nhk-a2-HRW"/>
-                                                            <constraint firstAttribute="bottom" secondItem="UfF-0l-hhu" secondAttribute="bottom" id="vS4-1z-JhO"/>
-                                                            <constraint firstItem="E93-MW-i0M" firstAttribute="leading" secondItem="Gug-kz-1W8" secondAttribute="leading" constant="8" id="z7Q-yO-bhB"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="pickerView" destination="UfF-0l-hhu" id="E7P-Ap-phg"/>
-                                                            <outlet property="titleLabel" destination="E93-MW-i0M" id="Ixj-Ig-Xnr"/>
-                                                        </connections>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NKT-fv-jbf" customClass="ItemPeriodDatePickerView" customModule="CaBMedicineChecker" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="322" width="366" height="50"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndDate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aOC-KF-rJo">
-                                                                <rect key="frame" x="8" y="14.5" width="65" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" name="HighlightPrimary_Default"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="py3-m8-oV2">
-                                                                <rect key="frame" x="81" y="9.5" width="277" height="31"/>
-                                                                <connections>
-                                                                    <action selector="dateChanged:" destination="NKT-fv-jbf" eventType="valueChanged" id="N7r-Q2-2pQ"/>
-                                                                </connections>
-                                                            </datePicker>
-                                                        </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="py3-m8-oV2" firstAttribute="centerY" secondItem="NKT-fv-jbf" secondAttribute="centerY" id="JA8-Tm-9Ue"/>
-                                                            <constraint firstAttribute="height" constant="50" id="R2I-Rv-99l"/>
-                                                            <constraint firstItem="aOC-KF-rJo" firstAttribute="centerY" secondItem="py3-m8-oV2" secondAttribute="centerY" id="g2b-um-Zzi"/>
-                                                            <constraint firstAttribute="trailing" secondItem="py3-m8-oV2" secondAttribute="trailing" constant="8" id="nn6-fl-Cda"/>
-                                                            <constraint firstItem="py3-m8-oV2" firstAttribute="leading" secondItem="aOC-KF-rJo" secondAttribute="trailing" constant="8" id="oAA-ls-NGo"/>
-                                                            <constraint firstItem="aOC-KF-rJo" firstAttribute="leading" secondItem="NKT-fv-jbf" secondAttribute="leading" constant="8" id="tdu-Ee-5tp"/>
-                                                        </constraints>
-                                                        <connections>
-                                                            <outlet property="datePicker" destination="py3-m8-oV2" id="uhL-sS-Tqo"/>
-                                                            <outlet property="titleLabel" destination="aOC-KF-rJo" id="M5X-bL-tua"/>
-                                                        </connections>
-                                                    </view>
-                                                </subviews>
-                                            </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHB-NP-erQ">
-                                                <rect key="frame" x="24" y="432.5" width="366" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="XJE-gU-j6i"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="20B-JU-0XO" firstAttribute="leading" secondItem="x0m-OO-Zm0" secondAttribute="leading" constant="24" id="6ti-Uc-GaX"/>
-                                            <constraint firstItem="20B-JU-0XO" firstAttribute="top" secondItem="x0m-OO-Zm0" secondAttribute="top" id="BG3-SQ-VaG"/>
-                                            <constraint firstItem="yHB-NP-erQ" firstAttribute="top" secondItem="tON-Iz-SGU" secondAttribute="bottom" constant="8" id="JSJ-GT-wBs"/>
-                                            <constraint firstItem="yHB-NP-erQ" firstAttribute="leading" secondItem="tON-Iz-SGU" secondAttribute="leading" id="Jcc-yR-TY7"/>
-                                            <constraint firstItem="tON-Iz-SGU" firstAttribute="centerX" secondItem="x0m-OO-Zm0" secondAttribute="centerX" id="Syv-kw-LzT"/>
-                                            <constraint firstItem="tON-Iz-SGU" firstAttribute="leading" secondItem="20B-JU-0XO" secondAttribute="leading" id="UHr-MM-738"/>
-                                            <constraint firstItem="20B-JU-0XO" firstAttribute="centerX" secondItem="x0m-OO-Zm0" secondAttribute="centerX" id="be9-yJ-duZ"/>
-                                            <constraint firstAttribute="bottom" secondItem="yHB-NP-erQ" secondAttribute="bottom" constant="8" id="d0N-ay-E3V"/>
-                                            <constraint firstItem="yHB-NP-erQ" firstAttribute="centerX" secondItem="x0m-OO-Zm0" secondAttribute="centerX" id="g7C-gf-Oan"/>
-                                            <constraint firstItem="tON-Iz-SGU" firstAttribute="top" secondItem="20B-JU-0XO" secondAttribute="bottom" constant="32" id="kg3-z8-wgx"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="x0m-OO-Zm0" firstAttribute="top" secondItem="KQD-Ui-49c" secondAttribute="top" id="Hbh-lC-t33"/>
-                                    <constraint firstItem="x0m-OO-Zm0" firstAttribute="leading" secondItem="KQD-Ui-49c" secondAttribute="leading" id="Jo9-2L-4ra"/>
-                                    <constraint firstItem="x0m-OO-Zm0" firstAttribute="trailing" secondItem="KQD-Ui-49c" secondAttribute="trailing" id="ONm-OO-lj6"/>
-                                    <constraint firstItem="x0m-OO-Zm0" firstAttribute="width" secondItem="Lqk-GV-FOj" secondAttribute="width" id="a69-Ob-Edn"/>
-                                    <constraint firstAttribute="bottom" secondItem="x0m-OO-Zm0" secondAttribute="bottom" id="jBG-qO-sGL"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="Lqk-GV-FOj"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="KQD-Ui-49c"/>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KKg-NU-Hqd">
+                                <rect key="frame" x="0.0" y="44" width="414" height="694"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="0Ld-vl-dY8" id="2qj-c3-8K1"/>
+                                    <outlet property="delegate" destination="0Ld-vl-dY8" id="APy-IH-ZNL"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="VPz-IE-u7W"/>
-                        <color key="backgroundColor" name="BackgroundPrimary_Default"/>
+                        <viewLayoutGuide key="safeArea" id="f6h-4C-NHm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="JCn-qH-sIc" firstAttribute="top" secondItem="RpA-ms-GUK" secondAttribute="bottom" constant="8" id="9MY-1A-7Iv"/>
-                            <constraint firstItem="RpA-ms-GUK" firstAttribute="leading" secondItem="VPz-IE-u7W" secondAttribute="leading" id="b2N-fk-VqG"/>
-                            <constraint firstItem="JCn-qH-sIc" firstAttribute="leading" secondItem="VPz-IE-u7W" secondAttribute="leading" constant="24" id="dEJ-SQ-eMA"/>
-                            <constraint firstItem="RpA-ms-GUK" firstAttribute="top" secondItem="VPz-IE-u7W" secondAttribute="top" constant="32" id="f9w-Qg-t3G"/>
-                            <constraint firstItem="RpA-ms-GUK" firstAttribute="trailing" secondItem="VPz-IE-u7W" secondAttribute="trailing" id="g7l-Un-3vK"/>
-                            <constraint firstItem="JCn-qH-sIc" firstAttribute="centerX" secondItem="VPz-IE-u7W" secondAttribute="centerX" id="kvN-J3-Siy"/>
-                            <constraint firstItem="VPz-IE-u7W" firstAttribute="bottom" secondItem="JCn-qH-sIc" secondAttribute="bottom" constant="24" id="zsG-hM-JF6"/>
+                            <constraint firstItem="KKg-NU-Hqd" firstAttribute="trailing" secondItem="f6h-4C-NHm" secondAttribute="trailing" id="Ars-NN-mOH"/>
+                            <constraint firstItem="f6h-4C-NHm" firstAttribute="bottom" secondItem="hI1-6V-SDC" secondAttribute="bottom" constant="24" id="Hy0-fh-UEf"/>
+                            <constraint firstItem="hI1-6V-SDC" firstAttribute="top" secondItem="KKg-NU-Hqd" secondAttribute="bottom" constant="8" symbolic="YES" id="Jsd-sA-QhO"/>
+                            <constraint firstItem="hI1-6V-SDC" firstAttribute="centerX" secondItem="f6h-4C-NHm" secondAttribute="centerX" id="TmR-dg-lRQ"/>
+                            <constraint firstItem="KKg-NU-Hqd" firstAttribute="leading" secondItem="f6h-4C-NHm" secondAttribute="leading" id="azb-gw-r82"/>
+                            <constraint firstItem="hI1-6V-SDC" firstAttribute="leading" secondItem="f6h-4C-NHm" secondAttribute="leading" constant="24" id="bQg-Et-2v0"/>
+                            <constraint firstItem="KKg-NU-Hqd" firstAttribute="top" secondItem="f6h-4C-NHm" secondAttribute="top" id="xHJ-uR-bR4"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="addPeriodButton" destination="fkG-nK-5M6" id="cvp-9K-NJK"/>
-                        <outlet property="deletePeriodButton" destination="y5x-dF-rTa" id="ATw-r9-OmX"/>
-                        <outlet property="endDateMenuView" destination="Gug-kz-1W8" id="tz7-Za-fUc"/>
-                        <outlet property="endDatePickerView" destination="NKT-fv-jbf" id="qfT-uI-XtI"/>
-                        <outlet property="hintInputContainerView" destination="yHB-NP-erQ" id="ccj-U3-aQO"/>
-                        <outlet property="hintTitleLabel" destination="tON-Iz-SGU" id="kDg-f4-1oa"/>
-                        <outlet property="repeatMenuView" destination="kgV-4O-SkC" id="gGZ-gH-DQP"/>
-                        <outlet property="startDatePickerView" destination="szM-Bw-RXR" id="Jza-Kl-aCC"/>
+                        <outlet property="addPeriodButton" destination="p89-P6-UB1" id="Ppv-eb-cgX"/>
+                        <outlet property="deletePeriodButton" destination="JBl-Tu-l9q" id="PFv-e9-6tN"/>
+                        <outlet property="periodEditorTableView" destination="KKg-NU-Hqd" id="S25-t3-fwY"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tef-3m-eu3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QUh-f0-ZOM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="75"/>
+            <point key="canvasLocation" x="1122" y="75"/>
+        </scene>
+        <!--Medicine Item Period View-->
+        <scene sceneID="znm-5W-QKD">
+            <objects>
+                <viewController storyboardIdentifier="MedicineItemPeriodView" id="xvj-ew-dWH" customClass="MedicineItemPeriodView" customModule="CaBMedicineChecker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cf6-5a-NAa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="BXF-GR-NO4">
+                                <rect key="frame" x="24" y="746" width="366" height="92"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Wg-Ci-QsB" customClass="CaBButton" customModule="CaBUIKit">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="BtB-A3-ntI"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="AddPeriod"/>
+                                        <connections>
+                                            <action selector="tapEditPeriodActionButton" destination="0Ld-vl-dY8" eventType="touchUpInside" id="7fd-4c-8RG"/>
+                                            <action selector="tapEditPeriodActionButton" destination="xvj-ew-dWH" eventType="touchUpInside" id="toF-gK-x9i"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dip-Tq-YQU" customClass="CaBButton" customModule="CaBUIKit">
+                                        <rect key="frame" x="0.0" y="50" width="366" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="Qyv-hj-Nge"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="DeletePeriod"/>
+                                        <connections>
+                                            <action selector="tapDeletePeriodActionButton" destination="0Ld-vl-dY8" eventType="touchUpInside" id="I3Z-Hz-gJM"/>
+                                            <action selector="tapDeletePeriodActionButton" destination="xvj-ew-dWH" eventType="touchUpInside" id="rl2-wH-sBb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jEy-Ze-NkI">
+                                <rect key="frame" x="0.0" y="60" width="414" height="670"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AXX-Fo-DJh">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="viq-hJ-O8C"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="viq-hJ-O8C" firstAttribute="bottom" secondItem="BXF-GR-NO4" secondAttribute="bottom" constant="24" id="GbD-SV-33l"/>
+                            <constraint firstItem="jEy-Ze-NkI" firstAttribute="leading" secondItem="viq-hJ-O8C" secondAttribute="leading" id="Zgz-D1-MhB"/>
+                            <constraint firstItem="BXF-GR-NO4" firstAttribute="top" secondItem="jEy-Ze-NkI" secondAttribute="bottom" constant="16" id="aco-K9-ifA"/>
+                            <constraint firstItem="BXF-GR-NO4" firstAttribute="centerX" secondItem="viq-hJ-O8C" secondAttribute="centerX" id="hOh-my-1qk"/>
+                            <constraint firstItem="viq-hJ-O8C" firstAttribute="trailing" secondItem="jEy-Ze-NkI" secondAttribute="trailing" id="lgH-AO-dNX"/>
+                            <constraint firstItem="jEy-Ze-NkI" firstAttribute="top" secondItem="viq-hJ-O8C" secondAttribute="top" constant="16" id="t93-Rc-heG"/>
+                            <constraint firstItem="BXF-GR-NO4" firstAttribute="leading" secondItem="viq-hJ-O8C" secondAttribute="leading" constant="24" id="ywW-VW-PJF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addPeriodButton" destination="6Wg-Ci-QsB" id="ehK-GB-s5e"/>
+                        <outlet property="collectionView" destination="jEy-Ze-NkI" id="G5K-pV-AoN"/>
+                        <outlet property="deletePeriodButton" destination="Dip-Tq-YQU" id="5Re-tQ-gSC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e4n-iN-0es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894.2028985507247" y="75"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="6Wg-Ci-QsB">
+            <size key="intrinsicContentSize" width="72" height="30"/>
+        </designable>
+        <designable name="Dip-Tq-YQU">
+            <size key="intrinsicContentSize" width="89" height="30"/>
+        </designable>
+        <designable name="JBl-Tu-l9q">
+            <size key="intrinsicContentSize" width="89" height="30"/>
+        </designable>
         <designable name="UbN-e5-epn">
             <size key="intrinsicContentSize" width="106" height="30"/>
         </designable>
-        <designable name="fkG-nK-5M6">
+        <designable name="p89-P6-UB1">
             <size key="intrinsicContentSize" width="72" height="30"/>
-        </designable>
-        <designable name="y5x-dF-rTa">
-            <size key="intrinsicContentSize" width="89" height="30"/>
         </designable>
     </designables>
     <resources>
